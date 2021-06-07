@@ -3,8 +3,8 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/isarvin&amp;utm_campaign=Badge_Grade)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
-**English** | [简体中文](./README-zhCN.md)
+[English](./README.md) | **简体中文**
 
-(TODO; the primary milestone at present is to build a simple personal website...)
+(TODO; 个人主页or摸鱼？)
 
-Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
+请注意此项目使用[GPL-3.0协议](./LICENSE)。
