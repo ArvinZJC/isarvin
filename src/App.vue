@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-09 06:14:48
+ * @LastEditTime: 2021-06-09 07:46:23
 -->
 
 <template>
@@ -12,12 +12,12 @@
 	<!-- TODO: colour scheme? Theme colour? -->
 		<div class="flex items-center justify-between mx-auto px-4 py-4 lg:px-8 sm:px-6 max-w-7xl xl:px-0">
 			<div class="flex items-center font-bold">
-				<a class="flex items-center mr-16" href="./">
+				<a class="flex items-center mr-16" href="/">
 					<img class="w-10 h-10 mr-2" src="./assets/vivid_Arvin.png" alt="vivid_Arvin.png" />
 					<p class="text-lg font-black">Arvin Zhao</p>
 				</a>
-				<a class="text-gray-500 hover:text-black transition-colors duration-200 mr-8" href="./">Home</a>
-				<a class="text-gray-500 hover:text-black transition-colors duration-200" href="./">Projects?</a>
+				<a class="text-gray-500 hover:text-black transition-colors duration-200 mr-8" href="/">Home</a>
+				<a class="text-gray-500 hover:text-black transition-colors duration-200" href="/">Projects?</a>
 				<!-- TODO: NOT responsive -->
 			</div>
 			<div>
