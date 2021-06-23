@@ -1,15 +1,17 @@
 <!--
  * @Description: the root component
- * @Version: 1.0.1.20210609
+ * @Version: 1.0.2.20210623
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-22 10:16:32
+ * @LastEditTime: 2021-06-23 07:32:27
 -->
 
 <template>
 	<Navbar />
-	<Home />
+	<main class="flex-grow">
+		<Home />
+	</main>
 	<Footer />
 </template>
 
@@ -19,7 +21,6 @@ import Home from "./components/Home.vue";
 import Navbar from "./components/Navbar.vue";
 
 export default {
-	name: "App",
 	components: {
 		Footer,
 		Home,

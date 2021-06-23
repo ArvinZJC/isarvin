@@ -4,11 +4,11 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:31:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-22 10:47:34
+ * @LastEditTime: 2021-06-22 22:42:41
  */
 
 // Keep this CommonJS module rather than converting to an ES6 module.
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
 	purge: [
@@ -20,7 +20,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+				sans: ["Inter var", ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
