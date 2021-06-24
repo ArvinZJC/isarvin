@@ -13,12 +13,27 @@
 		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 		<!-- TODO: title? <%= htmlWebpackPlugin.options.title %> -->
 		<title>Arvin Zhao | PGT Student (@UofG) & Developer</title>
-		<meta name="description" content="TODO:">
+		<!-- TODO: same as TODO for title -->
+		<meta name="description" content="I came to know myself better when I started to build my personal website. So this is Arvin.😉">
+		<style>
+			body:before {
+				content: "";
+				display: block;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -10;
+				background: url(/Arvin_hero.jpg) no-repeat center center;
+				background-size: cover;
+			}
+		</style>
 	</head>
 	<body>
 		<noscript>
 			<strong>Oh, come on! I would rather die than live without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
-		<div id="app" class="flex flex-col h-screen font-sans antialiased"></div>
+		<div id="app" class="flex flex-col font-sans antialiased"></div>
 	</body>
 </html>
