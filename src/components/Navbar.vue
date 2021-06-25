@@ -1,14 +1,14 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.1.1.20210624
+ * @Version: 1.1.2.20210625
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-24 06:29:54
+ * @LastEditTime: 2021-06-25 20:06:40
 -->
 
 <template>
-	<Disclosure as="nav" class="fixed w-full z-50 bg-white shadow" v-slot="{ isMenuOpen }">
+	<Disclosure as="nav" class="fixed w-full z-40 bg-white shadow" v-slot="{ open }">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
@@ -23,7 +23,7 @@
 					<!-- Show navigation items at the small breakpoint. -->
 					<div class="hidden sm:block sm:ml-6">
 						<div class="flex space-x-4" aria-label="Global">
-							<a v-for="item in navigation.header" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-purple-500' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300', 'rounded-md py-2 px-3 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+							<router-link v-for="item in navigation.header" :key="item.name" :to="item.route" :class="[item.current ? 'bg-gray-100 text-purple-500' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300', 'rounded-md py-2 px-3 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
 						</div>
 					</div>
 				</div>
@@ -37,9 +37,9 @@
 				</div>
 				<!-- Show the menu button on mobile. -->
 				<div class="-mr-2 flex items-center sm:hidden">
-					<DisclosureButton class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
+					<DisclosureButton class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
 						<span class="sr-only">Open main menu</span>
-						<MenuIcon v-if="!isMenuOpen" class="block h-6 w-6" aria-hidden="true" />
+						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
 						<XIcon v-else class="block h-6 w-6" aria-hidden="true" />
 					</DisclosureButton>
 				</div>
@@ -49,7 +49,7 @@
 		<transition enter-active-class="transition ease-out duration-300" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
 			<DisclosurePanel class="sm:hidden">
 				<div class="py-2 space-y-1" aria-label="Global">
-					<a v-for="item in navigation.header" :key="item.name" :href="item.href" :class="[item.current ? 'bg-purple-50 border-purple-500 text-purple-700' : 'border-transparent text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+					<router-link v-for="item in navigation.header" :key="item.name" :to="item.route" :class="[item.current ? 'bg-purple-50 border-purple-500 text-purple-700' : 'border-transparent text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
 				</div>
 				<div class="flex justify-center px-4 py-2 border-t border-gray-200 space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
@@ -77,7 +77,7 @@ export default {
 		XIcon
 	},
 	setup() {
-		const isMenuOpen = ref(false);
+		const open = ref(false); // Keep the variable name to ensure that the mobile menu icon can change with the menu status.
 		const navigation = {
 			logo: {
 				href: "/",
@@ -101,8 +101,8 @@ export default {
 				})
 			},
 			header: [
-				{ name: "Home", href: "#", current: true },
-				{ name: "Project", href: "#", current: false }
+				{ name: "Home", route: "/#home", current: true },
+				{ name: "Projects", route: "/#projects", current: false }
 			],
 			social: [
 				{
@@ -169,7 +169,7 @@ export default {
 		};
 
 		return {
-			isMenuOpen,
+			open,
 			navigation
 		};
 	}

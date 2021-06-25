@@ -1,18 +1,18 @@
 <!--
  * @Description: a footer component
- * @Version: 1.0.0.20210622
+ * @Version: 1.0.1.20210625
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-22 22:46:14
+ * @LastEditTime: 2021-06-25 08:18:07
 -->
 
 <template>
-	<footer class="bg-gray-50">
+	<footer class="bg-white">
 		<div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
 			<!-- TODO: dark mode & language settings? -->
 			<div class="md:order-1">
-				<p class="text-center text-base text-gray-400">&copy; 2021 ArvinZJC</p>
+				<p class="text-center text-base text-gray-500">&copy; {{ currentYear }} ArvinZJC</p>
 			</div>
 		</div>
 	</footer>
@@ -20,5 +20,12 @@
 
 <script>
 export default {
+	data() {
+		const currentYear = new Date().getFullYear();
+
+		return {
+			currentYear
+		};
+	}
 };
 </script>

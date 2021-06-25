@@ -1,42 +1,43 @@
 <!--
  * @Description: the home component
- * @Version: 1.0.4.20210624
+ * @Version: 1.0.5.20210625
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-24 06:50:53
+ * @LastEditTime: 2021-06-25 16:14:14
 -->
 
 <template>
 	<!-- Banner. -->
 	<transition enter-active-class="transition ease-out duration-300 delay-500" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-		<div v-if="!isBannerDismissed" class="fixed w-full z-40 mt-16 bg-purple-600 shadow">
+		<div v-if="!isBannerDismissed" class="fixed w-full z-30 mt-16 bg-purple-600 shadow">
 			<div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
 				<div class="flex items-center justify-between flex-wrap">
 					<div class="w-0 flex-1 flex items-center">
 						<span class="flex p-2 rounded-lg bg-purple-800">
-							<SpeakerphoneIcon class="h-6 w-6 text-white" aria-hidden="true" />
+							<SpeakerphoneIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
 						</span>
-						<p class="ml-3 font-medium text-white truncate">
+						<p class="ml-3 font-medium text-gray-50 truncate">
 							<span class="md:hidden">Still under construction!🏗</span>
 							<span class="hidden md:inline">Hi there!🎉 Sorry, but it's still under construction.🏗</span>
 						</p>
 					</div>
 					<div class="flex-shrink-0 sm:order-3 sm:ml-3">
-						<button type="button" class="-mr-2 flex p-2 rounded-md hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-300">
+						<button type="button" class="-mr-2 flex p-2 rounded-md text-gray-50 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-gray-50 transition-colors duration-300">
 							<span class="sr-only">Dismiss</span>
-							<XIcon class="h-6 w-6 text-white" aria-hidden="true" v-on:click="isBannerDismissed = true" />
+							<XIcon class="h-6 w-6" aria-hidden="true" v-on:click="isBannerDismissed = true" />
 						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</transition>
-	<!-- Hero section. -->
-	<div class="flex items-center justify-center h-screen pt-16 sm:px-6 lg:px-8">
+	<!-- Home section: full screen containing the hero bio. -->
+	<div id="home" class="flex flex-col items-center justify-around h-screen pt-16 sm:px-6 lg:px-8">
+		<div class="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24" />
 		<div class="max-h-screen w-full sm:w-auto sm:rounded-2xl overflow-auto bg-gray-900 bg-opacity-50 shadow-xl py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
 			<h1 class="text-center tracking-tight">
-				<span class="block font-extrabold text-white text-5xl sm:text-6xl lg:text-7xl">Arvin Zhao</span>
+				<span class="block font-extrabold text-gray-50 text-5xl sm:text-6xl lg:text-7xl">Arvin Zhao</span>
 				<span class="block font-bold text-purple-400 text-xl sm:text-2xl lg:text-3xl">
 					PGT student (<a href="https://www.gla.ac.uk/" target="_blank" class="underline hover:text-purple-200 transition-colors duration-300">@UofG</a>) & developer
 				</span>
@@ -47,16 +48,21 @@
 				I could speak Mandarin and English. Could I be said to have a British accent?🤔
 			</p>
 		</div>
+		<router-link to="/#projects" class="motion-safe:animate-bounce text-purple-400 hover:text-purple-200 transition-colors duration-300">
+			<span class="sr-only">Scroll down indicator</span>
+			<ChevronDownIcon class="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24" aria-hidden="true" />
+		</router-link>
 	</div>
 </template>
 
 <script>
-import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
+import { ChevronDownIcon, SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
 
 export default {
 	components: {
+		ChevronDownIcon,
 		SpeakerphoneIcon,
-		XIcon,
+		XIcon
 	},
 	data() {
 		return {

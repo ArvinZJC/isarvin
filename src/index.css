@@ -1,12 +1,26 @@
 /*
  * @Description: universal stylebook
- * @Version: 1.0.1.20210609
+ * @Version: 1.0.2.20210624
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-09 07:28:12
+ * @LastEditTime: 2021-06-25 19:51:22
  */
 
+/* Inject Tailwind's base styles and any base styles registered by plugins. */
 @tailwind base;
+
+/* Inject Tailwind's component classes and any component classes registered by plugins. */
 @tailwind components;
+
+/* Inject Tailwind's utility classes and any utility classes registered by plugins. */
 @tailwind utilities;
+
+/* Inject Tailwind's responsive variations of each utility. */
+@tailwind screens;
+
+body:before {
+    content: "";
+    background-image: url(./assets/Arvin_hero.jpg);
+    @apply block fixed top-0 left-0 h-full w-full -z-10 bg-cover bg-center bg-no-repeat;
+}
