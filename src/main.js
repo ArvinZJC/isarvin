@@ -1,14 +1,14 @@
 /*
  * @Description: the app initialiser
- * @Version: 1.0.5.20210624
+ * @Version: 1.0.5.20210625
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-25 20:26:28
+ * @LastEditTime: 2021-06-25 22:29:40
  */
 
 import { createApp } from "vue";
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import Home from "./components/Home.vue";
 import "./index.css";

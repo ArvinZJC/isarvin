@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-25 20:07:09
+ * @LastEditTime: 2021-06-25 22:27:41
 -->
 
 <template>
@@ -81,8 +81,8 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { ref } from "vue";
+import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
 import ShSzStockHelperWindowsBanner from "../assets/ShSzStockHelper-Windows_banner.png";
 import TgStickerPorterBanner from "../assets/TgStickerPorter_banner.png";
