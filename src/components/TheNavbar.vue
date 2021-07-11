@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-07-12 00:17:20
+ * @LastEditTime: 2021-07-12 00:23:11
 -->
 
 <template>
@@ -238,7 +238,7 @@ export default {
 	},
 	mounted() {
 		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
-		Array.prototype.forEach.call(this.navItems, element => {
+		Array.prototype.forEach.call(this.navItems, (element) => {
 			this.sections.push(document.querySelector(element.getAttribute("id")));
 		});
 	},
