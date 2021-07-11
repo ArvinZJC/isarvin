@@ -1,10 +1,10 @@
 <!--
- * @Description: a footer component
- * @Version: 1.0.1.20210625
+ * @Description: the footer component
+ * @Version: 1.0.2.20210711
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-25 08:18:07
+ * @LastEditTime: 2021-07-11 12:09:16
 -->
 
 <template>

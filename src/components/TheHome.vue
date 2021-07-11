@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.0.5.20210625
+ * @Version: 1.0.6.20210711
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-25 16:14:14
+ * @LastEditTime: 2021-07-11 17:24:12
 -->
 
 <template>
@@ -48,15 +48,16 @@
 				I could speak Mandarin and English. Could I be said to have a British accent?🤔
 			</p>
 		</div>
-		<router-link to="/#projects" class="motion-safe:animate-bounce text-purple-400 hover:text-purple-200 transition-colors duration-300">
+		<a @click="navigate('#projects')" class="motion-safe:animate-bounce text-purple-400 hover:text-purple-200 transition-colors duration-300 cursor-pointer">
 			<span class="sr-only">Scroll down indicator</span>
 			<ChevronDownIcon class="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24" aria-hidden="true" />
-		</router-link>
+		</a>
 	</div>
 </template>
 
 <script>
 import { ChevronDownIcon, SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
+import Scroll from "../scroll.js";
 
 export default {
 	components: {
@@ -64,6 +65,7 @@ export default {
 		SpeakerphoneIcon,
 		XIcon
 	},
+	extends: Scroll,
 	data() {
 		return {
 			isBannerDismissed: true

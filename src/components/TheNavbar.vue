@@ -1,15 +1,15 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.1.2.20210625
+ * @Version: 1.2.0.20210712
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-25 20:06:40
+ * @LastEditTime: 2021-07-12 00:17:20
 -->
 
 <template>
 	<Disclosure as="nav" class="fixed w-full z-40 bg-white shadow" v-slot="{ open }">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div id="navbar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
 					<div class="flex-shrink-0 flex">
@@ -22,12 +22,12 @@
 					</div>
 					<!-- Show navigation items at the small breakpoint. -->
 					<div class="hidden sm:block sm:ml-6">
-						<div class="flex space-x-4" aria-label="Global">
-							<router-link v-for="item in navigation.header" :key="item.name" :to="item.route" :class="[item.current ? 'bg-gray-100 text-purple-500' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300', 'rounded-md py-2 px-3 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-gray-100 text-purple-500' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300', 'rounded-md py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
-				<!-- Show TODO: the social things (IG, ...) at the small breakpoint. -->
+				<!-- Show my social links at the small breakpoint. -->
 				<div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
 					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
@@ -37,8 +37,8 @@
 				</div>
 				<!-- Show the menu button on mobile. -->
 				<div class="-mr-2 flex items-center sm:hidden">
-					<DisclosureButton class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
-						<span class="sr-only">Open main menu</span>
+					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
+						<span class="sr-only">Open navigation menu</span>
 						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
 						<XIcon v-else class="block h-6 w-6" aria-hidden="true" />
 					</DisclosureButton>
@@ -48,8 +48,8 @@
 		<!-- Show the menu on mobile. -->
 		<transition enter-active-class="transition ease-out duration-300" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
 			<DisclosurePanel class="sm:hidden">
-				<div class="py-2 space-y-1" aria-label="Global">
-					<router-link v-for="item in navigation.header" :key="item.name" :to="item.route" :class="[item.current ? 'bg-purple-50 border-purple-500 text-purple-700' : 'border-transparent text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+				<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
+					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-50 border-purple-500 text-purple-700' : 'border-transparent text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 				</div>
 				<div class="flex justify-center px-4 py-2 border-t border-gray-200 space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
@@ -67,6 +67,7 @@
 import { defineComponent, h, ref } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import Scroll from "../scroll.js";
 
 export default {
 	components: {
@@ -76,9 +77,68 @@ export default {
 		MenuIcon,
 		XIcon
 	},
+	extends: Scroll,
+	methods: {
+		getMobileNavItems() {
+			setTimeout(() => {
+				if (this.mobileNavItems === null) {
+					this.mobileNavItems = document.querySelector("#mobileNavItems").getElementsByTagName("a");
+					this.updateMobileNavItemsStatus();
+				} // end if
+			}, 300); // Need delay to make sure the mobile navbar items have been loaded.
+		}, // end function getMobileNavItems
+		handleScroll() {
+			var activeIndex;
+			Array.prototype.forEach.call(this.sections, (element, index) => {
+				// The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
+				if (element.offsetTop - document.querySelector("#navbar").offsetHeight <= window.pageYOffset
+				|| window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
+					activeIndex = index;
+				} // end if
+			});
+			
+			// Update the active navbar item if necessary.
+			if (activeIndex !== this.activeIndex) {
+				this.activeIndex = activeIndex;
+				Array.prototype.forEach.call(this.navItems, (element, index) => {
+					if (index === activeIndex) {
+						element.classList.remove("text-gray-500", "hover:bg-gray-50", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("bg-gray-100" ,"text-purple-500");
+					}
+					else {
+						element.classList.remove("bg-gray-100" ,"text-purple-500");
+						element.classList.add("text-gray-500", "hover:bg-gray-50", "hover:text-gray-900", "transition-colors", "duration-300");
+					} // end if...else
+				});
+				if (this.mobileNavItems !== null) {
+					this.updateMobileNavItemsStatus();
+				} // end if
+			} // end if
+		}, // end function handleScroll
+		updateMobileNavItemsStatus() {
+			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
+					if (index === this.activeIndex) {
+						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-100", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("bg-purple-50" ,"border-purple-500", "text-purple-700");
+					}
+					else {
+						element.classList.remove("bg-purple-50" ,"border-purple-500", "text-purple-700");
+						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-100", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+					} // end if...else
+				});
+		}, // end function updateMobileNavItemsStatus
+	},
+	data() {
+		return {
+			activeIndex: 0,
+			mobileNavItems: null,
+			navItems: null,
+			sections: []
+		};
+	},
 	setup() {
 		const open = ref(false); // Keep the variable name to ensure that the mobile menu icon can change with the menu status.
-		const navigation = {
+		var navigation = {
 			logo: {
 				href: "/",
 				textContent: "Arvin Zhao",
@@ -101,8 +161,8 @@ export default {
 				})
 			},
 			header: [
-				{ name: "Home", route: "/#home", current: true },
-				{ name: "Projects", route: "/#projects", current: false }
+				{ name: "Home", anchor: "#home", active: true },
+				{ name: "Projects", anchor: "#projects", active: false }
 			],
 			social: [
 				{
@@ -147,7 +207,7 @@ export default {
 				},
 				{
 					name: "LinkedIn",
-					href: "https://www.linkedin.com/in/jichen-zhao-2a9965179/",
+					href: "www.linkedin.com/in/arvinzjc",
 					icon: defineComponent({
 						render: () =>
 							h("svg", { class: "fill-current", viewBox: "0 0 24 24" }, [
@@ -172,6 +232,18 @@ export default {
 			open,
 			navigation
 		};
+	},
+	created() {
+		window.addEventListener("scroll", this.handleScroll);
+	},
+	mounted() {
+		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
+		Array.prototype.forEach.call(this.navItems, element => {
+			this.sections.push(document.querySelector(element.getAttribute("id")));
+		});
+	},
+	unmounted() {
+		window.removeEventListener("scroll", this.handleScroll);
 	}
 };
 </script>

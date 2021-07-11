@@ -1,33 +1,28 @@
 <!--
  * @Description: the root component
- * @Version: 1.0.3.20210624
+ * @Version: 1.0.4.20210711
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-24 06:49:19
+ * @LastEditTime: 2021-07-11 16:58:05
 -->
 
 <template>
-	<Navbar />
-	<main class="flex-grow">
-		<Home />
-		<Projects />
-	</main>
-	<Footer />
+	<TheNavbar />
+	<Me />
+	<TheFooter />
 </template>
 
 <script>
-import Footer from "./components/Footer.vue";
-import Home from "./components/Home.vue";
-import Navbar from "./components/Navbar.vue";
-import Projects from "./components/Projects.vue";
+import Me from "./views/Me.vue";
+import TheFooter from "./components/TheFooter.vue";
+import TheNavbar from "./components/TheNavbar.vue";
 
 export default {
 	components: {
-		Footer,
-		Home,
-		Navbar,
-		Projects
+		Me,
+		TheFooter,
+		TheNavbar
 	}
 };
 </script>
