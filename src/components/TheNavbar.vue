@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.2.0.20210712
+ * @Version: 1.2.1.20210712
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-07-12 00:23:11
+ * @LastEditTime: 2021-07-12 00:45:30
 -->
 
 <template>
@@ -81,10 +81,8 @@ export default {
 	methods: {
 		getMobileNavItems() {
 			setTimeout(() => {
-				if (this.mobileNavItems === null) {
-					this.mobileNavItems = document.querySelector("#mobileNavItems").getElementsByTagName("a");
-					this.updateMobileNavItemsStatus();
-				} // end if
+				this.mobileNavItems = document.querySelector("#mobileNavItems").getElementsByTagName("a");
+				this.updateMobileNavItemsStatus();
 			}, 300); // Need delay to make sure the mobile navbar items have been loaded.
 		}, // end function getMobileNavItems
 		handleScroll() {
