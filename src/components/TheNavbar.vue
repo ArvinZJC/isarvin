@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.2.1.20210712
+ * @Version: 1.2.2.20210712
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-07-12 00:45:30
+ * @LastEditTime: 2021-07-12 02:35:36
 -->
 
 <template>
@@ -205,7 +205,7 @@ export default {
 				},
 				{
 					name: "LinkedIn",
-					href: "www.linkedin.com/in/arvinzjc",
+					href: "https://www.linkedin.com/in/arvinzjc",
 					icon: defineComponent({
 						render: () =>
 							h("svg", { class: "fill-current", viewBox: "0 0 24 24" }, [
