@@ -1,14 +1,14 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.2.2.20210712
+ * @Version: 1.2.3.20210805
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-07-12 02:35:36
+ * @LastEditTime: 2021-08-05 11:44:12
 -->
 
 <template>
-	<Disclosure as="nav" class="fixed w-full z-40 bg-white shadow" v-slot="{ open }">
+	<Disclosure as="nav" class="fixed w-full z-40 bg-white bg-opacity-90 shadow-2xl" v-slot="{ open }">
 		<div id="navbar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
@@ -23,7 +23,7 @@
 					<!-- Show navigation items at the small breakpoint. -->
 					<div class="hidden sm:block sm:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
-							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-gray-100 text-purple-500' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300', 'rounded-md py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-500' : 'text-gray-500 hover:text-gray-900 transition-colors duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,6 @@
 import { defineComponent, h, ref } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
-import Scroll from "../scroll.js";
 
 export default {
 	components: {
@@ -77,14 +76,32 @@ export default {
 		MenuIcon,
 		XIcon
 	},
-	extends: Scroll,
 	methods: {
+		// Smooth scroll to the section specified by an anchor.
+        navigate(anchor) {
+            var element = document.querySelector(anchor);
+
+            if (element) {
+                window.scroll({
+                    top: element.offsetTop - document.querySelector("#navbar").offsetHeight + 2, // Offset the top to avoid overlapping the fixed header and reduce errors for scrolling to the view.
+                    left: 0,
+                    behavior: "smooth"
+                });
+            }
+			else {
+                window.scroll({ top: 0, left: 0, behavior: "smooth" }); // Scroll to top if no such anchor.
+            } // end if...else
+		}, // end function navigate
+
+		// Get the mobile navbar items.
 		getMobileNavItems() {
 			setTimeout(() => {
 				this.mobileNavItems = document.querySelector("#mobileNavItems").getElementsByTagName("a");
 				this.updateMobileNavItemsStatus();
 			}, 300); // Need delay to make sure the mobile navbar items have been loaded.
 		}, // end function getMobileNavItems
+
+		// Handle scrolling behaviour for the navbar items.
 		handleScroll() {
 			var activeIndex;
 			Array.prototype.forEach.call(this.sections, (element, index) => {
@@ -100,12 +117,12 @@ export default {
 				this.activeIndex = activeIndex;
 				Array.prototype.forEach.call(this.navItems, (element, index) => {
 					if (index === activeIndex) {
-						element.classList.remove("text-gray-500", "hover:bg-gray-50", "hover:text-gray-900", "transition-colors", "duration-300");
-						element.classList.add("bg-gray-100" ,"text-purple-500");
+						element.classList.remove("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("text-purple-500");
 					}
 					else {
-						element.classList.remove("bg-gray-100" ,"text-purple-500");
-						element.classList.add("text-gray-500", "hover:bg-gray-50", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.remove("text-purple-500");
+						element.classList.add("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
 					} // end if...else
 				});
 				if (this.mobileNavItems !== null) {
@@ -113,6 +130,8 @@ export default {
 				} // end if
 			} // end if
 		}, // end function handleScroll
+
+		// Update the mobile navbar items' styles.
 		updateMobileNavItemsStatus() {
 			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
 					if (index === this.activeIndex) {
@@ -231,17 +250,12 @@ export default {
 			navigation
 		};
 	},
-	created() {
-		window.addEventListener("scroll", this.handleScroll);
-	},
 	mounted() {
+		window.onscroll = this.handleScroll;
 		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
 		Array.prototype.forEach.call(this.navItems, (element) => {
 			this.sections.push(document.querySelector(element.getAttribute("id")));
 		});
-	},
-	unmounted() {
-		window.removeEventListener("scroll", this.handleScroll);
 	}
 };
 </script>

@@ -1,18 +1,17 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.1.20210711
+ * @Version: 1.0.3.20210805
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-07-11 23:42:49
+ * @LastEditTime: 2021-08-05 12:10:33
 -->
 
 <template>
     <!-- Projects section. -->
     <div id="projects">
-        <div class="bg-gradient-to-b from-transparent to-gray-50 h-20 sm:h-24 lg:h-28" />
         <div class="bg-gray-50">
-            <div class="flex flex-col items-center max-w-7xl mx-auto pb-20 sm:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-28">
                 <!-- Section header. -->
                 <span class="relative -top-6 h-12 w-12 rounded-md flex items-center justify-center bg-purple-600">
                     <CollectionIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
@@ -27,7 +26,7 @@
                     </p>
                 </div>
                 <!-- Project cards. -->
-                <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+                <div class="max-w-lg lg:max-w-none mt-12 mx-auto grid gap-5 lg:grid-cols-3">
                     <div v-for="project in projects" :key="project.title" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                         <div class="flex-shrink-0 bg-purple-100">
                             <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.title" />
@@ -54,7 +53,7 @@
                             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-300" leave-from="opacity-100" leave-to="opacity-0">
                                 <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                             </TransitionChild>
-                            <!-- This element is to trick the browser into centring the modal contents. -->
+                            <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
                             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
                                 <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
@@ -120,7 +119,7 @@ export default {
                 imageUrl: TgStickerPorterBanner,
                 category: { name: "In the works", style: "bg-yellow-100 text-yellow-800" },
                 title: "TgStickerPorter",
-                description: "What would happen when a Telegram bot meets with a Emoji/sticker and... me?😏",
+                description: "What would happen when a Telegram bot meets with Emoji/stickers and... me?😏",
                 route: "#"
             }
         ];

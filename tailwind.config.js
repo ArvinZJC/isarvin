@@ -1,10 +1,10 @@
 /*
  * @Description: Tailwind CSS configuration
- * @Version: 1.0.4.20210624
+ * @Version: 1.0.5.20210805
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:31:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-06-24 11:37:05
+ * @LastEditTime: 2021-08-05 12:15:48
  */
 
 // Keep this CommonJS module rather than converting to an ES6 module.
@@ -25,11 +25,9 @@ module.exports = {
 			zIndex: {
 				"-10": "-10"
 			}
-		}
-	},
-	variants: {
-		extend: {
-			animation: ["motion-safe"]
+		},
+		maxHeight: {
+			'3/4': '75%'
 		}
 	},
 	plugins: []
