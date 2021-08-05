@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 16:11:42
+ * @LastEditTime: 2021-08-05 16:29:02
 -->
 
 <template>
@@ -95,14 +95,14 @@ export default {
 	methods: {
 		// Auto-scroll the banner text when it is too long.
 		autoScrollBannerText() {
-			var bannerText = document.querySelector("#banner-text")
+			var bannerText = document.querySelector("#banner-text");
 			
 			if (bannerText) {
 				if (bannerText.scrollWidth > bannerText.offsetWidth) {
-					bannerText.classList.add("marquee")
+					bannerText.classList.add("marquee");
 				}
 				else {
-					bannerText.classList.remove("marquee")
+					bannerText.classList.remove("marquee");
 				} // end if...else
 			} // end if
 		} // end function autoScrollBannerText
@@ -118,7 +118,7 @@ export default {
 				this.isBannerDismissed = false;
 				setTimeout(() => {
 					this.autoScrollBannerText();
-				}, 300) // Need delay to make sure the banner have been loaded.
+				}, 300); // Need delay to make sure the banner have been loaded.
 			}
 		};
 		window.onresize = this.autoScrollBannerText;
