@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 16:33:28
+ * @LastEditTime: 2021-08-05 16:38:35
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -84,12 +84,12 @@
 }
 
 @keyframes bubble-animation {
-    0%{
+    0% {
         transform: translate3d(0, 0, 0) rotate(0deg); /* Setting rotation is necessary to avoid possible strange performance in Safari. */
         border-radius: 90%;
     }
 
-    100%{
+    100% {
         transform: translate3d(0, -1000px, 0) rotate(720deg);
         @apply opacity-0;
     }
@@ -111,26 +111,26 @@
 }
 
 /* Wave animation. */
-.wave> use {
+.wave > use {
     animation: wave-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
-.wave> use:nth-child(1) {
+.wave > use:nth-child(1) {
     animation-delay: -2s;
     animation-duration: 7s;
 }
 
-.wave> use:nth-child(2) {
+.wave > use:nth-child(2) {
     animation-delay: -3s;
     animation-duration: 10s;
 }
 
-.wave> use:nth-child(3) {
+.wave > use:nth-child(3) {
     animation-delay: -4s;
     animation-duration: 13s;
 }
 
-.wave> use:nth-child(4) {
+.wave > use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s;
 }
@@ -139,7 +139,7 @@
     0% {
         transform: translate3d(-90px, 0, 0);
     }
-    
+
     100% {
         transform: translate3d(85px, 0, 0);
     }
