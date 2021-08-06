@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-06 06:12:42
+ * @LastEditTime: 2021-08-06 14:28:18
 -->
 
 <template>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="mt-6 flex items-center">
                                 <!-- TODO: URL? -->
-                                <button type="button" class="relative overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 text-base font-medium text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" @click="open = true">
+                                <button type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 text-base font-medium text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" @click="open = true">
                                     <span class="relative z-10">Explore</span>
                                     <div class="liquid" />
                                 </button>

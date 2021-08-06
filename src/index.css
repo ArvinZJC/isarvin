@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-06 12:43:36
+ * @LastEditTime: 2021-08-06 14:21:37
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -100,7 +100,8 @@
     @apply absolute -top-8 left-0 h-24 w-full bg-purple-600 transition-all duration-300; /* The height, width, and absolution top position depend on the button's width. */
 }
 
-.liquid::after, .liquid::before {
+.liquid::after,
+.liquid::before {
     content: '';
     height: 200%;
     width: 200%;
@@ -120,7 +121,8 @@
     @apply bg-purple-600 sm:bg-purple-300 sm:bg-opacity-50; /* Start to show liquid animation at the small breakpoint. */
 }
 
-a:hover .liquid, button:hover .liquid {
+a:hover .liquid,
+button:hover .liquid {
     @apply bg-purple-800 -top-14; /* The absolution top position depends on the button's width. */
 }
 
