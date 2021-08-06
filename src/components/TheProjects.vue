@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.3.20210805
+ * @Version: 1.0.4.20210806
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 12:10:33
+ * @LastEditTime: 2021-08-06 06:12:42
 -->
 
 <template>
@@ -13,7 +13,7 @@
         <div class="bg-gray-50">
             <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-28">
                 <!-- Section header. -->
-                <span class="relative -top-6 h-12 w-12 rounded-md flex items-center justify-center bg-purple-600">
+                <span class="relative -top-6 h-12 w-12 rounded-lg flex items-center justify-center bg-purple-600 shadow-lg">
                     <CollectionIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
                 </span>
                 <div class="text-center">
@@ -21,7 +21,7 @@
                     <!-- TODO: global variable: GitHub link? -->
                     <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-500">
                         My five years’ uni life is so incredibly fulfiling, devoting a part of my spare time to several projects.
-                        Most of them, either active or archived, are hosted on <a href="https://github.com/ArvinZJC" class="hover:text-gray-900 transition-colors duration-300">GitHub</a>.
+                        Most of them, either active or archived, are hosted on <a href="https://github.com/ArvinZJC" class="text-purple-400 hover:text-purple-600 transition-colors duration-300">GitHub</a>.
                         I’ve still got a long way to go before becoming a big potato. Would I reach the end one day?🐌
                     </p>
                 </div>
@@ -31,9 +31,9 @@
                         <div class="flex-shrink-0 bg-purple-100">
                             <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.title" />
                         </div>
-                        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <div class="flex-1 bg-white p-4 sm:p-6 flex flex-col justify-between">
                             <div class="flex-1 max-h-80 text-justify">
-                                <span :class="['inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium ' + project.category.style]">{{ project.category.name }}</span>
+                                <span :class="['items-center px-2.5 py-0.5 rounded-full text-sm font-medium ' + project.category.style]">{{ project.category.name }}</span>
                                 <div class="block mt-2">
                                     <p class="text-xl font-semibold text-gray-900">{{ project.title }}</p>
                                     <p class="mt-3 text-base text-gray-500">{{ project.description }}</p>
@@ -41,7 +41,10 @@
                             </div>
                             <div class="mt-6 flex items-center">
                                 <!-- TODO: URL? -->
-                                <button type="button" class="inline-flex rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-gray-50 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300" @click="open = true">Explore</button>
+                                <button type="button" class="relative overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 text-base font-medium text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" @click="open = true">
+                                    <span class="relative z-10">Explore</span>
+                                    <div class="liquid" />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -56,7 +59,7 @@
                             <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
                             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-                                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+                                <div class="inline-block align-bottom sm:align-middle bg-white rounded-lg sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-sm sm:w-full">
                                     <div>
                                         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
                                             <ExclamationCircleIcon class="h-6 w-6 text-yellow-600" aria-hidden="true" />
@@ -69,7 +72,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-5 sm:mt-6">
-                                        <button type="button" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300" @click="open = false">Alright</button>
+                                        <button type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300" @click="open = false">Alright</button>
                                     </div>
                                 </div>
                             </TransitionChild>

@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.2.3.20210805
+ * @Version: 1.2.4.20210806
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 11:44:12
+ * @LastEditTime: 2021-08-06 03:31:51
 -->
 
 <template>
@@ -23,7 +23,7 @@
 					<!-- Show navigation items at the small breakpoint. -->
 					<div class="hidden sm:block sm:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
-							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-500' : 'text-gray-500 hover:text-gray-900 transition-colors duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' : 'text-gray-500 hover:text-gray-900 transition-colors duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 				</div>
 				<!-- Show the menu button on mobile. -->
 				<div class="-mr-2 flex items-center sm:hidden">
-					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
+					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
 						<span class="sr-only">Open navigation menu</span>
 						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
 						<XIcon v-else class="block h-6 w-6" aria-hidden="true" />
@@ -49,9 +49,9 @@
 		<transition enter-active-class="transition ease-out duration-300" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
 			<DisclosurePanel class="sm:hidden">
 				<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-50 border-purple-500 text-purple-700' : 'border-transparent text-gray-500 hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-100 border-purple-600 text-purple-600' : 'border-transparent text-gray-500 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 				</div>
-				<div class="flex justify-center px-4 py-2 border-t border-gray-200 space-x-6">
+				<div class="flex justify-center px-4 py-2 border-t border-gray-300 space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
 					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
 						<span class="sr-only">{{ item.name }}</span>
@@ -118,10 +118,10 @@ export default {
 				Array.prototype.forEach.call(this.navItems, (element, index) => {
 					if (index === activeIndex) {
 						element.classList.remove("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
-						element.classList.add("text-purple-500");
+						element.classList.add("text-purple-600");
 					}
 					else {
-						element.classList.remove("text-purple-500");
+						element.classList.remove("text-purple-600");
 						element.classList.add("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
 					} // end if...else
 				});
@@ -135,12 +135,12 @@ export default {
 		updateMobileNavItemsStatus() {
 			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
 					if (index === this.activeIndex) {
-						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-100", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
-						element.classList.add("bg-purple-50" ,"border-purple-500", "text-purple-700");
+						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("bg-purple-100" ,"border-purple-600", "text-purple-600");
 					}
 					else {
-						element.classList.remove("bg-purple-50" ,"border-purple-500", "text-purple-700");
-						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-100", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.remove("bg-purple-100" ,"border-purple-600", "text-purple-600");
+						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
 					} // end if...else
 				});
 		}, // end function updateMobileNavItemsStatus

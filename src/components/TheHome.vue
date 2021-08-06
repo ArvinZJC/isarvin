@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.0.20210805
+ * @Version: 1.1.1.20210806
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 16:29:02
+ * @LastEditTime: 2021-08-06 12:25:42
 -->
 
 <template>
@@ -24,7 +24,7 @@
 								</div>
 							</div>
 							<div class="flex-shrink-0 sm:order-3">
-								<button type="button" class="flex p-2 rounded-md text-gray-50 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-gray-50 transition-colors duration-300">
+								<button type="button" class="flex p-2 rounded-md text-gray-50 hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-gray-50 transition-colors duration-300">
 									<span class="sr-only">Dismiss</span>
 									<XIcon class="h-6 w-6" aria-hidden="true" v-on:click="isBannerDismissed = true" />
 								</button>
@@ -38,9 +38,9 @@
 		<div id="home" class="absolute z-10 flex flex-col items-center justify-between h-screen w-full overflow-hidden pt-16 sm:px-6 lg:px-8">
 			<!-- A placeholder for "justify-between". -->
 			<div class="h-px" />
-			<div class="max-h-3/4">
-				<img class="relative -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
-				<div class="max-w-7xl rounded-2xl overflow-auto bg-gray-900 bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
+			<div class="max-h-3/4 overflow-auto">
+				<img class="relative border-2 border-gray-50 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
+				<div class="max-w-7xl rounded-lg bg-gray-900 bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
 					<h1 class="text-center tracking-tight">
 						<span class="block font-extrabold text-3xl sm:text-4xl text-gray-50">Arvin Zhao</span>
 						<span class="block font-bold text-xl text-purple-400">
@@ -54,8 +54,7 @@
 					</p>
 				</div>
 			</div>
-			
-			<svg class="relative h-12 sm:h-14 lg:h-16 w-screen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" shape-rendering="auto" viewBox="0 24 150 28">
+			<svg class="relative h-16 sm:h-24 lg:h-32 w-screen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" shape-rendering="auto" viewBox="0 24 150 28">
 				<defs>
 					<path id="smooth-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
 				</defs>
