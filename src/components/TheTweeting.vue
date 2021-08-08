@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 16:22:33
+ * @LastEditTime: 2021-08-08 16:40:14
 -->
 
 <template>
@@ -61,7 +61,7 @@
                             <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="lg:hidden flex-shrink-0 h-12 w-12 rounded-full border-2 border-purple-200" />
                             <div class="ml-4 lg:ml-0">
                                 <div class="text-base font-medium text-gray-900">Steve Jobs</div>
-                                <div class="text-base font-medium text-indigo-600">Co-founder, Apple Inc.</div>
+                                <div class="text-base font-medium text-purple-600">Co-founder, Apple Inc.</div>
                             </div>
                         </div>
                     </footer>
