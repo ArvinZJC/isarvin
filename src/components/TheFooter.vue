@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.0.2.20210805
+ * @Version: 1.0.2.20210808
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-05 00:03:24
+ * @LastEditTime: 2021-08-08 12:32:17
 -->
 
 <template>
@@ -23,9 +23,7 @@ export default {
 	data() {
 		const currentYear = new Date().getFullYear();
 
-		return {
-			currentYear
-		};
+		return { currentYear };
 	}
 };
 </script>

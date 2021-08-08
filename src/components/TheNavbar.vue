@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.2.4.20210806
+ * @Version: 1.3.0.20210808
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-06 03:31:51
+ * @LastEditTime: 2021-08-08 16:16:15
 -->
 
 <template>
@@ -16,27 +16,27 @@
 						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 transition-colors duration-300">
 							<img class="ml-2 h-8 w-8" src="../assets/Arvin_icon.png" alt="Arvin: icon" />
 							<span class="sr-only">{{ navigation.logo.textContent }}</span>
-							<!-- Show the logo text on mobile or at the large breakpoint. -->
-							<component :is="navigation.logo.textIcon" class="sm:hidden lg:block h-8 w-32" aria-hidden="true" />
+							<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
+							<component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
 						</a>
 					</div>
-					<!-- Show navigation items at the small breakpoint. -->
-					<div class="hidden sm:block sm:ml-6">
+					<!-- Show navigation items at the medium breakpoint. -->
+					<div class="hidden md:block md:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
 							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' : 'text-gray-500 hover:text-gray-900 transition-colors duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
-				<!-- Show my social links at the small breakpoint. -->
-				<div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-6">
+				<!-- Show my social links at the medium breakpoint. -->
+				<div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
 					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
 						<span class="sr-only">{{ item.name }}</span>
 						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 					</a>
 				</div>
-				<!-- Show the menu button on mobile. -->
-				<div class="-mr-2 flex items-center sm:hidden">
+				<!-- Hide the menu button at the medium breakpoint. -->
+				<div class="-mr-2 flex items-center md:hidden">
 					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
 						<span class="sr-only">Open navigation menu</span>
 						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
@@ -45,9 +45,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- Show the menu on mobile. -->
 		<transition enter-active-class="transition ease-out duration-300" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-			<DisclosurePanel class="sm:hidden">
+			<!-- Hide the menu at the medium breakpoint. -->
+			<DisclosurePanel class="md:hidden">
 				<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
 					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-100 border-purple-600 text-purple-600' : 'border-transparent text-gray-500 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 				</div>
@@ -61,15 +61,20 @@
 			</DisclosurePanel>
 		</transition>
 	</Disclosure>
+	<!-- The button for scrolling to the top. -->
+	<button v-if="!isTop" @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300 shadow-xl" title="Scroll to the top.">
+		<ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+	</button>
 </template>
 
 <script>
 import { defineComponent, h, ref } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { ArrowUpIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 
 export default {
 	components: {
+		ArrowUpIcon,
 		Disclosure,
 		DisclosureButton,
 		DisclosurePanel,
@@ -109,6 +114,14 @@ export default {
 				if (element.offsetTop - document.querySelector("#navbar").offsetHeight <= window.pageYOffset
 				|| window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
 					activeIndex = index;
+
+					// Show the button for scrolling to the top if the active navbar item is not home.
+					if (index === 0) {
+						this.isTop = true;
+					}
+					else {
+						this.isTop = false;
+					}
 				} // end if
 			});
 			
@@ -125,6 +138,7 @@ export default {
 						element.classList.add("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
 					} // end if...else
 				});
+				
 				if (this.mobileNavItems !== null) {
 					this.updateMobileNavItemsStatus();
 				} // end if
@@ -148,6 +162,7 @@ export default {
 	data() {
 		return {
 			activeIndex: 0,
+			isTop: true,
 			mobileNavItems: null,
 			navItems: null,
 			sections: []
@@ -179,7 +194,8 @@ export default {
 			},
 			header: [
 				{ name: "Home", anchor: "#home", active: true },
-				{ name: "Projects", anchor: "#projects", active: false }
+				{ name: "Projects", anchor: "#projects", active: false },
+				{ name: "Education", anchor: "#education", active: false }
 			],
 			social: [
 				{
@@ -245,17 +261,14 @@ export default {
 			]
 		};
 
-		return {
-			open,
-			navigation
-		};
+		return { open, navigation };
 	},
 	mounted() {
-		window.onscroll = this.handleScroll;
 		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
 		Array.prototype.forEach.call(this.navItems, (element) => {
 			this.sections.push(document.querySelector(element.getAttribute("id")));
 		});
+		window.onscroll = this.handleScroll;
 	}
 };
 </script>

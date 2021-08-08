@@ -1,10 +1,10 @@
 /*
  * @Description: universal stylebook
- * @Version: 1.1.0.20210806
+ * @Version: 1.1.3.20210808
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-06 14:21:37
+ * @LastEditTime: 2021-08-08 16:21:37
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -151,27 +151,53 @@ button:hover .liquid {
     }
 }
 
+/* Polygon-shaped section. */
+.polygon-section {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+}
+
+/* Ripple animation. */
+.ripple {
+    animation: ripple-animation 1s linear infinite;
+}
+
+@keyframes ripple-animation {
+    0% {
+        box-shadow: 0 0 0 0rem rgba(139, 92, 246, 0.2),
+                    0 0 0 0.125rem rgba(139, 92, 246, 0.2),
+                    0 0 0 0.25rem rgba(139, 92, 246, 0.2),
+                    0 0 0 0.5rem rgba(139, 92, 246, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0.125rem rgba(139, 92, 246, 0.2),
+                    0 0 0 0.25rem rgba(139, 92, 246, 0.2),
+                    0 0 0 0.5rem rgba(139, 92, 246, 0.2),
+                    0 0 0 1rem rgba(139, 92, 246, 0);
+    }
+}
+
 /* Wave animation. */
-.wave > use {
+.waves > use {
     animation: wave-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
-.wave > use:nth-child(1) {
+.waves > use:nth-child(1) {
     animation-delay: -2s;
     animation-duration: 7s;
 }
 
-.wave > use:nth-child(2) {
+.waves > use:nth-child(2) {
     animation-delay: -3s;
     animation-duration: 10s;
 }
 
-.wave > use:nth-child(3) {
+.waves > use:nth-child(3) {
     animation-delay: -4s;
     animation-duration: 13s;
 }
 
-.wave > use:nth-child(4) {
+.waves > use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s;
 }
