@@ -1,16 +1,16 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.5.20210808
+ * @Version: 1.0.6.20210808
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 16:09:22
+ * @LastEditTime: 2021-08-08 21:26:39
 -->
 
 <template>
     <!-- Projects section. -->
     <div id="projects" class="bg-indigo-100">
-        <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8">
             <!-- Section header. -->
             <span class="mb-6 h-12 w-12 rounded-lg flex items-center justify-center bg-purple-600 shadow-lg">
                 <CollectionIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />

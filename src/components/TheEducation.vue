@@ -1,19 +1,19 @@
 <!--
  * @Description: the education component
- * @Version: 1.0.0.20210808
+ * @Version: 1.0.1.20210808
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 13:50:04
+ * @LastEditTime: 2021-08-08 21:29:00
 -->
 
 <template>
     <!-- Education section. -->
     <div id="education" class="relative z-10 bg-purple-100 polygon-section">
         <!-- Background colour transition. -->
-        <div class="h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-indigo-100 to-purple-100" />
+        <div class="h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-indigo-100 to-purple-100" />
         <!-- Use the row layout at the small breakpoint. -->
-        <div class="flex flex-col sm:flex-row justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 lg:pt-12 pb-24 sm:pb-20 lg:pb-24">
+        <div class="flex flex-col sm:flex-row justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8 pb-24 sm:pb-20 lg:pb-24">
             <!-- Section header. -->
             <div class="flex flex-col items-center justify-center mb-12 sm:mb-0 sm:mr-12 lg:mr-16">
                 <span class="mb-6 h-12 w-12 rounded-lg flex items-center justify-center bg-purple-600 shadow-lg">
