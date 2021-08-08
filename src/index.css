@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 16:21:37
+ * @LastEditTime: 2021-08-08 16:35:18
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -163,17 +163,19 @@ button:hover .liquid {
 
 @keyframes ripple-animation {
     0% {
-        box-shadow: 0 0 0 0rem rgba(139, 92, 246, 0.2),
-                    0 0 0 0.125rem rgba(139, 92, 246, 0.2),
-                    0 0 0 0.25rem rgba(139, 92, 246, 0.2),
-                    0 0 0 0.5rem rgba(139, 92, 246, 0.2);
+        box-shadow:
+            0 0 0 0 rgba(139, 92, 246, 0.2),
+            0 0 0 0.125rem rgba(139, 92, 246, 0.2),
+            0 0 0 0.25rem rgba(139, 92, 246, 0.2),
+            0 0 0 0.5rem rgba(139, 92, 246, 0.2);
     }
 
     100% {
-        box-shadow: 0 0 0 0.125rem rgba(139, 92, 246, 0.2),
-                    0 0 0 0.25rem rgba(139, 92, 246, 0.2),
-                    0 0 0 0.5rem rgba(139, 92, 246, 0.2),
-                    0 0 0 1rem rgba(139, 92, 246, 0);
+        box-shadow:
+            0 0 0 0.125rem rgba(139, 92, 246, 0.2),
+            0 0 0 0.25rem rgba(139, 92, 246, 0.2),
+            0 0 0 0.5rem rgba(139, 92, 246, 0.2),
+            0 0 0 1rem rgba(139, 92, 246, 0);
     }
 }
 
