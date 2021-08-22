@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.0.3.20210822
+ * @Version: 1.0.4.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 06:29:53
+ * @LastEditTime: 2021-08-22 14:21:55
 -->
 
 <template>
@@ -54,13 +54,13 @@
 
 <script>
 import { AcademicCapIcon, CheckIcon, EmojiHappyIcon, FireIcon, FlagIcon } from "@heroicons/vue/outline";
-import ArvinHeadshotMiddle from "../assets/Arvin_headshot_middle.jpg";
-import ArvinHeadshotPrimary1 from "../assets/Arvin_headshot_primary1.jpg";
-import ArvinHeadshotPrimary2 from "../assets/Arvin_headshot_primary2.jpg";
-import ArvinHeadshotSenior from "../assets/Arvin_headshot_senior.jpg";
-import ArvinHeadshotUni1 from "../assets/Arvin_headshot_uni1.jpg";
-import ArvinHeadshotUni2 from "../assets/Arvin_headshot_uni2.jpg";
-import ArvinHeadshotUni3 from "../assets/Arvin_headshot_uni3.jpg";
+import ArvinHeadshotMiddle from "../../assets/Arvin_headshot_middle.jpg";
+import ArvinHeadshotPrimary1 from "../../assets/Arvin_headshot_primary1.jpg";
+import ArvinHeadshotPrimary2 from "../../assets/Arvin_headshot_primary2.jpg";
+import ArvinHeadshotSenior from "../../assets/Arvin_headshot_senior.jpg";
+import ArvinHeadshotUni1 from "../../assets/Arvin_headshot_uni1.jpg";
+import ArvinHeadshotUni2 from "../../assets/Arvin_headshot_uni2.jpg";
+import ArvinHeadshotUni3 from "../../assets/Arvin_headshot_uni3.jpg";
 
 export default {
     components: { AcademicCapIcon },

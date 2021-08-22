@@ -1,29 +1,29 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.3.5.20210822
+ * @Version: 1.4.0.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 07:54:39
+ * @LastEditTime: 2021-08-22 21:48:47
 -->
 
 <template>
-	<Disclosure as="nav" class="fixed w-full z-40 bg-white bg-opacity-90 shadow-2xl" v-slot="{ open }">
+	<!-- The navbar section. -->
+	<Popover as="nav" class="fixed w-full z-40 bg-white bg-opacity-90 shadow-xl">
 		<div id="navbar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
-					<div class="flex-shrink-0 flex">
-						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
-							<img class="ml-2 h-8 w-8" src="../assets/Arvin_icon.png" alt="Arvin: icon" />
-							<span class="sr-only">{{ navigation.logo.textContent }}</span>
-							<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
-							<component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
-						</a>
-					</div>
+					<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+						<img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
+						<span class="sr-only">{{ navigation.logo.textContent }}</span>
+						<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
+						<component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
+					</a>
 					<!-- Show navigation items at the medium breakpoint. -->
 					<div class="hidden md:block md:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
-							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' : 'text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' :
+								'text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
@@ -36,49 +36,77 @@
 					</a>
 				</div>
 				<!-- Hide the menu button at the medium breakpoint. -->
-				<div class="-mr-2 flex items-center md:hidden">
-					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 motion-safe:transition-colors motion-safe:duration-300">
+				<div class="sm:-mr-2 flex items-center md:hidden">
+					<PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500
+						motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">Open navigation menu</span>
-						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-						<XIcon v-else class="block h-6 w-6" aria-hidden="true" />
-					</DisclosureButton>
+						<MenuIcon class="h-6 w-6" aria-hidden="true" />
+					</PopoverButton>
 				</div>
 			</div>
 		</div>
-		<transition enter-active-class="motion-safe:transition ease-out motion-safe:duration-300 delay-100" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="motion-safe:transition ease-in motion-safe:duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+		<transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100"
+			leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
 			<!-- Hide the menu at the medium breakpoint. -->
-			<DisclosurePanel class="md:hidden">
-				<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-100 border-purple-600 text-purple-600' : 'border-transparent text-gray-500 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+			<PopoverPanel class="absolute top-0 inset-x-0 p-2 motion-safe:transition transform origin-top-right md:hidden">
+				<div class="px-2 sm:px-4 bg-white ring-black ring-1 ring-opacity-5 rounded-2xl shadow-2xl" focus>
+					<div class="flex items-center justify-between py-2">
+						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+							<img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
+							<span class="sr-only">{{ navigation.logo.textContent }}</span>
+							<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
+							<component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
+						</a>
+						<div class="sm:-mr-2">
+							<PopoverButton class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500
+								motion-safe:transition-colors motion-safe:duration-300">
+								<span class="sr-only">Close navigation menu</span>
+								<XIcon class="h-6 w-6" aria-hidden="true" />
+							</PopoverButton>
+						</div>
+					</div>
+					<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
+						<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 bg-gray-100' :
+							'text-gray-500 hover:text-gray-600 hover:bg-gray-200 motion-safe:transition-colors motion-safe:duration-300', 'flex items-center p-3 rounded-md cursor-pointer']">
+							<span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-md bg-purple-600">
+								<component :is="item.icon" class="h-6 w-6 text-gray-50" aria-hidden="true" />
+							</span>
+							<p class="ml-4 text-base font-medium truncate">{{ item.name }}</p>
+						</a>
+					</div>
+					<div class="flex flex-wrap justify-center px-4 border-t border-gray-300">
+						<!--TODO: serverless func for username, etc.? -->
+						<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="mx-3 my-2 text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+							<span class="sr-only">{{ item.name }}</span>
+							<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+						</a>
+					</div>
 				</div>
-				<div class="flex justify-center px-4 py-2 border-t border-gray-300 space-x-6">
-					<!--TODO: serverless func for username, etc.? -->
-					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
-						<span class="sr-only">{{ item.name }}</span>
-						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
-					</a>
-				</div>
-			</DisclosurePanel>
+			</PopoverPanel>
 		</transition>
-	</Disclosure>
+	</Popover>
 	<!-- The button for scrolling to the top. -->
-	<button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" title="Scroll to the top.">
+	<button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800
+		focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" title="Scroll to the top.">
 		<ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
 	</button>
 </template>
 
 <script>
 import { defineComponent, h, ref } from "vue";
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { ArrowUpIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { AcademicCapIcon, ArrowUpIcon, CollectionIcon, HomeIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 
 export default {
 	components: {
+		AcademicCapIcon,
 		ArrowUpIcon,
-		Disclosure,
-		DisclosureButton,
-		DisclosurePanel,
+		CollectionIcon,
+		HomeIcon,
 		MenuIcon,
+		Popover,
+		PopoverButton,
+		PopoverPanel,
 		XIcon
 	},
 	methods: {
@@ -141,16 +169,18 @@ export default {
 				this.activeIndex = activeIndex;
 				Array.prototype.forEach.call(this.navItems, (element, index) => {
 					if (index === activeIndex) {
-						element.classList.remove("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
 						element.classList.add("text-purple-600");
+						element.classList.remove("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
+						element.ariaCurrent = "page";
 					}
 					else {
-						element.classList.remove("text-purple-600");
 						element.classList.add("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
+						element.classList.remove("text-purple-600");
+						element.ariaCurrent = null;
 					} // end if...else
 				});
-				
-				if (this.mobileNavItems !== null) {
+
+				if (this.mobileNavItems) {
 					this.updateMobileNavItemsStatus();
 				} // end if
 			} // end if
@@ -159,16 +189,18 @@ export default {
 		// Update the mobile navbar items' styles.
 		updateMobileNavItemsStatus() {
 			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
-					if (index === this.activeIndex) {
-						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
-						element.classList.add("bg-purple-100" ,"border-purple-600", "text-purple-600");
-					}
-					else {
-						element.classList.remove("bg-purple-100" ,"border-purple-600", "text-purple-600");
-						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
-					} // end if...else
-				});
-		}, // end function updateMobileNavItemsStatus
+				if (index === this.activeIndex) {
+					element.classList.add("text-purple-600", "bg-gray-100");
+					element.classList.remove("text-gray-500", "hover:text-gray-600", "hover:bg-gray-200", "motion-safe:transition-colors", "motion-safe:duration-300");
+					element.ariaCurrent = "page";
+				}
+				else {
+					element.classList.add("text-gray-500", "hover:text-gray-600", "hover:bg-gray-200", "motion-safe:transition-colors", "motion-safe:duration-300");
+					element.classList.remove("text-purple-600", "bg-gray-100");
+					element.ariaCurrent = null;
+				} // end if...else
+			});
+		} // end function updateMobileNavItemsStatus
 	},
 	data() {
 		return {
@@ -189,13 +221,19 @@ export default {
 						h("svg", { viewBox: "0 0 1200 141" }, [
 							h("g", { class: "fill-current", transform: "translate(0,141) scale(0.1,-0.1)", stroke: "none" }, [
 								h("path", { d: "M4393 1361 c-40 -25 -53 -49 -53 -101 0 -34 6 -48 34 -76 28 -28 42 -34 75 -34 23 0 56 7 72 16 37 19 63 75 55 119 -15 76 -116 118 -183 76z" }),
-								h("path", { d: "M8100 700 l0 -660 95 0 95 0 0 266 0 266 36 54 c68 102 185 184 264 184 58 0 100 -40 111 -106 4 -27 8 -187 8 -356 l1 -308 96 0 96 0 -4 358 c-5 403 -10 434 -78 502 -126 126 -323 110 -482 -38 l-48 -45 0 272 0 271 -95 0 -95 0 0 -660z" }),
-								h("path", { d: "M1405 1298 c-13 -36 -395 -1248 -395 -1252 0 -3 44 -6 98 -6 l97 0 43 135 42 135 209 0 208 0 43 -135 44 -135 106 0 107 0 -201 633 -202 632 -97 3 c-72 2 -99 -1 -102 -10z m174 -584 c39 -121 71 -226 71 -232 0 -9 -42 -12 -150 -12 -110 0 -150 3 -150 12 0 27 144 468 151 461 4 -5 39 -107 78 -229z" }),
-								h("path", { d: "M7099 1248 c0 -35 -2 -71 -4 -80 -3 -17 16 -18 277 -18 262 0 280 -1 276 -17 -3 -10 -132 -222 -287 -472 l-281 -454 0 -84 0 -83 420 0 420 0 0 85 0 85 -295 0 c-192 0 -295 4 -295 10 0 6 128 217 285 471 l285 461 0 79 0 79 -400 0 -400 0 -1 -62z" }),
+								h("path", { d: "M8100 700 l0 -660 95 0 95 0 0 266 0 266 36 54 c68 102 185 184 264 184 58 0 100 -40 111 -106 4 -27 8 -187 8 -356 l1 -308 96 0 96 0 -4 358 c-5 403 -10 434 -78 502 -126 126 -323 110 -482 -38 l-48 -45 0 272 0 271 "
+									+ "-95 0 -95 0 0 -660z" }),
+								h("path", { d: "M1405 1298 c-13 -36 -395 -1248 -395 -1252 0 -3 44 -6 98 -6 l97 0 43 135 42 135 209 0 208 0 43 -135 44 -135 106 0 107 0 -201 633 -202 632 -97 3 c-72 2 -99 -1 -102 -10z m174 -584 c39 -121 71 -226 71 -232 0 -9 "
+									+ "-42 -12 -150 -12 -110 0 -150 3 -150 12 0 27 144 468 151 461 4 -5 39 -107 78 -229z" }),
+								h("path", { d: "M7099 1248 c0 -35 -2 -71 -4 -80 -3 -17 16 -18 277 -18 262 0 280 -1 276 -17 -3 -10 -132 -222 -287 -472 l-281 -454 0 -84 0 -83 420 0 420 0 0 85 0 85 -295 0 c-192 0 -295 4 -295 10 0 6 128 217 285 471 l285 461 0 "
+									+ "79 0 79 -400 0 -400 0 -1 -62z" }),
 								h("path", { d: "M2648 980 c-74 -13 -153 -54 -213 -111 l-55 -52 0 72 0 71 -95 0 -95 0 0 -460 0 -460 95 0 95 0 0 266 0 265 39 57 c78 116 181 186 263 180 l41 -3 -2 -97 -2 -98 95 0 96 0 0 174 0 174 -42 10 c-64 16 -167 22 -220 12z" }),
-								h("path", { d: "M5554 980 c-64 -13 -142 -57 -199 -111 -29 -27 -55 -49 -59 -49 -4 0 -6 32 -4 70 l3 70 -95 0 -95 0 3 -460 2 -460 90 0 90 0 0 256 c0 297 -2 290 98 396 109 115 218 150 280 89 16 -17 32 -44 36 -62 3 -17 6 -177 6 -355 l0 -324 96 0 96 0 -4 367 c-3 362 -3 369 -27 421 -51 114 -187 179 -317 152z" }),
-								h("path", { d: "M10402 979 c-122 -21 -250 -116 -305 -229 -126 -258 -32 -583 200 -693 65 -31 73 -32 193 -32 120 0 128 1 193 32 282 134 346 575 116 806 -67 66 -135 101 -229 116 -74 12 -94 12 -168 0z m196 -181 c87 -41 134 -146 134 -299 0 -199 -91 -319 -242 -319 -69 0 -125 25 -169 75 -43 49 -58 86 -72 174 -21 141 25 296 106 353 69 49 160 55 243 16z" }),
-								h("path", { d: "M9395 952 c-158 -54 -274 -188 -320 -367 -20 -77 -20 -243 0 -320 27 -103 89 -178 183 -222 113 -53 271 -12 386 99 l56 54 6 -36 c3 -19 9 -53 13 -75 l7 -40 100 -3 101 -3 -18 68 c-16 59 -18 119 -18 459 l-1 391 -152 6 c-227 10 -288 8 -343 -11z m293 -156 c9 -5 12 -54 12 -180 l0 -172 -31 -48 c-40 -65 -126 -149 -177 -175 -143 -73 -241 36 -230 254 9 165 88 284 218 326 30 10 190 6 208 -5z" }),
+								h("path", { d: "M5554 980 c-64 -13 -142 -57 -199 -111 -29 -27 -55 -49 -59 -49 -4 0 -6 32 -4 70 l3 70 -95 0 -95 0 3 -460 2 -460 90 0 90 0 0 256 c0 297 -2 290 98 396 109 115 218 150 280 89 16 -17 32 -44 36 -62 3 -17 6 -177 6 "
+									+ "-355 l0 -324 96 0 96 0 -4 367 c-3 362 -3 369 -27 421 -51 114 -187 179 -317 152z" }),
+								h("path", { d: "M10402 979 c-122 -21 -250 -116 -305 -229 -126 -258 -32 -583 200 -693 65 -31 73 -32 193 -32 120 0 128 1 193 32 282 134 346 575 116 806 -67 66 -135 101 -229 116 -74 12 -94 12 -168 0z m196 -181 c87 -41 134 -146 "
+									+ "134 -299 0 -199 -91 -319 -242 -319 -69 0 -125 25 -169 75 -43 49 -58 86 -72 174 -21 141 25 296 106 353 69 49 160 55 243 16z" }),
+								h("path", { d: "M9395 952 c-158 -54 -274 -188 -320 -367 -20 -77 -20 -243 0 -320 27 -103 89 -178 183 -222 113 -53 271 -12 386 99 l56 54 6 -36 c3 -19 9 -53 13 -75 l7 -40 100 -3 101 -3 -18 68 c-16 59 -18 119 -18 459 l-1 391 -152 "
+									+ "6 c-227 10 -288 8 -343 -11z m293 -156 c9 -5 12 -54 12 -180 l0 -172 -31 -48 c-40 -65 -126 -149 -177 -175 -143 -73 -241 36 -230 254 9 165 88 284 218 326 30 10 190 6 208 -5z" }),
 								h("path", { d: "M3042 868 c23 -51 114 -257 204 -458 l163 -365 92 0 91 0 204 453 c112 249 204 455 204 458 0 3 -43 3 -96 2 l-96 -3 -145 -320 c-80 -176 -148 -324 -153 -328 -4 -4 -73 140 -153 320 l-146 328 -105 3 -105 3 41 -93z" }),
 								h("path", { d: "M4110 880 l0 -80 125 0 125 0 0 -380 0 -380 220 0 220 0 0 80 0 80 -125 0 -125 0 0 380 0 380 -220 0 -220 0 0 -80z" }),
 							])
@@ -203,9 +241,9 @@ export default {
 				})
 			},
 			header: [
-				{ name: "Home", anchor: "#home", active: true },
-				{ name: "Projects", anchor: "#projects", active: false },
-				{ name: "Education", anchor: "#education", active: false }
+				{ icon: HomeIcon, name: "Home", anchor: "#home", active: true },
+				{ icon: CollectionIcon, name: "Projects", anchor: "#projects", active: false },
+				{ icon: AcademicCapIcon, name: "Education", anchor: "#education", active: false }
 			],
 			social: [
 				{

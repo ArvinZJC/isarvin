@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.0.3.20210822
+ * @Version: 1.0.4.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 08:12:53
+ * @LastEditTime: 2021-08-22 15:26:22
 -->
 
 <template>
@@ -43,7 +43,9 @@
             <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="hidden lg:block lg:flex-shrink-0 h-64 xl:h-80 w-64 xl:w-80 rounded-full border-2 border-purple-200" />
             <div class="relative lg:ml-10">
                 <svg class="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 h-36 w-36 text-purple-300 opacity-50" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
-                    <path stroke-width="2" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
+                    <path stroke-width="2" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821
+                        17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93
+                        2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
                 </svg>
                 <blockquote class="relative">
                     <p class="font-serif italic text-justify text-xl leading-9 text-gray-900">
@@ -70,7 +72,7 @@
 
 <script>
 import { MailIcon } from "@heroicons/vue/outline";
-import SteveJobs from "../assets/SteveJobs.jpg";
+import SteveJobs from "../../assets/SteveJobs.jpg";
 
 export default {
     components: { MailIcon },

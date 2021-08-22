@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.8.20210822
+ * @Version: 1.0.9.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 13:45:32
+ * @LastEditTime: 2021-08-22 19:20:47
 -->
 
 <template>
@@ -26,7 +26,7 @@
             </div>
             <!-- Project cards. -->
             <div class="max-w-lg lg:max-w-none mt-12 mx-auto grid gap-5 lg:grid-cols-3">
-                <div v-for="project in projects" :key="project.title" class="flex flex-col rounded-2xl shadow-lg overflow-hidden">
+                <div v-for="project in projects" :key="project.title" class="flex flex-col ring-black ring-1 ring-opacity-5 rounded-2xl shadow-lg overflow-hidden">
                     <div class="flex-shrink-0 bg-purple-100">
                         <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.title" />
                     </div>
@@ -40,7 +40,8 @@
                         </div>
                         <div class="mt-6 flex items-center">
                             <!-- TODO: URL? -->
-                            <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-purple-600 hover:bg-purple-800 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                            <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-purple-600 hover:bg-purple-800 motion-safe:transition-colors motion-safe:duration-300
+                                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                                 <span class="relative z-10 text-base font-medium text-gray-50">Explore</span>
                                 <div class="motion-safe:liquid" />
                             </button>
@@ -57,8 +58,9 @@
                         </TransitionChild>
                         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
                         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                        <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-                            <div class="inline-block align-bottom sm:align-middle bg-white rounded-2xl sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform motion-safe:transition-all sm:max-w-sm sm:w-full">
+                        <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100"
+                            leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                            <div class="inline-block align-bottom sm:align-middle bg-white ring-black ring-1 ring-opacity-5 rounded-2xl sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform motion-safe:transition-all sm:max-w-sm sm:w-full">
                                 <div>
                                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
                                         <ExclamationCircleIcon class="h-6 w-6 text-yellow-600" aria-hidden="true" />
@@ -71,7 +73,8 @@
                                     </div>
                                 </div>
                                 <div class="mt-5 sm:mt-6">
-                                    <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition-colors motion-safe:duration-300">Alright</button>
+                                    <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-800 motion-safe:transition-colors
+                                        motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">Alright</button>
                                 </div>
                             </div>
                         </TransitionChild>
@@ -86,9 +89,9 @@
 import { ref } from "vue";
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
-import ShSzStockHelperWindowsBanner from "../assets/ShSzStockHelper-Windows_banner.png";
-import TgStickerPorterBanner from "../assets/TgStickerPorter_banner.png";
-import WeiboEmojiBanner from "../assets/WeiboEmoji_banner.png";
+import ShSzStockHelperWindowsBanner from "../../assets/ShSzStockHelper-Windows_banner.png";
+import TgStickerPorterBanner from "../../assets/TgStickerPorter_banner.png";
+import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
 
 export default {
     components: {
@@ -113,7 +116,8 @@ export default {
                 imageUrl: WeiboEmojiBanner,
                 category: { name: "Active", style: "bg-green-100 text-green-800" },
                 title: "WeiboEmoji",
-                description: "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. What I have done to save your time is to basically categorise them according to their meanings.",
+                description: "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. "
+                    + "What I have done to save your time is to basically categorise them according to their meanings.",
                 route: "#"
             },
             {

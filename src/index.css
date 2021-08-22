@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 08:11:12
+ * @LastEditTime: 2021-08-22 08:40:18
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -211,4 +211,4 @@
             transform: translate3d(85px, 0, 0);
         }
     }
-};
+}

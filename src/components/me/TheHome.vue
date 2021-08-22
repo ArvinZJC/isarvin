@@ -1,16 +1,17 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.7.20210822
+ * @Version: 1.1.8.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 08:13:11
+ * @LastEditTime: 2021-08-22 18:47:56
 -->
 
 <template>
 	<!-- Banner. -->
-	<transition enter-active-class="motion-safe:transition ease-out motion-safe:duration-300 delay-500" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="motion-safe:transition ease-in motion-safe:duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-		<div v-if="!isBannerDismissed" class="fixed w-full z-30 mt-16">
+	<transition enter-active-class="ease-out motion-safe:duration-300 delay-500" enter-from-class="opacity-0" enter-to-class="opacity-100"
+		leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100" leave-to-class="opacity-0">
+		<div v-if="!isBannerDismissed" class="fixed w-full z-30 mt-16 motion-safe:transition-opacity">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
 				<div class="rounded-lg bg-purple-600 bg-opacity-90 shadow-xl p-2">
 					<div class="flex items-center justify-between flex-wrap">
@@ -42,8 +43,8 @@
 			<div class="hidden sm:block h-px" />
 			<!-- Bio card. -->
 			<div class="z-10 mt-16 sm:mt-0">
-				<img class="relative border-2 border-gray-50 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
-				<div class="max-w-7xl rounded-2xl bg-gray-900 bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
+				<img class="relative border-2 border-gray-50 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
+				<div class="max-w-7xl rounded-2xl bg-black bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
 					<h1 class="text-center tracking-tight">
 						<span class="block font-extrabold text-3xl sm:text-4xl text-gray-50">Arvin Zhao</span>
 						<span class="block font-bold text-xl text-purple-100">
