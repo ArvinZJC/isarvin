@@ -1,20 +1,20 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.0.1.20210808
+ * @Version: 1.0.3.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 21:42:39
+ * @LastEditTime: 2021-08-22 08:12:53
 -->
 
 <template>
     <!-- Mail to me. -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-4 lg:pt-6 pb-12 sm:pb-20 lg:pb-24">
         <div class="flex justify-center items-center">
-            <span class="h-12 w-12 rounded-full flex items-center justify-center mr-6 px-2 bg-purple-600 ripple">
+            <span class="h-12 w-12 rounded-full flex items-center justify-center mr-6 px-2 bg-purple-600 motion-safe:ripple">
                 <MailIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
             </span>
-            <a href="mailto:SteveJobz@isarvin.com" class="font-semibold text-xl text-purple-400 hover:text-purple-600 transition-colors duration-300 break-all">SteveJobz@isarvin.com</a>
+            <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-purple-400 hover:text-purple-600 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
         </div>
         <p class="max-w-2xl mx-auto mt-6 text-center text-sm text-gray-300">Don't get me wrong! Steve Jobz is Arvin. Arvin is me. I'm good at Hello World, so I'm on top of the world.😛</p>
     </div>

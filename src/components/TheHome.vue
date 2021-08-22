@@ -1,29 +1,29 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.5.20210808
+ * @Version: 1.1.7.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 02:15:38
+ * @LastEditTime: 2021-08-22 08:13:11
 -->
 
 <template>
 	<!-- Banner. -->
-	<transition enter-active-class="transition ease-out duration-300 delay-500" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+	<transition enter-active-class="motion-safe:transition ease-out motion-safe:duration-300 delay-500" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="motion-safe:transition ease-in motion-safe:duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
 		<div v-if="!isBannerDismissed" class="fixed w-full z-30 mt-16">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
 				<div class="rounded-lg bg-purple-600 bg-opacity-90 shadow-xl p-2">
 					<div class="flex items-center justify-between flex-wrap">
 						<div class="w-0 flex-1 flex items-center">
-							<span class="flex p-2 rounded-lg bg-purple-800">
+							<span class="flex p-2 rounded-lg bg-purple-800 shadow-md">
 								<SpeakerphoneIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
 							</span>
 							<div class="mx-2 sm:mx-3 overflow-hidden">
-								<p id="banner-text" class="font-medium text-gray-50 whitespace-nowrap">Hi there!🎉 Welcome to my brand-new personal website!😆</p>
+								<p id="banner-text" class="font-medium text-gray-50 motion-safe:whitespace-nowrap">Hi there!🎉 Welcome to my brand-new personal website!😆</p>
 							</div>
 						</div>
 						<div class="flex-shrink-0 sm:order-3">
-							<button type="button" class="flex p-2 rounded-md text-gray-50 hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-gray-50 transition-colors duration-300">
+							<button type="button" class="flex p-2 rounded-lg text-gray-50 hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300">
 								<span class="sr-only">Dismiss</span>
 								<XIcon class="h-6 w-6" aria-hidden="true" v-on:click="isBannerDismissed = true" />
 							</button>
@@ -43,16 +43,16 @@
 			<!-- Bio card. -->
 			<div class="z-10 mt-16 sm:mt-0">
 				<img class="relative border-2 border-gray-50 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
-				<div class="max-w-7xl rounded-lg bg-gray-900 bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
+				<div class="max-w-7xl rounded-2xl bg-gray-900 bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
 					<h1 class="text-center tracking-tight">
 						<span class="block font-extrabold text-3xl sm:text-4xl text-gray-50">Arvin Zhao</span>
-						<span class="block font-bold text-xl text-purple-400">
-							PGT student (<a href="https://www.gla.ac.uk/" target="_blank" class="underline hover:text-purple-200 transition-colors duration-300">@UofG</a>) & developer
+						<span class="block font-bold text-xl text-purple-100">
+							PGT student (<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-purple-400 hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300">@UofG</a>) & developer
 						</span>
 					</h1>
 					<p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-purple-200">
 						Arvin is my English name, and my real name is Jichen. I'm an introverted tech geek who always tries to be talkative.
-						I'm pretty into exploring software, apps, APIs, AI, etc.
+						I fancy exploring software, apps, APIs, AI, etc.
 						I could speak Mandarin and English. Could I be said to have a British accent?🤔
 					</p>
 				</div>
@@ -62,7 +62,7 @@
 				<defs>
 					<path id="smooth-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
 				</defs>
-				<g class="waves">
+				<g class="motion-safe:waves">
 					<use class="fill-current text-indigo-100 opacity-70" xlink:href="#smooth-wave" x="48" y="0" />
 					<use class="fill-current text-indigo-100 opacity-50" xlink:href="#smooth-wave" x="48" y="3" />
 					<use class="fill-current text-indigo-100 opacity-30" xlink:href="#smooth-wave" x="48" y="5" />
@@ -70,7 +70,7 @@
 				</g>
 			</svg>
 			<!-- Bubble animation. -->
-			<ul id="bubble-animation" class="bubbles absolute top-0 w-full overflow-hidden">
+			<ul id="bubble-animation" class="motion-safe:bubbles absolute top-0 w-full overflow-hidden">
 				<li></li>
 				<li></li>
 				<li></li>
@@ -98,10 +98,10 @@ export default {
 			
 			if (bannerText) {
 				if (bannerText.scrollWidth > bannerText.offsetWidth) {
-					bannerText.classList.add("marquee");
+					bannerText.classList.add("motion-safe:marquee");
 				}
 				else {
-					bannerText.classList.remove("marquee");
+					bannerText.classList.remove("motion-safe:marquee");
 				} // end if...else
 			} // end if
 		}, // end function autoScrollBannerText

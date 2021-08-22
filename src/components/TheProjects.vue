@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.6.20210808
+ * @Version: 1.0.7.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 21:26:39
+ * @LastEditTime: 2021-08-22 08:12:49
 -->
 
 <template>
@@ -19,14 +19,14 @@
                 <h2 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900">Projects</h2>
                 <!-- TODO: global variable: GitHub link? -->
                 <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-500">
-                    My five years’ uni life is so incredibly fulfiling, devoting a part of my spare time to several projects.
-                    Most of them, either active or archived, are hosted on <a href="https://github.com/ArvinZJC" target="_blank" class="text-purple-400 hover:text-purple-600 transition-colors duration-300">GitHub</a>.
-                    I’ve still got a long way to go before becoming a big potato. Would I reach the end one day?🐌
+                    I reckon my five years’ uni life is so incredibly fulfiling, devoting a part of my spare time to several projects.
+                    Most of them, either active or archived, are hosted on <a href="https://github.com/ArvinZJC" target="_blank" class="underline text-purple-400 hover:text-purple-600 motion-safe:transition-colors motion-safe:duration-300">GitHub</a>.
+                    I’ve still got a pretty long way to go. Would I reach the end one day?🐌
                 </p>
             </div>
             <!-- Project cards. -->
             <div class="max-w-lg lg:max-w-none mt-12 mx-auto grid gap-5 lg:grid-cols-3">
-                <div v-for="project in projects" :key="project.title" class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <div v-for="project in projects" :key="project.title" class="flex flex-col rounded-2xl shadow-lg overflow-hidden">
                     <div class="flex-shrink-0 bg-purple-100">
                         <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.title" />
                     </div>
@@ -40,9 +40,9 @@
                         </div>
                         <div class="mt-6 flex items-center">
                             <!-- TODO: URL? -->
-                            <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 text-base font-medium text-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                                <span class="relative z-10">Explore</span>
-                                <div class="liquid" />
+                            <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-purple-600 hover:bg-purple-800 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                                <span class="relative z-10 text-base font-medium text-gray-50">Explore</span>
+                                <div class="motion-safe:liquid" />
                             </button>
                         </div>
                     </div>
@@ -52,13 +52,13 @@
             <TransitionRoot as="template" :show="open">
                 <Dialog as="div" static class="fixed z-50 inset-0 overflow-y-auto" @close="open = false" :open="open">
                     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                        <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-300" leave-from="opacity-100" leave-to="opacity-0">
-                            <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                        <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100" leave-to="opacity-0">
+                            <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 motion-safe:transition-opacity" />
                         </TransitionChild>
                         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
                         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                        <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-                            <div class="inline-block align-bottom sm:align-middle bg-white rounded-lg sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform transition-all sm:max-w-sm sm:w-full">
+                        <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                            <div class="inline-block align-bottom sm:align-middle bg-white rounded-2xl sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform motion-safe:transition-all sm:max-w-sm sm:w-full">
                                 <div>
                                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
                                         <ExclamationCircleIcon class="h-6 w-6 text-yellow-600" aria-hidden="true" />
@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-5 sm:mt-6">
-                                    <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300">Alright</button>
+                                    <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition-colors motion-safe:duration-300">Alright</button>
                                 </div>
                             </div>
                         </TransitionChild>
@@ -127,6 +127,14 @@ export default {
         const open = ref(false);
 
         return { projects, open };
+    },
+    mounted() {
+        // Disable the liquid animation of buttons on touchscreens.
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+            Array.prototype.forEach.call(document.getElementsByClassName("liquid"), (element) => {
+                element.style.display = "none";
+            });
+        } // end if
     }
 };
 </script>

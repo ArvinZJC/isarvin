@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.0.1.20210808
+ * @Version: 1.0.3.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 21:29:00
+ * @LastEditTime: 2021-08-22 06:29:53
 -->
 
 <template>
@@ -41,7 +41,7 @@
                                         <component :is="event.icon" class="h-5 w-5 text-gray-50" aria-hidden="true" />
                                     </span>
                                 </div>
-                                <a v-if="event.hasLink" :href="event.href" target="_blank" class="text-sm text-purple-400 hover:text-purple-600 transition-colors duration-300 pt-1.5">{{ event.content }}</a>
+                                <a v-if="event.hasLink" :href="event.href" target="_blank" class="underline text-sm text-purple-400 hover:text-purple-600 motion-safe:transition-colors motion-safe:duration-300 pt-1.5">{{ event.content }}</a>
                                 <p v-else class="text-sm text-gray-500 pt-1.5">{{ event.content }}</p>
                             </template>
                         </div>
@@ -97,7 +97,7 @@ export default {
                 type: "name"
             },
             {
-                content: "BS in Software Development, 90+ (average)",
+                content: "Software Development, 90+ (average)",
                 icon: CheckIcon,
                 iconBackground: "bg-green-500",
                 type: "highlight"
@@ -121,7 +121,7 @@ export default {
                 type: "name"
             },
             {
-                content: "BS in Computer Science, First-Class Honours",
+                content: "BS (Hons) in Computer Science, First-Class Honours",
                 icon: CheckIcon,
                 iconBackground: "bg-green-500",
                 type: "highlight"

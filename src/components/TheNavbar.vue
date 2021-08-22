@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.3.0.20210808
+ * @Version: 1.3.5.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-08 16:16:15
+ * @LastEditTime: 2021-08-22 07:54:39
 -->
 
 <template>
@@ -13,7 +13,7 @@
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
 					<div class="flex-shrink-0 flex">
-						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 transition-colors duration-300">
+						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
 							<img class="ml-2 h-8 w-8" src="../assets/Arvin_icon.png" alt="Arvin: icon" />
 							<span class="sr-only">{{ navigation.logo.textContent }}</span>
 							<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
@@ -23,21 +23,21 @@
 					<!-- Show navigation items at the medium breakpoint. -->
 					<div class="hidden md:block md:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
-							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' : 'text-gray-500 hover:text-gray-900 transition-colors duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' : 'text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
 				<!-- Show my social links at the medium breakpoint. -->
 				<div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
-					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
+					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">{{ item.name }}</span>
 						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 					</a>
 				</div>
 				<!-- Hide the menu button at the medium breakpoint. -->
 				<div class="-mr-2 flex items-center md:hidden">
-					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-300">
+					<DisclosureButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">Open navigation menu</span>
 						<MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
 						<XIcon v-else class="block h-6 w-6" aria-hidden="true" />
@@ -45,15 +45,15 @@
 				</div>
 			</div>
 		</div>
-		<transition enter-active-class="transition ease-out duration-300" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+		<transition enter-active-class="motion-safe:transition ease-out motion-safe:duration-300 delay-100" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="motion-safe:transition ease-in motion-safe:duration-300" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
 			<!-- Hide the menu at the medium breakpoint. -->
 			<DisclosurePanel class="md:hidden">
 				<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-100 border-purple-600 text-purple-600' : 'border-transparent text-gray-500 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-900 transition-colors duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+					<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'bg-purple-100 border-purple-600 text-purple-600' : 'border-transparent text-gray-500 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 				</div>
 				<div class="flex justify-center px-4 py-2 border-t border-gray-300 space-x-6">
 					<!--TODO: serverless func for username, etc.? -->
-					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 transition-colors duration-300">
+					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">{{ item.name }}</span>
 						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 					</a>
@@ -62,7 +62,7 @@
 		</transition>
 	</Disclosure>
 	<!-- The button for scrolling to the top. -->
-	<button v-if="!isTop" @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-300 shadow-xl" title="Scroll to the top.">
+	<button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" title="Scroll to the top.">
 		<ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
 	</button>
 </template>
@@ -101,41 +101,52 @@ export default {
 		// Get the mobile navbar items.
 		getMobileNavItems() {
 			setTimeout(() => {
-				this.mobileNavItems = document.querySelector("#mobileNavItems").getElementsByTagName("a");
-				this.updateMobileNavItemsStatus();
+				var mobileNav = document.querySelector("#mobileNavItems");
+
+				if (mobileNav) {
+					this.mobileNavItems = null;
+					this.mobileNavItems = mobileNav.getElementsByTagName("a");
+					this.updateMobileNavItemsStatus();
+				}
+				else {
+					this.mobileNavItems = null;
+				}
 			}, 300); // Need delay to make sure the mobile navbar items have been loaded.
 		}, // end function getMobileNavItems
 
 		// Handle scrolling behaviour for the navbar items.
 		handleScroll() {
 			var activeIndex;
+			var scrollToTopButton = document.getElementById("scroll-to-top");
 			Array.prototype.forEach.call(this.sections, (element, index) => {
 				// The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
 				if (element.offsetTop - document.querySelector("#navbar").offsetHeight <= window.pageYOffset
-				|| window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
+					|| window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
 					activeIndex = index;
-
-					// Show the button for scrolling to the top if the active navbar item is not home.
-					if (index === 0) {
-						this.isTop = true;
-					}
-					else {
-						this.isTop = false;
-					}
 				} // end if
 			});
-			
+
+			// Show the button for scrolling to the top if it satisfies the specified offset threshold to the top. Two sub-conditions are for suiting different situations of the home section (full screen or not).
+			if (window.pageYOffset < screen.height * 2 / 3 && window.pageYOffset < document.getElementById("home").offsetHeight) {
+				scrollToTopButton.classList.add("ease-out", "opacity-0", "translate-y-1");
+				scrollToTopButton.classList.remove("ease-in", "opacity-1", "translate-y-0");
+			}
+			else {
+				scrollToTopButton.classList.add("ease-in", "opacity-1", "translate-y-0");
+				scrollToTopButton.classList.remove("ease-out", "opacity-0", "translate-y-1");
+			} // end if...else
+
 			// Update the active navbar item if necessary.
 			if (activeIndex !== this.activeIndex) {
 				this.activeIndex = activeIndex;
 				Array.prototype.forEach.call(this.navItems, (element, index) => {
 					if (index === activeIndex) {
-						element.classList.remove("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.remove("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
 						element.classList.add("text-purple-600");
 					}
 					else {
 						element.classList.remove("text-purple-600");
-						element.classList.add("text-gray-500", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
 					} // end if...else
 				});
 				
@@ -149,12 +160,12 @@ export default {
 		updateMobileNavItemsStatus() {
 			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
 					if (index === this.activeIndex) {
-						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.remove("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
 						element.classList.add("bg-purple-100" ,"border-purple-600", "text-purple-600");
 					}
 					else {
 						element.classList.remove("bg-purple-100" ,"border-purple-600", "text-purple-600");
-						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "transition-colors", "duration-300");
+						element.classList.add("border-transparent", "text-gray-500", "hover:bg-gray-300", "hover:border-gray-300", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
 					} // end if...else
 				});
 		}, // end function updateMobileNavItemsStatus
@@ -162,7 +173,6 @@ export default {
 	data() {
 		return {
 			activeIndex: 0,
-			isTop: true,
 			mobileNavItems: null,
 			navItems: null,
 			sections: []
