@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.7.20210822
+ * @Version: 1.0.8.20210822
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 08:12:49
+ * @LastEditTime: 2021-08-22 13:45:32
 -->
 
 <template>
@@ -131,9 +131,13 @@ export default {
     mounted() {
         // Disable the liquid animation of buttons on touchscreens.
         if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-            Array.prototype.forEach.call(document.getElementsByClassName("liquid"), (element) => {
-                element.style.display = "none";
-            });
+            var liquidButtons = document.getElementsByClassName("motion-safe:liquid");
+
+            if (liquidButtons) {
+                Array.prototype.forEach.call(liquidButtons, (element) => {
+                    element.style.display = "none";
+                });
+            } // end if
         } // end if
     }
 };
