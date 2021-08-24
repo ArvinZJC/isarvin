@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 23:30:47
+ * @LastEditTime: 2021-08-22 23:53:19
 -->
 
 <template>
@@ -29,5 +29,5 @@ export default {
 			title: "Arvin Zhao"
 		});
 	}
-}
+};
 </script>

@@ -1,19 +1,19 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.4.0.20210822
+ * @Version: 1.5.0.20210824
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 21:48:47
+ * @LastEditTime: 2021-08-24 08:29:18
 -->
 
 <template>
 	<!-- The navbar section. -->
-	<Popover as="nav" class="fixed w-full z-40 bg-white bg-opacity-90 shadow-xl">
+	<Popover as="nav" class="fixed w-full z-40 bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 shadow-xl">
 		<div id="navbar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between h-16">
 				<div class="flex items-center">
-					<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+					<a :href="navigation.logo.href" class="flex text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
 						<img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
 						<span class="sr-only">{{ navigation.logo.textContent }}</span>
 						<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
@@ -22,23 +22,23 @@
 					<!-- Show navigation items at the medium breakpoint. -->
 					<div class="hidden md:block md:ml-6">
 						<div id="navItems" class="flex space-x-4" aria-label="Navigation">
-							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600' :
-								'text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
+							<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 dark:text-purple-300' :
+								'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']"
+								:aria-current="item.active ? 'page' : undefined">{{ item.name }}</a>
 						</div>
 					</div>
 				</div>
 				<!-- Show my social links at the medium breakpoint. -->
 				<div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
-					<!--TODO: serverless func for username, etc.? -->
-					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:gray:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">{{ item.name }}</span>
 						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 					</a>
 				</div>
 				<!-- Hide the menu button at the medium breakpoint. -->
-				<div class="sm:-mr-2 flex items-center md:hidden">
-					<PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500
-						motion-safe:transition-colors motion-safe:duration-300">
+				<div class="flex items-center md:hidden">
+					<PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700
+						focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">Open navigation menu</span>
 						<MenuIcon class="h-6 w-6" aria-hidden="true" />
 					</PopoverButton>
@@ -49,34 +49,33 @@
 			leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
 			<!-- Hide the menu at the medium breakpoint. -->
 			<PopoverPanel class="absolute top-0 inset-x-0 p-2 motion-safe:transition transform origin-top-right md:hidden">
-				<div class="px-2 sm:px-4 bg-white ring-black ring-1 ring-opacity-5 rounded-2xl shadow-2xl" focus>
+				<div class="px-2 sm:px-4 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl shadow-2xl" focus>
 					<div class="flex items-center justify-between py-2">
-						<a :href="navigation.logo.href" class="flex flex-row text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+						<a :href="navigation.logo.href" class="flex text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
 							<img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
 							<span class="sr-only">{{ navigation.logo.textContent }}</span>
 							<!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
 							<component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
 						</a>
-						<div class="sm:-mr-2">
-							<PopoverButton class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500
-								motion-safe:transition-colors motion-safe:duration-300">
-								<span class="sr-only">Close navigation menu</span>
-								<XIcon class="h-6 w-6" aria-hidden="true" />
-							</PopoverButton>
-						</div>
+						<PopoverButton class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2
+							focus:ring-inset focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
+							<span class="sr-only">Close navigation menu</span>
+							<XIcon class="h-6 w-6" aria-hidden="true" />
+						</PopoverButton>
 					</div>
 					<div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-						<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 bg-gray-100' :
-							'text-gray-500 hover:text-gray-600 hover:bg-gray-200 motion-safe:transition-colors motion-safe:duration-300', 'flex items-center p-3 rounded-md cursor-pointer']">
-							<span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-md bg-purple-600">
+						<a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 dark:text-purple-300 bg-gray-100 dark:bg-gray-800' :
+							'text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 motion-safe:transition-colors motion-safe:duration-300',
+							'flex items-center p-3 rounded-lg cursor-pointer']">
+							<span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-lg bg-purple-600">
 								<component :is="item.icon" class="h-6 w-6 text-gray-50" aria-hidden="true" />
 							</span>
 							<p class="ml-4 text-base font-medium truncate">{{ item.name }}</p>
 						</a>
 					</div>
-					<div class="flex flex-wrap justify-center px-4 border-t border-gray-300">
-						<!--TODO: serverless func for username, etc.? -->
-						<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="mx-3 my-2 text-gray-500 hover:text-gray-900 motion-safe:transition-colors motion-safe:duration-300">
+					<div class="flex flex-wrap justify-center px-4 border-t border-gray-300 dark:border-gray-600">
+						<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="mx-3 my-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors
+							motion-safe:duration-300">
 							<span class="sr-only">{{ item.name }}</span>
 							<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 						</a>
@@ -85,28 +84,119 @@
 			</PopoverPanel>
 		</transition>
 	</Popover>
-	<!-- The button for scrolling to the top. -->
-	<button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-800
-		focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" title="Scroll to the top.">
-		<ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
-	</button>
+	<div class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 space-y-4">
+		<!-- The button for scrolling to the top. -->
+		<button @click="navigate('#home')" type="button" id="scroll-to-top" class="rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-2
+			focus:ring-inset focus:ring-gray-50 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" title="Scroll to the top.">
+			<ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+		</button>
+		<!-- The button for opening the settings panel. -->
+		<button @click="open = true" type="button" class="rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50
+			motion-safe:transition-colors motion-safe:duration-300 shadow-xl" title="Open the settings panel.">
+			<CogIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+		</button>
+	</div>
+	<!-- A modal for the settings panel. -->
+	<TransitionRoot as="template" :show="open">
+		<Dialog as="div" static class="fixed z-50 inset-0 overflow-y-auto" @close="open = false" :open="open">
+			<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+				<TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100" leave-to="opacity-0">
+					<DialogOverlay class="fixed inset-0 bg-gray-500 dark:bg-gray-400 bg-opacity-75 dark:bg-opacity-75 motion-safe:transition-opacity" />
+				</TransitionChild>
+				<!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
+				<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+				<TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100"
+					leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+					<div class="inline-block align-bottom sm:align-middle bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl sm:my-8 p-4 pb-6 text-left overflow-hidden shadow-2xl transform
+						motion-safe:transition-all max-w-sm w-full">
+						<div class="flex items-center justify-between">
+							<div class="flex items-center">
+								<span class="flex items-center justify-center py-2">
+									<CogIcon class="h-6 w-6 text-purple-600 dark:text-purple-300" aria-hidden="true" />
+								</span>
+								<div class="mx-2 sm:mx-3">
+									<DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-50">Settings</DialogTitle>
+								</div>
+							</div>
+							<button type="button" class="flex p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset
+								focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
+								<span class="sr-only">Dismiss</span>
+								<XIcon class="h-6 w-6" aria-hidden="true" v-on:click="open = false" />
+							</button>
+						</div>
+						<div class="mt-4">
+							<ul role="list" class="divide-y divide-gray-200">
+								<!-- The appearance setting. -->
+								<Listbox as="li" v-model="selected" class="flex flex-col sm:flex-row justify-between">
+									<div class="flex flex-col">
+										<ListboxLabel class="text-sm font-medium text-gray-700 dark:text-gray-200">Appearance</ListboxLabel>
+										<p class="text-sm text-gray-500 dark:text-gray-400">Customise how the site looks on your device.</p>
+									</div>
+									<div class="relative mt-2 sm:mt-0 sm:ml-4">
+										<ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-purple-500 dark:focus:ring-purple-400
+											focus:border-purple-500 dark:focus:border-purple-400 sm:text-sm">
+											<span class="block text-gray-700 dark:text-gray-200 truncate">{{ selected.name }}</span>
+											<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+												<SelectorIcon class="h-5 w-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
+											</span>
+										</ListboxButton>
+										<transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100"
+											leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+											<ListboxOptions @click="changeAppearance()" class="mt-1 w-full shadow-md max-h-60 rounded-lg py-1 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none sm:text-sm motion-safe:transition
+												transform origin-top-right">
+												<ListboxOption as="template" v-for="theme in themes" :key="theme.id" :value="theme" v-slot="{ active, selected }" class="motion-safe:transition-colors motion-safe:duration-300">
+													<li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
+														<span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">
+															{{ theme.name }}
+														</span>
+														<span v-if="theme.icon" :class="[active ? '' : 'text-purple-600 dark:text-purple-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
+															<component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
+														</span>
+													</li>
+												</ListboxOption>
+											</ListboxOptions>
+										</transition>
+									</div>
+								</Listbox>
+							</ul>
+						</div>
+					</div>
+				</TransitionChild>
+			</div>
+		</Dialog>
+	</TransitionRoot>
 </template>
 
 <script>
 import { defineComponent, h, ref } from "vue";
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { AcademicCapIcon, ArrowUpIcon, CollectionIcon, HomeIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { Dialog, DialogOverlay, DialogTitle, Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, Popover, PopoverButton, PopoverPanel, TransitionChild, TransitionRoot } from "@headlessui/vue";
+import { AcademicCapIcon, ArrowUpIcon, CogIcon, CollectionIcon, HomeIcon, MenuIcon, MoonIcon, SelectorIcon, SunIcon, XIcon } from "@heroicons/vue/outline";
+import { applyTheme } from "../../lib/theme.js";
 
 export default {
 	components: {
 		AcademicCapIcon,
 		ArrowUpIcon,
+		CogIcon,
 		CollectionIcon,
+		Dialog,
+		DialogOverlay,
+		DialogTitle,
 		HomeIcon,
+		Listbox,
+		ListboxButton,
+		ListboxLabel,
+		ListboxOption,
+		ListboxOptions,
 		MenuIcon,
+		MoonIcon,
 		Popover,
 		PopoverButton,
 		PopoverPanel,
+		SelectorIcon,
+		SunIcon,
+		TransitionChild,
+		TransitionRoot,
 		XIcon
 	},
 	methods: {
@@ -169,13 +259,13 @@ export default {
 				this.activeIndex = activeIndex;
 				Array.prototype.forEach.call(this.navItems, (element, index) => {
 					if (index === activeIndex) {
-						element.classList.add("text-purple-600");
-						element.classList.remove("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
+						element.classList.add("text-purple-600", "dark:text-purple-300");
+						element.classList.remove("text-gray-500", "dark:text-gray-400", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
 						element.ariaCurrent = "page";
 					}
 					else {
-						element.classList.add("text-gray-500", "hover:text-gray-900", "motion-safe:transition-colors", "motion-safe:duration-300");
-						element.classList.remove("text-purple-600");
+						element.classList.add("text-gray-500", "dark:text-gray-400", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
+						element.classList.remove("text-purple-600", "dark:text-purple-300");
 						element.ariaCurrent = null;
 					} // end if...else
 				});
@@ -190,17 +280,35 @@ export default {
 		updateMobileNavItemsStatus() {
 			Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
 				if (index === this.activeIndex) {
-					element.classList.add("text-purple-600", "bg-gray-100");
-					element.classList.remove("text-gray-500", "hover:text-gray-600", "hover:bg-gray-200", "motion-safe:transition-colors", "motion-safe:duration-300");
+					element.classList.add("text-purple-600", "dark:text-purple-300", "bg-gray-100", "dark:bg-gray-800");
+					element.classList.remove("text-gray-500", "dark:text-gray-400", "hover:text-gray-600", "dark:hover:text-gray-300", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
 					element.ariaCurrent = "page";
 				}
 				else {
-					element.classList.add("text-gray-500", "hover:text-gray-600", "hover:bg-gray-200", "motion-safe:transition-colors", "motion-safe:duration-300");
-					element.classList.remove("text-purple-600", "bg-gray-100");
+					element.classList.add("text-gray-500", "dark:text-gray-400", "hover:text-gray-600", "dark:hover:text-gray-300", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
+					element.classList.remove("text-purple-600", "dark:text-purple-300", "bg-gray-100", "dark:bg-gray-800");
 					element.ariaCurrent = null;
 				} // end if...else
 			});
-		} // end function updateMobileNavItemsStatus
+		}, // end function updateMobileNavItemsStatus
+
+		// Change the appearance setting.
+		changeAppearance() {
+			if (this.selected.id === 0) {
+				if (localStorage.theme) {
+					localStorage.removeItem("theme"); // Choose to follow the system setting.
+					applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
+				} // end if
+			}
+			else {
+				var themeName = this.selected.name.toLowerCase();
+
+				if (themeName !== localStorage.theme) {
+					localStorage.theme = themeName;
+					applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
+				} // end if
+			} // end if...else
+		}
 	},
 	data() {
 		return {
@@ -211,7 +319,6 @@ export default {
 		};
 	},
 	setup() {
-		const open = ref(false); // Keep the variable name to ensure that the mobile menu icon can change with the menu status.
 		var navigation = {
 			logo: {
 				href: "/",
@@ -308,12 +415,32 @@ export default {
 				}
 			]
 		};
+		const open = ref(false);
+		const themes = [
+			{id: 0, name: "System default", icon: null},
+			{id: 1, name: "Light", icon: SunIcon},
+			{id: 2, name: "Dark", icon: MoonIcon}
+		];
+		var selected;
 
-		return { open, navigation };
+		// Set the current appearance.
+		if (localStorage.theme) {
+			if (localStorage.theme === "light") {
+				selected = ref(themes[1]);
+			}
+			else {
+				selected = ref(themes[2]);
+			} // end if...else
+		}
+		else {
+			selected = ref(themes[0]);
+		} // end if...else
+		
+		return { navigation, open, selected, themes };
 	},
 	mounted() {
 		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
-		Array.prototype.forEach.call(this.navItems, (element) => {
+		Array.prototype.forEach.call(this.navItems, element => {
 			this.sections.push(document.querySelector(element.getAttribute("id")));
 		});
 		window.onscroll = this.handleScroll;

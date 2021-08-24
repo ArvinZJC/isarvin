@@ -1,14 +1,14 @@
 <!--
  * @Description: the view telling who I am
- * @Version: 1.0.3.20210822
+ * @Version: 1.0.4.20210823
  * @Author: Arvin Zhao
  * @Date: 2021-07-11 12:08:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 23:32:05
+ * @LastEditTime: 2021-08-23 13:48:23
 -->
 
 <template>
-	<main class="relative min-h-screen flex-grow bg-gray-50">
+	<main class="relative min-h-screen flex-grow bg-gray-50 dark:bg-gray-900">
 		<TheNavbar />
 		<TheHome />
 		<TheProjects />

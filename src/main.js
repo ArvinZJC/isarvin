@@ -1,10 +1,10 @@
 /*
  * @Description: the app initialiser
- * @Version: 1.1.0.20210822
+ * @Version: 1.1.2.20210823
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 23:13:21
+ * @LastEditTime: 2021-08-23 13:03:50
  */
 
 import smoothscroll from "smoothscroll-polyfill";
@@ -15,6 +15,7 @@ import App from "./App.vue";
 import Me from "./views/Me.vue";
 import NotFound from "./views/404.vue";
 import "./index.css";
+import "./index.js";
 
 smoothscroll.polyfill();
 createApp(App).use(

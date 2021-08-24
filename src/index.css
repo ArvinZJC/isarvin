@@ -1,10 +1,10 @@
 /*
- * @Description: universal stylebook
- * @Version: 1.1.5.20210822
+ * @Description: universal CSS styles
+ * @Version: 1.1.7.20210824
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-22 08:40:18
+ * @LastEditTime: 2021-08-24 00:59:59
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -20,7 +20,7 @@
     /* Bubble animation. */
     .bubbles li {
         animation: bubble-animation 25s linear infinite;
-        @apply absolute list-none h-5 w-5 -bottom-40 bg-gray-50 bg-opacity-20;
+        @apply absolute list-none h-5 w-5 -bottom-40 bg-gray-50 dark:bg-gray-400 bg-opacity-20 dark:bg-opacity-20;
     }
 
     .bubbles li:nth-child(1) {
@@ -110,18 +110,18 @@
     .liquid::before {
         border-radius: 45%;
         animation: liquid-button 5s linear infinite;
-        @apply bg-purple-300;
+        @apply bg-purple-300 dark:bg-purple-400;
     }
 
     .liquid::after {
         border-radius: 40%;
         animation: liquid-button 10s linear infinite;
-        @apply bg-purple-300 bg-opacity-50;
+        @apply bg-purple-300 dark:bg-purple-400 bg-opacity-50 dark:bg-opacity-50;
     }
 
     a:hover .liquid,
     button:hover .liquid {
-        @apply bg-purple-800 -top-14; /* The absolution top position depends on the button's width. */
+        @apply bg-purple-700 dark:bg-purple-500 -top-14; /* The absolution top position depends on the button's width. */
     }
 
     @keyframes liquid-button {
@@ -156,7 +156,11 @@
 
     /* Ripple animation. */
     .ripple {
-        animation: ripple-animation 1s linear infinite;
+        animation: ripple-animation 1s linear infinite; /* Colour: purple-500 */
+    }
+
+    .ripple-dark {
+        animation: ripple-animation-dark 1s linear infinite; /* Colour: purple-400 */
     }
 
     @keyframes ripple-animation {
@@ -174,6 +178,24 @@
                 0 0 0 0.25rem rgba(139, 92, 246, 0.2),
                 0 0 0 0.5rem rgba(139, 92, 246, 0.2),
                 0 0 0 1rem rgba(139, 92, 246, 0);
+        }
+    }
+
+    @keyframes ripple-animation-dark {
+        0% {
+            box-shadow:
+                0 0 0 0 rgba(167, 139, 250, 0.2),
+                0 0 0 0.125rem rgba(167, 139, 250, 0.2),
+                0 0 0 0.25rem rgba(167, 139, 250, 0.2),
+                0 0 0 0.5rem rgba(167, 139, 250, 0.2);
+        }
+
+        100% {
+            box-shadow:
+                0 0 0 0.125rem rgba(167, 139, 250, 0.2),
+                0 0 0 0.25rem rgba(167, 139, 250, 0.2),
+                0 0 0 0.5rem rgba(167, 139, 250, 0.2),
+                0 0 0 1rem rgba(167, 139, 250, 0);
         }
     }
 
