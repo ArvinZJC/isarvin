@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-24 05:18:48
+ * @LastEditTime: 2021-08-24 08:48:08
 -->
 
 <template>
@@ -140,7 +140,7 @@ export default {
             var liquidButtons = document.getElementsByClassName("motion-safe:liquid");
 
             if (liquidButtons) {
-                Array.prototype.forEach.call(liquidButtons, element => {
+                Array.prototype.forEach.call(liquidButtons, (element) => {
                     element.style.display = "none";
                 });
             } // end if

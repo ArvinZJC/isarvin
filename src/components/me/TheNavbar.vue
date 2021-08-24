@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.5.0.20210824
+ * @Version: 1.5.1.20210824
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-24 08:29:18
+ * @LastEditTime: 2021-08-24 08:47:52
 -->
 
 <template>
@@ -30,7 +30,7 @@
 				</div>
 				<!-- Show my social links at the medium breakpoint. -->
 				<div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
-					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:gray:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
+					<a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
 						<span class="sr-only">{{ item.name }}</span>
 						<component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
 					</a>
@@ -440,7 +440,7 @@ export default {
 	},
 	mounted() {
 		this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
-		Array.prototype.forEach.call(this.navItems, element => {
+		Array.prototype.forEach.call(this.navItems, (element) => {
 			this.sections.push(document.querySelector(element.getAttribute("id")));
 		});
 		window.onscroll = this.handleScroll;

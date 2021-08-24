@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-24 00:46:32
+ * @LastEditTime: 2021-08-24 08:47:27
 -->
 
 <template>
@@ -72,7 +72,7 @@ export default {
             happy: { icon: EmojiHappyIcon, background: "bg-blue-500 dark:bg-blue-700" },
             flag: { icon: FlagIcon, background: "bg-pink-500 dark:bg-pink-700" },
             fire: { icon: FireIcon, background: "bg-yellow-500 dark:bg-yellow-700" }
-        }
+        };
         const timeline = [
             {
                 content: "Dalian Jinhua Primary School",
