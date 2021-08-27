@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.10.20210824
+ * @Version: 1.1.11.20210827
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-24 04:04:53
+ * @LastEditTime: 2021-08-27 17:35:26
 -->
 
 <template>
@@ -38,7 +38,7 @@
 	<div id="home" class="flex flex-col sm:h-screen">
 		<!-- Background colour transition for the iOS/iPadOS bounce effect. -->
 		<div class="h-16 w-full bg-gradient-to-t from-indigo-300 dark:from-indigo-500 dark:to-white" />
-		<div class="flex flex-col flex-grow items-center justify-between w-full bg-gradient-to-b from-indigo-300 dark:from-indigo-500 to-purple-600 dark:to-purple-800 overflow-hidden sm:px-6 lg:px-8">
+		<div class="flex flex-col flex-grow items-center justify-between w-full bg-gradient-to-b from-indigo-300 dark:from-indigo-600 to-purple-500 dark:to-purple-800 overflow-hidden sm:px-6 lg:px-8">
 			<!-- Show the placeholder for "justify-between" at the small breakpoint. -->
 			<div class="hidden sm:block h-px" />
 			<!-- Bio card. -->
@@ -93,7 +93,9 @@ import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
 export default {
 	components: { SpeakerphoneIcon, XIcon },
 	methods: {
-		// Auto-scroll the banner text when it is too long.
+		/**
+		 * Auto-scroll the banner text when it is too long.
+		 */
 		autoScrollBannerText() {
 			var bannerText = document.querySelector("#banner-text");
 			
@@ -107,7 +109,9 @@ export default {
 			} // end if
 		}, // end function autoScrollBannerText
 
-		// Set the height of the bubble area according to the height of the home section.
+		/**
+		 * Set the height of the bubble area according to the height of the home section.
+		 */
 		setBubbleAreaHeight() {
 			var home = document.getElementById("home");
 			var bubbles = document.getElementById("bubble-animation");

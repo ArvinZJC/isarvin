@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.11.20210824
+ * @Version: 1.0.12.20210826
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-24 08:48:08
+ * @LastEditTime: 2021-08-26 17:27:54
 -->
 
 <template>
@@ -53,7 +53,7 @@
                 <Dialog as="div" static class="fixed z-50 inset-0 overflow-y-auto" @close="open = false" :open="open">
                     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                         <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100" leave-to="opacity-0">
-                            <DialogOverlay class="fixed inset-0 bg-gray-500 dark:bg-gray-400 bg-opacity-75 dark:bg-opacity-75 motion-safe:transition-opacity" />
+                            <DialogOverlay class="fixed inset-0 bg-gray-500 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 motion-safe:transition-opacity" />
                         </TransitionChild>
                         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
                         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
@@ -131,7 +131,6 @@ export default {
             }
         ];
         const open = ref(false);
-
         return { open, projects };
     },
     mounted() {
