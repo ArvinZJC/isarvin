@@ -1,3 +1,5 @@
+![isarvin_banner.png](./img_README/isarvin_banner.png)
+
 # [isarvin.com](https://isarvin.com)
 
 [![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
@@ -21,7 +23,7 @@
 
 ## 注意
 
-1. 截至2021年8月27日，使用Visual Studio Code（版本：1.59.1）、Node.js 16.4.2和Vue CLI 5.0.0-beta.3开发表现良好。此外，我要特别感谢Tailwind提供的丰富、可扩展的CSS框架和资源，这节省了许多开发时间。
+1. 截至2021年8月27日，使用Visual Studio Code（版本：1.59.1）、Node.js 16.4.2和Vue CLI 5.0.0-beta.3开发表现良好。此外，我要特别感谢Tailwind提供的[丰富、可扩展的CSS框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 项目主要依赖参见下面的表格。
 
     | 名称 | 版本 |
