@@ -15,7 +15,10 @@
 - 响应式布局。
 - 统一设计语言。
 - 支持深色模式。
+- 国际化: English / 简体中文。
 - 无障碍：支持减少动画。
+
+![isarvin_example_zhCN.png](./img_README/isarvin_example_zhCN.png)
 
 网站内容结构如下图。请注意此项目使用[GPL-3.0协议](./LICENSE)。
 
@@ -31,7 +34,8 @@
     | @headlessui/vue | 1.4.0 |
     | @heroicons/vue | 1.0.4 |
     | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) | 0.4.4 |
-    | tailwindcss | 2.2.7 |
-    | vue | 3.2.4 |
+    | tailwindcss | 2.2.8 |
+    | vue | 3.2.6 |
+    | vue-i18n | 9.1.7 |
     | vue-meta | 3.0.0-alpha.9 |
     | vue-router | 4.0.11 |

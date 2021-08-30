@@ -15,7 +15,10 @@ The site is deployed on [Vercel](https://vercel.com/home). It is designed with t
 - Responsive design.
 - Unified styles.
 - Dark mode support.
+- I18n (Internationalisation): English / 简体中文.
 - Accessibility: reduced motion when required.
+
+![isarvin_example.png](./img_README/isarvin_example.png)
 
 The structure of the site is as follows. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
 
@@ -31,7 +34,8 @@ The structure of the site is as follows. Please note that the code is licensed u
     | @headlessui/vue | 1.4.0 |
     | @heroicons/vue | 1.0.4 |
     | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) | 0.4.4 |
-    | tailwindcss | 2.2.7 |
-    | vue | 3.2.4 |
+    | tailwindcss | 2.2.8 |
+    | vue | 3.2.6 |
+    | vue-i18n | 9.1.7 |
     | vue-meta | 3.0.0-alpha.9 |
     | vue-router | 4.0.11 |
