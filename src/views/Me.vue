@@ -1,25 +1,27 @@
 <!--
  * @Description: the view telling who I am
- * @Version: 1.0.4.20210823
+ * @Version: 1.0.6.20210830
  * @Author: Arvin Zhao
  * @Date: 2021-07-11 12:08:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-23 13:48:23
+ * @LastEditTime: 2021-08-30 19:24:14
 -->
 
 <template>
-	<main class="relative min-h-screen flex-grow bg-gray-50 dark:bg-gray-900">
-		<TheNavbar />
-		<TheHome />
-		<TheProjects />
-		<TheEducation />
-		<TheTweeting />
-		<TheFooter />
-	</main>
+  <main class="view-container">
+    <TheNavbar />
+    <TheHome />
+    <TheProjects />
+    <TheEducation />
+    <TheTweeting />
+    <TheFooter />
+  </main>
 </template>
 
 <script>
 import { useMeta } from "vue-meta";
+import { useI18n } from "vue-i18n";
+
 import TheEducation from "../components/me/TheEducation.vue";
 import TheHome from "../components/me/TheHome.vue";
 import TheNavbar from "../components/me/TheNavbar.vue";
@@ -28,19 +30,26 @@ import TheTweeting from "../components/me/TheTweeting.vue";
 import TheFooter from "../components/TheFooter.vue";
 
 export default {
-	components: {
-		TheEducation,
-		TheFooter,
-		TheHome,
-		TheNavbar,
-		TheProjects,
-		TheTweeting
-	},
-	setup() {
-		useMeta({
-			description: "I came to know myself better when I started to build my personal website. So this is Arvin.😉",
-			title: "Arvin Zhao | PGT Student (@UofG) & Developer"
-		});
-	}
+  components: {
+    TheEducation,
+    TheFooter,
+    TheHome,
+    TheNavbar,
+    TheProjects,
+    TheTweeting
+  },
+  setup() {
+    const { t } = useI18n();
+
+    useMeta({
+      description: t("pages.me.description"),
+      title: t("pages.me.title")
+    });
+    window.addEventListener("languagechange", () => {
+      document.querySelector("meta[name='description']").setAttribute("content", t("pages.me.description"));
+      document.title = t("pages.me.title");
+    });
+    return { t };
+  }
 };
 </script>

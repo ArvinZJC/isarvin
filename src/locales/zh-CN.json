@@ -1,0 +1,40 @@
+{
+  "alright": "好吧",
+  "appearance": {
+    "description": "设定网站在您的设备上的外观。",
+    "name": "外观"
+  },
+  "browserDefault": "浏览器默认",
+  "close": "关闭",
+  "closeNavMenu": "关闭导航菜单",
+  "dark": "深色",
+  "dismiss": "清除",
+  "education": "教育",
+  "en": "English",
+  "explore": "瞅瞅",
+  "gh": "GitHub",
+  "home": "主页",
+  "language": {
+    "description": "改变网站显示语言。",
+    "name": "语言"
+  },
+  "leftBracket": "（",
+  "light": "浅色",
+  "openNavMenu": "打开导航菜单",
+  "pages": {
+    "404": {
+      "description": "竟然迷路了……😅",
+      "title": "页面未找到 - Arvin Zhao"
+    },
+    "me": {
+      "description": "建个人网站让我更了解自己了。所以这就是Arvin（俺的英文名）。😉",
+      "title": "Arvin·趙：授课型硕士生（UofG）&开发者"
+    }
+  },
+  "projects": "项目",
+  "rightBracket": "）",
+  "scrollToTop": "回到顶部",
+  "settings": "设置",
+  "systemDefault": "系统默认",
+  "zh-CN": "简体中文"
+}

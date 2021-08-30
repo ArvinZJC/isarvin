@@ -1,0 +1,28 @@
+{
+  "description": [
+    "I reckon my five years’ uni life is so incredibly fulfiling, devoting a part of my spare time to several projects. Most of them, either active or archived, are hosted on ",
+    ". I’ve still got a pretty long way to go. Would I reach the end one day?🐌"
+  ],
+  "info": {
+    "shSzStockHelper": {
+      "intro": "SH/SZ Stock Helper is a Windows app that can mainly search strike prices and volumes for users. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.",
+      "name": "SH/SZ Stock Helper"
+    },
+    "tgStickerPorter": {
+      "intro": "What would happen when a Telegram bot meets with Emoji/stickers and... me?😏",
+      "name": "TG Sticker Porter"
+    },
+    "weiboEmoji": {
+      "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. What I have done to save your time is to basically categorise them according to their meanings.",
+      "name": "Weibo Emoji"
+    }
+  },
+  "pageUnavailable": {
+    "message": "Sorry for loafing around, but the project details page is unavailable because it's still under construction.🏗",
+    "title": "Page under construction"
+  },
+  "status": {
+    "active": "Active",
+    "inWorks": "In the works"
+  }
+}

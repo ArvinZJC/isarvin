@@ -1,0 +1,26 @@
+{
+  "beihang": {
+    "achievements": [
+      "一些奖励语言和专业技能的奖学金",
+      "2019年SQA“理想大使”（中国）"
+    ],
+    "degree": "软件开发，均分90+",
+    "name": "北京航空航天大学"
+  },
+  "jiahui": "大连嘉汇中学",
+  "jiahuiSunshine": "大连嘉汇阳光小学",
+  "jinhua": "大连锦华小学",
+  "uol": {
+    "achievements": [
+      "林肯大学2019学年国际奖学金半奖",
+      "MTA: Software Development Fundamentals证书（2019）"
+    ],
+    "degree": "荣誉学士：计算机科学, 一等学位",
+    "name": "林肯大学"
+  },
+  "uofg": {
+    "degree": "理学硕士：计算科学, 努力ing✍️",
+    "name": "格拉斯哥大学"
+  },
+  "yuming": "大连育明高中"
+}

@@ -1,0 +1,26 @@
+{
+  "beihang": {
+    "achievements": [
+      "Several scholarships awarding study on language and professional skills",
+      "SQA Ambassadors China 2019"
+    ],
+    "degree": "Software Development, 90+ (average)",
+    "name": "Beihang University"
+  },
+  "jiahui": "Dalian Jiahui Middle School",
+  "jiahuiSunshine": "Dalian Jiahui Sunshine Primary School",
+  "jinhua": "Dalian Jinhua Primary School",
+  "uol": {
+    "achievements": [
+      "The University of Lincoln 50% Global Scholarship 2019",
+      "MTA: Software Development Fundamentals - Certified 2019"
+    ],
+    "degree": "BS (Hons) in Computer Science, First-Class Honours",
+    "name": "University of Lincoln"
+  },
+  "uofg": {
+    "degree": "MS in Computing Science, working hard✍️",
+    "name": "University of Glasgow"
+  },
+  "yuming": "Dalian Yuming Senior High School"
+}
