@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.2.0.20210830
+ * @Version: 1.2.1.20210903
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 20:33:51
+ * @LastEditTime: 2021-09-03 22:52:21
 -->
 
 <template>
@@ -22,7 +22,7 @@
         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
         <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-          <div class="inline-block align-bottom sm:align-middle bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl sm:my-8 p-4 pb-6 text-left overflow-hidden shadow-2xl transform motion-safe:transition-all max-w-sm w-full">
+          <div class="inline-block align-bottom sm:align-middle bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl sm:my-8 p-4 pb-6 text-left shadow-2xl transform motion-safe:transition-all max-w-sm w-full">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <span class="flex items-center justify-center py-2">
@@ -38,34 +38,8 @@
               </button>
             </div>
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-              <!-- The language setting. -->
-              <Listbox as="li" v-model="localeSelected" class="flex flex-col sm:flex-row justify-between py-4">
-                <div class="flex flex-col">
-                  <ListboxLabel class="text-base font-medium text-gray-700 dark:text-gray-200">{{ t("language.name") }}</ListboxLabel>
-                  <p class="text-sm text-gray-500 dark:text-gray-400">{{ t("language.description") }}</p>
-                </div>
-                <div class="relative mt-2 sm:mt-0 sm:ml-4">
-                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-purple-500 dark:focus:border-purple-400 text-sm">
-                    <span class="block text-gray-700 dark:text-gray-200 truncate">{{ t(localeSelected.name) }}</span>
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                      <SelectorIcon class="h-5 w-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
-                    </span>
-                  </ListboxButton>
-                  <transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-                    <ListboxOptions @click="changeLanguage()" class="mt-1 w-full shadow-md max-h-60 rounded-lg py-1 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
-                      <ListboxOption as="template" v-for="locale in locales" :key="locale.id" :value="locale" v-slot="{ active, localeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
-                        <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-3 pr-4']">
-                          <span :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
-                            {{ t(locale.name) }}
-                          </span>
-                        </li>
-                      </ListboxOption>
-                    </ListboxOptions>
-                  </transition>
-                </div>
-              </Listbox>
               <!-- The appearance setting. -->
-              <Listbox as="li" v-model="themeSelected" class="flex flex-col sm:flex-row justify-between pt-4">
+              <Listbox as="li" v-model="themeSelected" class="flex flex-col sm:flex-row justify-between py-4">
                 <div class="flex flex-col">
                   <ListboxLabel class="text-base font-medium text-gray-700 dark:text-gray-200">{{ t("appearance.name") }}</ListboxLabel>
                   <p class="text-sm text-gray-500 dark:text-gray-400">{{ t("appearance.description") }}</p>
@@ -78,18 +52,49 @@
                     </span>
                   </ListboxButton>
                   <transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-                    <ListboxOptions @click="changeAppearance()" class="mt-1 w-full shadow-md max-h-60 rounded-lg py-1 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
-                      <ListboxOption as="template" v-for="theme in themes" :key="theme.id" :value="theme" v-slot="{ active, themeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
-                        <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
-                          <span :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
-                            {{ t(theme.name) }}
-                          </span>
-                          <span v-if="theme.icon" :class="[active ? '' : 'text-purple-600 dark:text-purple-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
-                            <component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
-                          </span>
-                        </li>
-                      </ListboxOption>
-                    </ListboxOptions>
+                    <div class="absolute z-10 w-full">
+                      <ListboxOptions @click="changeAppearance()" class="mt-1 mb-10 shadow-md max-h-60 rounded-lg py-1 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
+                        <ListboxOption as="template" v-for="theme in themes" :key="theme.id" :value="theme" v-slot="{ active, themeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
+                          <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
+                            <span :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
+                              {{ t(theme.name) }}
+                            </span>
+                            <span v-if="theme.icon" :class="[active ? '' : 'text-purple-600 dark:text-purple-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
+                              <component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
+                            </span>
+                          </li>
+                        </ListboxOption>
+                      </ListboxOptions>
+                    </div>
+                  </transition>
+                </div>
+              </Listbox>
+              <!-- The language setting. -->
+              <Listbox as="li" v-model="localeSelected" class="flex flex-col sm:flex-row justify-between pt-4">
+                <div class="flex flex-col">
+                  <ListboxLabel class="text-base font-medium text-gray-700 dark:text-gray-200">{{ t("language.name") }}</ListboxLabel>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">{{ t("language.description") }}</p>
+                </div>
+                <div class="relative mt-2 sm:mt-0 sm:ml-4">
+                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-purple-500 dark:focus:border-purple-400 text-sm">
+                    <span class="block text-gray-700 dark:text-gray-200 truncate">{{ t(localeSelected.name) }}</span>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                      <SelectorIcon class="h-5 w-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
+                    </span>
+                  </ListboxButton>
+                  <transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+                    <div class="absolute z-10 w-full">
+                      <ListboxOptions @click="changeLanguage()" class="mt-1 mb-10 shadow-md max-h-60 rounded-lg py-1 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
+                        <ListboxOption as="template" v-for="locale in locales" :key="locale.id" :value="locale" v-slot="{ active, localeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
+                          <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-3 pr-4']">
+                            <span :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
+                              {{ t(locale.name) }}
+                            </span>
+                          </li>
+                        </ListboxOption>
+                      </ListboxOptions>
+                    </div>
+                    
                   </transition>
                 </div>
               </Listbox>
@@ -185,18 +190,18 @@ export default {
   setup() {
     const { t, locale } = useI18n({ useScope: "global" });
     const open = ref(false);
-    const locales = [
-      { id: 0, name: "browserDefault" },
-      { id: 1, name: "en" },
-      { id: 2, name: "zh-CN" }
-    ];
     const themes = [
       { id: 0, name: "systemDefault", icon: null },
       { id: 1, name: "light", icon: SunIcon },
       { id: 2, name: "dark", icon: MoonIcon }
     ];
-    var localeSelected;
     var themeSelected;
+    const locales = [
+      { id: 0, name: "browserDefault" },
+      { id: 1, name: "en" },
+      { id: 2, name: "zh-CN" }
+    ];
+    var localeSelected;
 
     // Set the current locale.
     if (localStorage.locale) {

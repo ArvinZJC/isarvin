@@ -1,7 +1,7 @@
 {
   "alright": "好吧",
   "appearance": {
-    "description": "设定网站在您的设备上的外观。",
+    "description": "设定网站的外观。",
     "name": "外观"
   },
   "browserDefault": "浏览器默认",
@@ -15,10 +15,9 @@
   "gh": "GitHub",
   "home": "主页",
   "language": {
-    "description": "改变网站显示语言。",
+    "description": "选择网站的显示语言。",
     "name": "语言"
   },
-  "leftBracket": "（",
   "light": "浅色",
   "openNavMenu": "打开导航菜单",
   "pages": {
@@ -27,12 +26,11 @@
       "title": "页面未找到 - Arvin Zhao"
     },
     "me": {
-      "description": "建个人网站让我更了解自己了。所以这就是Arvin（俺的英文名）。😉",
-      "title": "Arvin·趙：授课型硕士生（UofG）&开发者"
+      "description": "个人网站的创建让我更了解自己了，所以这就是Arvin（俺的英文名）。😉",
+      "title": "Arvin·趙：授课型硕士生（UofG）& 开发者"
     }
   },
   "projects": "项目",
-  "rightBracket": "）",
   "scrollToTop": "回到顶部",
   "settings": "设置",
   "systemDefault": "系统默认",

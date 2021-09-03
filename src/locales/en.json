@@ -1,7 +1,7 @@
 {
   "alright": "Alright",
   "appearance": {
-    "description": "Customise how the site looks on your device.",
+    "description": "Customise how the site looks.",
     "name": "Appearance"
   },
   "browserDefault": "Browser default",
@@ -15,10 +15,9 @@
   "gh": "GitHub",
   "home": "Home",
   "language": {
-    "description": "Change the language used in the site.",
+    "description": "Select the language the site appears.",
     "name": "Language"
   },
-  "leftBracket": " (",
   "light": "Light",
   "openNavMenu": "Open navigation menu",
   "pages": {
@@ -32,7 +31,6 @@
     }
   },
   "projects": "Projects",
-  "rightBracket": ") ",
   "scrollToTop": "Scroll to the top",
   "settings": "Settings",
   "systemDefault": "System default",

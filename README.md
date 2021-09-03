@@ -8,9 +8,7 @@
 
 **English** | [简体中文](./README-zhCN.md)
 
-When I was a green high school student, I learned to solve a limited scope of problems using C++. It was the first time I could move a tiny step to the programming language, no doubt. Then, as a 1st-year undergraduate, I started to study Software Development. I imagined becoming a World No.1 full-stack developer ~~(but obviously, I just loafed around)~~. When I knew about HTML ~~(How to Meet Ladies)~~ and Bootstrap, I also wished to design and implement modern-designed good-looking UI kits that would be pretty popular. Today, I am an incompetent developer building the personal site with Vue.js 3 and [Tailwind CSS](https://tailwindcss.com/). So this is Arvin.😉
-
-The site is deployed on [Vercel](https://vercel.com/home). It is designed with the following primary principles.
+Arvin is my English name. I am an incompetent developer finally building the personal site with Vue.js 3 and [Tailwind CSS](https://tailwindcss.com/). The site is deployed on [Vercel](https://vercel.com/home). It is designed with the following primary principles.
 
 - Responsive design.
 - Unified styles.
@@ -26,7 +24,7 @@ The structure of the site is as follows. Please note that the code is licensed u
 
 ## ATTENTION
 
-1. By 27 August 2021, everything looks good with Visual Studio Code (Version: 1.59.1) + Node.js 16.4.2 + Vue CLI 5.0.0-beta.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 3 September 2021, everything looks good with Visual Studio Code (Version: 1.60.0) + Node.js 16.4.2 + Vue CLI 5.0.0-beta.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. The primary dependencies of the project are listed in the following table.
 
     | Name | Version |

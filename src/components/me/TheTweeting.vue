@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.0.8.20210830
+ * @Version: 1.0.9.20210903
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 01:56:24
+ * @LastEditTime: 2021-09-03 19:01:01
 -->
 
 <template>
@@ -16,7 +16,7 @@
       </span>
       <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
     </div>
-    <p class="max-w-2xl mx-auto mt-6 text-center text-sm text-gray-300 dark:text-gray-600">{{ t("steveJobz") }}</p>
+    <p class="max-w-2xl mx-auto mt-6 text-center text-xs text-gray-300 dark:text-gray-600">{{ t("steveJobz") }}</p>
   </div>
   <!-- Motto. -->
   <div class="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-36 lg:pb-40">

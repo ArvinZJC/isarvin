@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.13.20210830
+ * @Version: 1.1.14.20210903
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 03:18:56
+ * @LastEditTime: 2021-09-03 20:15:06
 -->
 
 <template>
@@ -47,10 +47,16 @@
           <h1 class="text-center tracking-tight">
             <span class="block font-extrabold text-3xl sm:text-4xl text-gray-50">{{ t("name") }}</span>
             <span class="block font-bold text-xl text-purple-100">
-              {{ t("positions[0]") + t("leftBracket") }}<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-purple-400 hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300">@{{ t("school") }}</a>{{ t("rightBracket") + "&" + t("positions[1]") }}
+              {{ t("positions[0]") }}<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-purple-400 hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300">@{{ t("school") }}</a>{{ t("positions[1]") }}
             </span>
           </h1>
-          <p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-purple-200">{{ t("bio") }}</p>
+          <p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-purple-200">
+            <span>{{ t("bio[0]") }}</span>
+            <span class="line-through">{{ t("jokes[0]") }}</span>
+            <span>{{ t("bio[1]") }}</span>
+            <span class="line-through">{{ t("jokes[1]") }}</span>
+            <span>{{ t("bio[2]") }}</span>
+          </p>
         </div>
       </div>
       <!-- Wave animation. -->

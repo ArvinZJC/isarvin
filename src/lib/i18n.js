@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 14:49:40
+ * @LastEditTime: 2021-08-30 21:00:35
  */
 
 /**
@@ -16,7 +16,7 @@
 export function loadLocaleMessages(locales) {
   const messages = {};
 
-  locales.keys().forEach(key => {
+  locales.keys().forEach((key) => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i);
 
     if (matched && matched.length > 1) {
