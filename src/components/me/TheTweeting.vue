@@ -1,20 +1,20 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.0.9.20210903
+ * @Version: 1.0.11.20210905
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-03 19:01:01
+ * @LastEditTime: 2021-09-05 18:13:27
 -->
 
 <template>
   <!-- Mail to me. -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-4 lg:pt-6 pb-12 sm:pb-20 lg:pb-24">
     <div class="flex justify-center items-center">
-      <span class="h-12 w-12 rounded-full flex items-center justify-center mr-6 px-2 bg-purple-600 motion-safe:ripple dark:motion-safe:ripple-dark">
+      <span class="h-12 w-12 rounded-full flex items-center justify-center mr-6 px-2 bg-indigo-600 motion-safe:ripple dark:motion-safe:ripple-dark">
         <MailIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
       </span>
-      <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
+      <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
     </div>
     <p class="max-w-2xl mx-auto mt-6 text-center text-xs text-gray-300 dark:text-gray-600">{{ t("steveJobz") }}</p>
   </div>
@@ -40,9 +40,9 @@
     </svg>
     <div class="relative lg:flex lg:items-center">
       <!-- Show the large avatar at the large breakpoint. -->
-      <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="hidden lg:block lg:flex-shrink-0 h-64 xl:h-80 w-64 xl:w-80 rounded-full ring-purple-200 dark:ring-purple-700 ring-2" />
+      <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="hidden lg:block lg:flex-shrink-0 h-64 xl:h-80 w-64 xl:w-80 rounded-full bg-indigo-300 dark:bg-indigo-400 ring-2 ring-indigo-200 dark:ring-indigo-700" />
       <div class="relative lg:ml-10">
-        <svg class="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 h-36 w-36 text-purple-300 dark:text-purple-600 opacity-50" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
+        <svg class="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 h-36 w-36 text-indigo-300 dark:text-indigo-600 opacity-50" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
           <path stroke-width="2" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
         </svg>
         <blockquote class="relative">
@@ -50,10 +50,10 @@
           <footer class="mt-8">
             <div class="flex">
               <!-- Hide the small avatar at the large breakpoint. -->
-              <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="lg:hidden flex-shrink-0 h-12 w-12 rounded-full ring-purple-200 dark:ring-purple-700 ring-2" />
+              <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="lg:hidden flex-shrink-0 h-12 w-12 rounded-full bg-indigo-300 dark:bg-indigo-400 ring-2 ring-indigo-200 dark:ring-indigo-700" />
               <div class="ml-4 lg:ml-0">
                 <div class="text-base font-medium text-gray-900 dark:text-gray-50">{{ t("steveJobs.name") }}</div>
-                <div class="text-base font-medium text-purple-600 dark:text-purple-300">{{ t("steveJobs.title") }}</div>
+                <div class="text-base font-medium text-indigo-600 dark:text-indigo-300">{{ t("steveJobs.title") }}</div>
               </div>
             </div>
           </footer>

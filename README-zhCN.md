@@ -1,4 +1,4 @@
-![isarvin_banner.png](./img_README/isarvin_banner.png)
+![banner.png](./img_README/banner.png)
 
 # [isarvin.com](https://isarvin.com)
 
@@ -16,15 +16,15 @@ Arvin是俺的英文名，作为一个抱大腿的调包开发者，终于在鱼
 - 国际化: English / 简体中文。
 - 无障碍：支持减少动画。
 
-![isarvin_example_zhCN.png](./img_README/isarvin_example_zhCN.png)
+![example_zhCN.png](./img_README/example_zhCN.png)
 
 网站内容结构如下图。请注意此项目使用[GPL-3.0协议](./LICENSE)。
 
-![isarvin_structure_zhCN.png](./img_README/isarvin_structure_zhCN.png)
+![structure_zhCN.png](./img_README/structure_zhCN.png)
 
 ## 注意
 
-1. 截至2021年9月3日，使用Visual Studio Code（版本：1.60.0）、Node.js 16.4.2和Vue CLI 5.0.0-beta.3开发表现良好。此外，我要特别感谢Tailwind提供的[丰富、可扩展的CSS框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至2021年9月5日，使用Visual Studio Code（版本：1.60.0）、Node.js 16.4.2和Vue CLI 5.0.0-beta.3开发表现良好。此外，我要特别感谢Tailwind提供的[丰富、可扩展的CSS框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 项目主要依赖参见下面的表格。
 
     | 名称 | 版本 |

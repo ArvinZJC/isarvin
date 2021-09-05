@@ -1,4 +1,4 @@
-![isarvin_banner.png](./img_README/isarvin_banner.png)
+![banner.png](./img_README/banner.png)
 
 # [isarvin.com](https://isarvin.com)
 
@@ -16,15 +16,15 @@ Arvin is my English name. I am an incompetent developer finally building the per
 - I18n (Internationalisation): English / 简体中文.
 - Accessibility: reduced motion when required.
 
-![isarvin_example.png](./img_README/isarvin_example.png)
+![example.png](./img_README/example.png)
 
 The structure of the site is as follows. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
 
-![isarvin_structure.png](./img_README/isarvin_structure.png)
+![structure.png](./img_README/structure.png)
 
 ## ATTENTION
 
-1. By 3 September 2021, everything looks good with Visual Studio Code (Version: 1.60.0) + Node.js 16.4.2 + Vue CLI 5.0.0-beta.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 5 September 2021, everything looks good with Visual Studio Code (Version: 1.60.0) + Node.js 16.4.2 + Vue CLI 5.0.0-beta.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. The primary dependencies of the project are listed in the following table.
 
     | Name | Version |

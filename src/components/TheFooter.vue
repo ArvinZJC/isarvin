@@ -1,15 +1,15 @@
 <!--
  * @Description: the footer component
- * @Version: 1.2.1.20210903
+ * @Version: 1.2.5.20210905
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-03 22:52:21
+ * @LastEditTime: 2021-09-05 18:13:42
 -->
 
 <template>
   <!-- The button for opening the settings panel. -->
-  <button @click="open = true" type="button" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300 shadow-xl" title="Open the settings panel.">
+  <button @click="open = true" type="button" class="fixed bottom-28 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-indigo-600 bg-opacity-90 hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300 shadow-xl" title="Open the settings panel.">
     <CogIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
   </button>
   <!-- A modal for the settings panel. -->
@@ -26,26 +26,26 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <span class="flex items-center justify-center py-2">
-                  <CogIcon class="h-6 w-6 text-purple-600 dark:text-purple-300" aria-hidden="true" />
+                  <CogIcon class="h-6 w-6 text-indigo-600 dark:text-indigo-300" aria-hidden="true" />
                 </span>
                 <div class="mx-2 sm:mx-3">
                   <DialogTitle as="h3" class="text-lg leading-6 font-semibold text-gray-900 dark:text-gray-50">{{ t("settings") }}</DialogTitle>
                 </div>
               </div>
-              <button type="button" class="flex p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
+              <button type="button" class="flex p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
                 <span class="sr-only">{{ t("close") }}</span>
                 <XIcon class="h-6 w-6" aria-hidden="true" v-on:click="open = false" />
               </button>
             </div>
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
               <!-- The appearance setting. -->
-              <Listbox as="li" v-model="themeSelected" class="flex flex-col sm:flex-row justify-between py-4">
+              <Listbox as="li" v-model="themeSelected" class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 py-4">
                 <div class="flex flex-col">
                   <ListboxLabel class="text-base font-medium text-gray-700 dark:text-gray-200">{{ t("appearance.name") }}</ListboxLabel>
                   <p class="text-sm text-gray-500 dark:text-gray-400">{{ t("appearance.description") }}</p>
                 </div>
-                <div class="relative mt-2 sm:mt-0 sm:ml-4">
-                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-purple-500 dark:focus:border-purple-400 text-sm">
+                <div class="relative">
+                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 text-sm">
                     <span class="block text-gray-700 dark:text-gray-200 truncate">{{ t(themeSelected.name) }}</span>
                     <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                       <SelectorIcon class="h-5 w-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
@@ -55,11 +55,11 @@
                     <div class="absolute z-10 w-full">
                       <ListboxOptions @click="changeAppearance()" class="mt-1 mb-10 shadow-md max-h-60 rounded-lg py-1 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
                         <ListboxOption as="template" v-for="theme in themes" :key="theme.id" :value="theme" v-slot="{ active, themeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
-                          <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
+                          <li :class="[active ? 'text-gray-50 bg-indigo-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
                             <span :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
                               {{ t(theme.name) }}
                             </span>
-                            <span v-if="theme.icon" :class="[active ? '' : 'text-purple-600 dark:text-purple-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
+                            <span v-if="theme.icon" :class="[active ? '' : 'text-indigo-600 dark:text-indigo-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
                               <component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
                             </span>
                           </li>
@@ -70,13 +70,13 @@
                 </div>
               </Listbox>
               <!-- The language setting. -->
-              <Listbox as="li" v-model="localeSelected" class="flex flex-col sm:flex-row justify-between pt-4">
+              <Listbox as="li" v-model="localeSelected" class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 pt-4">
                 <div class="flex flex-col">
                   <ListboxLabel class="text-base font-medium text-gray-700 dark:text-gray-200">{{ t("language.name") }}</ListboxLabel>
                   <p class="text-sm text-gray-500 dark:text-gray-400">{{ t("language.description") }}</p>
                 </div>
-                <div class="relative mt-2 sm:mt-0 sm:ml-4">
-                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-purple-500 dark:focus:border-purple-400 text-sm">
+                <div class="relative">
+                  <ListboxButton class="relative w-full border border-gray-300 dark:border-gray-600 rounded-lg shadow-md pl-3 pr-10 py-2 text-left focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 text-sm">
                     <span class="block text-gray-700 dark:text-gray-200 truncate">{{ t(localeSelected.name) }}</span>
                     <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                       <SelectorIcon class="h-5 w-5 text-gray-400 dark:text-gray-500" aria-hidden="true" />
@@ -86,7 +86,7 @@
                     <div class="absolute z-10 w-full">
                       <ListboxOptions @click="changeLanguage()" class="mt-1 mb-10 shadow-md max-h-60 rounded-lg py-1 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
                         <ListboxOption as="template" v-for="locale in locales" :key="locale.id" :value="locale" v-slot="{ active, localeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
-                          <li :class="[active ? 'text-gray-50 bg-purple-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-3 pr-4']">
+                          <li :class="[active ? 'text-gray-50 bg-indigo-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-3 pr-4']">
                             <span :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
                               {{ t(locale.name) }}
                             </span>

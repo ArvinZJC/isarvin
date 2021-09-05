@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.14.20210829
+ * @Version: 1.0.16.20210905
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 05:46:33
+ * @LastEditTime: 2021-09-05 18:13:11
 -->
 
 <template>
@@ -12,19 +12,19 @@
   <div id="projects" class="bg-indigo-100 dark:bg-indigo-900">
     <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8">
       <!-- Section header. -->
-      <span class="mb-6 h-12 w-12 rounded-lg flex items-center justify-center bg-purple-600 shadow-lg">
+      <span class="mb-6 h-12 w-12 rounded-lg flex items-center justify-center bg-indigo-600 shadow-lg">
         <CollectionIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
       </span>
       <div class="text-center">
         <h2 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-50">{{ t("projects") }}</h2>
         <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-500 dark:text-gray-300">
-          {{ t("description[0]") }}<a href="https://github.com/ArvinZJC" target="_blank" class="underline text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300">{{ t("gh") }}</a>{{ t("description[1]") }}
+          {{ t("description[0]") }}<a href="https://github.com/ArvinZJC" target="_blank" class="underline text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300">{{ t("gh") }}</a>{{ t("description[1]") }}
         </p>
       </div>
       <!-- Project cards. -->
       <div class="max-w-lg lg:max-w-none mt-12 mx-auto grid gap-5 lg:grid-cols-3">
         <div v-for="project in projects" :key="project.name" class="flex flex-col ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl shadow-lg overflow-hidden">
-          <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-400">
+          <div class="flex-shrink-0 bg-indigo-300 dark:bg-indigo-400">
             <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.name" />
           </div>
           <div class="flex-1 bg-white dark:bg-black p-4 sm:p-6 flex flex-col justify-between">
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="mt-6 flex items-center">
-              <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-purple-600 hover:bg-purple-700 dark:hover:bg-purple-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-offset-black">
+              <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">
                 <span class="relative z-10 text-base font-medium text-gray-50">{{ t("explore") }}</span>
                 <div class="motion-safe:liquid" />
               </button>
@@ -65,7 +65,7 @@
                   </div>
                 </div>
                 <div class="mt-5 sm:mt-6">
-                  <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-purple-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-purple-700 dark:hover:bg-purple-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-offset-black">{{ t("alright") }}</button>
+                  <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-indigo-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">{{ t("alright") }}</button>
                 </div>
               </div>
             </TransitionChild>

@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.5.4.20210829
+ * @Version: 1.5.6.20210905
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 19:49:51
+ * @LastEditTime: 2021-09-05 18:12:51
 -->
 
 <template>
@@ -22,7 +22,7 @@
           <!-- Show navigation items at the medium breakpoint. -->
           <div class="hidden md:block md:ml-6">
             <div id="navItems" class="flex space-x-4" aria-label="Navigation">
-              <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 dark:text-purple-300' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ t(item.name) }}</a>
+              <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ t(item.name) }}</a>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
         </div>
         <!-- Hide the menu button at the medium breakpoint. -->
         <div class="flex items-center md:hidden">
-          <PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
+          <PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
             <span class="sr-only">{{ t("openNavMenu") }}</span>
             <MenuIcon class="h-6 w-6" aria-hidden="true" />
           </PopoverButton>
@@ -53,14 +53,14 @@
               <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
               <component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
             </a>
-            <PopoverButton class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 dark:focus:ring-purple-400 motion-safe:transition-colors motion-safe:duration-300">
+            <PopoverButton class="inline-flex items-center justify-center p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
               <span class="sr-only">{{ t("closeNavMenu") }}</span>
               <XIcon class="h-6 w-6" aria-hidden="true" />
             </PopoverButton>
           </div>
           <div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-            <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-purple-600 dark:text-purple-300 bg-gray-100 dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 motion-safe:transition-colors motion-safe:duration-300', 'flex items-center p-3 rounded-lg cursor-pointer']">
-              <span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-lg bg-purple-600">
+            <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-indigo-600 dark:text-indigo-300 bg-gray-100 dark:bg-gray-800' : 'text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 motion-safe:transition-colors motion-safe:duration-300', 'flex items-center p-3 rounded-lg cursor-pointer']">
+              <span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-lg bg-indigo-600">
                 <component :is="item.icon" class="h-6 w-6 text-gray-50" aria-hidden="true" />
               </span>
               <p class="ml-4 text-base font-medium truncate">{{ t(item.name) }}</p>
@@ -77,7 +77,7 @@
     </transition>
   </Popover>
   <!-- The button for scrolling to the top. -->
-  <button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-44 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-purple-600 bg-opacity-90 hover:bg-purple-700 dark:hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" :title="t('scrollToTop')">
+  <button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-44 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-indigo-600 bg-opacity-90 hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" :title="t('scrollToTop')">
     <ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
   </button>
 </template>
@@ -170,13 +170,13 @@ export default {
         this.activeIndex = activeIndex;
         Array.prototype.forEach.call(this.navItems, (element, index) => {
           if (index === activeIndex) {
-            element.classList.add("text-purple-600", "dark:text-purple-300");
+            element.classList.add("text-indigo-600", "dark:text-indigo-400");
             element.classList.remove("text-gray-500", "dark:text-gray-400", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
             element.ariaCurrent = "page";
           }
           else {
             element.classList.add("text-gray-500", "dark:text-gray-400", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
-            element.classList.remove("text-purple-600", "dark:text-purple-300");
+            element.classList.remove("text-indigo-600", "dark:text-indigo-400");
             element.ariaCurrent = null;
           } // end if...else
         });
@@ -193,13 +193,13 @@ export default {
     updateMobileNavItemsStatus() {
       Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
         if (index === this.activeIndex) {
-          element.classList.add("text-purple-600", "dark:text-purple-300", "bg-gray-100", "dark:bg-gray-800");
+          element.classList.add("text-indigo-600", "dark:text-indigo-300", "bg-gray-100", "dark:bg-gray-800");
           element.classList.remove("text-gray-500", "dark:text-gray-400", "hover:text-gray-600", "dark:hover:text-gray-300", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
           element.ariaCurrent = "page";
         }
         else {
           element.classList.add("text-gray-500", "dark:text-gray-400", "hover:text-gray-600", "dark:hover:text-gray-300", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
-          element.classList.remove("text-purple-600", "dark:text-purple-300", "bg-gray-100", "dark:bg-gray-800");
+          element.classList.remove("text-indigo-600", "dark:text-indigo-300", "bg-gray-100", "dark:bg-gray-800");
           element.ariaCurrent = null;
         } // end if...else
       });

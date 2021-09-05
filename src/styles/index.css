@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 1.1.9.20210830
+ * @Version: 1.1.11.20210905
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 20:02:02
+ * @LastEditTime: 2021-09-05 18:13:56
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -110,7 +110,7 @@
 
   /* Liquid animation for buttons. */
   .liquid {
-    @apply absolute -top-8 left-0 h-24 w-full bg-purple-600 transition-all duration-300; /* The height, width, and absolution top position depend on the button's width. */
+    @apply absolute -top-8 left-0 h-24 w-full bg-indigo-600 transition-all duration-300; /* The height, width, and absolution top position depend on the button's width. */
   }
 
   .liquid::after,
@@ -125,18 +125,18 @@
   .liquid::before {
     border-radius: 45%;
     animation: liquid-button 5s linear infinite;
-    @apply bg-purple-300 dark:bg-purple-400;
+    @apply bg-indigo-300 dark:bg-indigo-400;
   }
 
   .liquid::after {
     border-radius: 40%;
     animation: liquid-button 10s linear infinite;
-    @apply bg-purple-300 dark:bg-purple-400 bg-opacity-50 dark:bg-opacity-50;
+    @apply bg-indigo-300 dark:bg-indigo-400 bg-opacity-50 dark:bg-opacity-50;
   }
 
   a:hover .liquid,
   button:hover .liquid {
-    @apply bg-purple-700 dark:bg-purple-500 -top-14; /* The absolution top position depends on the button's width. */
+    @apply bg-indigo-700 dark:bg-indigo-500 -top-14; /* The absolution top position depends on the button's width. */
   }
 
   @keyframes liquid-button {
@@ -171,46 +171,48 @@
   
   /* Ripple animation. */
   .ripple {
-    animation: ripple-animation 1s linear infinite; /* Colour: purple-500 */
+    animation: ripple-animation 1s linear infinite;
   }
   
   .ripple-dark {
-    animation: ripple-animation-dark 1s linear infinite; /* Colour: purple-400 */
+    animation: ripple-animation-dark 1s linear infinite;
   }
   
+  /* Colour: indigo-500 */
   @keyframes ripple-animation {
     0% {
     box-shadow:
-      0 0 0 0 rgba(139, 92, 246, 0.2),
-      0 0 0 0.125rem rgba(139, 92, 246, 0.2),
-      0 0 0 0.25rem rgba(139, 92, 246, 0.2),
-      0 0 0 0.5rem rgba(139, 92, 246, 0.2);
+      0 0 0 0 rgba(99, 102, 241, 0.2),
+      0 0 0 0.125rem rgba(99, 102, 241, 0.2),
+      0 0 0 0.25rem rgba(99, 102, 241, 0.2),
+      0 0 0 0.5rem rgba(99, 102, 241, 0.2);
     }
   
     100% {
     box-shadow:
-      0 0 0 0.125rem rgba(139, 92, 246, 0.2),
-      0 0 0 0.25rem rgba(139, 92, 246, 0.2),
-      0 0 0 0.5rem rgba(139, 92, 246, 0.2),
-      0 0 0 1rem rgba(139, 92, 246, 0);
+      0 0 0 0.125rem rgba(99, 102, 241, 0.2),
+      0 0 0 0.25rem rgba(99, 102, 241, 0.2),
+      0 0 0 0.5rem rgba(99, 102, 241, 0.2),
+      0 0 0 1rem rgba(99, 102, 241, 0);
     }
   }
   
+  /* Colour: indigo-400 */
   @keyframes ripple-animation-dark {
     0% {
     box-shadow:
-      0 0 0 0 rgba(167, 139, 250, 0.2),
-      0 0 0 0.125rem rgba(167, 139, 250, 0.2),
-      0 0 0 0.25rem rgba(167, 139, 250, 0.2),
-      0 0 0 0.5rem rgba(167, 139, 250, 0.2);
+      0 0 0 0 rgba(129, 140, 248, 0.2),
+      0 0 0 0.125rem rgba(129, 140, 248, 0.2),
+      0 0 0 0.25rem rgba(129, 140, 248, 0.2),
+      0 0 0 0.5rem rgba(129, 140, 248, 0.2);
     }
   
     100% {
     box-shadow:
-      0 0 0 0.125rem rgba(167, 139, 250, 0.2),
-      0 0 0 0.25rem rgba(167, 139, 250, 0.2),
-      0 0 0 0.5rem rgba(167, 139, 250, 0.2),
-      0 0 0 1rem rgba(167, 139, 250, 0);
+      0 0 0 0.125rem rgba(129, 140, 248, 0.2),
+      0 0 0 0.25rem rgba(129, 140, 248, 0.2),
+      0 0 0 0.5rem rgba(129, 140, 248, 0.2),
+      0 0 0 1rem rgba(129, 140, 248, 0);
     }
   }
   

@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.0.0.20210830
+ * @Version: 1.0.1.2021905
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 19:20:37
+ * @LastEditTime: 2021-09-05 18:11:51
 -->
 
 <template>
@@ -15,11 +15,11 @@
       </a>
     </div>
     <div class="py-16 text-center">
-      <p class="text-sm font-semibold text-purple-600 dark:text-purple-500 uppercase tracking-wide">{{ t("error") }}</p>
+      <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-500 uppercase tracking-wide">{{ t("error") }}</p>
       <h1 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-5xl">{{ t("title") }}</h1>
       <p class="mt-2 text-base text-gray-500 dark:text-gray-400">{{ t("description") }}</p>
       <div class="mt-6">
-        <a href="/" class="mt-6 text-base font-medium text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 motion-safe:transition-colors motion-safe:duration-300">
+        <a href="/" class="mt-6 text-base font-medium text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300">
           {{ t("returnTo") }}isarvin.com<span aria-hidden="true"> &rarr;</span>
         </a>
       </div>
