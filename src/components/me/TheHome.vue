@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.16.20210905
+ * @Version: 1.1.19.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:12:37
+ * @LastEditTime: 2021-09-07 23:12:09
 -->
 
 <template>
@@ -23,9 +23,9 @@
               </div>
             </div>
             <div class="flex-shrink-0 sm:order-3">
-              <button type="button" class="flex p-2 rounded-lg text-gray-50 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300">
+              <button type="button" v-on:click="dismissBanner()" class="flex p-2 rounded-lg text-gray-50 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300">
                 <span class="sr-only">{{ t("dismiss") }}</span>
-                <XIcon class="h-6 w-6" aria-hidden="true" v-on:click="isBannerDismissed = true" />
+                <XIcon class="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -43,15 +43,15 @@
       <div class="hidden sm:block h-px" />
       <!-- Bio card. -->
       <div class="z-10 mt-16 sm:mt-0">
-        <img class="relative bg-indigo-300 dark:bg-indigo-400 ring-2 ring-gray-50 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full shadow-lg" src="../../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
-        <div class="max-w-7xl rounded-2xl bg-black bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24">
+        <img class="relative bg-indigo-300 dark:bg-indigo-400 ring-2 ring-indigo-200 dark:ring-indigo-700 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full drop-shadow-lg" src="../../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
+        <div class="max-w-7xl rounded-2xl bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5">
           <h1 class="text-center tracking-tight">
-            <span class="block font-extrabold text-3xl sm:text-4xl text-gray-50">{{ t("name") }}</span>
-            <span class="block font-bold text-xl text-indigo-100">
-              {{ t("positions[0]") }}<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-indigo-400 hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300">@{{ t("school") }}</a>{{ t("positions[1]") }}
+            <span class="block font-extrabold text-3xl sm:text-4xl text-gray-900 dark:text-gray-50">{{ t("name") }}</span>
+            <span class="block font-bold text-xl text-gray-700 dark:text-gray-200">
+              {{ t("positions[0]") }}<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300">@{{ t("school") }}</a>{{ t("positions[1]") }}
             </span>
           </h1>
-          <p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-indigo-200">
+          <p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-gray-600 dark:text-gray-300">
             <span>{{ t("bio[0]") }}</span>
             <span class="line-through">{{ t("jokes[0]") }}</span>
             <span>{{ t("bio[1]") }}</span>
@@ -102,7 +102,7 @@ export default {
      * Auto-scroll the banner text when it is too long.
      */
     autoScrollBannerText() {
-      var bannerText = document.querySelector("#banner-text");
+      var bannerText = document.getElementById("banner-text");
       
       if (bannerText) {
         if (bannerText.scrollWidth > bannerText.offsetWidth) {
@@ -113,6 +113,15 @@ export default {
         } // end if...else
       } // end if
     }, // end function autoScrollBannerText
+
+    /**
+     * Dismiss the banner.
+     */
+    dismissBanner() {
+      localStorage.isBannerDismissed = true;
+      localStorage.bannerText = this.t("banner");
+      this.isBannerDismissed = localStorage.isBannerDismissed === "true";
+    }, // end function dismissBanner
 
     /**
      * Set the height of the bubble area according to the height of the home section.
@@ -131,7 +140,14 @@ export default {
     document.onreadystatechange = () => {
       if (document.readyState === "complete") {
         this.setBubbleAreaHeight();
-        this.isBannerDismissed = false;
+        localStorage.isBannerDismissed = localStorage.isBannerDismissed === null
+          ? false
+          : (localStorage.isBannerDismissed
+            ? (localStorage.bannerText === this.t("banner") // Check if the banner text has updates. Using the t() function introduces a limitation that the banner status will be reset if the locale changes and the page is reloaded.
+              ? localStorage.isBannerDismissed
+              : false)
+            : localStorage.isBannerDismissed);
+        this.isBannerDismissed = localStorage.isBannerDismissed === "true";
         setTimeout(() => {
           this.autoScrollBannerText();
         }, 300); // Need delay to make sure the banner have been loaded.

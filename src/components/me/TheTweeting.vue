@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.0.11.20210905
+ * @Version: 1.0.12.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:13:27
+ * @LastEditTime: 2021-09-07 21:31:23
 -->
 
 <template>
@@ -14,7 +14,7 @@
       <span class="h-12 w-12 rounded-full flex items-center justify-center mr-6 px-2 bg-indigo-600 motion-safe:ripple dark:motion-safe:ripple-dark">
         <MailIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
       </span>
-      <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
+      <a href="mailto:SteveJobz@isarvin.com" class="underline font-semibold text-xl text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300 break-all">SteveJobz@isarvin.com</a>
     </div>
     <p class="max-w-2xl mx-auto mt-6 text-center text-xs text-gray-300 dark:text-gray-600">{{ t("steveJobz") }}</p>
   </div>
@@ -53,7 +53,7 @@
               <img :src="steveJobs.imageUrl" :alt="steveJobs.alt" class="lg:hidden flex-shrink-0 h-12 w-12 rounded-full bg-indigo-300 dark:bg-indigo-400 ring-2 ring-indigo-200 dark:ring-indigo-700" />
               <div class="ml-4 lg:ml-0">
                 <div class="text-base font-medium text-gray-900 dark:text-gray-50">{{ t("steveJobs.name") }}</div>
-                <div class="text-base font-medium text-indigo-600 dark:text-indigo-300">{{ t("steveJobs.title") }}</div>
+                <div class="text-base font-medium text-indigo-600 dark:text-indigo-400">{{ t("steveJobs.title") }}</div>
               </div>
             </div>
           </footer>

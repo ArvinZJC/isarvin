@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 1.1.11.20210905
+ * @Version: 1.1.14.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:13:56
+ * @LastEditTime: 2021-09-07 22:00:54
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -19,7 +19,7 @@
 @layer components {
   /* Containers. */
   .navbar-container {
-    @apply bg-opacity-90 dark:bg-opacity-90 bg-white dark:bg-black fixed shadow-xl w-full z-40;
+    @apply bg-white dark:bg-black fixed w-full z-40;
   }
 
   .root-container {
@@ -32,10 +32,21 @@
 }
 
 @layer utilities {
+  /* Backdrop blur filter. */
+  .bg-blur {
+    @apply bg-opacity-90 dark:bg-opacity-90; /* A workaround if the browser does not support the particular feature. */
+  }
+
+  @supports ((backdrop-filter: none) or (-webkit-backdrop-filter: none)) {
+    .bg-blur {
+      @apply backdrop-blur bg-opacity-30 dark:bg-opacity-30;
+    }
+  }
+
   /* Bubble animation. */
   .bubbles li {
     animation: bubble-animation 25s linear infinite;
-    @apply absolute list-none h-5 w-5 -bottom-40 bg-gray-50 dark:bg-gray-400 bg-opacity-20 dark:bg-opacity-20;
+    @apply absolute list-none h-5 w-5 -bottom-40 bg-gray-50 dark:bg-gray-300 bg-opacity-20 dark:bg-opacity-20;
   }
   
   .bubbles li:nth-child(1) {
@@ -163,7 +174,7 @@
     transform: translate3d(-200%, 0, 0);
     }
   }
-  
+
   /* Polygon-shaped section. */
   .polygon-section {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);

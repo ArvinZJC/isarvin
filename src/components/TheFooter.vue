@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.2.5.20210905
+ * @Version: 1.2.6.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:13:42
+ * @LastEditTime: 2021-09-07 21:33:18
 -->
 
 <template>
@@ -26,15 +26,15 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <span class="flex items-center justify-center py-2">
-                  <CogIcon class="h-6 w-6 text-indigo-600 dark:text-indigo-300" aria-hidden="true" />
+                  <CogIcon class="h-6 w-6 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
                 </span>
                 <div class="mx-2 sm:mx-3">
                   <DialogTitle as="h3" class="text-lg leading-6 font-semibold text-gray-900 dark:text-gray-50">{{ t("settings") }}</DialogTitle>
                 </div>
               </div>
-              <button type="button" class="flex p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
+              <button type="button" v-on:click="open = false" class="flex p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
                 <span class="sr-only">{{ t("close") }}</span>
-                <XIcon class="h-6 w-6" aria-hidden="true" v-on:click="open = false" />
+                <XIcon class="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -56,11 +56,11 @@
                       <ListboxOptions @click="changeAppearance()" class="mt-1 mb-10 shadow-md max-h-60 rounded-lg py-1 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-20 overflow-auto focus:outline-none text-sm motion-safe:transition transform origin-top-right">
                         <ListboxOption as="template" v-for="theme in themes" :key="theme.id" :value="theme" v-slot="{ active, themeSelected }" class="motion-safe:transition-colors motion-safe:duration-300">
                           <li :class="[active ? 'text-gray-50 bg-indigo-600' : 'text-gray-700 dark:text-gray-200', 'select-none cursor-pointer relative py-2 pl-8 pr-4']">
+                            <span v-if="theme.icon" :class="[active ? '' : 'text-indigo-600 dark:text-indigo-400', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
+                              <component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
+                            </span>
                             <span :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
                               {{ t(theme.name) }}
-                            </span>
-                            <span v-if="theme.icon" :class="[active ? '' : 'text-indigo-600 dark:text-indigo-300', 'absolute inset-y-0 left-0 flex items-center pl-1.5']">
-                              <component :is="theme.icon" class="h-5 w-5" aria-hidden="true" />
                             </span>
                           </li>
                         </ListboxOption>

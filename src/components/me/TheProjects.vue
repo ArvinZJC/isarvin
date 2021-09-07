@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.16.20210905
+ * @Version: 1.0.17.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:13:11
+ * @LastEditTime: 2021-09-07 19:43:35
 -->
 
 <template>
@@ -17,8 +17,8 @@
       </span>
       <div class="text-center">
         <h2 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-50">{{ t("projects") }}</h2>
-        <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-500 dark:text-gray-300">
-          {{ t("description[0]") }}<a href="https://github.com/ArvinZJC" target="_blank" class="underline text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300">{{ t("gh") }}</a>{{ t("description[1]") }}
+        <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-600 dark:text-gray-300">
+          {{ t("description[0]") }}<a href="https://github.com/ArvinZJC" target="_blank" class="underline text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300">{{ t("gh") }}</a>{{ t("description[1]") }}
         </p>
       </div>
       <!-- Project cards. -->
@@ -32,7 +32,7 @@
               <span :class="['items-center px-2.5 py-0.5 rounded-full text-sm font-medium ' + project.category.style]">{{ t(project.category.name) }}</span>
               <div class="block mt-2">
                 <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">{{ t(project.name) }}</p>
-                <p class="mt-3 text-base text-gray-500 dark:text-gray-400">{{ t(project.intro) }}</p>
+                <p class="mt-3 text-gray-500 dark:text-gray-400">{{ t(project.intro) }}</p>
               </div>
             </div>
             <div class="mt-6 flex items-center">
@@ -58,14 +58,14 @@
                 <span class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-800 shadow-lg">
                   <ExclamationCircleIcon class="h-6 w-6 text-yellow-800 dark:text-yellow-100" aria-hidden="true" />
                 </span>
-                <div class="mt-3 text-center sm:mt-5">
+                <div class="mt-3 sm:mt-5 text-center">
                   <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-50 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.title") }}</DialogTitle>
                   <div class="mt-2">
                     <p class="text-sm text-gray-500 dark:text-gray-400 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.message") }}</p>
                   </div>
                 </div>
-                <div class="mt-5 sm:mt-6">
-                  <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-indigo-600 text-base sm:text-sm font-medium text-gray-50 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">{{ t("alright") }}</button>
+                <div class="mt-4 sm:mt-6">
+                  <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-indigo-600 text-base font-medium text-gray-50 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">{{ t("alright") }}</button>
                 </div>
               </div>
             </TransitionChild>

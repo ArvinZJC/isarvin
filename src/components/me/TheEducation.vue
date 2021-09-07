@@ -1,17 +1,17 @@
 <!--
  * @Description: the education component
- * @Version: 1.0.10.20210905
+ * @Version: 1.0.12.20210907
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-05 18:12:15
+ * @LastEditTime: 2021-09-07 19:33:41
 -->
 
 <template>
   <!-- Education section. -->
-  <div id="education" class="relative z-10 bg-indigo-200 dark:bg-indigo-800 polygon-section">
+  <div id="education" class="relative z-10 bg-indigo-200 dark:bg-gray-800 polygon-section">
     <!-- Background colour transition. -->
-    <div class="h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-indigo-100 dark:from-indigo-900 to-indigo-200 dark:to-indigo-800" />
+    <div class="h-24 sm:h-28 lg:h-32 bg-gradient-to-b from-indigo-100 dark:from-indigo-900 to-indigo-200 dark:to-gray-800" />
     <!-- Use the row layout at the small breakpoint. -->
     <div class="flex flex-col sm:flex-row justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8 pb-24 sm:pb-20 lg:pb-24">
       <!-- Section header. -->
@@ -29,22 +29,22 @@
             <span v-if="(eventIndex !== timeline.length - 1)" class="absolute top-6 left-6 -ml-px h-full w-0.5 bg-gray-400 dark:bg-gray-500" aria-hidden="true" />
             <div class="relative flex space-x-3">
               <template v-if="event.type === 'name'">
-                <img :src="event.imageUrl" class="relative h-12 w-12 rounded-full flex items-center justify-center bg-indigo-300 dark:bg-indigo-400 ring-8 ring-indigo-200 dark:ring-indigo-800" alt="Arvin: headshot" />
+                <img :src="event.imageUrl" class="relative h-12 w-12 rounded-full flex items-center justify-center bg-indigo-300 dark:bg-indigo-400 ring-8 ring-indigo-200 dark:ring-gray-800" alt="Arvin: headshot" />
                 <div class="flex-1 pt-3.5 flex justify-between space-x-4">
                   <p class="font-medium text-sm text-gray-900 dark:text-gray-50">{{ t(event.content) }}</p>
-                  <p class="text-right text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{ event.period }}</p>
+                  <p class="text-right text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">{{ event.period }}</p>
                 </div>
               </template>
               <template v-else>
                 <div class="px-2">
-                  <span :class="[event.iconBackground, 'h-8 w-8 rounded-full flex items-center justify-center px-2 ring-8 ring-indigo-200 dark:ring-indigo-800']">
+                  <span :class="[event.iconBackground, 'h-8 w-8 rounded-full flex items-center justify-center px-2 ring-8 ring-indigo-200 dark:ring-gray-800']">
                     <component :is="event.icon" class="h-5 w-5 text-gray-50" aria-hidden="true" />
                   </span>
                 </div>
-                <a v-if="event.hasLink" :href="event.href" target="_blank" class="underline text-sm text-indigo-500 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 motion-safe:transition-colors motion-safe:duration-300 pt-1.5">
+                <a v-if="event.hasLink" :href="event.href" target="_blank" class="underline text-sm text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300 pt-1.5">
                   {{ t(event.content) }}
                 </a>
-                <p v-else class="text-sm text-gray-500 dark:text-gray-300 pt-1.5">{{ t(event.content) }}</p>
+                <p v-else class="text-sm text-gray-500 dark:text-gray-400 pt-1.5">{{ t(event.content) }}</p>
               </template>
             </div>
           </div>
