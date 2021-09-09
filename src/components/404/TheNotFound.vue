@@ -1,25 +1,25 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.0.3.2021907
+ * @Version: 1.1.0.20210908
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-07 19:53:49
+ * @LastEditTime: 2021-09-08 23:57:37
 -->
 
 <template>
-  <div class="flex flex-col justify-center max-w-7xl h-screen w-full mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="container-block flex flex-col h-screen justify-center py-16 w-full">
     <div class="flex justify-center">
-      <a href="/" class="rounded-full bg-white ring-2 ring-indigo-200 dark:ring-indigo-700 drop-shadow-lg">
-        <img class="h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
+      <a class="bg-white drop-shadow-lg rounded-full" href="/">
+        <img alt="Arvin: icon" class="avatar-md ring-avatar rounded-full" src="../../assets/Arvin_icon.png" />
       </a>
     </div>
     <div class="py-16 text-center">
-      <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-500 uppercase tracking-wide">{{ t("error") }}</p>
-      <h1 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight sm:text-5xl">{{ t("title") }}</h1>
-      <p class="mt-2 text-base text-gray-500 dark:text-gray-400">{{ t("description") }}</p>
+      <p class="text-content-indigo font-semibold text-sm tracking-wide uppercase">{{ t("error") }}</p>
+      <h1 class="text-title-lg mt-2">{{ t("title") }}</h1>
+      <p class="text-content-grey mt-2 tracking-tight">{{ t("description") }}</p>
       <div class="mt-6">
-        <a href="/" type="button" class="bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black font-medium text-gray-50 rounded-lg shadow-md px-4 py-2">
+        <a class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900" href="/" type="button">
           {{ t("returnTo") }}isarvin.com<span aria-hidden="true"> &rarr;</span>
         </a>
       </div>

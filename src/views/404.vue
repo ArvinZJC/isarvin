@@ -8,7 +8,7 @@
 -->
 
 <template>
-  <main class="view-container">
+  <main class="container-view">
     <TheNotFound />
     <TheFooter />
   </main>

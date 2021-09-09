@@ -1,77 +1,77 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.5.9.20210907
+ * @Version: 1.6.0.20210909
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-07 21:47:35
+ * @LastEditTime: 2021-09-09 01:32:02
 -->
 
 <template>
   <!-- The navbar section. -->
-  <Popover as="nav" id="navbar" class="navbar-container bg-opacity-0 dark:bg-opacity-0 motion-safe:transition motion-safe:duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
+  <Popover as="nav" class="container-navbar motion-safe:transition-300 bg-opacity-0 dark:bg-opacity-0" id="navbar">
+    <div class="container-block">
+      <div class="flex h-16 justify-between">
         <div class="flex items-center">
-          <a :href="navigation.logo.href" class="flex text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
-            <img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
+          <a :href="navigation.logo.href" class="text-btn-square motion-safe:transition-colours-300 flex">
+            <img alt="Arvin: icon" class="icon-8 ml-2" src="../../assets/Arvin_icon.png" />
             <span class="sr-only">{{ navigation.logo.textContent }}</span>
             <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
-            <component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
+            <component :is="navigation.logo.textIcon" aria-hidden="true" class="lg:block h-8 md:hidden w-32" />
           </a>
           <!-- Show navigation items at the medium breakpoint. -->
-          <div class="hidden md:block md:ml-6">
-            <div id="navItems" class="flex space-x-4" aria-label="Navigation">
-              <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300', 'py-2 px-3 text-sm font-medium cursor-pointer']" :aria-current="item.active ? 'page' : undefined">{{ t(item.name) }}</a>
+          <div class="md:block hidden md:ml-6">
+            <div aria-label="Navigation" class="flex space-x-4" id="nav">
+              <a v-for="item in navigation.header" @click="navigate(item.anchor)" :aria-current="item.active ? 'page' : undefined" :class="[item.active ? 'text-content-indigo' : 'text-btn-square motion-safe:transition-colours-300', 'nav-item pointer']" :id="item.anchor" :key="item.name">{{ t(item.name) }}</a>
             </div>
           </div>
         </div>
         <!-- Show my social links at the medium breakpoint. -->
-        <div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
-          <a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
+        <div class="md:flex hidden md:items-center md:ml-6 md:space-x-6">
+          <a v-for="item in navigation.social" :href="item.href" :key="item.name" class="text-btn-square motion-safe:transition-colours-300" target="_blank">
             <span class="sr-only">{{ t(item.name) }}</span>
-            <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+            <component :is="item.icon" aria-hidden="true" class="icon-6" />
           </a>
         </div>
         <!-- Hide the menu button at the medium breakpoint. -->
-        <div class="flex items-center md:hidden">
-          <PopoverButton @click="getMobileNavItems" class="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
+        <div class="flex md:hidden items-center">
+          <PopoverButton @click="getMobileNavItems" class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300">
             <span class="sr-only">{{ t("openNavMenu") }}</span>
-            <MenuIcon class="h-6 w-6" aria-hidden="true" />
+            <MenuIcon aria-hidden="true" class="icon-6" />
           </PopoverButton>
         </div>
       </div>
     </div>
-    <transition enter-active-class="ease-out motion-safe:duration-300" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+    <transition enter-active-class="motion-safe:transition-300 ease-out" enter-from-class="fade-out" enter-to-class="fade-in" leave-active-class="motion-safe:transition-300 ease-in" leave-from-class="fade-in" leave-to-class="fade-out">
       <!-- Hide the menu at the medium breakpoint. -->
-      <PopoverPanel class="absolute top-0 inset-x-0 p-2 motion-safe:transition transform origin-top-right md:hidden">
-        <div class="px-2 sm:px-4 bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl shadow-2xl" focus>
+      <PopoverPanel class="nav-menu transform-gpu-tr md:hidden">
+        <div class="card ring-container px-2 sm:px-4 shadow-2xl" focus>
           <div class="flex items-center justify-between py-2">
-            <a :href="navigation.logo.href" class="flex text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
-              <img class="ml-2 h-8 w-8" src="../../assets/Arvin_icon.png" alt="Arvin: icon" />
+            <a :href="navigation.logo.href" class="text-btn-square motion-safe:transition-colours-300 flex">
+              <img alt="Arvin: icon" class="icon-8 ml-2" src="../../assets/Arvin_icon.png" />
               <span class="sr-only">{{ navigation.logo.textContent }}</span>
               <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
-              <component :is="navigation.logo.textIcon" class="md:hidden lg:block h-8 w-32" aria-hidden="true" />
+              <component :is="navigation.logo.textIcon" aria-hidden="true" class="lg:block md:hidden h-8 w-32" />
             </a>
-            <PopoverButton class="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:focus:ring-indigo-400 motion-safe:transition-colors motion-safe:duration-300">
+            <PopoverButton class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300">
               <span class="sr-only">{{ t("closeNavMenu") }}</span>
-              <XIcon class="h-6 w-6" aria-hidden="true" />
+              <XIcon aria-hidden="true" class="icon-6" />
             </PopoverButton>
           </div>
           <!-- Navigation items in the menu. -->
-          <div id="mobileNavItems" class="py-2 space-y-1" aria-label="Navigation menu">
-            <a v-for="item in navigation.header" :key="item.name" :id="item.anchor" @click="navigate(item.anchor)" :class="[item.active ? 'text-indigo-600 dark:text-indigo-400 bg-gray-100 dark:bg-gray-800' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700 motion-safe:transition-colors motion-safe:duration-300', 'flex items-center p-3 rounded-lg cursor-pointer']">
-              <span class="flex flex-shrink-0 items-center justify-center h-10 sm:h-12 w-10 sm:w-12 rounded-lg bg-indigo-600">
-                <component :is="item.icon" class="h-6 w-6 text-gray-50" aria-hidden="true" />
+          <div aria-label="Navigation menu" class="py-2 space-y-1" id="mobile-nav">
+            <a v-for="item in navigation.header" @click="navigate(item.anchor)" :class="[item.active ? 'bg-active text-content-indigo' : 'bg-hover-grey text-btn-square motion-safe:transition-colours-300', 'btn-nav-item pointer']" :id="item.anchor" :key="item.name" type="button">
+              <span class="badge-square-2 sm:badge-square-3">
+                <component :is="item.icon" aria-hidden="true" class="icon-6" />
               </span>
-              <p class="ml-4 text-base font-medium truncate">{{ t(item.name) }}</p>
+              <p class="ml-4 font-medium truncate">{{ t(item.name) }}</p>
             </a>
           </div>
           <!-- Social links in the menu. -->
-          <div class="flex flex-wrap justify-center px-4 border-t border-gray-300 dark:border-gray-600">
-            <a v-for="item in navigation.social" :key="item.name" :href="item.href" target="_blank" class="mx-3 my-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 motion-safe:transition-colors motion-safe:duration-300">
+          <div class="border-grey border-t flex flex-wrap justify-center px-4">
+            <a v-for="item in navigation.social" :href="item.href" :key="item.name" class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2" target="_blank">
               <span class="sr-only">{{ t(item.name) }}</span>
-              <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+              <component :is="item.icon" aria-hidden="true" class="icon-6" />
             </a>
           </div>
         </div>
@@ -79,8 +79,9 @@
     </transition>
   </Popover>
   <!-- The button for scrolling to the top. -->
-  <button @click="navigate('#home')" type="button" id="scroll-to-top" class="fixed bottom-44 right-4 sm:right-6 lg:right-8 z-30 rounded-full flex items-center justify-center h-12 w-12 bg-indigo-600 bg-opacity-90 hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition ease-out motion-safe:duration-300 opacity-0 translate-y-1 shadow-xl" :title="t('scrollToTop')">
-    <ArrowUpIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+  <button @click="navigate('#home')" :title="t('scrollToTop')" class="btn-action btn-round float-down ring-inset-grey motion-safe:transition-300 bg-opacity-90 bottom-44 shadow-xl" id="scroll-to-top" type="button">
+    <span class="sr-only">{{ t("scrollToTop") }}</span>
+    <ArrowUpIcon aria-hidden="true" class="icon-6" />
   </button>
 </template>
 
@@ -129,7 +130,7 @@ export default {
      */
     getMobileNavItems() {
       setTimeout(() => {
-        var mobileNav = document.querySelector("#mobileNavItems");
+        var mobileNav = document.querySelector("#mobile-nav");
 
         if (mobileNav) {
           this.mobileNavItems = null;
@@ -157,7 +158,7 @@ export default {
         } // end if
       });
 
-      // Apply the blur and box shadow effects to the navbar if it satisfies the specified offset threshold to the top.
+      // Apply the backdrop blur filter and box shadow to the navbar if it satisfies the specified offset threshold to the top.
       if (window.pageYOffset <= this.navbar.offsetHeight) {
         this.navbar.classList.add("bg-opacity-0", "dark:bg-opacity-0");
         this.navbar.classList.remove("bg-blur", "shadow-xl");
@@ -172,13 +173,13 @@ export default {
         this.activeIndex = activeIndex;
         Array.prototype.forEach.call(this.navItems, (element, index) => {
           if (index === activeIndex) {
-            element.classList.add("text-indigo-600", "dark:text-indigo-400");
-            element.classList.remove("text-gray-600", "dark:text-gray-300", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
+            element.classList.add("text-content-indigo");
+            element.classList.remove("text-btn-square", "motion-safe:transition-colours-300");
             element.ariaCurrent = "page";
           }
           else {
-            element.classList.add("text-gray-600", "dark:text-gray-300", "hover:text-gray-900", "dark:hover:text-gray-50", "motion-safe:transition-colors", "motion-safe:duration-300");
-            element.classList.remove("text-indigo-600", "dark:text-indigo-400");
+            element.classList.add("text-btn-square", "motion-safe:transition-colours-300");
+            element.classList.remove("text-content-indigo");
             element.ariaCurrent = null;
           } // end if...else
         });
@@ -190,12 +191,12 @@ export default {
 
       // Show the button for scrolling to the top if it satisfies the specified offset threshold to the top. Two sub-conditions are for suiting different situations of the home section (full screen or not).
       if (window.pageYOffset < screen.height * 2 / 3 && window.pageYOffset < document.getElementById("home").offsetHeight) {
-        scrollToTopButton.classList.add("ease-out", "opacity-0", "translate-y-1");
-        scrollToTopButton.classList.remove("ease-in", "opacity-1", "translate-y-0");
+        scrollToTopButton.classList.add("float-down");
+        scrollToTopButton.classList.remove("float-up");
       }
       else {
-        scrollToTopButton.classList.add("ease-in", "opacity-1", "translate-y-0");
-        scrollToTopButton.classList.remove("ease-out", "opacity-0", "translate-y-1");
+        scrollToTopButton.classList.add("float-up");
+        scrollToTopButton.classList.remove("float-down");
       } // end if...else
     }, // end function handleScroll
 
@@ -205,13 +206,13 @@ export default {
     updateMobileNavItemsStatus() {
       Array.prototype.forEach.call(this.mobileNavItems, (element, index) => {
         if (index === this.activeIndex) {
-          element.classList.add("text-indigo-600", "dark:text-indigo-400", "bg-gray-100", "dark:bg-gray-800");
-          element.classList.remove("text-gray-600", "dark:text-gray-300", "hover:text-gray-900", "dark:hover:text-gray-50", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
+          element.classList.add("bg-active", "text-content-indigo");
+          element.classList.remove("bg-hover-grey", "text-btn-square", "motion-safe:transition-colours-300");
           element.ariaCurrent = "page";
         }
         else {
-          element.classList.add("text-gray-600", "dark:text-gray-300", "hover:text-gray-900", "dark:hover:text-gray-50", "hover:bg-gray-200", "dark:hover:bg-gray-700", "motion-safe:transition-colors", "motion-safe:duration-300");
-          element.classList.remove("text-indigo-600", "dark:text-indigo-400", "bg-gray-100", "dark:bg-gray-800");
+          element.classList.add("bg-hover-grey", "text-btn-square", "motion-safe:transition-colours-300");
+          element.classList.remove("bg-active", "text-content-indigo");
           element.ariaCurrent = null;
         } // end if...else
       });
@@ -322,7 +323,7 @@ export default {
   },
   mounted() {
     this.navbar = document.getElementById("navbar");
-    this.navItems = document.querySelector("#navItems").getElementsByTagName("a");
+    this.navItems = document.querySelector("#nav").getElementsByTagName("a");
     Array.prototype.forEach.call(this.navItems, (element) => {
       this.sections.push(document.querySelector(element.getAttribute("id")));
     });

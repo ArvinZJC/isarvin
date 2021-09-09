@@ -1,57 +1,56 @@
 <!--
  * @Description: the home component
- * @Version: 1.1.19.20210907
+ * @Version: 1.2.0.20210908
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-07 23:12:09
+ * @LastEditTime: 2021-09-08 21:03:22
 -->
 
 <template>
   <!-- Banner. -->
-  <transition enter-active-class="ease-out motion-safe:duration-300 delay-500" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="ease-in motion-safe:duration-300" leave-from-class="opacity-100" leave-to-class="opacity-0">
-    <div v-if="!isBannerDismissed" class="fixed w-full z-30 mt-16 motion-safe:transition-opacity">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div class="rounded-lg bg-indigo-600 bg-opacity-90 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 shadow-xl p-2">
-          <div class="flex items-center justify-between flex-wrap">
-            <div class="w-0 flex-1 flex items-center">
-              <span class="flex p-2 rounded-lg bg-indigo-800 shadow-md">
-                <SpeakerphoneIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+  <transition enter-active-class="motion-safe:transition-opacity-300 delay-500 ease-out" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="motion-safe:transition-opacity-300 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
+    <div v-if="!isBannerDismissed" class="container-banner top-16">
+      <div class="container-block">
+        <div class="banner ring-container">
+          <div class="flex flex-wrap items-center justify-between">
+            <!-- "w-0" is necessary for the marquee feature.-->
+            <div class="flex flex-1 items-center w-0">
+              <span class="badge-square-2 !bg-indigo-800 shadow-md">
+                <SpeakerphoneIcon aria-hidden="true" class="icon-6" />
               </span>
               <div class="mx-2 sm:mx-3 overflow-hidden">
-                <p id="banner-text" class="font-medium text-gray-50 motion-safe:whitespace-nowrap">{{ t("banner") }}</p>
+                <p class="text-component motion-safe:whitespace-nowrap" id="banner-text">{{ t("banner") }}</p>
               </div>
             </div>
-            <div class="flex-shrink-0 sm:order-3">
-              <button type="button" v-on:click="dismissBanner()" class="flex p-2 rounded-lg text-gray-50 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-50 motion-safe:transition-colors motion-safe:duration-300">
-                <span class="sr-only">{{ t("dismiss") }}</span>
-                <XIcon class="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
+            <button @click="dismissBanner" class="btn-square ring-inset-grey motion-safe:transition-colours-300 hover:bg-indigo-400 text-gray-50" type="button">
+              <span class="sr-only">{{ t("dismiss") }}</span>
+              <XIcon aria-hidden="true" class="icon-6" />
+            </button>
           </div>
         </div>
       </div>
     </div>
   </transition>
   <!-- Home section. Enable full screen height at the small breakpoint. -->
-  <div id="home" class="flex flex-col sm:h-screen">
+  <div class="flex flex-col sm:h-screen" id="home">
     <!-- Added for the navbar area. -->
-    <div class="h-16 w-full bg-indigo-200 dark:bg-indigo-800" />
+    <div class="bg-indigo-200 dark:bg-indigo-800 h-16 w-full" />
     <!-- Primary content. -->
-    <div class="flex flex-col flex-grow items-center justify-between w-full bg-gradient-to-b from-indigo-200 dark:from-indigo-800 to-indigo-400 dark:to-indigo-400 overflow-hidden sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-b flex flex-col flex-grow from-indigo-200 dark:from-indigo-800 items-center justify-between overflow-hidden sm:px-6 lg:px-8 to-indigo-400 dark:to-indigo-400 w-full">
       <!-- Show the placeholder for "justify-between" at the small breakpoint. -->
-      <div class="hidden sm:block h-px" />
+      <div class="sm:block h-px hidden" />
       <!-- Bio card. -->
-      <div class="z-10 mt-16 sm:mt-0">
-        <img class="relative bg-indigo-300 dark:bg-indigo-400 ring-2 ring-indigo-200 dark:ring-indigo-700 -bottom-12 sm:-bottom-14 lg:-bottom-16 mx-auto h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32 rounded-full drop-shadow-lg" src="../../assets/Arvin_hero.jpg" alt="Arvin: hero avatar" />
-        <div class="max-w-7xl rounded-2xl bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50 shadow-md space-y-4 mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24 ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5">
-          <h1 class="text-center tracking-tight">
-            <span class="block font-extrabold text-3xl sm:text-4xl text-gray-900 dark:text-gray-50">{{ t("name") }}</span>
-            <span class="block font-bold text-xl text-gray-700 dark:text-gray-200">
-              {{ t("positions[0]") }}<a href="https://www.gla.ac.uk/" target="_blank" class="underline text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300">@{{ t("school") }}</a>{{ t("positions[1]") }}
+      <div class="sm:mt-0 mt-3 z-10">
+        <img alt="Arvin: hero avatar" class="avatar-md container-avatar ring-avatar -bottom-12 sm:-bottom-14 lg:-bottom-16 drop-shadow-lg mx-auto relative" src="../../assets/Arvin_hero.jpg" />
+        <div class="card ring-container bg-opacity-50 dark:bg-opacity-50 max-w-7xl mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24 shadow-md space-y-4">
+          <h1 class="text-center">
+            <span class="text-title block">{{ t("name") }}</span>
+            <span class="text-subtitle block">
+              {{ t("positions[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://www.gla.ac.uk/" target="_blank">@{{ t("school") }}</a>{{ t("positions[1]") }}
             </span>
           </h1>
-          <p class="max-w-lg sm:max-w-3xl mx-auto text-center text-base text-gray-600 dark:text-gray-300">
+          <p class="text-secondary sm:max-w-3xl max-w-lg mx-auto text-center">
             <span>{{ t("bio[0]") }}</span>
             <span class="line-through">{{ t("jokes[0]") }}</span>
             <span>{{ t("bio[1]") }}</span>
@@ -61,19 +60,19 @@
         </div>
       </div>
       <!-- Wave animation. -->
-      <svg class="relative z-10 h-16 sm:h-24 lg:h-32 w-screen mt-16 sm:mt-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" shape-rendering="auto" viewBox="0 24 150 28">
+      <svg class="h-16 sm:h-24 lg:h-32 mt-16 sm:mt-0 relative w-screen z-10" preserveAspectRatio="none" shape-rendering="auto" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
-          <path id="smooth-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          <path d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" id="smooth-wave" />
         </defs>
         <g class="motion-safe:waves">
-          <use class="fill-current text-indigo-100 dark:text-indigo-900 opacity-70" xlink:href="#smooth-wave" x="48" y="0" />
-          <use class="fill-current text-indigo-100 dark:text-indigo-900 opacity-50" xlink:href="#smooth-wave" x="48" y="3" />
-          <use class="fill-current text-indigo-100 dark:text-indigo-900 opacity-30" xlink:href="#smooth-wave" x="48" y="5" />
-          <use class="fill-current text-indigo-100 dark:text-indigo-900" xlink:href="#smooth-wave" x="48" y="7" />
+          <use class="wave-fill opacity-70" x="48" xlink:href="#smooth-wave" y="0" />
+          <use class="wave-fill opacity-50" x="48" xlink:href="#smooth-wave" y="3" />
+          <use class="wave-fill opacity-30" x="48" xlink:href="#smooth-wave" y="5" />
+          <use class="wave-fill" x="48" xlink:href="#smooth-wave" y="7" />
         </g>
       </svg>
       <!-- Bubble animation. -->
-      <ul id="bubble-animation" class="motion-safe:bubbles absolute top-0 w-full overflow-hidden">
+      <ul class="motion-safe:bubbles absolute overflow-hidden top-0 w-full" id="bubble-animation">
         <li></li>
         <li></li>
         <li></li>

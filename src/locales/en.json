@@ -20,6 +20,7 @@
   },
   "light": "Light",
   "openNavMenu": "Open navigation menu",
+  "openSettingsPanel": "Open the settings panel",
   "pages": {
     "404": {
       "description": "You're lost...😅",

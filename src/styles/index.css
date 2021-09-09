@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 1.1.14.20210907
+ * @Version: 2.0.0.20210909
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-07 22:00:54
+ * @LastEditTime: 2021-09-09 01:52:45
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -17,21 +17,203 @@
 @tailwind utilities;
 
 @layer components {
-  /* Containers. */
-  .navbar-container {
+  /* Avatar. */
+  .avatar {
+    @apply h-12 w-12;
+  }
+  
+  /* Avatar: Size md. */
+  .avatar-md {
+    @apply h-24 sm:h-28 lg:h-32 w-24 sm:w-28 lg:w-32;
+  }
+
+  /* Avatar: Size lg. */
+  .avatar-lg {
+    @apply h-64 xl:h-80 w-64 xl:w-80;
+  }
+
+  /* Badge. */
+  .badge {
+    @apply font-medium items-center px-2.5 py-0.5 rounded-full text-sm;
+  }
+
+  /* Square badge: Size 2. */
+  .badge-square-2 {
+    @apply colour-indigo p-2 rounded-lg;
+  }
+
+  /* Square badge: Size 3. */
+  .badge-square-3 {
+    @apply colour-indigo p-3 rounded-lg;
+  }
+
+  /* Banner. */
+  .banner {
+    @apply bg-indigo-600 bg-opacity-90 p-2 rounded-lg shadow-xl;
+  }
+
+  /* Button. */
+  .btn {
+    @apply bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none rounded-lg px-4 py-2 shadow-md;
+  }
+  
+  /* Floating action button. */
+  .btn-action {
+    @apply fixed right-4 sm:right-6 lg:right-8 z-30;
+  }
+
+  /* Navigation button item. */
+  .btn-nav-item {
+    @apply flex items-center p-3 rounded-lg;
+  }
+
+  /* Round button. */
+  .btn-round {
+    @apply colour-indigo hover:bg-indigo-700 dark:hover:bg-indigo-500 focus:outline-none p-3 rounded-full;
+  }
+
+  /* Select menu button. */
+  .btn-select-menu {
+    @apply bg-white dark:bg-black border focus:outline-none pl-3 pr-10 py-2 rounded-lg shadow-md text-left;
+  }
+
+  /* Square button. */
+  .btn-square {
+    @apply focus:outline-none p-2 rounded-lg;
+  }
+
+  /* Card. */
+  .card {
+    @apply bg-white dark:bg-black rounded-2xl;
+  }
+
+  /* Container for an avatar. */
+  .container-avatar {
+    @apply bg-indigo-300 dark:bg-indigo-400 rounded-full;
+  }
+
+  /* Container for a banner. */
+  .container-banner {
+    @apply fixed inset-x-0 py-3 z-30;
+  }
+
+  /* Container for a general block. */
+  .container-block {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Container for a footer. */
+  .container-footer {
+    @apply absolute bg-white dark:bg-black bottom-0 inset-x-0;
+  }
+
+  /* Container for an overlay. */
+  .container-overlay {
+    @apply fixed inset-0 overflow-y-auto z-50;
+  }
+
+  /* Container for a full-screen overlay. */
+  .container-overlay-screen {
+    @apply sm:block flex items-end justify-center min-h-screen sm:p-0 pb-20 pt-4 px-4 text-center;
+  }
+
+  /* Container for a translucent overlay. */
+  .container-overlay-translucent {
+    @apply bg-gray-500 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 fixed inset-0;
+  }
+
+  /* Container for a navbar. */
+  .container-navbar {
     @apply bg-white dark:bg-black fixed w-full z-40;
   }
 
-  .root-container {
+  /* Container for the root. */
+  .container-root {
     @apply antialiased flex flex-col font-sans;
   }
 
-  .view-container {
+  /* Container for a select menu. */
+  .container-select-menu {
+    @apply bg-white dark:bg-black max-h-60 mb-10 mt-1 focus:outline-none py-1 ring-1 ring-gray-900 dark:ring-gray-50 ring-opacity-5 dark:ring-opacity-20 rounded-lg shadow-md text-sm;
+  }
+
+  /* Container for a selecter icon in the select menu button. */
+  .container-selector {
+    @apply absolute flex inset-y-0 items-center pointer-events-none pr-2 right-0;
+  }
+
+  /* Container for a setting. */
+  .container-setting {
+    @apply gap-2 sm:gap-4 grid grid-cols-1 sm:grid-cols-2;
+  }
+
+  /* Container for the pure text (e.g., description). */
+  .container-text {
+    @apply max-w-2xl mx-auto;
+  }
+
+  /* Container for a view. */
+  .container-view {
     @apply bg-gray-50 dark:bg-gray-900 flex-grow min-h-screen relative;
+  }
+
+  /* Icon: Size 4. */
+  .icon-4 {
+    @apply h-4 w-4;
+  }
+
+  /* Icon: Size 5. */
+  .icon-5 {
+    @apply h-5 w-5;
+  }
+
+  /* Icon: Size 6. */
+  .icon-6 {
+    @apply h-6 w-6;
+  }
+
+  /* Icon: Size 8. */
+  .icon-8 {
+    @apply h-8 w-8;
+  }
+
+  /* Vertical line (e.g. the connecting line between 2 images). */
+  .line-v {
+    @apply bg-gray-400 dark:bg-gray-500 h-full w-0.5;
+  }
+
+  /* Modal. */
+  .modal {
+    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl w-full;
+  }
+
+  /* Navigation text item. */
+  .nav-item {
+    @apply font-medium px-3 py-2 text-sm;
+  }
+
+  /* Navigation menu. */
+  .nav-menu {
+    @apply absolute inset-x-0 p-2 top-0;
   }
 }
 
 @layer utilities {
+  /* An indigo border when the corresponding element gains focus. */
+  .border-focus-indigo {
+    @apply focus:border-indigo-500 dark:focus:border-indigo-400;
+  }
+
+  /* Grey border. */
+  .border-grey {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+
+  /* Background for the active status. */
+  .bg-active {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
   /* Backdrop blur filter. */
   .bg-blur {
     @apply bg-opacity-90 dark:bg-opacity-90; /* A workaround if the browser does not support the particular feature. */
@@ -41,6 +223,11 @@
     .bg-blur {
       @apply backdrop-blur bg-opacity-30 dark:bg-opacity-30;
     }
+  }
+
+  /* The grey background when the mouse hovers on the corresponding element. */
+  .bg-hover-grey {
+    @apply hover:bg-gray-200 dark:hover:bg-gray-700;
   }
 
   /* Bubble animation. */
@@ -119,6 +306,45 @@
     }
   }
 
+  /* Indigo background and grey text colour. */
+  .colour-indigo {
+    @apply bg-indigo-600 text-gray-50;
+  }
+
+  /* Success background and text colour. */
+  .colour-success {
+    @apply bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100;
+  }
+
+  /* Warning background and text colour. */
+  .colour-warning {
+    @apply bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100;
+  }
+
+  .divide-y-grey {
+    @apply divide-gray-200 dark:divide-gray-700 divide-y;
+  }
+
+  /* Endpoint of the fade-in animation. */
+  .fade-in {
+    @apply opacity-100 scale-100;
+  }
+
+  /* Endpoint of the fade-out animation. */
+  .fade-out {
+    @apply opacity-0 scale-95;
+  }
+
+  /* Endpoint of the float-down animation. */
+  .float-down {
+    @apply ease-out opacity-0 translate-y-1;
+  }
+
+  /* Endpoint of the float-up animation. */
+  .float-up {
+    @apply ease-in opacity-100 translate-y-0;
+  }
+
   /* Liquid animation for buttons. */
   .liquid {
     @apply absolute -top-8 left-0 h-24 w-full bg-indigo-600 transition-all duration-300; /* The height, width, and absolution top position depend on the button's width. */
@@ -175,11 +401,56 @@
     }
   }
 
+  /* Endpoint of the fade-in/float-up modal animation. */
+  .modal-in {
+    @apply opacity-100 sm:scale-100 translate-y-0;
+  }
+
+  /* Endpoint of the fade-out/float-down modal animation. */
+  .modal-out {
+    @apply opacity-0 sm:scale-95 sm:translate-y-0 translate-y-4;
+  }
+
+  /* */
+  .pointer {
+    @apply cursor-pointer select-none;
+  }
+
   /* Polygon-shaped section. */
   .polygon-section {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
   }
-  
+
+  /* Ourline ring for avatars. */
+  .ring-avatar {
+    @apply ring-2 ring-indigo-200 dark:ring-indigo-700;
+  }
+
+  /* General outline ring for containers. */
+  .ring-container {
+    @apply ring-1 ring-gray-900 dark:ring-gray-50 ring-opacity-5 dark:ring-opacity-5;
+  }
+
+  /* An indigo outline ring when the corresponding element gains focus. */
+  .ring-focus-indigo {
+    @apply focus:ring-1 focus:ring-indigo-500 dark:focus:ring-indigo-400;
+  }
+
+  /* A grey inset outline ring when the corresponding element gains focus. */
+  .ring-inset-grey {
+    @apply focus:ring-2 focus:ring-gray-50 focus:ring-inset;
+  }
+
+  /* An indigo inset outline ring when the corresponding element gains focus. */
+  .ring-inset-indigo {
+    @apply focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:ring-inset;
+  }
+
+  /* An indigo offset outline ring when the corresponding element gains focus. The offset colour should be set additionally to simulate an offet. */
+  .ring-offset-indigo {
+    @apply focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+
   /* Ripple animation. */
   .ripple {
     animation: ripple-animation 1s linear infinite;
@@ -189,7 +460,7 @@
     animation: ripple-animation-dark 1s linear infinite;
   }
   
-  /* Colour: indigo-500 */
+  /* Colour: indigo-500. */
   @keyframes ripple-animation {
     0% {
     box-shadow:
@@ -208,7 +479,7 @@
     }
   }
   
-  /* Colour: indigo-400 */
+  /* Colour: indigo-400. */
   @keyframes ripple-animation-dark {
     0% {
     box-shadow:
@@ -226,8 +497,102 @@
       0 0 0 1rem rgba(129, 140, 248, 0);
     }
   }
+
+  /* The text colour of non-active nav items. */
+  .text-btn-square {
+    @apply text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-50;
+  }
+
+  /* Component text. */
+  .text-component {
+    @apply font-medium text-gray-50;
+  }
+
+  /* Grey content text. */
+  .text-content-grey {
+    @apply text-gray-500 dark:text-gray-400 tracking-tight;
+  }
   
+  /* Indigo content text. */
+  .text-content-indigo {
+    @apply text-indigo-600 dark:text-indigo-400;
+  }
+
+  /* Grey explanation text. */
+  .text-explanation-grey {
+    @apply text-gray-300 dark:text-gray-600 text-xs tracking-tight;
+  }
+
+  /* Indigo explanation text. */
+  .text-explanation-indigo {
+    @apply text-indigo-300 dark:text-indigo-600;
+  }
+
+  /* Label text. */
+  .text-label {
+    @apply font-medium text-gray-700 dark:text-gray-200;
+  }
+
+  /* Link text. */
+  .text-link {
+    @apply text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300 underline;
+  }
+
+  /* Primary text. */
+  .text-primary {
+    @apply font-semibold text-gray-900 dark:text-gray-50 text-xl;
+  }
+
+  /* Secondary text. */
+  .text-secondary {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+  
+  /* Subtitle text. */
+  .text-subtitle {
+    @apply font-bold text-gray-700 dark:text-gray-200 text-xl tracking-tight;
+  }
+
+  /* Title text. */
+  .text-title {
+    @apply font-extrabold text-3xl sm:text-4xl text-gray-900 dark:text-gray-50;
+  }
+
+  /* Large title text. */
+  .text-title-lg {
+    @apply font-extrabold text-4xl sm:text-5xl text-gray-900 dark:text-gray-50;
+  }
+
+  /* Verbose text. */
+  .text-verbose {
+    @apply text-gray-200 dark:text-gray-700;
+  }
+
+  /* Transform from the top right origin (hardware acceleration enabled). */
+  .transform-gpu-tr {
+    @apply transform-gpu origin-top-right;
+  }
+
+  /* Transition for most properties within the specified duration. */
+  .transition-300 {
+    @apply transition duration-300;
+  }
+
+  /* Transition for some colour properties within the specified duration. */
+  .transition-colours-300 {
+    @apply transition-colors duration-300;
+  }
+
+  /* Transition for the opacity property within the specified duration. */
+  .transition-opacity-300 {
+    @apply transition-opacity duration-300;
+  }
+
   /* Wave animation. */
+  .wave-fill {
+    @apply fill-current text-indigo-100 dark:text-indigo-900;
+  }
+
   .waves > use {
     animation: wave-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   }

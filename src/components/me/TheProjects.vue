@@ -1,43 +1,41 @@
 <!--
  * @Description: the projects component
- * @Version: 1.0.17.20210907
+ * @Version: 1.1.0.20210909
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-07 19:43:35
+ * @LastEditTime: 2021-09-09 02:14:31
 -->
 
 <template>
   <!-- Projects section. -->
-  <div id="projects" class="bg-indigo-100 dark:bg-indigo-900">
-    <div class="flex flex-col items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-4 sm:pb-6 lg:pb-8">
+  <div class="bg-indigo-100 dark:bg-indigo-900" id="projects">
+    <div class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24">
       <!-- Section header. -->
-      <span class="mb-6 h-12 w-12 rounded-lg flex items-center justify-center bg-indigo-600 shadow-lg">
-        <CollectionIcon class="h-6 w-6 text-gray-50" aria-hidden="true" />
+      <span class="badge-square-3 mb-6 shadow-lg">
+        <CollectionIcon aria-hidden="true" class="icon-6" />
       </span>
       <div class="text-center">
-        <h2 class="text-3xl sm:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-50">{{ t("projects") }}</h2>
-        <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-xl text-gray-600 dark:text-gray-300">
-          {{ t("description[0]") }}<a href="https://github.com/ArvinZJC" target="_blank" class="underline text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 motion-safe:transition-colors motion-safe:duration-300">{{ t("gh") }}</a>{{ t("description[1]") }}
+        <h2 class="text-title">{{ t("projects") }}</h2>
+        <p class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight">
+          {{ t("description[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://github.com/ArvinZJC" target="_blank">{{ t("gh") }}</a>{{ t("description[1]") }}
         </p>
       </div>
       <!-- Project cards. -->
-      <div class="max-w-lg lg:max-w-none mt-12 mx-auto grid gap-5 lg:grid-cols-3">
-        <div v-for="project in projects" :key="project.name" class="flex flex-col ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl shadow-lg overflow-hidden">
-          <div class="flex-shrink-0 bg-indigo-300 dark:bg-indigo-400">
-            <img class="h-48 sm:h-56 w-full object-cover" :src="project.imageUrl" :alt="project.name" />
-          </div>
-          <div class="flex-1 bg-white dark:bg-black p-4 sm:p-6 flex flex-col justify-between">
-            <div class="flex-1 max-h-80 text-justify overflow-auto">
-              <span :class="['items-center px-2.5 py-0.5 rounded-full text-sm font-medium ' + project.category.style]">{{ t(project.category.name) }}</span>
+      <div class="gap-5 grid lg:grid-cols-3 max-w-lg lg:max-w-none mt-12 mx-auto">
+        <div v-for="project in projects" :key="project.name" class="card ring-container flex flex-col overflow-hidden shadow-lg">
+          <img :alt="project.name" :src="project.imageUrl" class="container-avatar !rounded-none flex-shrink-0 h-48 sm:h-56 object-cover w-full" />
+          <div class="flex flex-1 flex-col justify-between p-4 sm:p-6">
+            <div class="flex-1 max-h-80 overflow-auto text-justify">
+              <span :class="[project.category.style, 'badge']">{{ t(project.category.name) }}</span>
               <div class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900 dark:text-gray-50">{{ t(project.name) }}</p>
-                <p class="mt-3 text-gray-500 dark:text-gray-400">{{ t(project.intro) }}</p>
+                <p class="text-primary">{{ t(project.name) }}</p>
+                <p class="text-content-grey mt-3 tracking-tight">{{ t(project.intro) }}</p>
               </div>
             </div>
-            <div class="mt-6 flex items-center">
-              <button @click="open = true" type="button" class="relative z-10 overflow-hidden w-24 rounded-lg shadow-md px-4 py-2 bg-indigo-600 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">
-                <span class="relative z-10 text-base font-medium text-gray-50">{{ t("explore") }}</span>
+            <div class="flex items-center mt-6">
+              <button @click="open = true" class="btn ring-offset-indigo motion-safe:transition-colours-300 overflow-hidden relative focus:ring-offset-white dark:focus:ring-offset-black w-24 z-10" type="button">
+                <span class="text-component relative z-10">{{ t("explore") }}</span>
                 <div class="motion-safe:liquid" />
               </button>
             </div>
@@ -45,27 +43,29 @@
         </div>
       </div>
       <!-- A modal indicating a project details page's unavailable status. -->
-      <TransitionRoot as="template" :show="open">
-        <Dialog as="div" static class="fixed z-50 inset-0 overflow-y-auto" @close="open = false" :open="open">
-          <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100" leave-to="opacity-0">
-              <DialogOverlay class="fixed inset-0 bg-gray-500 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 motion-safe:transition-opacity" />
+      <TransitionRoot :show="open" as="template">
+        <Dialog @close="open = false" :open="open" as="div" class="container-overlay" static>
+          <div class="container-overlay-screen">
+            <TransitionChild as="template" enter="motion-safe:transition-opacity-300 ease-out" enter-from="opacity-0" enter-to="opacity-100" leave="motion-safe:transition-opacity-300 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+              <DialogOverlay class="container-overlay-translucent" />
             </TransitionChild>
             <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <TransitionChild as="template" enter="ease-out motion-safe:duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in motion-safe:duration-300" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <div class="inline-block align-bottom sm:align-middle bg-white dark:bg-black ring-gray-900 dark:ring-gray-50 ring-1 ring-opacity-5 dark:ring-opacity-5 rounded-2xl sm:my-8 p-4 sm:p-6 text-left overflow-hidden shadow-2xl transform motion-safe:transition-all max-w-sm w-full">
-                <span class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-800 shadow-lg">
-                  <ExclamationCircleIcon class="h-6 w-6 text-yellow-800 dark:text-yellow-100" aria-hidden="true" />
-                </span>
+            <span aria-hidden="true" class="sm:align-middle sm:h-screen hidden sm:inline-block">&#8203;</span>
+            <TransitionChild as="template" enter="motion-safe:transition-300 ease-out" enter-from="modal-out" enter-to="modal-in" leave="motion-safe:transition-300 ease-in" leave-from="modal-in" leave-to="modal-out">
+              <div class="card modal ring-container">
+                <div class="flex">
+                  <span class="badge-square-3 !colour-warning !rounded-full mx-auto shadow-lg">
+                    <ExclamationCircleIcon aria-hidden="true" class="icon-6" />
+                  </span>
+                </div>
                 <div class="mt-3 sm:mt-5 text-center">
-                  <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-50 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.title") }}</DialogTitle>
+                  <DialogTitle as="h3" class="text-primary !font-medium !text-lg !leading-6 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.title") }}</DialogTitle>
                   <div class="mt-2">
-                    <p class="text-sm text-gray-500 dark:text-gray-400 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.message") }}</p>
+                    <p class="text-content-grey overflow-ellipsis overflow-hidden text-sm">{{ t("pageUnavailable.message") }}</p>
                   </div>
                 </div>
                 <div class="mt-4 sm:mt-6">
-                  <button @click="open = false" type="button" class="w-full rounded-lg shadow-md px-4 py-2 bg-indigo-600 text-base font-medium text-gray-50 hover:bg-indigo-700 dark:hover:bg-indigo-500 motion-safe:transition-colors motion-safe:duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-black">{{ t("alright") }}</button>
+                  <button @click="open = false" class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-white dark:focus:ring-offset-black w-full" type="button">{{ t("alright") }}</button>
                 </div>
               </div>
             </TransitionChild>
@@ -100,8 +100,8 @@ export default {
   setup() {
     const { t } = useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/projects", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
     const categories = {
-      active: { name: "status.active", style: "bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100" },
-      inWorks: { name: "status.inWorks", style: "bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100" }
+      active: { name: "status.active", style: "colour-success" },
+      inWorks: { name: "status.inWorks", style: "colour-warning" }
     };
     const projects = [
       {
