@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 01:52:45
+ * @LastEditTime: 2021-09-09 07:53:17
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -411,7 +411,7 @@
     @apply opacity-0 sm:scale-95 sm:translate-y-0 translate-y-4;
   }
 
-  /* */
+  /* Use the pointer as the cursor, and disable the selection. */
   .pointer {
     @apply cursor-pointer select-none;
   }
