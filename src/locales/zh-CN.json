@@ -23,11 +23,11 @@
   "openSettingsPanel": "打开设置面板",
   "pages": {
     "404": {
-      "description": "竟然迷路了……😅",
+      "description": "竟然迷路了…… 😅",
       "title": "页面未找到 - Arvin Zhao"
     },
     "me": {
-      "description": "个人网站的创建让我更了解自己了，所以这就是Arvin（俺的英文名）。😉",
+      "description": "个人网站的创建让我更了解自己了，所以这就是 Arvin（俺的英文名）。😉",
       "title": "Arvin·趙：授课型硕士生（UofG）& 开发者"
     }
   },

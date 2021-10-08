@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.0.20210908
+ * @Version: 1.1.3.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-08 22:36:44
+ * @LastEditTime: 2021-10-08 20:18:58
 -->
 
 <template>
@@ -29,7 +29,7 @@
             <span v-if="(eventIndex !== timeline.length - 1)" aria-hidden="true" class="line-v -ml-px absolute left-6 top-6" />
             <div class="flex relative space-x-3">
               <template v-if="event.type === 'name'">
-                <img :src="event.imageUrl" alt="Arvin: headshot" class="avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800" />
+                <img :id="event.content" :src="event.imageUrl" alt="Arvin: headshot" class="animate-pulse avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800" />
                 <div class="flex flex-1 justify-between pt-3.5 space-x-4">
                   <p class="text-primary !font-medium !text-sm">{{ t(event.content) }}</p>
                   <p class="text-content-grey text-right text-sm whitespace-nowrap">{{ event.period }}</p>
@@ -166,6 +166,17 @@ export default {
       }
     ];
     return { t, timeline };
+  },
+  mounted() {
+    window.addEventListener("load", () => {
+      for (var event of this.timeline) {
+        var headshot = document.getElementById(event.content);
+
+        if (headshot !== null) {
+          headshot.classList.remove("animate-pulse");
+        } // end if
+      } // end for
+    });
   }
 };
 </script>

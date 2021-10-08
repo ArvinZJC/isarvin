@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 2.0.0.20210909
+ * @Version: 2.1.0.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 07:53:17
+ * @LastEditTime: 2021-10-08 18:24:22
  */
 
 /* Inject Tailwind's base styles and any base styles registered by plugins. */
@@ -184,7 +184,7 @@
 
   /* Modal. */
   .modal {
-    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl w-full;
+    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl transform w-full;
   }
 
   /* Navigation text item. */
@@ -335,14 +335,19 @@
     @apply opacity-0 scale-95;
   }
 
-  /* Endpoint of the float-down animation. */
-  .float-down {
-    @apply ease-out opacity-0 translate-y-1;
+  /* Endpoint of the float-down animation with Transform 1. */
+  .float-down-1 {
+    @apply opacity-0 translate-y-1;
+  }
+
+  /* Endpoint of the float-down animation with Transform 5. */
+  .float-down-5 {
+    @apply opacity-0 translate-y-5;
   }
 
   /* Endpoint of the float-up animation. */
   .float-up {
-    @apply ease-in opacity-100 translate-y-0;
+    @apply opacity-100 translate-y-0;
   }
 
   /* Liquid animation for buttons. */
@@ -573,17 +578,22 @@
     @apply transform-gpu origin-top-right;
   }
 
-  /* Transition for most properties within the specified duration. */
+  /* Transition for most properties within 300ms. */
   .transition-300 {
     @apply transition duration-300;
   }
 
-  /* Transition for some colour properties within the specified duration. */
+  /* Transition for most properties within 1000ms. */
+  .transition-1000 {
+    @apply transition duration-1000;
+  }
+
+  /* Transition for some colour properties within 300ms. */
   .transition-colours-300 {
     @apply transition-colors duration-300;
   }
 
-  /* Transition for the opacity property within the specified duration. */
+  /* Transition for the opacity property within 300ms. */
   .transition-opacity-300 {
     @apply transition-opacity duration-300;
   }

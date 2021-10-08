@@ -23,11 +23,11 @@
   "openSettingsPanel": "Open the settings panel",
   "pages": {
     "404": {
-      "description": "You're lost...😅",
+      "description": "You're lost... 😅",
       "title": "Page Not Found - Arvin Zhao"
     },
     "me": {
-      "description": "I came to know myself better when I started to build my personal site. So this is Arvin.😉",
+      "description": "I came to know myself better when I started to build my personal site. So this is Arvin. 😉",
       "title": "Arvin Zhao: PGT Student (UofG) & Developer"
     }
   },

@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.1.0.20210909
+ * @Version: 1.1.4.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 02:37:55
+ * @LastEditTime: 2021-10-08 20:30:56
 -->
 
 <template>
@@ -41,7 +41,7 @@
     </svg>
     <div class="lg:flex lg:items-center relative">
       <!-- Show the large avatar at the large breakpoint. -->
-      <img :alt="steveJobs.alt" :src="steveJobs.imageUrl" class="avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg lg:flex-shrink-0 hidden" />
+      <img :alt="t('steveJobs.name')" :src="SteveJobs" class="animate-pulse avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg lg:flex-shrink-0 hidden" id="sj-avatar-lg" />
       <div class="lg:ml-10 relative">
         <!-- Left quotation mark. -->
         <svg aria-hidden="true" class="text-explanation-indigo -translate-x-8 -translate-y-24 absolute h-36 left-0 opacity-50 top-0 transform-gpu w-36" fill="none" stroke="currentColor" viewBox="0 0 144 144">
@@ -52,7 +52,7 @@
           <footer class="mt-8">
             <div class="flex">
               <!-- Hide the relatively small avatar at the large breakpoint. -->
-              <img :alt="steveJobs.alt" :src="steveJobs.imageUrl" class="avatar container-avatar ring-avatar drop-shadow-lg flex-shrink-0 lg:hidden" />
+              <img :alt="t('steveJobs.name')" :src="SteveJobs" class="animate-pulse avatar container-avatar ring-avatar drop-shadow-lg flex-shrink-0 lg:hidden" id="sj-avatar" />
               <div class="lg:ml-0 ml-4">
                 <div class="text-primary !font-medium !text-base">{{ t("steveJobs.name") }}</div>
                 <div class="text-content-indigo font-medium">{{ t("steveJobs.title") }}</div>
@@ -77,11 +77,21 @@ export default {
   setup() {
     const { t } = useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/tweeting", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
     const mail = "SteveJobz@isarvin.com";
-    const steveJobs = {
-      imageUrl: SteveJobs,
-      alt: "Steve Jobs"
-    };
-    return { mail, steveJobs, t };
+    return { mail, SteveJobs, t };
+  },
+  mounted() {
+    window.addEventListener("load", () => {
+      var sjAvatar = document.getElementById("sj-avatar");
+      var sjLargeAvatar = document.getElementById("sj-avatar-lg");
+      
+      if (sjAvatar !== null) {
+        sjAvatar.classList.remove("animate-pulse");
+      } // end if
+
+      if (sjLargeAvatar !== null) {
+        sjLargeAvatar.classList.remove("animate-pulse");
+      } // end if
+    });
   }
 };
 </script>

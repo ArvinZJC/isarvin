@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.0.20210909
+ * @Version: 1.3.2.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 02:50:42
+ * @LastEditTime: 2021-10-08 17:24:35
 -->
 
 <template>
@@ -23,7 +23,7 @@
         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
         <span aria-hidden="true" class="sm:align-middle sm:h-screen hidden sm:inline-block">&#8203;</span>
         <TransitionChild as="template" enter="motion-safe:transition-300 ease-out" enter-from="modal-out" enter-to="modal-in" leave="motion-safe:transition-300 ease-in" leave-from="modal-in" leave-to="modal-out">
-          <div class="card modal ring-container transform">
+          <div class="card modal ring-container">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <CogIcon aria-hidden="true" class="icon-6 text-content-indigo my-2" />
@@ -114,8 +114,8 @@ import { CogIcon, MoonIcon, SelectorIcon, SunIcon, XIcon } from "@heroicons/vue/
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { decideLocale } from "../lib/i18n.js";
-import { applyTheme } from "../lib/theme.js";
+import { decideLocale, EN, LOCALE, ZH_CN } from "../lib/i18n.js";
+import { applyTheme, DARK, LIGHT, THEME } from "../lib/theme.js";
 
 export default {
   components: {
@@ -150,14 +150,14 @@ export default {
      */
     changeLanguage() {
       if (this.localeSelected.id === 0) {
-        if (localStorage.locale) {
-          localStorage.removeItem("locale"); // Choose to follow the browser setting.
+        if (localStorage.getItem(LOCALE) !== null) {
+          localStorage.removeItem(LOCALE); // Follow the browser default.
           this.applyLocale();
         } // end if
       }
       else {
-        if (this.localeSelected.name !== localStorage.locale) {
-          localStorage.locale = this.localeSelected.name;
+        if (this.localeSelected.name !== localStorage.getItem(LOCALE)) {
+          localStorage.setItem(LOCALE, this.localeSelected.name);
           this.applyLocale();
         } // end if
       } // end if...else
@@ -168,14 +168,14 @@ export default {
      */
     changeAppearance() {
       if (this.themeSelected.id === 0) {
-        if (localStorage.theme) {
-          localStorage.removeItem("theme"); // Choose to follow the system setting.
+        if (localStorage.getItem(THEME)) {
+          localStorage.removeItem(THEME); // Follow the system default.
           applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
       }
       else {
-        if (this.themeSelected.name !== localStorage.theme) {
-          localStorage.theme = this.themeSelected.name;
+        if (this.themeSelected.name !== localStorage.getItem(THEME)) {
+          localStorage.setItem(THEME, this.themeSelected.name);
           applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
       } // end if...else
@@ -188,43 +188,45 @@ export default {
   setup() {
     const { t, locale } = useI18n({ useScope: "global" });
     const open = ref(false);
-    const themes = [
-      { id: 0, name: "systemDefault", icon: null },
-      { id: 1, name: "light", icon: SunIcon },
-      { id: 2, name: "dark", icon: MoonIcon }
-    ];
-    var themeSelected;
     const locales = [
       { id: 0, name: "browserDefault" },
-      { id: 1, name: "en" },
-      { id: 2, name: "zh-CN" }
+      { id: 1, name: EN },
+      { id: 2, name: ZH_CN }
     ];
+    var currentLocale = localStorage.getItem(LOCALE);
     var localeSelected;
+    const themes = [
+      { id: 0, name: "systemDefault", icon: null },
+      { id: 1, name: LIGHT, icon: SunIcon },
+      { id: 2, name: DARK, icon: MoonIcon }
+    ];
+    var currentTheme = localStorage.getItem(THEME);
+    var themeSelected;
 
     // Set the current locale.
-    if (localStorage.locale) {
-      if (localStorage.locale === "en") {
+    if (currentLocale === null) {
+      localeSelected = ref(locales[0]);
+    }
+    else {
+      if (currentLocale === EN) {
         localeSelected = ref(locales[1]);
       }
       else {
         localeSelected = ref(locales[2]);
       } // end if...else
-    }
-    else {
-      localeSelected = ref(locales[0]);
     } // end if...else
 
     // Set the current theme.
-    if (localStorage.theme) {
-      if (localStorage.theme === "light") {
+    if (currentTheme === null) {
+      themeSelected = ref(themes[0]);
+    }
+    else {
+      if (currentTheme === LIGHT) {
         themeSelected = ref(themes[1]);
       }
       else {
         themeSelected = ref(themes[2]);
       } // end if...else
-    }
-    else {
-      themeSelected = ref(themes[0]);
     } // end if...else
     
     return { locale, locales, localeSelected, open, t, themes, themeSelected };

@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.0.20210909
+ * @Version: 1.6.3.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 01:32:02
+ * @LastEditTime: 2021-10-08 19:56:47
 -->
 
 <template>
@@ -14,7 +14,7 @@
       <div class="flex h-16 justify-between">
         <div class="flex items-center">
           <a :href="navigation.logo.href" class="text-btn-square motion-safe:transition-colours-300 flex">
-            <img alt="Arvin: icon" class="icon-8 ml-2" src="../../assets/Arvin_icon.png" />
+            <img alt="Arvin: icon" class="animate-pulse icon-8 ml-2" id="hero-icon" src="../../assets/Arvin_icon.png" />
             <span class="sr-only">{{ navigation.logo.textContent }}</span>
             <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
             <component :is="navigation.logo.textIcon" aria-hidden="true" class="lg:block h-8 md:hidden w-32" />
@@ -28,7 +28,7 @@
         </div>
         <!-- Show my social links at the medium breakpoint. -->
         <div class="md:flex hidden md:items-center md:ml-6 md:space-x-6">
-          <a v-for="item in navigation.social" :href="item.href" :key="item.name" class="text-btn-square motion-safe:transition-colours-300" target="_blank">
+          <a v-for="item in navigation.social" :href="item.href" :key="item.name" :title="t(item.name)" class="text-btn-square motion-safe:transition-colours-300" target="_blank">
             <span class="sr-only">{{ t(item.name) }}</span>
             <component :is="item.icon" aria-hidden="true" class="icon-6" />
           </a>
@@ -69,7 +69,7 @@
           </div>
           <!-- Social links in the menu. -->
           <div class="border-grey border-t flex flex-wrap justify-center px-4">
-            <a v-for="item in navigation.social" :href="item.href" :key="item.name" class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2" target="_blank">
+            <a v-for="item in navigation.social" :href="item.href" :key="item.name" :title="t(item.name)" class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2" target="_blank">
               <span class="sr-only">{{ t(item.name) }}</span>
               <component :is="item.icon" aria-hidden="true" class="icon-6" />
             </a>
@@ -79,10 +79,12 @@
     </transition>
   </Popover>
   <!-- The button for scrolling to the top. -->
-  <button @click="navigate('#home')" :title="t('scrollToTop')" class="btn-action btn-round float-down ring-inset-grey motion-safe:transition-300 bg-opacity-90 bottom-44 shadow-xl" id="scroll-to-top" type="button">
-    <span class="sr-only">{{ t("scrollToTop") }}</span>
-    <ArrowUpIcon aria-hidden="true" class="icon-6" />
-  </button>
+  <transition enter-active-class="motion-safe:transition-300 ease-out" enter-from-class="float-down-1" enter-to-class="float-up" leave-active-class="motion-safe:transition-300 ease-in" leave-from-class="float-up" leave-to-class="float-down-1">
+    <button v-if="!isScrollToTopDismissed" @click="navigate('#home')" :title="t('scrollToTop')" class="btn-action btn-round ring-inset-grey bg-opacity-90 bottom-44 shadow-xl" type="button">
+      <span class="sr-only">{{ t("scrollToTop") }}</span>
+      <ArrowUpIcon aria-hidden="true" class="icon-6" />
+    </button>
+  </transition>
 </template>
 
 <script>
@@ -113,7 +115,7 @@ export default {
     navigate(anchor) {
       var element = document.querySelector(anchor);
 
-      if (element) {
+      if (element !== null) {
         window.scroll({
           top: element.offsetTop - this.navbar.offsetHeight + 2, // Offset the top to avoid overlapping the fixed header and reduce errors for scrolling to the view.
           left: 0,
@@ -132,7 +134,7 @@ export default {
       setTimeout(() => {
         var mobileNav = document.querySelector("#mobile-nav");
 
-        if (mobileNav) {
+        if (mobileNav !== null) {
           this.mobileNavItems = null;
           this.mobileNavItems = mobileNav.getElementsByTagName("a");
           this.updateMobileNavItemsStatus();
@@ -148,18 +150,18 @@ export default {
      */
     handleScroll() {
       var activeIndex;
-      var scrollToTopButton = document.getElementById("scroll-to-top");
+      var temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
       
       Array.prototype.forEach.call(this.sections, (element, index) => {
         // The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
-        if (element.offsetTop - this.navbar.offsetHeight <= window.pageYOffset
-          || window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2) {
+        if (element.offsetTop - this.navbar.offsetHeight <= window.scrollY
+          || window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
           activeIndex = index;
         } // end if
       });
 
       // Apply the backdrop blur filter and box shadow to the navbar if it satisfies the specified offset threshold to the top.
-      if (window.pageYOffset <= this.navbar.offsetHeight) {
+      if (window.scrollY <= this.navbar.offsetHeight) {
         this.navbar.classList.add("bg-opacity-0", "dark:bg-opacity-0");
         this.navbar.classList.remove("bg-blur", "shadow-xl");
       }
@@ -184,20 +186,23 @@ export default {
           } // end if...else
         });
 
-        if (this.mobileNavItems) {
+        if (this.mobileNavItems !== null) {
           this.updateMobileNavItemsStatus();
         } // end if
       } // end if
 
-      // Show the button for scrolling to the top if it satisfies the specified offset threshold to the top. Two sub-conditions are for suiting different situations of the home section (full screen or not).
-      if (window.pageYOffset < screen.height * 2 / 3 && window.pageYOffset < document.getElementById("home").offsetHeight) {
-        scrollToTopButton.classList.add("float-down");
-        scrollToTopButton.classList.remove("float-up");
+      // Show the button for scrolling to the top if the specified offset threshold to the top is satisfied. Two sub-conditions are for suiting different situations of the home section (full screen or not).
+      if (window.scrollY < screen.height * 2 / 3 && window.scrollY < document.getElementById("home").offsetHeight) {
+        temp = true;
       }
       else {
-        scrollToTopButton.classList.add("float-up");
-        scrollToTopButton.classList.remove("float-down");
+        temp = false;
       } // end if...else
+
+      // Assign the value only if it is different to avoid potential animation loss.
+      if (this.isScrollToTopDismissed !== temp) {
+        this.isScrollToTopDismissed = temp;
+      } // end if
     }, // end function handleScroll
 
     /**
@@ -221,6 +226,7 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      isScrollToTopDismissed: true,
       mobileNavItems: null,
       navbar: null,
       navItems: null,
@@ -327,7 +333,14 @@ export default {
     Array.prototype.forEach.call(this.navItems, (element) => {
       this.sections.push(document.querySelector(element.getAttribute("id")));
     });
-    window.onscroll = this.handleScroll;
+    window.addEventListener("load", () => {
+      var heroIcon = document.getElementById("hero-icon");
+
+      if (heroIcon !== null) {
+        heroIcon.classList.remove("animate-pulse");
+      } // end if
+    });
+    window.addEventListener("scroll", this.handleScroll);
   }
 };
 </script>

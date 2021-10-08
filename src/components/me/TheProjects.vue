@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.1.0.20210909
+ * @Version: 1.1.5.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-09 02:14:31
+ * @LastEditTime: 2021-10-08 20:18:16
 -->
 
 <template>
@@ -12,34 +12,40 @@
   <div class="bg-indigo-100 dark:bg-indigo-900" id="projects">
     <div class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24">
       <!-- Section header. -->
-      <span class="badge-square-3 mb-6 shadow-lg">
-        <CollectionIcon aria-hidden="true" class="icon-6" />
-      </span>
-      <div class="text-center">
-        <h2 class="text-title">{{ t("projects") }}</h2>
-        <p class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight">
-          {{ t("description[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://github.com/ArvinZJC" target="_blank">{{ t("gh") }}</a>{{ t("description[1]") }}
-        </p>
+      <div class="flex flex-col items-center justify-center" id="projects-intro">
+        <span class="badge-square-3 mb-6 shadow-lg">
+          <CollectionIcon aria-hidden="true" class="icon-6" />
+        </span>
+        <div class="text-center">
+          <h2 class="text-title">{{ t("projects") }}</h2>
+          <p class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight">
+            {{ t("description[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://github.com/ArvinZJC" target="_blank">{{ t("gh") }}</a>{{ t("description[1]") }}
+          </p>
+        </div>
       </div>
       <!-- Project cards. -->
       <div class="gap-5 grid lg:grid-cols-3 max-w-lg lg:max-w-none mt-12 mx-auto">
-        <div v-for="project in projects" :key="project.name" class="card ring-container flex flex-col overflow-hidden shadow-lg">
-          <img :alt="project.name" :src="project.imageUrl" class="container-avatar !rounded-none flex-shrink-0 h-48 sm:h-56 object-cover w-full" />
-          <div class="flex flex-1 flex-col justify-between p-4 sm:p-6">
-            <div class="flex-1 max-h-80 overflow-auto text-justify">
-              <span :class="[project.category.style, 'badge']">{{ t(project.category.name) }}</span>
-              <div class="block mt-2">
-                <p class="text-primary">{{ t(project.name) }}</p>
-                <p class="text-content-grey mt-3 tracking-tight">{{ t(project.intro) }}</p>
+        <div v-for="project in projects" :key="project.name" class="flex">
+          <transition enter-active-class="motion-safe:transition-1000 ease-out" enter-from-class="float-down-5" enter-to-class="float-up" leave-active-class="motion-safe:transition-1000 ease-in" leave-from-class="float-up" leave-to-class="float-down-5">
+            <div v-if="isProjectShown" class="card ring-container flex flex-col overflow-hidden shadow-lg">
+              <img :alt="project.name" :id="project.name" :src="project.imageUrl" class="animate-pulse container-avatar !rounded-none flex-shrink-0 h-48 sm:h-56 object-cover w-full" />
+              <div class="flex flex-1 flex-col justify-between p-4 sm:p-6">
+                <div class="flex-1 max-h-80 overflow-auto text-justify">
+                  <span :class="[project.category.style, 'badge']">{{ t(project.category.name) }}</span>
+                  <div class="block mt-2">
+                    <p class="text-primary">{{ t(project.name) }}</p>
+                    <p class="text-content-grey mt-3 tracking-tight">{{ t(project.intro) }}</p>
+                  </div>
+                </div>
+                <div class="flex items-center mt-6">
+                  <button @click="open = true" class="btn ring-offset-indigo motion-safe:transition-colours-300 overflow-hidden relative focus:ring-offset-white dark:focus:ring-offset-black w-24 z-10" type="button">
+                    <span class="text-component relative z-10">{{ t("explore") }}</span>
+                    <div class="motion-safe:liquid" />
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="flex items-center mt-6">
-              <button @click="open = true" class="btn ring-offset-indigo motion-safe:transition-colours-300 overflow-hidden relative focus:ring-offset-white dark:focus:ring-offset-black w-24 z-10" type="button">
-                <span class="text-component relative z-10">{{ t("explore") }}</span>
-                <div class="motion-safe:liquid" />
-              </button>
-            </div>
-          </div>
+          </transition>
         </div>
       </div>
       <!-- A modal indicating a project details page's unavailable status. -->
@@ -97,6 +103,51 @@ export default {
     TransitionChild,
     TransitionRoot
   },
+  methods: {
+    /**
+     * Show the project cards when appropriate.
+     */
+    showCards() {
+      var intro = document.getElementById("projects-intro");
+
+      if (intro !== null) {
+        // Show the project cards if the screen could show the project introduction without scrolling.
+        if (document.getElementById("home").offsetHeight + intro.offsetHeight < screen.height) {
+          if (this.isProjectShown !== true) {
+            this.isProjectShown = true;
+          } // end if
+        }
+        else {
+          setTimeout(() => {
+            // Show the project cards if the specified offset threshold to the top is satisfied.
+            if (window.scrollY >= intro.offsetHeight) {
+              if (this.isProjectShown !== true) {
+                this.isProjectShown = true;
+              } // end if
+            } // end if
+
+            this.removePulse();
+          }, 100);
+        } // end if...else
+      } // end if
+    }, // end function showCards
+
+    /**
+     * Remove the pulse animation on images.
+     */
+    removePulse() {
+      for (var project of this.projects) {
+        var cardImage = document.getElementById(project.name);
+
+        if (cardImage !== null) {
+          cardImage.classList.remove("animate-pulse");
+        } // end if
+      } // end for
+    } // end function removePulse
+  },
+  data() {
+    return { isProjectShown: false }
+  },
   setup() {
     const { t } = useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/projects", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
     const categories = {
@@ -140,6 +191,10 @@ export default {
         });
       } // end if
     } // end if
+
+    this.showCards();
+    window.addEventListener("load", this.removePulse);
+    window.addEventListener("scroll", this.showCards);
   }
 };
 </script>

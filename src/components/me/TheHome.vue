@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.0.20210908
+ * @Version: 1.2.5.20211008
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-09-08 21:03:22
+ * @LastEditTime: 2021-10-08 20:25:53
 -->
 
 <template>
@@ -41,24 +41,26 @@
       <!-- Show the placeholder for "justify-between" at the small breakpoint. -->
       <div class="sm:block h-px hidden" />
       <!-- Bio card. -->
-      <div class="sm:mt-0 mt-3 z-10">
-        <img alt="Arvin: hero avatar" class="avatar-md container-avatar ring-avatar -bottom-12 sm:-bottom-14 lg:-bottom-16 drop-shadow-lg mx-auto relative" src="../../assets/Arvin_hero.jpg" />
-        <div class="card ring-container bg-opacity-50 dark:bg-opacity-50 max-w-7xl mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24 shadow-md space-y-4">
-          <h1 class="text-center">
-            <span class="text-title block">{{ t("name") }}</span>
-            <span class="text-subtitle block">
-              {{ t("positions[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://www.gla.ac.uk/" target="_blank">@{{ t("school") }}</a>{{ t("positions[1]") }}
-            </span>
-          </h1>
-          <p class="text-secondary sm:max-w-3xl max-w-lg mx-auto text-center">
-            <span>{{ t("bio[0]") }}</span>
-            <span class="line-through">{{ t("jokes[0]") }}</span>
-            <span>{{ t("bio[1]") }}</span>
-            <span class="line-through">{{ t("jokes[1]") }}</span>
-            <span>{{ t("bio[2]") }}</span>
-          </p>
+      <transition enter-active-class="motion-safe:transition-1000 ease-out" enter-from-class="float-down-5" enter-to-class="float-up" leave-active-class="motion-safe:transition-1000 ease-in" leave-from-class="float-up" leave-to-class="float-down-5">
+        <div v-if="isBioShown" class="sm:mt-0 mt-3 z-10">
+          <img alt="Arvin: hero avatar" class="avatar-md animate-pulse container-avatar ring-avatar -bottom-12 sm:-bottom-14 lg:-bottom-16 drop-shadow-lg mx-auto relative" id="hero-avatar" src="../../assets/Arvin_hero.jpg" />
+          <div class="card ring-container bg-opacity-50 dark:bg-opacity-50 max-w-7xl mx-4 sm:mx-auto p-4 sm:p-6 lg:p-8 pt-16 sm:pt-20 lg:pt-24 shadow-md space-y-4">
+            <h1 class="text-center">
+              <span class="text-title block">{{ t("name") }}</span>
+              <span class="text-subtitle block">
+                {{ t("positions[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://www.gla.ac.uk/" target="_blank">@{{ t("school") }}</a>{{ t("positions[1]") }}
+              </span>
+            </h1>
+            <p class="text-secondary sm:max-w-3xl max-w-lg mx-auto text-center">
+              <span>{{ t("bio[0]") }}</span>
+              <span class="line-through">{{ t("jokes[0]") }}</span>
+              <span>{{ t("bio[1]") }}</span>
+              <span class="line-through">{{ t("jokes[1]") }}</span>
+              <span>{{ t("bio[2]") }}</span>
+            </p>
+          </div>
         </div>
-      </div>
+      </transition>
       <!-- Wave animation. -->
       <svg class="h-16 sm:h-24 lg:h-32 mt-16 sm:mt-0 relative w-screen z-10" preserveAspectRatio="none" shape-rendering="auto" viewBox="0 24 150 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -103,7 +105,7 @@ export default {
     autoScrollBannerText() {
       var bannerText = document.getElementById("banner-text");
       
-      if (bannerText) {
+      if (bannerText !== null) {
         if (bannerText.scrollWidth > bannerText.offsetWidth) {
           bannerText.classList.add("motion-safe:marquee");
         }
@@ -117,9 +119,9 @@ export default {
      * Dismiss the banner.
      */
     dismissBanner() {
-      localStorage.isBannerDismissed = true;
+      localStorage.setItem("isBannerDismissed", "true");
       localStorage.bannerText = this.t("banner");
-      this.isBannerDismissed = localStorage.isBannerDismissed === "true";
+      this.isBannerDismissed = true;
     }, // end function dismissBanner
 
     /**
@@ -130,32 +132,38 @@ export default {
     } // end function setBubbleAreaHeight
   },
   data() {
-    return { isBannerDismissed: true };
+    return { isBannerDismissed: true, isBioShown: false };
   },
   setup() {
     return useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/home", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
   },
   mounted() {
-    document.onreadystatechange = () => {
-      if (document.readyState === "complete") {
-        this.setBubbleAreaHeight();
-        localStorage.isBannerDismissed = localStorage.isBannerDismissed === null
-          ? false
-          : (localStorage.isBannerDismissed
-            ? (localStorage.bannerText === this.t("banner") // Check if the banner text has updates. Using the t() function introduces a limitation that the banner status will be reset if the locale changes and the page is reloaded.
-              ? localStorage.isBannerDismissed
-              : false)
-            : localStorage.isBannerDismissed);
-        this.isBannerDismissed = localStorage.isBannerDismissed === "true";
-        setTimeout(() => {
-          this.autoScrollBannerText();
-        }, 300); // Need delay to make sure the banner have been loaded.
-      }
-    };
-    window.onresize = () => {
+    this.isBioShown = true;
+    
+    window.addEventListener("load", () => {
+      this.setBubbleAreaHeight();
+
+      // By default, show the banner.
+      // When the banner has been set dismissed, it should be re-displayed if the banner text has updates. However, using the t() function introduces a limitation that the banner will be re-displayed if the locale changes and the page is reloaded.
+      if (localStorage.getItem("isBannerDismissed") === null || localStorage.getItem("bannerText") !== this.t("banner")) {
+        localStorage.setItem("isBannerDismissed", "false")
+      } // end if
+      
+      this.isBannerDismissed = localStorage.getItem("isBannerDismissed") === "true";
+      setTimeout(() => {
+        this.autoScrollBannerText();
+      }, 300); // Need delay to make sure the banner has been loaded due to its animation.
+      
+      var heroAvatar = document.getElementById("hero-avatar");
+
+      if (heroAvatar !== null) {
+        heroAvatar.classList.remove("animate-pulse");
+      } // end if
+    });
+    window.addEventListener("resize", () => {
       this.autoScrollBannerText();
       this.setBubbleAreaHeight();
-    };
+    });
   }
 };
 </script>

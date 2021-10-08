@@ -1,7 +1,7 @@
 {
   "description": [
     "I reckon my 5 years’ uni life is so incredibly fulfiling with the lads, devoting a part of my spare time to several projects. Most of them, either active or archived, are hosted on ",
-    ". I’ve still got a pretty long way to go. Would I reach the end one day?🐌"
+    ". I’ve still got a pretty long way to go. Would I reach the end one day? 🐌"
   ],
   "info": {
     "shSzStockHelper": {
@@ -9,7 +9,7 @@
       "name": "SH/SZ Stock Helper"
     },
     "tgStickerPorter": {
-      "intro": "What would happen when a Telegram bot meets with Emoji/stickers and... me?😏",
+      "intro": "What would happen when a Telegram bot meets with Emoji/stickers and... me? 😏",
       "name": "TG Sticker Porter"
     },
     "weiboEmoji": {
@@ -18,7 +18,7 @@
     }
   },
   "pageUnavailable": {
-    "message": "Sorry for loafing around, but the project details page is unavailable because it's still under construction.🏗",
+    "message": "Sorry for loafing around, but the project details page is unavailable because it's still under construction. 🏗",
     "title": "Page under construction"
   },
   "status": {
