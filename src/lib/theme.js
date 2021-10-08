@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-24 08:06:11
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 13:27:51
+ * @LastEditTime: 2021-10-08 20:49:15
  */
 
 const DARK = "dark";
@@ -15,7 +15,7 @@ export {
   DARK,
   LIGHT,
   THEME
-}
+};
 
 /**
  * Apply the light/dark theme according to the corresponding user/system preference.

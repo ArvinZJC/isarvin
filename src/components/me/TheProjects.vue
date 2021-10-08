@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 20:18:16
+ * @LastEditTime: 2021-10-08 20:49:33
 -->
 
 <template>
@@ -146,7 +146,7 @@ export default {
     } // end function removePulse
   },
   data() {
-    return { isProjectShown: false }
+    return { isProjectShown: false };
   },
   setup() {
     const { t } = useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/projects", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });

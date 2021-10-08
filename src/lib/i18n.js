@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 13:34:26
+ * @LastEditTime: 2021-10-08 20:49:08
  */
 
 const EN = "en";
@@ -15,7 +15,7 @@ export {
   EN,
   LOCALE,
   ZH_CN
-}
+};
 
 /**
  * Load all locale messages under the specified main directory.

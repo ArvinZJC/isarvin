@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 20:25:53
+ * @LastEditTime: 2021-10-08 20:49:52
 -->
 
 <template>
@@ -146,7 +146,7 @@ export default {
       // By default, show the banner.
       // When the banner has been set dismissed, it should be re-displayed if the banner text has updates. However, using the t() function introduces a limitation that the banner will be re-displayed if the locale changes and the page is reloaded.
       if (localStorage.getItem("isBannerDismissed") === null || localStorage.getItem("bannerText") !== this.t("banner")) {
-        localStorage.setItem("isBannerDismissed", "false")
+        localStorage.setItem("isBannerDismissed", "false");
       } // end if
       
       this.isBannerDismissed = localStorage.getItem("isBannerDismissed") === "true";
