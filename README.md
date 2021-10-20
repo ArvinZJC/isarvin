@@ -28,7 +28,7 @@ The structure of the site is as follows. Please note that the code is licensed u
 
 > May I have your attention pls? 🔥
 
-1. By 20 October 2021, everything looks good with Visual Studio Code (Version: 1.61.2) + Node.js 17.0.0 + Vue CLI 5.0.0-beta.6. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 20 October 2021, everything looks good with Visual Studio Code (Version: 1.61.2) + Node.js 16.12.0 + Vue CLI 5.0.0-beta.6. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS V2.0+](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
     > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
