@@ -28,7 +28,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 截至2021年10月8日，使用 Visual Studio Code（版本：1.61.0）、Node.js 16.10.0 和 Vue CLI 5.0.0-beta.4 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至2021年10月20日，使用 Visual Studio Code（版本：1.61.2）、Node.js 17.0.0 和 Vue CLI 5.0.0-beta.6 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS V2.0+ 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
     > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
@@ -40,11 +40,11 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
     | @headlessui/vue | 1.4.1 |
     | @heroicons/vue | 1.0.4 |
     | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) | 0.4.4 |
-    | tailwindcss | 2.2.16 |
-    | vue | 3.2.19 |
-    | vue-i18n | 9.2.0-beta.11 |
+    | tailwindcss | 2.2.17 |
+    | vue | 3.2.20 |
+    | vue-i18n | 9.2.0-beta.13 |
     | vue-meta | 3.0.0-alpha.9 |
-    | vue-router | 4.0.11 |
+    | vue-router | 4.0.12 |
 
 4. 您可以在项目根目录下手动创建名为 `.env` 或 `.env.local` 的文件，并包含如下内容。请注意这个操作*可选*。**在没有这个文件的情况下，此项目应仍能良好运行**。
 
@@ -56,7 +56,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
     - 安装项目所需依赖。
 
         ```sh
-        npm install -g @vue/cli@5.0.0-beta.4 serve
+        npm install -g @vue/cli@5.0.0-beta.6 serve
         npm install
         ```
 

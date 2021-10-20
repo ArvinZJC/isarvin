@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 20:49:33
+ * @LastEditTime: 2021-10-20 18:29:34
 -->
 
 <template>
@@ -89,8 +89,8 @@ import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 import { loadLocaleMessages } from "../../lib/i18n.js";
+import PySicBanner from "../../assets/PySic_banner.png";
 import ShSzStockHelperWindowsBanner from "../../assets/ShSzStockHelper-Windows_banner.png";
-import TgStickerPorterBanner from "../../assets/TgStickerPorter_banner.png";
 import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
 
 export default {
@@ -170,10 +170,10 @@ export default {
         route: "#"
       },
       {
-        imageUrl: TgStickerPorterBanner,
-        category: categories.inWorks,
-        name: "info.tgStickerPorter.name",
-        intro: "info.tgStickerPorter.intro",
+        imageUrl: PySicBanner,
+        category: categories.active,
+        name: "info.pySic.name",
+        intro: "info.pySic.intro",
         route: "#"
       }
     ];
