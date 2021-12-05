@@ -5,7 +5,7 @@
   ],
   "info": {
     "pySic": {
-      "intro": "PY-SIC 是一个简易的 Python 图像转换器。它可以看作是对知名 Python 图形库 Pillow 的包装，不过包含了一个小补丁以使转换得到的 GIF 图片的质量更好更可控。",
+      "intro": "PY-SIC 是一个简易的 Python 图像转换器。它可以看作是对知名 Python 图形库 Pillow 的包装，不过包含了一个小补丁以使转换得到的 GIF 图片的质量更好且更可控。",
       "name": "PY-SIC"
     },
     "shSzStockHelper": {
