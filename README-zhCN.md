@@ -28,7 +28,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 截至2021年12月5日，使用 Visual Studio Code（版本：1.62.3）、Node.js 16.13.1 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至2021年12月6日，使用 Visual Studio Code（版本：1.62.3）、Node.js 16.13.1 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS V2.0+ 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
     > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
@@ -94,7 +94,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
       "configurations": [
         {
           "type": "node",
-          "name": "vue: dev build",
+          "name": "vue: dev",
           "request": "launch",
           "runtimeArgs": [
             "run",
@@ -107,7 +107,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
         },
         {
           "type": "node",
-          "name": "vue: production build",
+          "name": "vue: production",
           "request": "launch",
           "runtimeArgs": [
             "run",
