@@ -1,16 +1,15 @@
 /*
  * @Description: Vue configuration
- * @Version: 1.0.3.20210829
+ * @Version: 1.0.3.20211206
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 23:43:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-29 04:27:02
+ * @LastEditTime: 2021-12-06 22:15:05
  */
 
-// Keep this CommonJS module rather than converting to an ES6 module. 
 module.exports = {
   configureWebpack: {
-    devtool: "source-map"
+    devtool: "source-map",
   },
   pluginOptions: {
     i18n: {
@@ -20,7 +19,7 @@ module.exports = {
       enableLegacy: false,
       runtimeOnly: true,
       compositionOnly: true,
-      fullInstall: true
-    }
-  }
+      fullInstall: true,
+    },
+  },
 };

@@ -1,21 +1,17 @@
 /*
  * @Description: the script configuring the internationalisation.
- * @Version: 1.0.2.20211008
+ * @Version: 1.0.2.20211206
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 20:49:08
+ * @LastEditTime: 2021-12-06 22:11:39
  */
 
 const EN = "en";
 const LOCALE = "locale"; // The key to store the locale info in the local storage.
 const ZH_CN = "zh-CN";
 
-export {
-  EN,
-  LOCALE,
-  ZH_CN
-};
+export { EN, LOCALE, ZH_CN };
 
 /**
  * Load all locale messages under the specified main directory.
@@ -39,7 +35,7 @@ export function loadLocaleMessages(locales) {
 } // end function loadLocaleMessages
 
 /**
- * Decide the site locale according to the corresponding user/browser preference. 
+ * Decide the site locale according to the corresponding user/browser preference.
  * @returns the decided site locale
  */
 export function decideLocale() {
@@ -49,8 +45,7 @@ export function decideLocale() {
   if (locale === null) {
     if (navigator.language.toLowerCase() === ZH_CN.toLowerCase()) {
       locale = ZH_CN;
-    }
-    else {
+    } else {
       locale = EN;
     } // end if...else
   } // end if

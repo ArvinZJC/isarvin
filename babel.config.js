@@ -1,15 +1,12 @@
 /*
  * @Description: Babel configuration
- * @Version: 1.0.1.20210829
+ * @Version: 1.0.1.20211206
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-29 01:58:57
+ * @LastEditTime: 2021-12-06 22:14:15
  */
 
-// Keep this CommonJS module rather than converting to an ES6 module.
 module.exports = {
-  presets: [
-    "@vue/cli-plugin-babel/preset"
-  ]
+  presets: ["@vue/cli-plugin-babel/preset"],
 };

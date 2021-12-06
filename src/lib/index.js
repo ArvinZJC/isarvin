@@ -1,10 +1,10 @@
 /*
  * @Description: general scripts
- * @Version: 1.0.1.20210830
+ * @Version: 1.0.1.20211206
  * @Author: Arvin Zhao
  * @Date: 2021-08-23 13:03:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 05:16:58
+ * @LastEditTime: 2021-12-06 22:11:42
  */
 
 import { applyTheme } from "./theme.js";
