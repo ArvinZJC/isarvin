@@ -1,19 +1,23 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.3.20211008
+ * @Version: 1.1.4.20211207
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 20:18:58
+ * @LastEditTime: 2021-12-07 22:53:11
 -->
 
 <template>
   <!-- Education section. -->
   <div class="polygon-section bg-indigo-200 dark:bg-gray-800 relative z-10" id="education">
     <!-- Background colour transition. -->
-    <div class="bg-gradient-to-b from-indigo-100 dark:from-indigo-900 h-24 sm:h-28 lg:h-32 to-indigo-200 dark:to-gray-800" />
+    <div
+      class="bg-gradient-to-b from-indigo-100 dark:from-indigo-900 h-24 sm:h-28 lg:h-32 to-indigo-200 dark:to-gray-800"
+    />
     <!-- Use the row layout at the small breakpoint. -->
-    <div class="container-block flex flex-col sm:flex-row justify-center pb-24 sm:pb-20 lg:pb-24 pt-4 sm:pt-6 lg:pt-8">
+    <div
+      class="container-block flex flex-col sm:flex-row justify-center pb-24 sm:pb-20 lg:pb-24 pt-4 sm:pt-6 lg:pt-8"
+    >
       <!-- Section header. -->
       <div class="flex flex-col items-center justify-center sm:mb-0 mb-12 sm:mr-12 lg:mr-16">
         <span class="badge-square-3 mb-6 shadow-lg">
@@ -26,25 +30,44 @@
         <li v-for="(event, eventIndex) in timeline" :key="event.content">
           <div class="pb-8 relative">
             <!-- Connecting line between 2 images. -->
-            <span v-if="(eventIndex !== timeline.length - 1)" aria-hidden="true" class="line-v -ml-px absolute left-6 top-6" />
+            <span
+              v-if="(eventIndex !== timeline.length - 1)"
+              aria-hidden="true"
+              class="line-v -ml-px absolute left-6 top-6"
+            />
             <div class="flex relative space-x-3">
               <template v-if="event.type === 'name'">
-                <img :id="event.content" :src="event.imageUrl" alt="Arvin: headshot" class="animate-pulse avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800" />
+                <img
+                  :id="event.content"
+                  :src="event.imageUrl"
+                  alt="Arvin: headshot"
+                  class="animate-pulse avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800"
+                />
                 <div class="flex flex-1 justify-between pt-3.5 space-x-4">
                   <p class="text-primary !font-medium !text-sm">{{ t(event.content) }}</p>
-                  <p class="text-content-grey text-right text-sm whitespace-nowrap">{{ event.period }}</p>
+                  <p
+                    class="text-content-grey text-right text-sm whitespace-nowrap"
+                  >{{ event.period }}</p>
                 </div>
               </template>
               <template v-else>
                 <div class="px-2">
-                  <span :class="[event.iconBackground, 'badge-square-2 !rounded-full inline-flex ring-8 ring-indigo-200 dark:ring-gray-800']">
+                  <span
+                    :class="[event.iconBackground, 'badge-square-2 !rounded-full inline-flex ring-8 ring-indigo-200 dark:ring-gray-800']"
+                  >
                     <component :is="event.icon" aria-hidden="true" class="icon-4" />
                   </span>
                 </div>
-                <a v-if="event.hasLink" :href="event.href" class="text-link motion-safe:transition-colours-300 pt-1.5 text-sm tracking-tight" target="_blank">
-                  {{ t(event.content) }}
-                </a>
-                <p v-else class="text-content-grey pt-1.5 text-sm tracking-tight">{{ t(event.content) }}</p>
+                <a
+                  v-if="event.hasLink"
+                  :href="event.href"
+                  class="text-link motion-safe:transition-colours-300 pt-1.5 text-sm tracking-tight"
+                  target="_blank"
+                >{{ t(event.content) }}</a>
+                <p
+                  v-else
+                  class="text-content-grey pt-1.5 text-sm tracking-tight"
+                >{{ t(event.content) }}</p>
               </template>
             </div>
           </div>

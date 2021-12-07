@@ -1,66 +1,122 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.3.20211008
+ * @Version: 1.6.4.20211207
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 19:56:47
+ * @LastEditTime: 2021-12-07 22:52:52
 -->
 
 <template>
   <!-- The navbar section. -->
-  <Popover as="nav" class="container-navbar motion-safe:transition-300 bg-opacity-0 dark:bg-opacity-0" id="navbar">
+  <Popover
+    as="nav"
+    class="container-navbar motion-safe:transition-300 bg-opacity-0 dark:bg-opacity-0"
+    id="navbar"
+  >
     <div class="container-block">
       <div class="flex h-16 justify-between">
         <div class="flex items-center">
-          <a :href="navigation.logo.href" class="text-btn-square motion-safe:transition-colours-300 flex">
-            <img alt="Arvin: icon" class="animate-pulse icon-8 ml-2" id="hero-icon" src="../../assets/Arvin_icon.png" />
+          <a
+            :href="navigation.logo.href"
+            class="text-btn-square motion-safe:transition-colours-300 flex"
+          >
+            <img
+              alt="Arvin: icon"
+              class="animate-pulse icon-8 ml-2"
+              id="hero-icon"
+              src="../../assets/Arvin_icon.png"
+            />
             <span class="sr-only">{{ navigation.logo.textContent }}</span>
             <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
-            <component :is="navigation.logo.textIcon" aria-hidden="true" class="lg:block h-8 md:hidden w-32" />
+            <component
+              :is="navigation.logo.textIcon"
+              aria-hidden="true"
+              class="lg:block h-8 md:hidden w-32"
+            />
           </a>
           <!-- Show navigation items at the medium breakpoint. -->
           <div class="md:block hidden md:ml-6">
             <div aria-label="Navigation" class="flex space-x-4" id="nav">
-              <a v-for="item in navigation.header" @click="navigate(item.anchor)" :aria-current="item.active ? 'page' : undefined" :class="[item.active ? 'text-content-indigo' : 'text-btn-square motion-safe:transition-colours-300', 'nav-item pointer']" :id="item.anchor" :key="item.name">{{ t(item.name) }}</a>
+              <a
+                v-for="item in navigation.header"
+                @click="navigate(item.anchor)"
+                :aria-current="item.active ? 'page' : undefined"
+                :class="[item.active ? 'text-content-indigo' : 'text-btn-square motion-safe:transition-colours-300', 'nav-item pointer']"
+                :id="item.anchor"
+                :key="item.name"
+              >{{ t(item.name) }}</a>
             </div>
           </div>
         </div>
         <!-- Show my social links at the medium breakpoint. -->
         <div class="md:flex hidden md:items-center md:ml-6 md:space-x-6">
-          <a v-for="item in navigation.social" :href="item.href" :key="item.name" :title="t(item.name)" class="text-btn-square motion-safe:transition-colours-300" target="_blank">
+          <a
+            v-for="item in navigation.social"
+            :href="item.href"
+            :key="item.name"
+            :title="t(item.name)"
+            class="text-btn-square motion-safe:transition-colours-300"
+            target="_blank"
+          >
             <span class="sr-only">{{ t(item.name) }}</span>
             <component :is="item.icon" aria-hidden="true" class="icon-6" />
           </a>
         </div>
         <!-- Hide the menu button at the medium breakpoint. -->
         <div class="flex md:hidden items-center">
-          <PopoverButton @click="getMobileNavItems" class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300">
+          <PopoverButton
+            @click="getMobileNavItems"
+            class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300"
+          >
             <span class="sr-only">{{ t("openNavMenu") }}</span>
             <MenuIcon aria-hidden="true" class="icon-6" />
           </PopoverButton>
         </div>
       </div>
     </div>
-    <transition enter-active-class="motion-safe:transition-300 ease-out" enter-from-class="fade-out" enter-to-class="fade-in" leave-active-class="motion-safe:transition-300 ease-in" leave-from-class="fade-in" leave-to-class="fade-out">
+    <transition
+      enter-active-class="motion-safe:transition-300 ease-out"
+      enter-from-class="fade-out"
+      enter-to-class="fade-in"
+      leave-active-class="motion-safe:transition-300 ease-in"
+      leave-from-class="fade-in"
+      leave-to-class="fade-out"
+    >
       <!-- Hide the menu at the medium breakpoint. -->
       <PopoverPanel class="nav-menu transform-gpu-tr md:hidden">
         <div class="card ring-container px-2 sm:px-4 shadow-2xl" focus>
           <div class="flex items-center justify-between py-2">
-            <a :href="navigation.logo.href" class="text-btn-square motion-safe:transition-colours-300 flex">
+            <a
+              :href="navigation.logo.href"
+              class="text-btn-square motion-safe:transition-colours-300 flex"
+            >
               <img alt="Arvin: icon" class="icon-8 ml-2" src="../../assets/Arvin_icon.png" />
               <span class="sr-only">{{ navigation.logo.textContent }}</span>
               <!-- Hide the logo text between the medium breakpoint and the large breakpoint. -->
-              <component :is="navigation.logo.textIcon" aria-hidden="true" class="lg:block md:hidden h-8 w-32" />
+              <component
+                :is="navigation.logo.textIcon"
+                aria-hidden="true"
+                class="lg:block md:hidden h-8 w-32"
+              />
             </a>
-            <PopoverButton class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300">
+            <PopoverButton
+              class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300"
+            >
               <span class="sr-only">{{ t("closeNavMenu") }}</span>
               <XIcon aria-hidden="true" class="icon-6" />
             </PopoverButton>
           </div>
           <!-- Navigation items in the menu. -->
           <div aria-label="Navigation menu" class="py-2 space-y-1" id="mobile-nav">
-            <a v-for="item in navigation.header" @click="navigate(item.anchor)" :class="[item.active ? 'bg-active text-content-indigo' : 'bg-hover-grey text-btn-square motion-safe:transition-colours-300', 'btn-nav-item pointer']" :id="item.anchor" :key="item.name" type="button">
+            <a
+              v-for="item in navigation.header"
+              @click="navigate(item.anchor)"
+              :class="[item.active ? 'bg-active text-content-indigo' : 'bg-hover-grey text-btn-square motion-safe:transition-colours-300', 'btn-nav-item pointer']"
+              :id="item.anchor"
+              :key="item.name"
+              type="button"
+            >
               <span class="badge-square-2 sm:badge-square-3">
                 <component :is="item.icon" aria-hidden="true" class="icon-6" />
               </span>
@@ -69,7 +125,14 @@
           </div>
           <!-- Social links in the menu. -->
           <div class="border-grey border-t flex flex-wrap justify-center px-4">
-            <a v-for="item in navigation.social" :href="item.href" :key="item.name" :title="t(item.name)" class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2" target="_blank">
+            <a
+              v-for="item in navigation.social"
+              :href="item.href"
+              :key="item.name"
+              :title="t(item.name)"
+              class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2"
+              target="_blank"
+            >
               <span class="sr-only">{{ t(item.name) }}</span>
               <component :is="item.icon" aria-hidden="true" class="icon-6" />
             </a>
@@ -79,8 +142,21 @@
     </transition>
   </Popover>
   <!-- The button for scrolling to the top. -->
-  <transition enter-active-class="motion-safe:transition-300 ease-out" enter-from-class="float-down-1" enter-to-class="float-up" leave-active-class="motion-safe:transition-300 ease-in" leave-from-class="float-up" leave-to-class="float-down-1">
-    <button v-if="!isScrollToTopDismissed" @click="navigate('#home')" :title="t('scrollToTop')" class="btn-action btn-round ring-inset-grey bg-opacity-90 bottom-44 shadow-xl" type="button">
+  <transition
+    enter-active-class="motion-safe:transition-300 ease-out"
+    enter-from-class="float-down-1"
+    enter-to-class="float-up"
+    leave-active-class="motion-safe:transition-300 ease-in"
+    leave-from-class="float-up"
+    leave-to-class="float-down-1"
+  >
+    <button
+      v-if="!isScrollToTopDismissed"
+      @click="navigate('#home')"
+      :title="t('scrollToTop')"
+      class="btn-action btn-round ring-inset-grey bg-opacity-90 bottom-44 shadow-xl"
+      type="button"
+    >
       <span class="sr-only">{{ t("scrollToTop") }}</span>
       <ArrowUpIcon aria-hidden="true" class="icon-6" />
     </button>
@@ -88,7 +164,7 @@
 </template>
 
 <script>
-import { Popover, PopoverButton, PopoverPanel} from "@headlessui/vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { AcademicCapIcon, ArrowUpIcon, CollectionIcon, HomeIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 import { defineComponent, h } from "vue";
 import { useI18n } from "vue-i18n";
@@ -151,7 +227,7 @@ export default {
     handleScroll() {
       var activeIndex;
       var temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
-      
+
       Array.prototype.forEach.call(this.sections, (element, index) => {
         // The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
         if (element.offsetTop - this.navbar.offsetHeight <= window.scrollY

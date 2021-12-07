@@ -1,15 +1,20 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.2.20211008
+ * @Version: 1.3.3.20211207
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-08 17:24:35
+ * @LastEditTime: 2021-12-07 22:51:29
 -->
 
 <template>
   <!-- The button for opening the settings panel. -->
-  <button @click="open = true" :title="t('openSettingsPanel')" class="btn-action btn-round ring-inset-grey motion-safe:transition-colours-300 bg-opacity-90 bottom-28 shadow-xl" type="button">
+  <button
+    @click="open = true"
+    :title="t('openSettingsPanel')"
+    class="btn-action btn-round ring-inset-grey motion-safe:transition-colours-300 bg-opacity-90 bottom-28 shadow-xl"
+    type="button"
+  >
     <span class="sr-only">{{ t("openSettingsPanel") }}</span>
     <CogIcon class="icon-6" aria-hidden="true" />
   </button>
@@ -17,12 +22,28 @@
   <TransitionRoot :show="open" as="template">
     <Dialog @close="open = false" :open="open" as="div" class="container-overlay" static>
       <div class="container-overlay-screen">
-        <TransitionChild as="template" enter="motion-safe:transition-opacity-300 ease-out" enter-from="opacity-0" enter-to="opacity-100" leave="motion-safe:transition-opacity-300 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+        <TransitionChild
+          as="template"
+          enter="motion-safe:transition-opacity-300 ease-out"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="motion-safe:transition-opacity-300 ease-in"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
+        >
           <DialogOverlay class="container-overlay-translucent" />
         </TransitionChild>
         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
         <span aria-hidden="true" class="sm:align-middle sm:h-screen hidden sm:inline-block">&#8203;</span>
-        <TransitionChild as="template" enter="motion-safe:transition-300 ease-out" enter-from="modal-out" enter-to="modal-in" leave="motion-safe:transition-300 ease-in" leave-from="modal-in" leave-to="modal-out">
+        <TransitionChild
+          as="template"
+          enter="motion-safe:transition-300 ease-out"
+          enter-from="modal-out"
+          enter-to="modal-in"
+          leave="motion-safe:transition-300 ease-in"
+          leave-from="modal-in"
+          leave-to="modal-out"
+        >
           <div class="card modal ring-container">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
@@ -31,7 +52,11 @@
                   <DialogTitle as="h3" class="text-primary !text-lg !leading-6">{{ t("settings") }}</DialogTitle>
                 </div>
               </div>
-              <button @click="open = false" class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300" type="button">
+              <button
+                @click="open = false"
+                class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300"
+                type="button"
+              >
                 <span class="sr-only">{{ t("close") }}</span>
                 <XIcon aria-hidden="true" class="icon-6" />
               </button>
@@ -41,26 +66,57 @@
               <Listbox v-model="themeSelected" as="li" class="container-setting py-4">
                 <div class="flex flex-col">
                   <ListboxLabel class="text-label">{{ t("appearance.name") }}</ListboxLabel>
-                  <p class="text-content-grey text-sm tracking-tight">{{ t("appearance.description") }}</p>
+                  <p
+                    class="text-content-grey text-sm tracking-tight"
+                  >{{ t("appearance.description") }}</p>
                 </div>
                 <div class="relative">
-                  <ListboxButton class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full">
-                    <span class="text-label !font-normal block text-sm truncate">{{ t(themeSelected.name) }}</span>
+                  <ListboxButton
+                    class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
+                  >
+                    <span
+                      class="text-label !font-normal block text-sm truncate"
+                    >{{ t(themeSelected.name) }}</span>
                     <span class="container-selector">
-                      <SelectorIcon aria-hidden="true" class="icon-5 text-gray-400 dark:text-gray-500" />
+                      <SelectorIcon
+                        aria-hidden="true"
+                        class="icon-5 text-gray-400 dark:text-gray-500"
+                      />
                     </span>
                   </ListboxButton>
-                  <transition enter-active-class="motion-safe:transition-opacity-300 ease-out" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="motion-safe:transition-opacity-300 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
-                    <ListboxOptions @click="changeAppearance()" class="absolute focus:outline-none w-full z-10">
+                  <transition
+                    enter-active-class="motion-safe:transition-opacity-300 ease-out"
+                    enter-from-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-active-class="motion-safe:transition-opacity-300 ease-in"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <ListboxOptions
+                      @click="changeAppearance()"
+                      class="absolute focus:outline-none w-full z-10"
+                    >
                       <div class="container-select-menu">
-                        <ListboxOption v-for="theme in themes" v-slot="{ active, themeSelected }" :key="theme.id" :value="theme" as="template" class="motion-safe:transition-colours-300">
-                          <li :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']">
-                            <span v-if="theme.icon" :class="[active ? '' : 'text-content-indigo', 'absolute flex inset-y-0 items-center left-0 pl-1.5']">
+                        <ListboxOption
+                          v-for="theme in themes"
+                          v-slot="{ active, themeSelected }"
+                          :key="theme.id"
+                          :value="theme"
+                          as="template"
+                          class="motion-safe:transition-colours-300"
+                        >
+                          <li
+                            :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']"
+                          >
+                            <span
+                              v-if="theme.icon"
+                              :class="[active ? '' : 'text-content-indigo', 'absolute flex inset-y-0 items-center left-0 pl-1.5']"
+                            >
                               <component :is="theme.icon" aria-hidden="true" class="icon-5" />
                             </span>
-                            <span :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
-                              {{ t(theme.name) }}
-                            </span>
+                            <span
+                              :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']"
+                            >{{ t(theme.name) }}</span>
                           </li>
                         </ListboxOption>
                       </div>
@@ -72,23 +128,51 @@
               <Listbox v-model="localeSelected" as="li" class="container-setting pt-4">
                 <div class="flex flex-col">
                   <ListboxLabel class="text-label">{{ t("language.name") }}</ListboxLabel>
-                  <p class="text-content-grey text-sm tracking-tight">{{ t("language.description") }}</p>
+                  <p
+                    class="text-content-grey text-sm tracking-tight"
+                  >{{ t("language.description") }}</p>
                 </div>
                 <div class="relative">
-                  <ListboxButton class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full">
-                    <span class="text-label !font-normal block text-sm truncate">{{ t(localeSelected.name) }}</span>
+                  <ListboxButton
+                    class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
+                  >
+                    <span
+                      class="text-label !font-normal block text-sm truncate"
+                    >{{ t(localeSelected.name) }}</span>
                     <span class="container-selector">
-                      <SelectorIcon aria-hidden="true" class="icon-5 text-gray-400 dark:text-gray-500" />
+                      <SelectorIcon
+                        aria-hidden="true"
+                        class="icon-5 text-gray-400 dark:text-gray-500"
+                      />
                     </span>
                   </ListboxButton>
-                  <transition enter-active-class="motion-safe:transition-opacity-300 ease-out" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="motion-safe:transition-opacity-300 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
-                    <ListboxOptions @click="changeLanguage()" class="absolute focus:outline-none w-full z-10">
+                  <transition
+                    enter-active-class="motion-safe:transition-opacity-300 ease-out"
+                    enter-from-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-active-class="motion-safe:transition-opacity-300 ease-in"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <ListboxOptions
+                      @click="changeLanguage()"
+                      class="absolute focus:outline-none w-full z-10"
+                    >
                       <div class="container-select-menu">
-                        <ListboxOption v-for="locale in locales" v-slot="{ active, localeSelected }" :key="locale.id" :value="locale" as="template" class="motion-safe:transition-colours-300">
-                          <li :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']">
-                            <span :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']">
-                              {{ t(locale.name) }}
-                            </span>
+                        <ListboxOption
+                          v-for="locale in locales"
+                          v-slot="{ active, localeSelected }"
+                          :key="locale.id"
+                          :value="locale"
+                          as="template"
+                          class="motion-safe:transition-colours-300"
+                        >
+                          <li
+                            :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']"
+                          >
+                            <span
+                              :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']"
+                            >{{ t(locale.name) }}</span>
                           </li>
                         </ListboxOption>
                       </div>
@@ -104,7 +188,9 @@
   </TransitionRoot>
   <!-- The footer section. -->
   <footer class="container-footer">
-    <div class="container-block text-content-grey !tracking-normal md:flex md:items-center py-4 text-center">&copy; {{ currentYear }} ArvinZJC</div>
+    <div
+      class="container-block text-content-grey !tracking-normal md:flex md:items-center py-4 text-center"
+    >&copy; {{ currentYear }} ArvinZJC</div>
   </footer>
 </template>
 
@@ -228,7 +314,7 @@ export default {
         themeSelected = ref(themes[2]);
       } // end if...else
     } // end if...else
-    
+
     return { locale, locales, localeSelected, open, t, themes, themeSelected };
   }
 };

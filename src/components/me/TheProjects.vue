@@ -1,16 +1,18 @@
 <!--
  * @Description: the projects component
- * @Version: 1.1.5.20211008
+ * @Version: 1.1.6.20211207
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-10-20 18:29:34
+ * @LastEditTime: 2021-12-07 22:52:27
 -->
 
 <template>
   <!-- Projects section. -->
   <div class="bg-indigo-100 dark:bg-indigo-900" id="projects">
-    <div class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24">
+    <div
+      class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24"
+    >
       <!-- Section header. -->
       <div class="flex flex-col items-center justify-center" id="projects-intro">
         <span class="badge-square-3 mb-6 shadow-lg">
@@ -19,16 +21,37 @@
         <div class="text-center">
           <h2 class="text-title">{{ t("projects") }}</h2>
           <p class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight">
-            {{ t("description[0]") }}<a class="text-link motion-safe:transition-colours-300" href="https://github.com/ArvinZJC" target="_blank">{{ t("gh") }}</a>{{ t("description[1]") }}
+            {{ t("description[0]") }}
+            <a
+              class="text-link motion-safe:transition-colours-300"
+              href="https://github.com/ArvinZJC"
+              target="_blank"
+            >{{ t("gh") }}</a>
+            {{ t("description[1]") }}
           </p>
         </div>
       </div>
       <!-- Project cards. -->
       <div class="gap-5 grid lg:grid-cols-3 max-w-lg lg:max-w-none mt-12 mx-auto">
         <div v-for="project in projects" :key="project.name" class="flex">
-          <transition enter-active-class="motion-safe:transition-1000 ease-out" enter-from-class="float-down-5" enter-to-class="float-up" leave-active-class="motion-safe:transition-1000 ease-in" leave-from-class="float-up" leave-to-class="float-down-5">
-            <div v-if="isProjectShown" class="card ring-container flex flex-col overflow-hidden shadow-lg">
-              <img :alt="project.name" :id="project.name" :src="project.imageUrl" class="animate-pulse container-avatar !rounded-none flex-shrink-0 h-48 sm:h-56 object-cover w-full" />
+          <transition
+            enter-active-class="motion-safe:transition-1000 ease-out"
+            enter-from-class="float-down-5"
+            enter-to-class="float-up"
+            leave-active-class="motion-safe:transition-1000 ease-in"
+            leave-from-class="float-up"
+            leave-to-class="float-down-5"
+          >
+            <div
+              v-if="isProjectShown"
+              class="card ring-container flex flex-col overflow-hidden shadow-lg"
+            >
+              <img
+                :alt="project.name"
+                :id="project.name"
+                :src="project.imageUrl"
+                class="animate-pulse container-avatar !rounded-none flex-shrink-0 h-48 sm:h-56 object-cover w-full"
+              />
               <div class="flex flex-1 flex-col justify-between p-4 sm:p-6">
                 <div class="flex-1 max-h-80 overflow-auto text-justify">
                   <span :class="[project.category.style, 'badge']">{{ t(project.category.name) }}</span>
@@ -38,7 +61,11 @@
                   </div>
                 </div>
                 <div class="flex items-center mt-6">
-                  <button @click="open = true" class="btn ring-offset-indigo motion-safe:transition-colours-300 overflow-hidden relative focus:ring-offset-white dark:focus:ring-offset-black w-24 z-10" type="button">
+                  <button
+                    @click="open = true"
+                    class="btn ring-offset-indigo motion-safe:transition-colours-300 overflow-hidden relative focus:ring-offset-white dark:focus:ring-offset-black w-24 z-10"
+                    type="button"
+                  >
                     <span class="text-component relative z-10">{{ t("explore") }}</span>
                     <div class="motion-safe:liquid" />
                   </button>
@@ -52,12 +79,31 @@
       <TransitionRoot :show="open" as="template">
         <Dialog @close="open = false" :open="open" as="div" class="container-overlay" static>
           <div class="container-overlay-screen">
-            <TransitionChild as="template" enter="motion-safe:transition-opacity-300 ease-out" enter-from="opacity-0" enter-to="opacity-100" leave="motion-safe:transition-opacity-300 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+            <TransitionChild
+              as="template"
+              enter="motion-safe:transition-opacity-300 ease-out"
+              enter-from="opacity-0"
+              enter-to="opacity-100"
+              leave="motion-safe:transition-opacity-300 ease-in"
+              leave-from="opacity-100"
+              leave-to="opacity-0"
+            >
               <DialogOverlay class="container-overlay-translucent" />
             </TransitionChild>
             <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
-            <span aria-hidden="true" class="sm:align-middle sm:h-screen hidden sm:inline-block">&#8203;</span>
-            <TransitionChild as="template" enter="motion-safe:transition-300 ease-out" enter-from="modal-out" enter-to="modal-in" leave="motion-safe:transition-300 ease-in" leave-from="modal-in" leave-to="modal-out">
+            <span
+              aria-hidden="true"
+              class="sm:align-middle sm:h-screen hidden sm:inline-block"
+            >&#8203;</span>
+            <TransitionChild
+              as="template"
+              enter="motion-safe:transition-300 ease-out"
+              enter-from="modal-out"
+              enter-to="modal-in"
+              leave="motion-safe:transition-300 ease-in"
+              leave-from="modal-in"
+              leave-to="modal-out"
+            >
               <div class="card modal ring-container">
                 <div class="flex">
                   <span class="badge-square-3 !colour-warning !rounded-full mx-auto shadow-lg">
@@ -65,13 +111,22 @@
                   </span>
                 </div>
                 <div class="mt-3 sm:mt-5 text-center">
-                  <DialogTitle as="h3" class="text-primary !font-medium !text-lg !leading-6 overflow-ellipsis overflow-hidden">{{ t("pageUnavailable.title") }}</DialogTitle>
+                  <DialogTitle
+                    as="h3"
+                    class="text-primary !font-medium !text-lg !leading-6 overflow-ellipsis overflow-hidden"
+                  >{{ t("pageUnavailable.title") }}</DialogTitle>
                   <div class="mt-2">
-                    <p class="text-content-grey overflow-ellipsis overflow-hidden text-sm">{{ t("pageUnavailable.message") }}</p>
+                    <p
+                      class="text-content-grey overflow-ellipsis overflow-hidden text-sm"
+                    >{{ t("pageUnavailable.message") }}</p>
                   </div>
                 </div>
                 <div class="mt-4 sm:mt-6">
-                  <button @click="open = false" class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-white dark:focus:ring-offset-black w-full" type="button">{{ t("alright") }}</button>
+                  <button
+                    @click="open = false"
+                    class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-white dark:focus:ring-offset-black w-full"
+                    type="button"
+                  >{{ t("alright") }}</button>
                 </div>
               </div>
             </TransitionChild>
