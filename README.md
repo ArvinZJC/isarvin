@@ -3,7 +3,7 @@
 # [isarvin.com](https://isarvin.com)
 
 [![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ArvinZJC/isarvin&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
 **English** | [简体中文](./README-zhCN.md)
@@ -31,95 +31,87 @@ The structure of the site is as follows. Please note that the code is licensed u
 1. By 6 December 2021, everything looks good with Visual Studio Code (Version: 1.62.3) + Node.js 16.13.1 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS V2.0+](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
-    > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
+   > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
 
 3. The primary dependencies of the project are listed in the following table. For more information, please refer to [`package.json`](./package.json).
 
-    | Name | Version |
-    | :-- | :--: |
-    | @headlessui/vue | 1.4.2 |
-    | @heroicons/vue | 1.0.5 |
-    | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) | 0.4.4 |
-    | tailwindcss | 2.2.19 |
-    | vue | 3.2.23 |
-    | vue-i18n | 9.2.0-beta.23 |
-    | vue-meta | 3.0.0-alpha.9 |
-    | vue-router | 4.0.12 |
+   | Name                                                               |    Version    |
+   | :----------------------------------------------------------------- | :-----------: |
+   | @headlessui/vue                                                    |     1.4.2     |
+   | @heroicons/vue                                                     |     1.0.5     |
+   | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
+   | tailwindcss                                                        |    2.2.19     |
+   | vue                                                                |    3.2.23     |
+   | vue-i18n                                                           | 9.2.0-beta.23 |
+   | vue-meta                                                           | 3.0.0-alpha.9 |
+   | vue-router                                                         |    4.0.12     |
 
-4. You could manually create a file named `.env` or `.env.local` under the project root directory and contain the following content. Please note that it is *optional*, and that **the project should work well without it**.
+4. You could manually create a file named `.env` or `.env.local` under the project root directory and contain the following content. Please note that it is _optional_, and that **the project should work well without it**.
 
-    ```sh
-    VUE_APP_I18N_FALLBACK_LOCALE=en
-    ```
+   ```sh
+   VUE_APP_I18N_FALLBACK_LOCALE=en
+   ```
 
 5. Although Vue CLI is not a must for a Vue.js 3 project, building this project does take advantage of it. Assuming the terminal is opened in the project's root directory, the project could be run locally following the steps below using npm.
-    - Install all the required dependencies.
 
-        ```sh
-        npm install -g @vue/cli@5.0.0-beta.6 serve
-        npm install
-        ```
+   - Install all the required dependencies.
 
-    - *(Optional)* Report the missing locale message keys and unused keys. Please note that it is [an experimental feature from vue-cli-plugin-i18n](https://github.com/intlify/vue-cli-plugin-i18n#-features), and you could ignore its output for this project.
+     ```sh
+     npm install -g @vue/cli@5.0.0-beta.6 serve
+     npm install
+     ```
 
-        ```sh
-        npm run i18n:report
-        # OR
-        npx vue-cli-service i18n:report --src "./src/**/*.?(js|vue)" --locales "./src/locales/**/*.json"
-        ```
+   - _(Optional)_ Report the missing locale message keys and unused keys. Please note that it is [an experimental feature from vue-cli-plugin-i18n](https://github.com/intlify/vue-cli-plugin-i18n#-features), and you could ignore its output for this project.
 
-    - Serve/Build the project.
-        - To serve it for development,
+     ```sh
+     npm run i18n:report
+     # OR
+     npx vue-cli-service i18n:report --src "./src/**/*.?(js|vue)" --locales "./src/locales/**/*.json"
+     ```
 
-            ```sh
-            npm run serve
-            # OR
-            npx vue-cli-service serve
-            ```
+   - Serve/Build the project.
 
-        - To build it for production,
+     - To serve it for development,
 
-            ```sh
-            npm run build
-            # OR
-            npx vue-cli-service build
+       ```sh
+       npm run serve
+       # OR
+       npx vue-cli-service serve
+       ```
 
-            serve -s dist
-            ```
+     - To build it for production,
+
+       ```sh
+       npm run build
+       # OR
+       npx vue-cli-service build
+
+       serve -s dist
+       ```
 
 6. If you fancy using the Run and Debug view of Visual Studio Code, you could add the following to `.vscode/launch.json` to configure the serving and building process.
 
-    ```JSON
-    {
-      "configurations": [
-        {
-          "type": "node",
-          "name": "vue: dev",
-          "request": "launch",
-          "runtimeArgs": [
-            "run",
-            "serve"
-          ],
-          "runtimeExecutable": "npm",
-          "skipFiles": [
-            "<node_internals>/**"
-          ]
-        },
-        {
-          "type": "node",
-          "name": "vue: production",
-          "request": "launch",
-          "runtimeArgs": [
-            "run",
-            "build"
-          ],
-          "runtimeExecutable": "npm",
-          "skipFiles": [
-            "<node_internals>/**"
-          ]
-        }
-      ]
-    }
-    ```
+   ```JSON
+   {
+     "configurations": [
+       {
+         "type": "node",
+         "name": "vue: dev",
+         "request": "launch",
+         "runtimeArgs": ["run", "serve"],
+         "runtimeExecutable": "npm",
+         "skipFiles": ["<node_internals>/**"]
+       },
+       {
+         "type": "node",
+         "name": "vue: production",
+         "request": "launch",
+         "runtimeArgs": ["run", "build"],
+         "runtimeExecutable": "npm",
+         "skipFiles": ["<node_internals>/**"]
+       }
+     ]
+   }
+   ```
 
 Good luck! 💖
