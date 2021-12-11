@@ -1,15 +1,21 @@
 /*
  * @Description: general styles
- * @Version: 2.1.0.20211206
+ * @Version: 2.1.2.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-06 22:12:32
+ * @LastEditTime: 2021-12-11 17:57:11
  */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-black;
+  }
+}
 
 @layer components {
   /* Avatar. */
@@ -149,7 +155,7 @@
 
   /* Container for a view. */
   .container-view {
-    @apply bg-gray-50 dark:bg-gray-900 flex-grow min-h-screen relative;
+    @apply bg-gray-50 dark:bg-gray-900 grow min-h-screen relative;
   }
 
   /* Icon: Size 4. */
@@ -179,7 +185,7 @@
 
   /* Modal. */
   .modal {
-    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl transform w-full;
+    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl transform transform-gpu w-full;
   }
 
   /* Navigation text item. */
@@ -228,11 +234,11 @@
   /* Bubble animation. */
   .bubbles li {
     animation: bubble-animation 25s linear infinite;
-    @apply absolute list-none h-5 w-5 -bottom-40 bg-gray-50 dark:bg-gray-300 bg-opacity-20 dark:bg-opacity-20;
+    @apply -bottom-40 absolute bg-gray-50 dark:bg-gray-300 bg-opacity-20 dark:bg-opacity-20 h-5 list-none w-5;
   }
 
   .bubbles li:nth-child(1) {
-    @apply left-1/4 h-20 w-20;
+    @apply h-20 left-1/4 w-20;
   }
 
   .bubbles li:nth-child(2) {
@@ -261,7 +267,7 @@
 
   .bubbles li:nth-child(6) {
     animation-delay: 3s;
-    @apply left-3/4 h-28 w-28;
+    @apply h-28 left-3/4 w-28;
   }
 
   .bubbles li:nth-child(7) {
@@ -273,7 +279,7 @@
   .bubbles li:nth-child(8) {
     animation-delay: 15s;
     animation-duration: 45s;
-    @apply left-2/4 h-6 w-6;
+    @apply h-6 left-2/4 w-6;
   }
 
   .bubbles li:nth-child(9) {
@@ -347,33 +353,31 @@
 
   /* Liquid animation for buttons. */
   .liquid {
-    @apply absolute -top-8 left-0 h-24 w-full bg-indigo-600 transition-all duration-300; /* The height, width, and absolution top position depend on the button's width. */
+    @apply -top-8 absolute bg-indigo-600 duration-300 h-24 left-0 transition-all w-full; /* The height, width, and absolution top position depend on the button's width. */
   }
 
-  .liquid::after,
-  .liquid::before {
-    content: "";
+  .liquid-after,
+  .liquid-before {
     height: 200%;
     width: 200%;
     transform: translate3d(-50%, -75%, 0);
-    @apply absolute top-0 left-2/4;
+    @apply absolute left-2/4 top-0;
   }
 
-  .liquid::before {
-    border-radius: 45%;
-    animation: liquid-button 5s linear infinite;
-    @apply bg-indigo-300 dark:bg-indigo-400;
-  }
-
-  .liquid::after {
+  .liquid-after {
     border-radius: 40%;
     animation: liquid-button 10s linear infinite;
     @apply bg-indigo-300 dark:bg-indigo-400 bg-opacity-50 dark:bg-opacity-50;
   }
 
-  a:hover .liquid,
-  button:hover .liquid {
-    @apply bg-indigo-700 dark:bg-indigo-500 -top-14; /* The absolution top position depends on the button's width. */
+  .liquid-before {
+    border-radius: 45%;
+    animation: liquid-button 5s linear infinite;
+    @apply bg-indigo-300 dark:bg-indigo-400;
+  }
+
+  .liquid-hover {
+    @apply -top-14 bg-indigo-700 dark:bg-indigo-500; /* The absolution top position depends on the button's width. */
   }
 
   @keyframes liquid-button {
@@ -564,27 +568,27 @@
 
   /* Transform from the top right origin (hardware acceleration enabled). */
   .transform-gpu-tr {
-    @apply transform-gpu origin-top-right;
+    @apply origin-top-right transform-gpu;
   }
 
   /* Transition for most properties within 300ms. */
   .transition-300 {
-    @apply transition duration-300;
+    @apply duration-300 transition;
   }
 
   /* Transition for most properties within 1000ms. */
   .transition-1000 {
-    @apply transition duration-1000;
+    @apply duration-1000 transition;
   }
 
   /* Transition for some colour properties within 300ms. */
   .transition-colours-300 {
-    @apply transition-colors duration-300;
+    @apply duration-300 transition-colors;
   }
 
   /* Transition for the opacity property within 300ms. */
   .transition-opacity-300 {
-    @apply transition-opacity duration-300;
+    @apply duration-300 transition-opacity;
   }
 
   /* Wave animation. */

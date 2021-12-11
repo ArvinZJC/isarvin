@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found view
- * @Version: 1.0.4.20210830
+ * @Version: 1.0.4.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-08-22 19:21:02
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 19:24:00
+ * @LastEditTime: 2021-12-11 14:01:35
 -->
 
 <template>
@@ -28,13 +28,15 @@ export default {
 
     useMeta({
       description: t("pages.404.description"),
-      title: t("pages.404.title")
+      title: t("pages.404.title"),
     });
     window.addEventListener("languagechange", () => {
-      document.querySelector("meta[name='description']").setAttribute("content", t("pages.404.description"));
+      document
+        .querySelector("meta[name='description']")
+        .setAttribute("content", t("pages.404.description"));
       document.title = t("pages.404.title");
     });
     return { t };
-  }
+  },
 };
 </script>

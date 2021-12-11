@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.6.20211207
+ * @Version: 1.2.7.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-07 22:53:02
+ * @LastEditTime: 2021-12-11 14:00:39
 -->
 
 <template>
@@ -30,7 +30,9 @@
                 <p
                   class="text-component motion-safe:whitespace-nowrap"
                   id="banner-text"
-                >{{ t("banner") }}</p>
+                >
+                  {{ t("banner") }}
+                </p>
               </div>
             </div>
             <button
@@ -52,7 +54,7 @@
     <div class="bg-indigo-200 dark:bg-indigo-800 h-16 w-full" />
     <!-- Primary content. -->
     <div
-      class="bg-gradient-to-b flex flex-col flex-grow from-indigo-200 dark:from-indigo-800 items-center justify-between overflow-hidden sm:px-6 lg:px-8 to-indigo-400 dark:to-indigo-400 w-full"
+      class="bg-gradient-to-b flex flex-col from-indigo-200 dark:from-indigo-800 grow items-center justify-between overflow-hidden sm:px-6 lg:px-8 to-indigo-400 dark:to-indigo-400 w-full"
     >
       <!-- Show the placeholder for "justify-between" at the small breakpoint. -->
       <div class="sm:block h-px hidden" />
@@ -83,7 +85,8 @@
                   class="text-link motion-safe:transition-colours-300"
                   href="https://www.gla.ac.uk/"
                   target="_blank"
-                >@{{ t("school") }}</a>
+                  >@{{ t("school") }}</a
+                >
                 {{ t("positions[1]") }}
               </span>
             </h1>
@@ -113,14 +116,32 @@
           />
         </defs>
         <g class="motion-safe:waves">
-          <use class="wave-fill opacity-70" x="48" xlink:href="#smooth-wave" y="0" />
-          <use class="wave-fill opacity-50" x="48" xlink:href="#smooth-wave" y="3" />
-          <use class="wave-fill opacity-30" x="48" xlink:href="#smooth-wave" y="5" />
+          <use
+            class="wave-fill opacity-70"
+            x="48"
+            xlink:href="#smooth-wave"
+            y="0"
+          />
+          <use
+            class="wave-fill opacity-50"
+            x="48"
+            xlink:href="#smooth-wave"
+            y="3"
+          />
+          <use
+            class="wave-fill opacity-30"
+            x="48"
+            xlink:href="#smooth-wave"
+            y="5"
+          />
           <use class="wave-fill" x="48" xlink:href="#smooth-wave" y="7" />
         </g>
       </svg>
       <!-- Bubble animation. -->
-      <ul class="motion-safe:bubbles absolute overflow-hidden top-0 w-full" id="bubble-animation">
+      <ul
+        class="motion-safe:bubbles absolute overflow-hidden top-0 w-full"
+        id="bubble-animation"
+      >
         <li></li>
         <li></li>
         <li></li>
@@ -151,11 +172,10 @@ export default {
     autoScrollBannerText() {
       var bannerText = document.getElementById("banner-text");
 
-      if (bannerText !== null) {
+      if (bannerText != null) {
         if (bannerText.scrollWidth > bannerText.offsetWidth) {
           bannerText.classList.add("motion-safe:marquee");
-        }
-        else {
+        } else {
           bannerText.classList.remove("motion-safe:marquee");
         } // end if...else
       } // end if
@@ -174,14 +194,23 @@ export default {
      * Set the height of the bubble area according to the height of the home section.
      */
     setBubbleAreaHeight() {
-      document.getElementById("bubble-animation").style.height = document.getElementById("home").offsetHeight - 2 + "px";
-    } // end function setBubbleAreaHeight
+      document.getElementById("bubble-animation").style.height =
+        document.getElementById("home").offsetHeight - 2 + "px";
+    }, // end function setBubbleAreaHeight
   },
   data() {
     return { isBannerDismissed: true, isBioShown: false };
   },
   setup() {
-    return useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/home", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
+    return useI18n({
+      messages: loadLocaleMessages(
+        require.context(
+          "../../locales/me/home",
+          false,
+          /[A-Za-z0-9-_,\s]+\.json$/i
+        )
+      ),
+    });
   },
   mounted() {
     this.isBioShown = true;
@@ -191,18 +220,22 @@ export default {
 
       // By default, show the banner.
       // When the banner has been set dismissed, it should be re-displayed if the banner text has updates. However, using the t() function introduces a limitation that the banner will be re-displayed if the locale changes and the page is reloaded.
-      if (localStorage.getItem("isBannerDismissed") === null || localStorage.getItem("bannerText") !== this.t("banner")) {
+      if (
+        localStorage.getItem("isBannerDismissed") === null ||
+        localStorage.getItem("bannerText") !== this.t("banner")
+      ) {
         localStorage.setItem("isBannerDismissed", "false");
       } // end if
 
-      this.isBannerDismissed = localStorage.getItem("isBannerDismissed") === "true";
+      this.isBannerDismissed =
+        localStorage.getItem("isBannerDismissed") === "true";
       setTimeout(() => {
         this.autoScrollBannerText();
       }, 300); // Need delay to make sure the banner has been loaded due to its animation.
 
       var heroAvatar = document.getElementById("hero-avatar");
 
-      if (heroAvatar !== null) {
+      if (heroAvatar != null) {
         heroAvatar.classList.remove("animate-pulse");
       } // end if
     });
@@ -210,6 +243,6 @@ export default {
       this.autoScrollBannerText();
       this.setBubbleAreaHeight();
     });
-  }
+  },
 };
 </script>

@@ -8,9 +8,9 @@
       "intro": "PY-SIC stands for \"a simple image converter for Python\". It could be seen as a simple wrapper of the popular Python imaging library Pillow, but contains a patch for better GIF conversion quality.",
       "name": "PY-SIC"
     },
-    "shSzStockHelper": {
-      "intro": "SH/SZ Stock Helper is a Windows app that can mainly search strike prices and volumes for users. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.",
-      "name": "SH/SZ Stock Helper"
+    "kobe": {
+      "intro": "Kobe is a Windows/macOS app that can search stocks' strike prices and volumes for users. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.",
+      "name": "Kobe"
     },
     "weiboEmoji": {
       "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. What I have done to save your time is to basically categorise them according to their meanings.",

@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.1.5.20211207
+ * @Version: 1.1.6.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-07 22:52:09
+ * @LastEditTime: 2021-12-11 14:00:53
 -->
 
 <template>
@@ -20,12 +20,17 @@
       <a
         :href="'mailto:' + mail"
         class="text-link break-all font-semibold text-xl motion-safe:transition-colours-300"
-      >{{ mail }}</a>
+        >{{ mail }}</a
+      >
     </div>
-    <p class="container-text text-explanation-grey mt-6 text-center">{{ t("steveJobz") }}</p>
+    <p class="container-text text-explanation-grey mt-6 text-center">
+      {{ t("steveJobz") }}
+    </p>
   </div>
   <!-- Motto. -->
-  <div class="container-block overflow-hidden pb-36 lg:pb-40 pt-20 lg:pt-24 relative">
+  <div
+    class="container-block overflow-hidden pb-36 lg:pb-40 pt-20 lg:pt-24 relative"
+  >
     <!-- Hide the rectangle points on the right bottom at the large breakpoint. -->
     <svg
       aria-hidden="true"
@@ -44,7 +49,14 @@
           x="0"
           y="0"
         >
-          <rect class="text-verbose" fill="currentColor" height="4" width="4" x="0" y="0" />
+          <rect
+            class="text-verbose"
+            fill="currentColor"
+            height="4"
+            width="4"
+            x="0"
+            y="0"
+          />
         </pattern>
       </defs>
       <rect fill="url(#rect-points-rb)" height="404" width="784" />
@@ -67,7 +79,14 @@
           x="0"
           y="0"
         >
-          <rect class="text-verbose" fill="currentColor" height="4" width="4" x="0" y="0" />
+          <rect
+            class="text-verbose"
+            fill="currentColor"
+            height="4"
+            width="4"
+            x="0"
+            y="0"
+          />
         </pattern>
       </defs>
       <rect fill="url(#rect-points-l)" height="784" width="404" />
@@ -77,7 +96,7 @@
       <img
         :alt="t('steveJobs.name')"
         :src="SteveJobs"
-        class="animate-pulse avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg lg:flex-shrink-0 hidden"
+        class="animate-pulse avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg hidden lg:shrink-0"
         id="sj-avatar-lg"
       />
       <div class="lg:ml-10 relative">
@@ -97,19 +116,25 @@
         <blockquote class="relative">
           <p
             class="text-primary !font-normal !leading-9 text-justify tracking-tight"
-          >{{ t("motto") }}</p>
+          >
+            {{ t("motto") }}
+          </p>
           <footer class="mt-8">
             <div class="flex">
               <!-- Hide the relatively small avatar at the large breakpoint. -->
               <img
                 :alt="t('steveJobs.name')"
                 :src="SteveJobs"
-                class="animate-pulse avatar container-avatar ring-avatar drop-shadow-lg flex-shrink-0 lg:hidden"
+                class="animate-pulse avatar container-avatar ring-avatar drop-shadow-lg lg:hidden shrink-0"
                 id="sj-avatar"
               />
               <div class="lg:ml-0 ml-4">
-                <div class="text-primary !font-medium !text-base">{{ t("steveJobs.name") }}</div>
-                <div class="text-content-indigo font-medium">{{ t("steveJobs.title") }}</div>
+                <div class="text-primary !font-medium !text-base">
+                  {{ t("steveJobs.name") }}
+                </div>
+                <div class="text-content-indigo font-medium">
+                  {{ t("steveJobs.title") }}
+                </div>
               </div>
             </div>
           </footer>
@@ -129,7 +154,15 @@ import SteveJobs from "../../assets/SteveJobs.jpg";
 export default {
   components: { MailIcon },
   setup() {
-    const { t } = useI18n({ messages: loadLocaleMessages(require.context("../../locales/me/tweeting", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
+    const { t } = useI18n({
+      messages: loadLocaleMessages(
+        require.context(
+          "../../locales/me/tweeting",
+          false,
+          /[A-Za-z0-9-_,\s]+\.json$/i
+        )
+      ),
+    });
     const mail = "SteveJobz@isarvin.com";
     return { mail, SteveJobs, t };
   },
@@ -138,14 +171,14 @@ export default {
       var sjAvatar = document.getElementById("sj-avatar");
       var sjLargeAvatar = document.getElementById("sj-avatar-lg");
 
-      if (sjAvatar !== null) {
+      if (sjAvatar != null) {
         sjAvatar.classList.remove("animate-pulse");
       } // end if
 
-      if (sjLargeAvatar !== null) {
+      if (sjLargeAvatar != null) {
         sjLargeAvatar.classList.remove("animate-pulse");
       } // end if
     });
-  }
+  },
 };
 </script>

@@ -1,16 +1,18 @@
 <!--
  * @Description: the root component
- * @Version: 1.2.1.20211207
+ * @Version: 1.2.1.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-07 22:54:25
+ * @LastEditTime: 2021-12-11 14:01:27
 -->
 
 <template>
   <metainfo>
     <template v-slot:title="{ content }">{{ content }}</template>
-    <template v-slot:description="{ metainfo }">{{ metainfo.description }}</template>
+    <template v-slot:description="{ metainfo }">{{
+      metainfo.description
+    }}</template>
   </metainfo>
   <router-view v-slot="{ Component }">
     <transition
@@ -41,6 +43,6 @@ export default {
       locale.value = decideLocale();
     });
     return { t };
-  }
+  },
 };
 </script>

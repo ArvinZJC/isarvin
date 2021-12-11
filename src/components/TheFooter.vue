@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.3.20211207
+ * @Version: 1.3.4.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-07 22:51:29
+ * @LastEditTime: 2021-12-11 14:00:58
 -->
 
 <template>
@@ -20,7 +20,13 @@
   </button>
   <!-- A modal for the settings panel. -->
   <TransitionRoot :show="open" as="template">
-    <Dialog @close="open = false" :open="open" as="div" class="container-overlay" static>
+    <Dialog
+      @close="open = false"
+      :open="open"
+      as="div"
+      class="container-overlay"
+      static
+    >
       <div class="container-overlay-screen">
         <TransitionChild
           as="template"
@@ -34,7 +40,11 @@
           <DialogOverlay class="container-overlay-translucent" />
         </TransitionChild>
         <!-- This element is to trick the browser into centring the modal contents at the small breakpoint. -->
-        <span aria-hidden="true" class="sm:align-middle sm:h-screen hidden sm:inline-block">&#8203;</span>
+        <span
+          aria-hidden="true"
+          class="sm:align-middle sm:h-screen hidden sm:inline-block"
+          >&#8203;</span
+        >
         <TransitionChild
           as="template"
           enter="motion-safe:transition-300 ease-out"
@@ -47,9 +57,16 @@
           <div class="card modal ring-container">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                <CogIcon aria-hidden="true" class="icon-6 text-content-indigo my-2" />
+                <CogIcon
+                  aria-hidden="true"
+                  class="icon-6 text-content-indigo my-2"
+                />
                 <div class="mx-2 sm:mx-3">
-                  <DialogTitle as="h3" class="text-primary !text-lg !leading-6">{{ t("settings") }}</DialogTitle>
+                  <DialogTitle
+                    as="h3"
+                    class="text-primary !text-lg !leading-6"
+                    >{{ t("settings") }}</DialogTitle
+                  >
                 </div>
               </div>
               <button
@@ -63,12 +80,18 @@
             </div>
             <ul class="divide-y-grey text-left" role="list">
               <!-- The appearance setting. -->
-              <Listbox v-model="themeSelected" as="li" class="container-setting py-4">
+              <Listbox
+                v-model="themeSelected"
+                as="li"
+                class="container-setting py-4"
+              >
                 <div class="flex flex-col">
-                  <ListboxLabel class="text-label">{{ t("appearance.name") }}</ListboxLabel>
-                  <p
-                    class="text-content-grey text-sm tracking-tight"
-                  >{{ t("appearance.description") }}</p>
+                  <ListboxLabel class="text-label">{{
+                    t("appearance.name")
+                  }}</ListboxLabel>
+                  <p class="text-content-grey text-sm tracking-tight">
+                    {{ t("appearance.description") }}
+                  </p>
                 </div>
                 <div class="relative">
                   <ListboxButton
@@ -76,7 +99,8 @@
                   >
                     <span
                       class="text-label !font-normal block text-sm truncate"
-                    >{{ t(themeSelected.name) }}</span>
+                      >{{ t(themeSelected.name) }}</span
+                    >
                     <span class="container-selector">
                       <SelectorIcon
                         aria-hidden="true"
@@ -106,17 +130,33 @@
                           class="motion-safe:transition-colours-300"
                         >
                           <li
-                            :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']"
+                            :class="[
+                              active
+                                ? 'colour-indigo'
+                                : 'text-label !font-normal',
+                              'pointer pl-8 pr-4 py-2 relative',
+                            ]"
                           >
                             <span
                               v-if="theme.icon"
-                              :class="[active ? '' : 'text-content-indigo', 'absolute flex inset-y-0 items-center left-0 pl-1.5']"
+                              :class="[
+                                active ? '' : 'text-content-indigo',
+                                'absolute flex inset-y-0 items-center left-0 pl-1.5',
+                              ]"
                             >
-                              <component :is="theme.icon" aria-hidden="true" class="icon-5" />
+                              <component
+                                :is="theme.icon"
+                                aria-hidden="true"
+                                class="icon-5"
+                              />
                             </span>
                             <span
-                              :class="[themeSelected ? 'font-semibold' : 'font-normal', 'block truncate']"
-                            >{{ t(theme.name) }}</span>
+                              :class="[
+                                themeSelected ? 'font-semibold' : 'font-normal',
+                                'block truncate',
+                              ]"
+                              >{{ t(theme.name) }}</span
+                            >
                           </li>
                         </ListboxOption>
                       </div>
@@ -125,12 +165,18 @@
                 </div>
               </Listbox>
               <!-- The language setting. -->
-              <Listbox v-model="localeSelected" as="li" class="container-setting pt-4">
+              <Listbox
+                v-model="localeSelected"
+                as="li"
+                class="container-setting pt-4"
+              >
                 <div class="flex flex-col">
-                  <ListboxLabel class="text-label">{{ t("language.name") }}</ListboxLabel>
-                  <p
-                    class="text-content-grey text-sm tracking-tight"
-                  >{{ t("language.description") }}</p>
+                  <ListboxLabel class="text-label">{{
+                    t("language.name")
+                  }}</ListboxLabel>
+                  <p class="text-content-grey text-sm tracking-tight">
+                    {{ t("language.description") }}
+                  </p>
                 </div>
                 <div class="relative">
                   <ListboxButton
@@ -138,7 +184,8 @@
                   >
                     <span
                       class="text-label !font-normal block text-sm truncate"
-                    >{{ t(localeSelected.name) }}</span>
+                      >{{ t(localeSelected.name) }}</span
+                    >
                     <span class="container-selector">
                       <SelectorIcon
                         aria-hidden="true"
@@ -168,11 +215,22 @@
                           class="motion-safe:transition-colours-300"
                         >
                           <li
-                            :class="[active ? 'colour-indigo' : 'text-label !font-normal', 'pointer pl-8 pr-4 py-2 relative']"
+                            :class="[
+                              active
+                                ? 'colour-indigo'
+                                : 'text-label !font-normal',
+                              'pointer pl-8 pr-4 py-2 relative',
+                            ]"
                           >
                             <span
-                              :class="[localeSelected ? 'font-semibold' : 'font-normal', 'block truncate']"
-                            >{{ t(locale.name) }}</span>
+                              :class="[
+                                localeSelected
+                                  ? 'font-semibold'
+                                  : 'font-normal',
+                                'block truncate',
+                              ]"
+                              >{{ t(locale.name) }}</span
+                            >
                           </li>
                         </ListboxOption>
                       </div>
@@ -190,13 +248,32 @@
   <footer class="container-footer">
     <div
       class="container-block text-content-grey !tracking-normal md:flex md:items-center py-4 text-center"
-    >&copy; {{ currentYear }} ArvinZJC</div>
+    >
+      &copy; {{ currentYear }} ArvinZJC
+    </div>
   </footer>
 </template>
 
 <script>
-import { Dialog, DialogOverlay, DialogTitle, Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, TransitionChild, TransitionRoot } from "@headlessui/vue";
-import { CogIcon, MoonIcon, SelectorIcon, SunIcon, XIcon } from "@heroicons/vue/outline";
+import {
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOption,
+  ListboxOptions,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import {
+  CogIcon,
+  MoonIcon,
+  SelectorIcon,
+  SunIcon,
+  XIcon,
+} from "@heroicons/vue/outline";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
@@ -219,7 +296,7 @@ export default {
     SunIcon,
     TransitionChild,
     TransitionRoot,
-    XIcon
+    XIcon,
   },
   methods: {
     /**
@@ -227,7 +304,12 @@ export default {
      */
     applyLocale() {
       this.locale = decideLocale();
-      document.querySelector("meta[name='description']").setAttribute("content", this.t("pages." + this.$route.name + ".description"));
+      document
+        .querySelector("meta[name='description']")
+        .setAttribute(
+          "content",
+          this.t("pages." + this.$route.name + ".description")
+        );
       document.title = this.t("pages." + this.$route.name + ".title");
     }, // end function applyLocale
 
@@ -236,12 +318,11 @@ export default {
      */
     changeLanguage() {
       if (this.localeSelected.id === 0) {
-        if (localStorage.getItem(LOCALE) !== null) {
+        if (localStorage.getItem(LOCALE) != null) {
           localStorage.removeItem(LOCALE); // Follow the browser default.
           this.applyLocale();
         } // end if
-      }
-      else {
+      } else {
         if (this.localeSelected.name !== localStorage.getItem(LOCALE)) {
           localStorage.setItem(LOCALE, this.localeSelected.name);
           this.applyLocale();
@@ -258,14 +339,13 @@ export default {
           localStorage.removeItem(THEME); // Follow the system default.
           applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
-      }
-      else {
+      } else {
         if (this.themeSelected.name !== localStorage.getItem(THEME)) {
           localStorage.setItem(THEME, this.themeSelected.name);
           applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
       } // end if...else
-    } // end function changeAppearance
+    }, // end function changeAppearance
   },
   data() {
     const currentYear = new Date().getFullYear();
@@ -277,14 +357,14 @@ export default {
     const locales = [
       { id: 0, name: "browserDefault" },
       { id: 1, name: EN },
-      { id: 2, name: ZH_CN }
+      { id: 2, name: ZH_CN },
     ];
     var currentLocale = localStorage.getItem(LOCALE);
     var localeSelected;
     const themes = [
       { id: 0, name: "systemDefault", icon: null },
       { id: 1, name: LIGHT, icon: SunIcon },
-      { id: 2, name: DARK, icon: MoonIcon }
+      { id: 2, name: DARK, icon: MoonIcon },
     ];
     var currentTheme = localStorage.getItem(THEME);
     var themeSelected;
@@ -292,12 +372,10 @@ export default {
     // Set the current locale.
     if (currentLocale === null) {
       localeSelected = ref(locales[0]);
-    }
-    else {
+    } else {
       if (currentLocale === EN) {
         localeSelected = ref(locales[1]);
-      }
-      else {
+      } else {
         localeSelected = ref(locales[2]);
       } // end if...else
     } // end if...else
@@ -305,17 +383,15 @@ export default {
     // Set the current theme.
     if (currentTheme === null) {
       themeSelected = ref(themes[0]);
-    }
-    else {
+    } else {
       if (currentTheme === LIGHT) {
         themeSelected = ref(themes[1]);
-      }
-      else {
+      } else {
         themeSelected = ref(themes[2]);
       } // end if...else
     } // end if...else
 
     return { locale, locales, localeSelected, open, t, themes, themeSelected };
-  }
+  },
 };
 </script>

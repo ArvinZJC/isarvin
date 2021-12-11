@@ -1,10 +1,10 @@
 <!--
  * @Description: the view telling who I am
- * @Version: 1.0.6.20210830
+ * @Version: 1.0.6.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-07-11 12:08:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-08-30 19:24:14
+ * @LastEditTime: 2021-12-11 14:01:44
 -->
 
 <template>
@@ -36,20 +36,22 @@ export default {
     TheHome,
     TheNavbar,
     TheProjects,
-    TheTweeting
+    TheTweeting,
   },
   setup() {
     const { t } = useI18n();
 
     useMeta({
       description: t("pages.me.description"),
-      title: t("pages.me.title")
+      title: t("pages.me.title"),
     });
     window.addEventListener("languagechange", () => {
-      document.querySelector("meta[name='description']").setAttribute("content", t("pages.me.description"));
+      document
+        .querySelector("meta[name='description']")
+        .setAttribute("content", t("pages.me.description"));
       document.title = t("pages.me.title");
     });
     return { t };
-  }
+  },
 };
 </script>

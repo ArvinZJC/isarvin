@@ -1,14 +1,16 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.1.1.20211207
+ * @Version: 1.1.1.20211211
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-07 22:50:50
+ * @LastEditTime: 2021-12-11 14:00:13
 -->
 
 <template>
-  <div class="container-block flex flex-col h-screen justify-center py-16 w-full">
+  <div
+    class="container-block flex flex-col h-screen justify-center py-16 w-full"
+  >
     <div class="flex justify-center">
       <a class="bg-white drop-shadow-lg rounded-full" href="/">
         <img
@@ -19,9 +21,15 @@
       </a>
     </div>
     <div class="py-16 text-center">
-      <p class="text-content-indigo font-semibold text-sm tracking-wide uppercase">{{ t("error") }}</p>
+      <p
+        class="text-content-indigo font-semibold text-sm tracking-wide uppercase"
+      >
+        {{ t("error") }}
+      </p>
       <h1 class="text-title-lg mt-2">{{ t("title") }}</h1>
-      <p class="text-content-grey mt-2 tracking-tight">{{ t("description") }}</p>
+      <p class="text-content-grey mt-2 tracking-tight">
+        {{ t("description") }}
+      </p>
       <div class="mt-6">
         <a
           class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900"
@@ -43,7 +51,11 @@ import { loadLocaleMessages } from "../../lib/i18n.js";
 
 export default {
   setup() {
-    return useI18n({ messages: loadLocaleMessages(require.context("../../locales/404", false, /[A-Za-z0-9-_,\s]+\.json$/i)) });
-  }
+    return useI18n({
+      messages: loadLocaleMessages(
+        require.context("../../locales/404", false, /[A-Za-z0-9-_,\s]+\.json$/i)
+      ),
+    });
+  },
 };
 </script>
