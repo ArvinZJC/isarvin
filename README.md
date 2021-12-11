@@ -28,10 +28,10 @@ The structure of the site is as follows. Please note that the code is licensed u
 
 > May I have your attention pls? 🔥
 
-1. By 6 December 2021, everything looks good with Visual Studio Code (Version: 1.62.3) + Node.js 16.13.1 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
-2. Due to [the use of Tailwind CSS V2.0+](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
+1. By 11 December 2021, everything looks good with Visual Studio Code (Version: 1.63.0) + Node.js 16.13.1 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
-   > As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
+   > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
 
 3. The primary dependencies of the project are listed in the following table. For more information, please refer to [`package.json`](./package.json).
 
@@ -40,8 +40,8 @@ The structure of the site is as follows. Please note that the code is licensed u
    | @headlessui/vue                                                    |     1.4.2     |
    | @heroicons/vue                                                     |     1.0.5     |
    | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |    2.2.19     |
-   | vue                                                                |    3.2.23     |
+   | tailwindcss                                                        |     3.0.1     |
+   | vue                                                                |    3.2.24     |
    | vue-i18n                                                           | 9.2.0-beta.23 |
    | vue-meta                                                           | 3.0.0-alpha.9 |
    | vue-router                                                         |    4.0.12     |
