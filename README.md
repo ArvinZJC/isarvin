@@ -57,7 +57,7 @@ The structure of the site is as follows. Please note that the code is licensed u
    - Install all the required dependencies.
 
      ```sh
-     npm install -g @vue/cli@5.0.0-beta.6 serve
+     npm install -g @vue/cli serve
      npm install
      ```
 

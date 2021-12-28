@@ -57,7 +57,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
    - 安装项目所需依赖。
 
      ```sh
-     npm install -g @vue/cli@5.0.0-beta.6 serve
+     npm install -g @vue/cli serve
      npm install
      ```
 
