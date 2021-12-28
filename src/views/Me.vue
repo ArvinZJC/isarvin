@@ -4,17 +4,17 @@
  * @Author: Arvin Zhao
  * @Date: 2021-07-11 12:08:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:01:44
+ * @LastEditTime: 2021-12-28 13:02:32
 -->
 
 <template>
   <main class="container-view">
-    <TheNavbar />
-    <TheHome />
-    <TheProjects />
-    <TheEducation />
-    <TheTweeting />
-    <TheFooter />
+    <Navbar />
+    <Home />
+    <Projects />
+    <Education />
+    <Tweeting />
+    <Footer />
   </main>
 </template>
 
@@ -22,21 +22,21 @@
 import { useMeta } from "vue-meta";
 import { useI18n } from "vue-i18n";
 
-import TheEducation from "../components/me/TheEducation.vue";
-import TheHome from "../components/me/TheHome.vue";
-import TheNavbar from "../components/me/TheNavbar.vue";
-import TheProjects from "../components/me/TheProjects.vue";
-import TheTweeting from "../components/me/TheTweeting.vue";
-import TheFooter from "../components/TheFooter.vue";
+import Footer from "../components/Footer.vue";
+import Education from "../components/me/Education.vue";
+import Home from "../components/me/Home.vue";
+import Navbar from "../components/me/Navbar.vue";
+import Projects from "../components/me/Projects.vue";
+import Tweeting from "../components/me/Tweeting.vue";
 
 export default {
   components: {
-    TheEducation,
-    TheFooter,
-    TheHome,
-    TheNavbar,
-    TheProjects,
-    TheTweeting,
+    Education,
+    Footer,
+    Home,
+    Navbar,
+    Projects,
+    Tweeting,
   },
   setup() {
     const { t } = useI18n();
