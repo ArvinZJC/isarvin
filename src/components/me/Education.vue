@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.5.20211211
+ * @Version: 1.1.6.20211230
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:27
+ * @LastEditTime: 2021-12-30 15:51:00
 -->
 
 <template>
@@ -43,10 +43,9 @@
             <div class="flex relative space-x-3">
               <template v-if="event.type === 'name'">
                 <img
-                  :id="event.content"
                   :src="event.imageUrl"
                   alt="Arvin: headshot"
-                  class="animate-pulse avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800"
+                  class="avatar container-avatar flex items-center justify-center relative ring-8 ring-indigo-200 dark:ring-gray-800"
                 />
                 <div class="flex flex-1 justify-between pt-3.5 space-x-4">
                   <p class="text-primary !font-medium !text-sm">
@@ -223,17 +222,6 @@ export default {
       },
     ];
     return { t, timeline };
-  },
-  mounted() {
-    window.addEventListener("load", () => {
-      for (var event of this.timeline) {
-        var headshot = document.getElementById(event.content);
-
-        if (headshot != null) {
-          headshot.classList.remove("animate-pulse");
-        } // end if
-      } // end for
-    });
   },
 };
 </script>

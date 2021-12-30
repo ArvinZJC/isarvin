@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.1.8.20211211
+ * @Version: 1.1.9.20211230
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 18:20:51
+ * @LastEditTime: 2021-12-30 15:58:44
 -->
 
 <template>
@@ -56,9 +56,8 @@
             >
               <img
                 :alt="project.name"
-                :id="project.name"
                 :src="project.imageUrl"
-                class="animate-pulse container-avatar !rounded-none h-48 sm:h-56 object-cover shrink-0 w-full"
+                class="container-avatar !rounded-none h-48 sm:h-56 object-cover shrink-0 w-full"
               />
               <div class="flex flex-1 flex-col justify-between p-4 sm:p-6">
                 <div class="flex-1 max-h-80 overflow-auto text-justify">
@@ -216,8 +215,6 @@ export default {
                 this.isProjectShown = true;
               } // end if
             } // end if
-
-            this.removePulse();
           } // end if...else
 
           if (
@@ -237,22 +234,13 @@ export default {
         });
       } // end if
     }, // end function showCards
-
-    /**
-     * Remove the pulse animation on images.
-     */
-    removePulse() {
-      for (var project of this.projects) {
-        var cardImage = document.getElementById(project.name);
-
-        if (cardImage != null) {
-          cardImage.classList.remove("animate-pulse");
-        } // end if
-      } // end for
-    }, // end function removePulse
   },
   data() {
     return { isProjectShown: false };
+  },
+  mounted() {
+    this.showCards();
+    window.addEventListener("scroll", this.showCards);
   },
   setup() {
     const { t } = useI18n({
@@ -295,11 +283,6 @@ export default {
     ];
     const open = ref(false);
     return { liquid, open, projects, t };
-  },
-  mounted() {
-    this.showCards();
-    window.addEventListener("load", this.removePulse);
-    window.addEventListener("scroll", this.showCards);
   },
 };
 </script>

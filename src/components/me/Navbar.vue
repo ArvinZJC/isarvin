@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.5.20211211
+ * @Version: 1.6.6.20211230
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:47
+ * @LastEditTime: 2021-12-30 15:59:07
 -->
 
 <template>
@@ -23,8 +23,7 @@
           >
             <img
               alt="Arvin: icon"
-              class="animate-pulse icon-8 ml-2"
-              id="hero-icon"
+              class="icon-8 ml-2"
               src="../../assets/Arvin_icon.png"
             />
             <span class="sr-only">{{ navigation.logo.textContent }}</span>
@@ -348,6 +347,14 @@ export default {
       sections: [],
     };
   },
+  mounted() {
+    this.navbar = document.getElementById("navbar");
+    this.navItems = document.querySelector("#nav").getElementsByTagName("a");
+    Array.prototype.forEach.call(this.navItems, (element) => {
+      this.sections.push(document.querySelector(element.getAttribute("id")));
+    });
+    window.addEventListener("scroll", this.handleScroll);
+  },
   setup() {
     const { t } = useI18n({
       messages: loadLocaleMessages(
@@ -515,21 +522,6 @@ export default {
       ],
     };
     return { navigation, t };
-  },
-  mounted() {
-    this.navbar = document.getElementById("navbar");
-    this.navItems = document.querySelector("#nav").getElementsByTagName("a");
-    Array.prototype.forEach.call(this.navItems, (element) => {
-      this.sections.push(document.querySelector(element.getAttribute("id")));
-    });
-    window.addEventListener("load", () => {
-      var heroIcon = document.getElementById("hero-icon");
-
-      if (heroIcon != null) {
-        heroIcon.classList.remove("animate-pulse");
-      } // end if
-    });
-    window.addEventListener("scroll", this.handleScroll);
   },
 };
 </script>

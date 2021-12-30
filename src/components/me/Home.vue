@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.7.20211211
+ * @Version: 1.2.8.20211230
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:39
+ * @LastEditTime: 2021-12-30 15:59:27
 -->
 
 <template>
@@ -70,8 +70,7 @@
         <div v-if="isBioShown" class="sm:mt-0 mt-3 z-10">
           <img
             alt="Arvin: hero avatar"
-            class="avatar-md animate-pulse container-avatar ring-avatar -bottom-12 sm:-bottom-14 lg:-bottom-16 drop-shadow-lg mx-auto relative"
-            id="hero-avatar"
+            class="avatar-md container-avatar ring-avatar -bottom-12 sm:-bottom-14 lg:-bottom-16 drop-shadow-lg mx-auto relative"
             src="../../assets/Arvin_hero.jpg"
           />
           <div
@@ -201,17 +200,6 @@ export default {
   data() {
     return { isBannerDismissed: true, isBioShown: false };
   },
-  setup() {
-    return useI18n({
-      messages: loadLocaleMessages(
-        require.context(
-          "../../locales/me/home",
-          false,
-          /[A-Za-z0-9-_,\s]+\.json$/i
-        )
-      ),
-    });
-  },
   mounted() {
     this.isBioShown = true;
 
@@ -232,16 +220,21 @@ export default {
       setTimeout(() => {
         this.autoScrollBannerText();
       }, 300); // Need delay to make sure the banner has been loaded due to its animation.
-
-      var heroAvatar = document.getElementById("hero-avatar");
-
-      if (heroAvatar != null) {
-        heroAvatar.classList.remove("animate-pulse");
-      } // end if
     });
     window.addEventListener("resize", () => {
       this.autoScrollBannerText();
       this.setBubbleAreaHeight();
+    });
+  },
+  setup() {
+    return useI18n({
+      messages: loadLocaleMessages(
+        require.context(
+          "../../locales/me/home",
+          false,
+          /[A-Za-z0-9-_,\s]+\.json$/i
+        )
+      ),
     });
   },
 };

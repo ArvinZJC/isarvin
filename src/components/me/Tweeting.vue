@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.1.6.20211211
+ * @Version: 1.1.7.20211230
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:53
+ * @LastEditTime: 2021-12-30 15:55:37
 -->
 
 <template>
@@ -96,8 +96,7 @@
       <img
         :alt="t('steveJobs.name')"
         :src="SteveJobs"
-        class="animate-pulse avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg hidden lg:shrink-0"
-        id="sj-avatar-lg"
+        class="avatar-lg container-avatar ring-avatar lg:block drop-shadow-lg hidden lg:shrink-0"
       />
       <div class="lg:ml-10 relative">
         <!-- Left quotation mark. -->
@@ -125,8 +124,7 @@
               <img
                 :alt="t('steveJobs.name')"
                 :src="SteveJobs"
-                class="animate-pulse avatar container-avatar ring-avatar drop-shadow-lg lg:hidden shrink-0"
-                id="sj-avatar"
+                class="avatar container-avatar ring-avatar drop-shadow-lg lg:hidden shrink-0"
               />
               <div class="lg:ml-0 ml-4">
                 <div class="text-primary !font-medium !text-base">
@@ -165,20 +163,6 @@ export default {
     });
     const mail = "SteveJobz@isarvin.com";
     return { mail, SteveJobs, t };
-  },
-  mounted() {
-    window.addEventListener("load", () => {
-      var sjAvatar = document.getElementById("sj-avatar");
-      var sjLargeAvatar = document.getElementById("sj-avatar-lg");
-
-      if (sjAvatar != null) {
-        sjAvatar.classList.remove("animate-pulse");
-      } // end if
-
-      if (sjLargeAvatar != null) {
-        sjLargeAvatar.classList.remove("animate-pulse");
-      } // end if
-    });
   },
 };
 </script>
