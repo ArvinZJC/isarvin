@@ -40,7 +40,7 @@ The structure of the site is as follows. Please note that the code is licensed u
    | @headlessui/vue                                                    |     1.4.2     |
    | @heroicons/vue                                                     |     1.0.5     |
    | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |     3.0.9     |
+   | tailwindcss                                                        |    3.0.10     |
    | vue                                                                |    3.2.26     |
    | vue-i18n                                                           | 9.2.0-beta.26 |
    | vue-meta                                                           | 3.0.0-alpha.9 |

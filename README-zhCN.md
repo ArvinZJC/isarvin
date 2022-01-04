@@ -40,7 +40,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
    | @headlessui/vue                                                    |     1.4.2     |
    | @heroicons/vue                                                     |     1.0.5     |
    | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |     3.0.9     |
+   | tailwindcss                                                        |    3.0.10     |
    | vue                                                                |    3.2.26     |
    | vue-i18n                                                           | 9.2.0-beta.26 |
    | vue-meta                                                           | 3.0.0-alpha.9 |
