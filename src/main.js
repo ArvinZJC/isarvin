@@ -1,10 +1,10 @@
 /*
  * @Description: the app initialiser
- * @Version: 1.1.6.20211230
+ * @Version: 1.1.6.20220105
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-30 16:06:50
+ * @LastEditTime: 2022-01-05 03:52:00
  */
 
 import { createApp } from "vue";
@@ -18,9 +18,6 @@ import App from "./App.vue";
 import "./lib/index.js";
 import "./styles/index.css";
 
-const Me = () => import("./views/Me.vue");
-const NotFound = () => import("./views/404.vue");
-
 smoothscroll.polyfill();
 createApp(App)
   .use(createMetaManager())
@@ -28,8 +25,12 @@ createApp(App)
     createRouter({
       history: createWebHistory(),
       routes: [
-        { path: "/", component: Me, name: "me" },
-        { path: "/:pathMatch(.*)*", component: NotFound, name: "404" },
+        { path: "/", component: () => import("./views/Me.vue"), name: "me" },
+        {
+          path: "/:pathMatch(.*)*",
+          component: () => import("./views/404.vue"),
+          name: "404",
+        },
       ],
     })
   )
