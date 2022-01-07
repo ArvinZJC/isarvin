@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.6.20211230
+ * @Version: 1.6.6.20220108
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-30 15:59:07
+ * @LastEditTime: 2022-01-08 06:46:23
 -->
 
 <template>
@@ -172,7 +172,8 @@
       v-if="!isScrollToTopDismissed"
       @click="navigate('#home')"
       :title="t('scrollToTop')"
-      class="btn-action btn-round ring-inset-grey motion-safe:transition-colours-300 bg-opacity-90 bottom-44 shadow-xl"
+      class="btn-action btn-round ring-inset-grey bg-opacity-90 bottom-44 shadow-xl"
+      id="scroll-to-top"
       type="button"
     >
       <span class="sr-only">{{ t("scrollToTop") }}</span>
@@ -245,7 +246,7 @@ export default {
     }, // end function getMobileNavItems
 
     /**
-     * Handle scrolling behaviour for the navbar items.
+     * Handle scrolling behaviour.
      */
     handleScroll() {
       var activeIndex;
@@ -262,16 +263,16 @@ export default {
       });
 
       // Apply the backdrop blur filter and box shadow to the navbar if it satisfies the specified offset threshold to the top.
-      if (window.scrollY <= this.navbar.offsetHeight) {
+      if (this.navbar != null && window.scrollY <= this.navbar.offsetHeight) {
         this.navbar.classList.add("bg-opacity-0", "dark:bg-opacity-0");
         this.navbar.classList.remove("bg-blur", "shadow-xl");
       } else {
         this.navbar.classList.add("bg-blur", "shadow-xl");
         this.navbar.classList.remove("bg-opacity-0", "dark:bg-opacity-0");
-      }
+      } // end if...else
 
       // Update the active navbar item if necessary.
-      if (activeIndex !== this.activeIndex) {
+      if (this.navItems != null && activeIndex !== this.activeIndex) {
         this.activeIndex = activeIndex;
         Array.prototype.forEach.call(this.navItems, (element, index) => {
           if (index === activeIndex) {
@@ -309,6 +310,28 @@ export default {
       // Assign the value only if it is different to avoid potential animation loss.
       if (this.isScrollToTopDismissed !== temp) {
         this.isScrollToTopDismissed = temp;
+
+        var buttonScrollToTop;
+
+        if (this.isScrollToTopDismissed) {
+          buttonScrollToTop = document.getElementById("scroll-to-top");
+
+          if (buttonScrollToTop != null) {
+            buttonScrollToTop.classList.remove(
+              "motion-safe:transition-colours-300"
+            );
+          } // end if
+        } else {
+          setTimeout(() => {
+            buttonScrollToTop = document.getElementById("scroll-to-top");
+
+            if (buttonScrollToTop != null) {
+              buttonScrollToTop.classList.add(
+                "motion-safe:transition-colours-300"
+              );
+            } // end if
+          }, 300);
+        } // end if...else
       } // end if
     }, // end function handleScroll
 
