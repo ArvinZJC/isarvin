@@ -28,7 +28,7 @@ The structure of the site is as follows. Please note that the code is licensed u
 
 > May I have your attention pls? 🔥
 
-1. By 8 January 2022, everything looks good with Visual Studio Code (Version: 1.63.2) + Node.js 16.13.1 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 15 January 2022, everything looks good with Visual Studio Code (Version: 1.63.2) + Node.js 16.13.1 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -37,10 +37,10 @@ The structure of the site is as follows. Please note that the code is licensed u
 
    | Name                                                               |    Version    |
    | :----------------------------------------------------------------- | :-----------: |
-   | @headlessui/vue                                                    |     1.4.2     |
+   | @headlessui/vue                                                    |     1.4.3     |
    | @heroicons/vue                                                     |     1.0.5     |
    | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |    3.0.12     |
+   | tailwindcss                                                        |    3.0.15     |
    | vue                                                                |    3.2.26     |
    | vue-i18n                                                           | 9.2.0-beta.26 |
    | vue-meta                                                           | 3.0.0-alpha.9 |

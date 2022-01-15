@@ -1,10 +1,10 @@
 <!--
  * @Description: the projects component
- * @Version: 1.1.9.20211230
+ * @Version: 1.1.10.20220115
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-30 15:58:44
+ * @LastEditTime: 2022-01-15 14:36:33
 -->
 
 <template>
@@ -138,13 +138,11 @@
                     class="text-primary !font-medium !text-lg !leading-6 overflow-hidden text-ellipsis"
                     >{{ t("pageUnavailable.title") }}</DialogTitle
                   >
-                  <div class="mt-2">
-                    <p
-                      class="text-content-grey text-ellipsis overflow-hidden text-sm"
-                    >
-                      {{ t("pageUnavailable.message") }}
-                    </p>
-                  </div>
+                  <p
+                    class="text-content-grey mt-2 overflow-hidden text-ellipsis text-sm"
+                  >
+                    {{ t("pageUnavailable.message") }}
+                  </p>
                 </div>
                 <div class="mt-4 sm:mt-6">
                   <button
