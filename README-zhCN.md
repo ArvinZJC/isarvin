@@ -28,7 +28,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 截至 2022 年 1 月 15 日，使用 Visual Studio Code（版本：1.63.2）、Node.js 16.13.1 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至 2022 年 1 月 16 日，使用 Visual Studio Code（版本：1.63.2）、Node.js 16.13.1 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
    > Tailwind CSS v3.0 主要是为在 Chrome、Firefox、Edge 和 Safari 的最新稳定版上有良好的表现而设计并测试的。任何版本 IE（包括 IE 11）都不受支持。
@@ -95,20 +95,20 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
    {
      "configurations": [
        {
-         "type": "node",
          "name": "vue: dev",
          "request": "launch",
          "runtimeArgs": ["run", "serve"],
          "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"]
+         "skipFiles": ["<node_internals>/**"],
+         "type": "node"
        },
        {
-         "type": "node",
          "name": "vue: production",
          "request": "launch",
          "runtimeArgs": ["run", "build"],
          "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"]
+         "skipFiles": ["<node_internals>/**"],
+         "type": "node"
        }
      ]
    }
