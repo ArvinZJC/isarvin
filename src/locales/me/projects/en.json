@@ -9,7 +9,7 @@
       "name": "PY-SIC"
     },
     "kobe": {
-      "intro": "Kobe is a Windows/macOS app that can search stocks' strike prices and volumes for users. The app is primarily designed for a specified part of Chinese users, and contents are displayed in simplified Chinese.",
+      "intro": "Kobe is a Windows/macOS app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
       "name": "Kobe"
     },
     "weiboEmoji": {
