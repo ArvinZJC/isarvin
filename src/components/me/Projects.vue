@@ -1,35 +1,38 @@
 <!--
- * @Description: the projects component
- * @Version: 1.1.10.20220115
+ * @Description: the project component
+ * @Version: 1.1.13.20220128
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-15 14:36:33
+ * @LastEditTime: 2022-01-28 22:07:42
 -->
 
 <template>
-  <!-- Projects section. -->
-  <div class="bg-indigo-100 dark:bg-indigo-900" id="projects">
+  <!-- Project section. -->
+  <div
+    :id="global.common.PROJECT_SECTION"
+    class="bg-indigo-100 dark:bg-indigo-900"
+  >
     <div
       class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24"
     >
       <!-- Section header. -->
       <div
+        :id="global.common.PROJECT_INTRO_PART"
         class="flex flex-col items-center justify-center"
-        id="projects-intro"
       >
         <span class="badge-square-3 mb-6 shadow-lg">
           <CollectionIcon aria-hidden="true" class="icon-6" />
         </span>
         <div class="text-center">
-          <h2 class="text-title">{{ t("projects") }}</h2>
+          <h2 class="text-title">{{ t(global.common.PROJECT_SECTION) }}</h2>
           <p
             class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight"
           >
             {{ t("description[0]") }}
             <a
+              :href="global.common.GITHUB_HOME"
               class="text-link motion-safe:transition-colours-300"
-              href="https://github.com/ArvinZJC"
               target="_blank"
               >{{ t("gh") }}</a
             >
@@ -174,10 +177,11 @@ import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { loadLocaleMessages } from "../../lib/i18n.js";
 import PySicBanner from "../../assets/PySic_banner.png";
 import KobeBanner from "../../assets/Kobe_banner.png";
 import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
+import global from "../../lib/global.js";
+import { loadLocaleMessages } from "../../lib/i18n.js";
 
 export default {
   components: {
@@ -191,16 +195,37 @@ export default {
   },
   methods: {
     /**
+     * Apply the liquid buttons if any project is shown and the screen is untouchable.
+     */
+    applyLiquidButtons() {
+      if (
+        this.isProjectShown &&
+        ("ontouchstart" in window ||
+          navigator.maxTouchPoints > 0 ||
+          navigator.msMaxTouchPoints > 0)
+      ) {
+        const liquidButtons = document.getElementsByClassName(this.liquid);
+
+        if (liquidButtons != null) {
+          Array.prototype.forEach.call(liquidButtons, (element) => {
+            element.style.display = "none";
+          });
+        } // end if
+      } // end if
+    }, // end function applyLiquidButtons
+
+    /**
      * Show the project cards when appropriate.
      */
     showCards() {
-      var intro = document.getElementById("projects-intro");
+      setTimeout(() => {
+        const intro = document.getElementById(global.common.PROJECT_INTRO_PART);
 
-      if (intro != null) {
-        setTimeout(() => {
+        if (intro != null) {
           // Show the project cards if the screen could show the project introduction without scrolling.
           if (
-            document.getElementById("home").offsetHeight + intro.offsetHeight <
+            document.getElementById(global.common.HOME_SECTION).offsetHeight +
+              intro.offsetHeight <
             screen.height
           ) {
             if (this.isProjectShown !== true) {
@@ -214,27 +239,14 @@ export default {
               } // end if
             } // end if
           } // end if...else
+        } // end if
 
-          if (
-            this.isProjectShown &&
-            ("ontouchstart" in window ||
-              navigator.maxTouchPoints > 0 ||
-              navigator.msMaxTouchPoints > 0)
-          ) {
-            var liquidButtons = document.getElementsByClassName(this.liquid);
-
-            if (liquidButtons != null) {
-              Array.prototype.forEach.call(liquidButtons, (element) => {
-                element.style.display = "none";
-              });
-            } // end if
-          }
-        });
-      } // end if
+        this.applyLiquidButtons();
+      });
     }, // end function showCards
   },
   data() {
-    return { isProjectShown: false };
+    return { global, isProjectShown: false };
   },
   mounted() {
     this.showCards();
@@ -243,44 +255,42 @@ export default {
   setup() {
     const { t } = useI18n({
       messages: loadLocaleMessages(
-        require.context(
-          "../../locales/me/projects",
-          false,
-          /[A-Za-z0-9-_,\s]+\.json$/i
-        )
+        require.context("../../locales/me/projects", false, /[-,\s\w]+\.json$/i)
       ),
     });
     const categories = {
       active: { name: "status.active", style: "colour-success" },
       inWorks: { name: "status.inWorks", style: "colour-warning" },
     };
-    const liquid =
-      "motion-safe:liquid motion-safe:after:liquid-after motion-safe:before:liquid-before group-hover:liquid-hover";
-    const projects = [
-      {
-        imageUrl: WeiboEmojiBanner,
-        category: categories.active,
-        name: "info.weiboEmoji.name",
-        intro: "info.weiboEmoji.intro",
-        route: "#",
-      },
-      {
-        imageUrl: PySicBanner,
-        category: categories.active,
-        name: "info.pySic.name",
-        intro: "info.pySic.intro",
-        route: "#",
-      },
-      {
-        imageUrl: KobeBanner,
-        category: categories.inWorks,
-        name: "info.kobe.name",
-        intro: "info.kobe.intro",
-        route: "#",
-      },
-    ];
-    const open = ref(false);
-    return { liquid, open, projects, t };
+    return {
+      liquid:
+        "motion-safe:liquid motion-safe:after:liquid-after motion-safe:before:liquid-before group-hover:liquid-hover",
+      open: ref(false),
+      projects: [
+        {
+          imageUrl: WeiboEmojiBanner,
+          category: categories.active,
+          name: "info.weiboEmoji.name",
+          intro: "info.weiboEmoji.intro",
+          route: "#",
+        },
+        {
+          imageUrl: PySicBanner,
+          category: categories.active,
+          name: "info.pySic.name",
+          intro: "info.pySic.intro",
+          route: "#",
+        },
+        {
+          imageUrl: KobeBanner,
+          category: categories.inWorks,
+          name: "info.kobe.name",
+          intro: "info.kobe.intro",
+          route: "#",
+        },
+      ],
+      t,
+    };
   },
 };
 </script>

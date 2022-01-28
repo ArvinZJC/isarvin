@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.4.20211211
+ * @Version: 1.3.7.20220128
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:58
+ * @LastEditTime: 2022-01-28 18:10:56
 -->
 
 <template>
@@ -81,7 +81,7 @@
             <ul class="divide-y-grey text-left" role="list">
               <!-- The appearance setting. -->
               <Listbox
-                v-model="themeSelected"
+                v-model="appearanceSelected"
                 as="li"
                 class="container-setting py-4"
               >
@@ -99,7 +99,7 @@
                   >
                     <span
                       class="text-label !font-normal block text-sm truncate"
-                      >{{ t(themeSelected.name) }}</span
+                      >{{ t(appearanceSelected.name) }}</span
                     >
                     <span class="container-selector">
                       <SelectorIcon
@@ -122,10 +122,10 @@
                     >
                       <div class="container-select-menu">
                         <ListboxOption
-                          v-for="theme in themes"
-                          v-slot="{ active, themeSelected }"
-                          :key="theme.id"
-                          :value="theme"
+                          v-for="appearance in appearanceModes"
+                          v-slot="{ active, appearanceSelected }"
+                          :key="appearance.id"
+                          :value="appearance"
                           as="template"
                           class="motion-safe:transition-colours-300"
                         >
@@ -138,24 +138,26 @@
                             ]"
                           >
                             <span
-                              v-if="theme.icon"
+                              v-if="appearance.icon"
                               :class="[
                                 active ? '' : 'text-content-indigo',
                                 'absolute flex inset-y-0 items-center left-0 pl-1.5',
                               ]"
                             >
                               <component
-                                :is="theme.icon"
+                                :is="appearance.icon"
                                 aria-hidden="true"
                                 class="icon-5"
                               />
                             </span>
                             <span
                               :class="[
-                                themeSelected ? 'font-semibold' : 'font-normal',
+                                appearanceSelected
+                                  ? 'font-semibold'
+                                  : 'font-normal',
                                 'block truncate',
                               ]"
-                              >{{ t(theme.name) }}</span
+                              >{{ t(appearance.name) }}</span
                             >
                           </li>
                         </ListboxOption>
@@ -166,7 +168,7 @@
               </Listbox>
               <!-- The language setting. -->
               <Listbox
-                v-model="localeSelected"
+                v-model="languageSelected"
                 as="li"
                 class="container-setting pt-4"
               >
@@ -184,7 +186,7 @@
                   >
                     <span
                       class="text-label !font-normal block text-sm truncate"
-                      >{{ t(localeSelected.name) }}</span
+                      >{{ t(languageSelected.name) }}</span
                     >
                     <span class="container-selector">
                       <SelectorIcon
@@ -207,10 +209,10 @@
                     >
                       <div class="container-select-menu">
                         <ListboxOption
-                          v-for="locale in locales"
-                          v-slot="{ active, localeSelected }"
-                          :key="locale.id"
-                          :value="locale"
+                          v-for="language in languages"
+                          v-slot="{ active, languageSelected }"
+                          :key="language.id"
+                          :value="language"
                           as="template"
                           class="motion-safe:transition-colours-300"
                         >
@@ -224,12 +226,12 @@
                           >
                             <span
                               :class="[
-                                localeSelected
+                                languageSelected
                                   ? 'font-semibold'
                                   : 'font-normal',
                                 'block truncate',
                               ]"
-                              >{{ t(locale.name) }}</span
+                              >{{ t(language.name) }}</span
                             >
                           </li>
                         </ListboxOption>
@@ -269,6 +271,7 @@ import {
 } from "@headlessui/vue";
 import {
   CogIcon,
+  DesktopComputerIcon,
   MoonIcon,
   SelectorIcon,
   SunIcon,
@@ -277,12 +280,14 @@ import {
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { decideLocale, EN, LOCALE, ZH_CN } from "../lib/i18n.js";
-import { applyTheme, DARK, LIGHT, THEME } from "../lib/theme.js";
+import { applyAppearance } from "../lib/appearance.js";
+import global from "../lib/global.js";
+import { decideLanguage } from "../lib/i18n.js";
 
 export default {
   components: {
     CogIcon,
+    DesktopComputerIcon,
     Dialog,
     DialogOverlay,
     DialogTitle,
@@ -300,10 +305,10 @@ export default {
   },
   methods: {
     /**
-     * Apply the locale change.
+     * Apply the language change.
      */
-    applyLocale() {
-      this.locale = decideLocale();
+    applyLanguage() {
+      this.locale = decideLanguage();
       document
         .querySelector("meta[name='description']")
         .setAttribute(
@@ -311,87 +316,110 @@ export default {
           this.t("pages." + this.$route.name + ".description")
         );
       document.title = this.t("pages." + this.$route.name + ".title");
-    }, // end function applyLocale
-
-    /**
-     * Change the language setting.
-     */
-    changeLanguage() {
-      if (this.localeSelected.id === 0) {
-        if (localStorage.getItem(LOCALE) != null) {
-          localStorage.removeItem(LOCALE); // Follow the browser default.
-          this.applyLocale();
-        } // end if
-      } else {
-        if (this.localeSelected.name !== localStorage.getItem(LOCALE)) {
-          localStorage.setItem(LOCALE, this.localeSelected.name);
-          this.applyLocale();
-        } // end if
-      } // end if...else
-    }, // end function changeLanguage
+    }, // end function applyLanguage
 
     /**
      * Change the appearance setting.
      */
     changeAppearance() {
-      if (this.themeSelected.id === 0) {
-        if (localStorage.getItem(THEME)) {
-          localStorage.removeItem(THEME); // Follow the system default.
-          applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
+      if (this.appearanceSelected.id === 0) {
+        if (localStorage.getItem(global.common.APPEARANCE_KEY)) {
+          localStorage.removeItem(global.common.APPEARANCE_KEY); // Follow the system default.
+          applyAppearance(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
       } else {
-        if (this.themeSelected.name !== localStorage.getItem(THEME)) {
-          localStorage.setItem(THEME, this.themeSelected.name);
-          applyTheme(window.matchMedia("(prefers-color-scheme: dark)"));
+        if (
+          this.appearanceSelected.name !==
+          localStorage.getItem(global.common.APPEARANCE_KEY)
+        ) {
+          localStorage.setItem(
+            global.common.APPEARANCE_KEY,
+            this.appearanceSelected.name
+          );
+          applyAppearance(window.matchMedia("(prefers-color-scheme: dark)"));
         } // end if
       } // end if...else
     }, // end function changeAppearance
+
+    /**
+     * Change the language setting.
+     */
+    changeLanguage() {
+      if (this.languageSelected.id === 0) {
+        if (localStorage.getItem(global.common.LANGUAGE_KEY) != null) {
+          localStorage.removeItem(global.common.LANGUAGE_KEY); // Follow the browser default.
+          this.applyLanguage();
+        } // end if
+      } else {
+        if (
+          this.languageSelected.name !==
+          localStorage.getItem(global.common.LANGUAGE_KEY)
+        ) {
+          localStorage.setItem(
+            global.common.LANGUAGE_KEY,
+            this.languageSelected.name
+          );
+          this.applyLanguage();
+        } // end if
+      } // end if...else
+    }, // end function changeLanguage
   },
   data() {
-    const currentYear = new Date().getFullYear();
-    return { currentYear };
+    return { currentYear: new Date().getFullYear() };
   },
   setup() {
-    const { t, locale } = useI18n({ useScope: "global" });
+    const { t, locale } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
     const open = ref(false);
-    const locales = [
-      { id: 0, name: "browserDefault" },
-      { id: 1, name: EN },
-      { id: 2, name: ZH_CN },
+    const appearanceModes = [
+      {
+        icon: DesktopComputerIcon,
+        id: 0,
+        name: global.common.SYSTEM_DEFAULT_MODE_ID,
+      },
+      { icon: SunIcon, id: 1, name: global.common.LIGHT_MODE_ID },
+      { icon: MoonIcon, id: 2, name: global.common.DARK_MODE_ID },
     ];
-    var currentLocale = localStorage.getItem(LOCALE);
-    var localeSelected;
-    const themes = [
-      { id: 0, name: "systemDefault", icon: null },
-      { id: 1, name: LIGHT, icon: SunIcon },
-      { id: 2, name: DARK, icon: MoonIcon },
+    var currentAppearance = localStorage.getItem(global.common.APPEARANCE_KEY);
+    var appearanceSelected;
+    const languages = [
+      { id: 0, name: global.common.BROWSER_DEFAULT_MODE_ID },
+      { id: 1, name: global.common.EN_ID },
+      { id: 2, name: global.common.ZH_CN_ID },
     ];
-    var currentTheme = localStorage.getItem(THEME);
-    var themeSelected;
+    var currentLanguage = localStorage.getItem(global.common.LANGUAGE_KEY);
+    var languageSelected;
 
-    // Set the current locale.
-    if (currentLocale === null) {
-      localeSelected = ref(locales[0]);
+    // Set the current appearance.
+    if (currentAppearance === null) {
+      appearanceSelected = ref(appearanceModes[0]);
     } else {
-      if (currentLocale === EN) {
-        localeSelected = ref(locales[1]);
+      if (currentAppearance === global.common.LIGHT_MODE_ID) {
+        appearanceSelected = ref(appearanceModes[1]);
       } else {
-        localeSelected = ref(locales[2]);
+        appearanceSelected = ref(appearanceModes[2]);
       } // end if...else
     } // end if...else
 
-    // Set the current theme.
-    if (currentTheme === null) {
-      themeSelected = ref(themes[0]);
+    // Set the current language.
+    if (currentLanguage === null) {
+      languageSelected = ref(languages[0]);
     } else {
-      if (currentTheme === LIGHT) {
-        themeSelected = ref(themes[1]);
+      if (currentLanguage === global.common.EN_ID) {
+        languageSelected = ref(languages[1]);
       } else {
-        themeSelected = ref(themes[2]);
+        languageSelected = ref(languages[2]);
       } // end if...else
     } // end if...else
 
-    return { locale, locales, localeSelected, open, t, themes, themeSelected };
+    return {
+      appearanceModes,
+      appearanceSelected,
+      languages,
+      languageSelected,
+      locale,
+      open,
+      t,
+    };
   },
 };
 </script>

@@ -1,10 +1,10 @@
 <!--
  * @Description: the root component
- * @Version: 1.2.1.20211211
+ * @Version: 1.2.2.20220128
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:01:27
+ * @LastEditTime: 2022-01-28 17:58:18
 -->
 
 <template>
@@ -32,15 +32,22 @@
 import { useI18n } from "vue-i18n";
 import { useMeta } from "vue-meta";
 
-import { decideLocale } from "./lib/i18n.js";
+import { applyAppearance } from "./lib/appearance.js";
+import { decideLanguage } from "./lib/i18n.js";
 
 export default {
-  setup() {
-    const { t, locale } = useI18n({ useScope: "global" });
+  mounted() {
+    const darkModeMql = window.matchMedia("(prefers-color-scheme: dark)"); // A MediaQueryList object containing the results of detecting the system appearance.
 
-    useMeta({ title: "Arvin Zhao" });
+    applyAppearance(window.matchMedia("(prefers-color-scheme: dark)"));
+    darkModeMql.onchange = applyAppearance; // Listen to the change of the system appearance.
+  },
+  setup() {
+    const { t, locale } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
+
+    useMeta({ title: global.common.DEFAULT_TITLE });
     window.addEventListener("languagechange", () => {
-      locale.value = decideLocale();
+      locale.value = decideLanguage();
     });
     return { t };
   },

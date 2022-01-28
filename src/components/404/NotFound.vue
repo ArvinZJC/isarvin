@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.1.1.20211211
+ * @Version: 1.1.2.20220128
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-11 14:00:13
+ * @LastEditTime: 2022-01-28 13:31:12
 -->
 
 <template>
@@ -53,7 +53,7 @@ export default {
   setup() {
     return useI18n({
       messages: loadLocaleMessages(
-        require.context("../../locales/404", false, /[A-Za-z0-9-_,\s]+\.json$/i)
+        require.context("../../locales/404", false, /[-,\s\w]+\.json$/i)
       ),
     });
   },

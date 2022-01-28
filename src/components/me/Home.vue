@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.8.20211230
+ * @Version: 1.2.10.20220128
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-30 15:59:27
+ * @LastEditTime: 2022-01-28 21:49:30
 -->
 
 <template>
@@ -28,8 +28,8 @@
               </span>
               <div class="mx-2 sm:mx-3 overflow-hidden">
                 <p
+                  :id="global.common.BANNER_TEXT_ID"
                   class="text-component motion-safe:whitespace-nowrap"
-                  id="banner-text"
                 >
                   {{ t("banner") }}
                 </p>
@@ -49,7 +49,7 @@
     </div>
   </transition>
   <!-- Home section. Enable full screen height at the small breakpoint. -->
-  <div class="flex flex-col sm:h-screen" id="home">
+  <div :id="global.common.HOME_SECTION" class="flex flex-col sm:h-screen">
     <!-- Added for the navbar area. -->
     <div class="bg-indigo-200 dark:bg-indigo-800 h-16 w-full" />
     <!-- Primary content. -->
@@ -110,8 +110,8 @@
       >
         <defs>
           <path
+            :id="global.common.SMOOTH_WAVE_ID"
             d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-            id="smooth-wave"
           />
         </defs>
         <g class="motion-safe:waves">
@@ -138,8 +138,8 @@
       </svg>
       <!-- Bubble animation. -->
       <ul
+        :id="global.common.BUBBLE_ANIMATION_ID"
         class="motion-safe:bubbles absolute overflow-hidden top-0 w-full"
-        id="bubble-animation"
       >
         <li></li>
         <li></li>
@@ -160,6 +160,7 @@
 import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
 import { useI18n } from "vue-i18n";
 
+import global from "../../lib/global.js";
 import { loadLocaleMessages } from "../../lib/i18n.js";
 
 export default {
@@ -169,7 +170,7 @@ export default {
      * Auto-scroll the banner text when it is too long.
      */
     autoScrollBannerText() {
-      var bannerText = document.getElementById("banner-text");
+      const bannerText = document.getElementById(global.common.BANNER_TEXT_ID);
 
       if (bannerText != null) {
         if (bannerText.scrollWidth > bannerText.offsetWidth) {
@@ -193,12 +194,14 @@ export default {
      * Set the height of the bubble area according to the height of the home section.
      */
     setBubbleAreaHeight() {
-      document.getElementById("bubble-animation").style.height =
-        document.getElementById("home").offsetHeight - 2 + "px";
+      document.getElementById(global.common.BUBBLE_ANIMATION_ID).style.height =
+        document.getElementById(global.common.HOME_SECTION).offsetHeight -
+        2 +
+        "px";
     }, // end function setBubbleAreaHeight
   },
   data() {
-    return { isBannerDismissed: true, isBioShown: false };
+    return { global, isBannerDismissed: true, isBioShown: false };
   },
   mounted() {
     this.isBioShown = true;
@@ -229,11 +232,7 @@ export default {
   setup() {
     return useI18n({
       messages: loadLocaleMessages(
-        require.context(
-          "../../locales/me/home",
-          false,
-          /[A-Za-z0-9-_,\s]+\.json$/i
-        )
+        require.context("../../locales/me/home", false, /[-,\s\w]+\.json$/i)
       ),
     });
   },
