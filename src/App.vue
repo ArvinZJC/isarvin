@@ -1,10 +1,10 @@
 <!--
  * @Description: the root component
- * @Version: 1.2.2.20220128
+ * @Version: 1.2.2.20220129
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 17:58:18
+ * @LastEditTime: 2022-01-29 17:03:01
 -->
 
 <template>
@@ -39,7 +39,7 @@ export default {
   mounted() {
     const darkModeMql = window.matchMedia("(prefers-color-scheme: dark)"); // A MediaQueryList object containing the results of detecting the system appearance.
 
-    applyAppearance(window.matchMedia("(prefers-color-scheme: dark)"));
+    applyAppearance(darkModeMql);
     darkModeMql.onchange = applyAppearance; // Listen to the change of the system appearance.
   },
   setup() {
