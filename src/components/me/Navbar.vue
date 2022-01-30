@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.9.20220128
+ * @Version: 1.6.10.20220130
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 22:14:32
+ * @LastEditTime: 2022-01-30 11:40:59
 -->
 
 <template>
@@ -137,7 +137,6 @@
               ]"
               :id="item.anchor"
               :key="item.name"
-              type="button"
             >
               <span class="badge-square-2 sm:badge-square-3">
                 <component :is="item.icon" aria-hidden="true" class="icon-6" />
