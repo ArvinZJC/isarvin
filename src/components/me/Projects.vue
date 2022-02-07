@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.1.13.20220128
+ * @Version: 1.1.14.20220207
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 22:07:42
+ * @LastEditTime: 2022-02-07 16:44:27
 -->
 
 <template>
@@ -268,6 +268,13 @@ export default {
       open: ref(false),
       projects: [
         {
+          imageUrl: KobeBanner,
+          category: categories.active,
+          name: "info.kobe.name",
+          intro: "info.kobe.intro",
+          route: "#",
+        },
+        {
           imageUrl: WeiboEmojiBanner,
           category: categories.active,
           name: "info.weiboEmoji.name",
@@ -279,13 +286,6 @@ export default {
           category: categories.active,
           name: "info.pySic.name",
           intro: "info.pySic.intro",
-          route: "#",
-        },
-        {
-          imageUrl: KobeBanner,
-          category: categories.inWorks,
-          name: "info.kobe.name",
-          intro: "info.kobe.intro",
           route: "#",
         },
       ],

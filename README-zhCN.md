@@ -20,7 +20,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 ![example_zhCN.png](./img_README/example_zhCN.png)
 
-网站内容结构如下图。请注意此项目使用 [GPL-3.0 协议](./LICENSE)。
+网站内容结构如下图。
 
 ![structure_zhCN.png](./img_README/structure_zhCN.png)
 
@@ -28,25 +28,25 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 截至 2022 年 1 月 30 日，使用 Visual Studio Code（版本：1.63.2）、Node.js 16.13.2 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 此项目使用 [GPL-3.0 协议](./LICENSE)。截至 2022 年 2 月 7 日，使用 Visual Studio Code（版本：1.64.0）、Node.js 16.13.2 和 Vue CLI 5.0.0-rc.1 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
    > Tailwind CSS v3.0 主要是为在 Chrome、Firefox、Edge 和 Safari 的最新稳定版上有良好的表现而设计并测试的。任何版本 IE（包括 IE 11）都不受支持。
 
 3. 项目主要依赖参见下面的表格。更多信息请参见 [`package.json`](./package.json)。
 
-   | 名称                                                               |     版本      |
-   | :----------------------------------------------------------------- | :-----------: |
-   | @headlessui/vue                                                    |     1.4.3     |
-   | @heroicons/vue                                                     |     1.0.5     |
-   | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |    3.0.18     |
-   | vue                                                                |    3.2.29     |
-   | vue-i18n                                                           | 9.2.0-beta.30 |
-   | vue-meta                                                           | 3.0.0-alpha.9 |
-   | vue-router                                                         |    4.0.12     |
+   | 名称                  |     版本      |
+   | :-------------------- | :-----------: |
+   | @headlessui/vue       |     1.4.3     |
+   | @heroicons/vue        |     1.0.5     |
+   | smoothscroll-polyfill |     0.4.4     |
+   | tailwindcss           |    3.0.18     |
+   | vue                   |    3.2.29     |
+   | vue-i18n              | 9.2.0-beta.30 |
+   | vue-meta              | 3.0.0-alpha.9 |
+   | vue-router            |    4.0.12     |
 
-4. 您可以在项目根目录下手动创建名为 `.env` 或 `.env.local` 的文件，并包含如下内容。请注意这个操作*可选*。**在没有这个文件的情况下，此项目应仍能良好运行**。
+4. 您可以在项目根目录下手动创建名为 `.env` 或 `.env.local` 的文件，并包含如下内容。请注意这个操作 _可选_。**在没有这个文件的情况下，此项目应仍能良好运行**。
 
    ```sh
    VUE_APP_I18N_FALLBACK_LOCALE=en
@@ -61,11 +61,11 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
      npm install
      ```
 
-   - _(可选)_ 报告丢失的或未使用的多语言信息。请注意这是 [vue-cli-plugin-i18n 的实验功能](https://github.com/intlify/vue-cli-plugin-i18n#-features)。对于此项目，您可以忽略这个功能的输出。
+   - _（可选）_ 报告丢失的或未使用的多语言信息。请注意这是 [vue-cli-plugin-i18n 的实验功能](https://github.com/intlify/vue-cli-plugin-i18n#-features)。对于此项目，您可以忽略这个功能的输出。
 
      ```sh
      npm run i18n:report
-     # OR
+     # 或
      npx vue-cli-service i18n:report --src "./src/**/*.?(js|vue)" --locales "./src/locales/**/*.json"
      ```
 
@@ -75,7 +75,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
        ```sh
        npm run serve
-       # OR
+       # 或
        npx vue-cli-service serve
        ```
 
@@ -83,35 +83,35 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
        ```sh
        npm run build
-       # OR
+       # 或
        npx vue-cli-service build
 
        serve -s dist
        ```
 
-6. 如果您习惯使用 Visual Studio Code 的运行和调试面板, 您可以将下面内容添加至 `.vscode/launch.json` 来配置此项目的调试与构建过程。
+     - _（推荐）_ 若使用 Visual Studio Code 的运行和调试面板, 则需要将下面内容添加至 `.vscode/launch.json` 来配置此项目的调试与构建过程。
 
-   ```JSON
-   {
-     "configurations": [
+       ```JSON
        {
-         "name": "vue: dev",
-         "request": "launch",
-         "runtimeArgs": ["run", "serve"],
-         "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"],
-         "type": "node"
-       },
-       {
-         "name": "vue: production",
-         "request": "launch",
-         "runtimeArgs": ["run", "build"],
-         "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"],
-         "type": "node"
+         "configurations": [
+           {
+             "name": "vue: dev",
+             "request": "launch",
+             "runtimeArgs": ["run", "serve"],
+             "runtimeExecutable": "npm",
+             "skipFiles": ["<node_internals>/**"],
+             "type": "node"
+           },
+           {
+             "name": "vue: production",
+             "request": "launch",
+             "runtimeArgs": ["run", "build"],
+             "runtimeExecutable": "npm",
+             "skipFiles": ["<node_internals>/**"],
+             "type": "node"
+           }
+         ]
        }
-     ]
-   }
-   ```
+       ```
 
 好运哦! 💖

@@ -20,7 +20,7 @@ Arvin is my English name. I am an incompetent developer finally building the per
 
 ![example.png](./img_README/example.png)
 
-The structure of the site is as follows. Please note that the code is licensed under [the GPL-3.0 License](./LICENSE).
+The structure of the site is as follows. Please note that
 
 ![structure.png](./img_README/structure.png)
 
@@ -28,23 +28,23 @@ The structure of the site is as follows. Please note that the code is licensed u
 
 > May I have your attention pls? 🔥
 
-1. By 30 January 2022, everything looks good with Visual Studio Code (Version: 1.63.2) + Node.js 16.13.2 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 7 February 2022, everything looks good with Visual Studio Code (Version: 1.64.0) + Node.js 16.13.2 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
 
 3. The primary dependencies of the project are listed in the following table. For more information, please refer to [`package.json`](./package.json).
 
-   | Name                                                               |    Version    |
-   | :----------------------------------------------------------------- | :-----------: |
-   | @headlessui/vue                                                    |     1.4.3     |
-   | @heroicons/vue                                                     |     1.0.5     |
-   | [smoothscroll-polyfill](https://github.com/iamdustan/smoothscroll) |     0.4.4     |
-   | tailwindcss                                                        |    3.0.18     |
-   | vue                                                                |    3.2.29     |
-   | vue-i18n                                                           | 9.2.0-beta.30 |
-   | vue-meta                                                           | 3.0.0-alpha.9 |
-   | vue-router                                                         |    4.0.12     |
+   | Name                  |    Version    |
+   | :-------------------- | :-----------: |
+   | @headlessui/vue       |     1.4.3     |
+   | @heroicons/vue        |     1.0.5     |
+   | smoothscroll-polyfill |     0.4.4     |
+   | tailwindcss           |    3.0.18     |
+   | vue                   |    3.2.29     |
+   | vue-i18n              | 9.2.0-beta.30 |
+   | vue-meta              | 3.0.0-alpha.9 |
+   | vue-router            |    4.0.12     |
 
 4. You could manually create a file named `.env` or `.env.local` under the project root directory and contain the following content. Please note that it is _optional_, and that **the project should work well without it**.
 
@@ -89,29 +89,29 @@ The structure of the site is as follows. Please note that the code is licensed u
        serve -s dist
        ```
 
-6. If you fancy using the Run and Debug view of Visual Studio Code, you could add the following to `.vscode/launch.json` to configure the serving and building process.
+     - _(Recommended)_ If you fancy using the Run and Debug view of Visual Studio Code, you could add the following to `.vscode/launch.json` to configure the serving and building process.
 
-   ```JSON
-   {
-     "configurations": [
+       ```JSON
        {
-         "name": "vue: dev",
-         "request": "launch",
-         "runtimeArgs": ["run", "serve"],
-         "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"],
-         "type": "node"
-       },
-       {
-         "name": "vue: production",
-         "request": "launch",
-         "runtimeArgs": ["run", "build"],
-         "runtimeExecutable": "npm",
-         "skipFiles": ["<node_internals>/**"],
-         "type": "node"
+         "configurations": [
+           {
+             "name": "vue: dev",
+             "request": "launch",
+             "runtimeArgs": ["run", "serve"],
+             "runtimeExecutable": "npm",
+             "skipFiles": ["<node_internals>/**"],
+             "type": "node"
+           },
+           {
+             "name": "vue: production",
+             "request": "launch",
+             "runtimeArgs": ["run", "build"],
+             "runtimeExecutable": "npm",
+             "skipFiles": ["<node_internals>/**"],
+             "type": "node"
+           }
+         ]
        }
-     ]
-   }
-   ```
+       ```
 
 Good luck! 💖

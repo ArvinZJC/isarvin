@@ -4,13 +4,13 @@
     ". I’ve still got a pretty long way to go. Would I reach the end one day? 🐌"
   ],
   "info": {
+    "kobe": {
+      "intro": "Kobe is a Windows/macOS desktop app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
+      "name": "Kobe"
+    },
     "pySic": {
       "intro": "PY-SIC stands for \"a simple image converter for Python\". It could be seen as a simple wrapper of the popular Python imaging library Pillow, but contains a patch for better GIF conversion quality.",
       "name": "PY-SIC"
-    },
-    "kobe": {
-      "intro": "Kobe is a Windows/macOS app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
-      "name": "Kobe"
     },
     "weiboEmoji": {
       "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. What I have done to save your time is to basically categorise them according to their meanings.",
