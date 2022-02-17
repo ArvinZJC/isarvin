@@ -15,11 +15,15 @@
       "The University of Lincoln 50% Global Scholarship 2019",
       "MTA: Software Development Fundamentals - Certified 2019"
     ],
-    "degree": "BS (Hons) in Computer Science, 1st-Class Honours (GPA: 3.66 / 4.00)",
+    "degree": "BS (Hons) in Computer Science with 1st-Class Honours, GPA: 3.66 / 4.00",
     "name": "University of Lincoln"
   },
   "uofg": {
-    "degree": "MS in Computing Science, pending good luck... (current GPA: 3.85 / 4.00) 🤓",
+    "achievements": [
+      "MS Project CS+: A1 (92 - 100)",
+      "Tbh, no more highlights for fillers 🥲"
+    ],
+    "degree": "MS in Computing Science with Distinction, GPA: 3.90 / 4.00",
     "name": "University of Glasgow"
   },
   "yuming": "Dalian Yuming Senior High School"

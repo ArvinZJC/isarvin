@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.8.20220128
+ * @Version: 1.1.10.20220217
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 18:38:27
+ * @LastEditTime: 2022-02-17 14:39:14
 -->
 
 <template>
@@ -82,7 +82,10 @@
                 >
                 <p
                   v-else
-                  class="text-content-grey pt-1.5 text-sm tracking-tight"
+                  :class="[
+                    event.hasLineThrough ? 'line-through ' : '',
+                    'text-content-grey pt-1.5 text-sm tracking-tight',
+                  ]"
                 >
                   {{ t(event.content) }}
                 </p>
@@ -133,8 +136,8 @@ export default {
     const eventIcons = {
       check: { icon: CheckIcon, background: "!bg-green-600" },
       happy: { icon: EmojiHappyIcon, background: "!bg-pink-600" },
-      flag: { icon: FlagIcon, background: "!bg-purple-600" },
       fire: { icon: FireIcon, background: "!bg-yellow-600" },
+      flag: { icon: FlagIcon, background: "!bg-purple-600" },
     };
     return {
       t,
@@ -222,6 +225,19 @@ export default {
         },
         {
           content: "uofg.degree",
+          icon: eventIcons.flag.icon,
+          iconBackground: eventIcons.flag.background,
+          type: global.common.HIGHLIGHT_TYPE,
+        },
+        {
+          content: "uofg.achievements[0]",
+          icon: eventIcons.happy.icon,
+          iconBackground: eventIcons.happy.background,
+          type: global.common.HIGHLIGHT_TYPE,
+        },
+        {
+          content: "uofg.achievements[1]",
+          hasLineThrough: true,
           icon: eventIcons.fire.icon,
           iconBackground: eventIcons.fire.background,
           type: global.common.HIGHLIGHT_TYPE,
