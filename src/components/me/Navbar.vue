@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.10.20220130
+ * @Version: 1.6.11.20220217
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-30 11:40:59
+ * @LastEditTime: 2022-02-17 15:02:41
 -->
 
 <template>
@@ -488,7 +488,7 @@ export default {
             icon: LinkedInIcon,
             name: "in",
           },
-          { href: global.common.GITHUB_HOME, icon: GitHubIcon, name: "gh" },
+          { href: global.common.GITHUB_ME, icon: GitHubIcon, name: "gh" },
         ],
       },
       t,

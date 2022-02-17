@@ -1,10 +1,10 @@
 /*
  * @Description: the global variables for the scripts
- * @Version: 1.0.0.20220128
+ * @Version: 1.0.2.20220217
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 22:03:04
+ * @LastEditTime: 2022-02-17 15:01:24
  */
 
 global.common = {
@@ -17,7 +17,8 @@ global.common = {
   DEFAULT_TITLE: "Arvin Zhao",
   EDUCATION_SECTION: "education",
   EN_ID: "en",
-  GITHUB_HOME: "https://github.com/ArvinZJC",
+  GITHUB_ME: "https://github.com/ArvinZJC",
+  GITSTALK_ME: "https://gitstalk.netlify.app/ArvinZJC",
   GLOBAL_LOCALE: "global",
   HIGHLIGHT_TYPE: "highlight",
   HOME_SECTION: "home",

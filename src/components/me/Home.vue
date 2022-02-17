@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.10.20220128
+ * @Version: 1.2.12.20220217
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 21:49:30
+ * @LastEditTime: 2022-02-17 15:02:15
 -->
 
 <template>
@@ -79,14 +79,14 @@
             <h1 class="text-center">
               <span class="text-title block">{{ t("name") }}</span>
               <span class="text-subtitle block">
-                {{ t("positions[0]") }}
+                <span class="line-through">{{ `${t("positions[0]")}` }}</span>
+                &
                 <a
+                  :href="global.common.GITSTALK_ME"
                   class="text-link motion-safe:transition-colours-300"
-                  href="https://www.gla.ac.uk/"
                   target="_blank"
-                  >@{{ t("school") }}</a
+                  >{{ t("positions[1]") }}</a
                 >
-                {{ t("positions[1]") }}
               </span>
             </h1>
             <p class="text-secondary sm:max-w-3xl max-w-lg mx-auto text-center">
