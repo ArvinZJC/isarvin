@@ -28,7 +28,7 @@ The structure of the site is as follows. Please note that
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 17 February 2022, everything looks good with Visual Studio Code (Version: 1.64.2) + Node.js 16.13.2 + Vue CLI 5.0.0-rc.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 19 February 2022, everything looks good with Visual Studio Code (Version: 1.64.2) + Node.js 16.13.2 + Vue CLI 5.0.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -37,7 +37,7 @@ The structure of the site is as follows. Please note that
 
    | Name                     |    Version    |
    | :----------------------- | :-----------: |
-   | @headlessui/vue          |     1.4.3     |
+   | @headlessui/vue          |     1.5.0     |
    | @heroicons/vue           |     1.0.5     |
    | @intlify/vue-i18n-loader |     4.1.0     |
    | autoprefixer             |    10.4.2     |

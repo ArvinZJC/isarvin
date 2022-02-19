@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.11.20220217
+ * @Version: 1.6.12.20220219
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-17 15:02:41
+ * @LastEditTime: 2022-02-19 20:24:11
 -->
 
 <template>
@@ -199,13 +199,13 @@ import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
 import { loadLocaleMessages } from "../../lib/i18n.js";
-import ArvinTextLogo from "../SVG/ArvinTextLogo.vue";
-import FacebookIcon from "../SVG/FacebookIcon.vue";
-import GitHubIcon from "../SVG/GitHubIcon.vue";
-import InstagramIcon from "../SVG/InstagramIcon.vue";
-import LinkedInIcon from "../SVG/LinkedInIcon.vue";
-import TwitterIcon from "../SVG/TwitterIcon.vue";
-import WeiboIcon from "../SVG/WeiboIcon.vue";
+import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
+import FacebookIcon from "../svg/FacebookIcon.vue";
+import GitHubIcon from "../svg/GitHubIcon.vue";
+import InstagramIcon from "../svg/InstagramIcon.vue";
+import LinkedInIcon from "../svg/LinkedInIcon.vue";
+import TwitterIcon from "../svg/TwitterIcon.vue";
+import WeiboIcon from "../svg/WeiboIcon.vue";
 
 export default {
   components: {
