@@ -2,8 +2,9 @@
 
 # [isarvin.com](https://isarvin.com)
 
-[![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
+[![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
 [English](./README.md) | **简体中文**
