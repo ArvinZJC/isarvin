@@ -1,10 +1,10 @@
 /*
  * @Description: the app initialiser
- * @Version: 1.1.8.20220128
+ * @Version: 1.1.9.20220306
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 18:25:48
+ * @LastEditTime: 2022-03-06 13:08:17
  */
 
 import smoothscroll from "smoothscroll-polyfill";
@@ -35,6 +35,8 @@ createApp(App)
           name: global.common.NOT_FOUND_VIEW,
           path: "/:pathMatch(.*)*",
         },
+        { path: `/${global.common.ME_VIEW}`, redirect: "/" },
+        { path: "/home", redirect: "/" },
       ],
     })
   )
