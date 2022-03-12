@@ -2,8 +2,9 @@
 
 # [isarvin.com](https://isarvin.com)
 
-[![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
+[![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
 **English** | [简体中文](./README-zhCN.md)
@@ -28,7 +29,7 @@ The structure of the site is as follows. Please note that
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 19 February 2022, everything looks good with Visual Studio Code (Version: 1.64.2) + Node.js 16.13.2 + Vue CLI 5.0.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 12 March 2022, everything looks good with Visual Studio Code (Version: 1.65.2) + Node.js 16.13.2 + Vue CLI 5.0.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -38,17 +39,17 @@ The structure of the site is as follows. Please note that
    | Name                     |    Version    |
    | :----------------------- | :-----------: |
    | @headlessui/vue          |     1.5.0     |
-   | @heroicons/vue           |     1.0.5     |
+   | @heroicons/vue           |     1.0.6     |
    | @intlify/vue-i18n-loader |     4.1.0     |
    | autoprefixer             |    10.4.2     |
-   | postcss                  |     8.4.6     |
+   | postcss                  |     8.4.8     |
    | smoothscroll-polyfill    |     0.4.4     |
    | tailwindcss              |    3.0.23     |
    | vue                      |    3.2.31     |
    | vue-cli-plugin-i18n      |     2.3.1     |
    | vue-i18n                 |     9.1.9     |
    | vue-meta                 | 3.0.0-alpha.9 |
-   | vue-router               |    4.0.12     |
+   | vue-router               |    4.0.14     |
 
 4. You could manually create a file named `.env` or `.env.local` under the project root directory and contain the following content. Please note that it is _optional_, and that **the project should work well without it**.
 
@@ -61,7 +62,7 @@ The structure of the site is as follows. Please note that
    - Install all the required dependencies.
 
      ```sh
-     npm install -g @vue/cli serve
+     npm install -g @vue/cli serve  # @vue/cli is optional.
      npm install
      ```
 

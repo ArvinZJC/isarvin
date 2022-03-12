@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.1.14.20220207
+ * @Version: 1.2.0.20220312
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-07 16:44:27
+ * @LastEditTime: 2022-03-12 19:42:02
 -->
 
 <template>
@@ -17,10 +17,7 @@
       class="container-block flex flex-col items-center pb-4 sm:pb-6 lg:pb-8 pt-16 sm:pt-20 lg:pt-24"
     >
       <!-- Section header. -->
-      <div
-        :id="global.common.PROJECT_INTRO_PART"
-        class="flex flex-col items-center justify-center"
-      >
+      <div class="flex flex-col items-center justify-center">
         <span class="badge-square-3 mb-6 shadow-lg">
           <CollectionIcon aria-hidden="true" class="icon-6" />
         </span>
@@ -54,7 +51,6 @@
             leave-to-class="float-down-5"
           >
             <div
-              v-if="isProjectShown"
               class="card ring-container flex flex-col overflow-hidden shadow-lg"
             >
               <img
@@ -193,64 +189,23 @@ export default {
     TransitionChild,
     TransitionRoot,
   },
-  methods: {
-    /**
-     * Apply the liquid buttons if any project is shown and the screen is untouchable.
-     */
-    applyLiquidButtons() {
-      if (
-        this.isProjectShown &&
-        ("ontouchstart" in window ||
-          navigator.maxTouchPoints > 0 ||
-          navigator.msMaxTouchPoints > 0)
-      ) {
-        const liquidButtons = document.getElementsByClassName(this.liquid);
-
-        if (liquidButtons != null) {
-          Array.prototype.forEach.call(liquidButtons, (element) => {
-            element.style.display = "none";
-          });
-        } // end if
-      } // end if
-    }, // end function applyLiquidButtons
-
-    /**
-     * Show the project cards when appropriate.
-     */
-    showCards() {
-      setTimeout(() => {
-        const intro = document.getElementById(global.common.PROJECT_INTRO_PART);
-
-        if (intro != null) {
-          // Show the project cards if the screen could show the project introduction without scrolling.
-          if (
-            document.getElementById(global.common.HOME_SECTION).offsetHeight +
-              intro.offsetHeight <
-            screen.height
-          ) {
-            if (this.isProjectShown !== true) {
-              this.isProjectShown = true;
-            } // end if
-          } else {
-            // Show the project cards if the specified offset threshold to the top is satisfied.
-            if (window.scrollY >= intro.offsetHeight) {
-              if (this.isProjectShown !== true) {
-                this.isProjectShown = true;
-              } // end if
-            } // end if
-          } // end if...else
-        } // end if
-
-        this.applyLiquidButtons();
-      });
-    }, // end function showCards
-  },
   data() {
-    return { global, isProjectShown: false };
+    return { global };
   },
   mounted() {
-    this.showCards();
-    window.addEventListener("scroll", this.showCards);
+    if (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    ) {
+      const liquidButtons = document.getElementsByClassName(this.liquid);
+
+      if (liquidButtons != null) {
+        Array.prototype.forEach.call(liquidButtons, (element) => {
+          element.style.display = "none";
+        });
+      } // end if
+    } // end if
   },
   setup() {
     const { t } = useI18n({
