@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.2.12.20220217
+ * @Version: 1.3.0.20220312
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 22:08:19
+ * @LastEditTime: 2022-03-12 22:41:19
 -->
 
 <template>
@@ -167,6 +167,27 @@ export default {
   components: { SpeakerphoneIcon, XIcon },
   methods: {
     /**
+     * Do necessary actions when the view containing the component finishes loading.
+     */
+    actWhenLoaded() {
+      // By default, show the banner. When the banner has been set dismissed, it should be re-displayed if the banner text has updates. However, using the t() function introduces a limitation that the banner will be re-displayed if the locale changes and the page is reloaded.
+      if (
+        localStorage.getItem("isBannerDismissed") === null ||
+        localStorage.getItem("bannerText") !== this.t("banner")
+      ) {
+        localStorage.setItem("isBannerDismissed", "false");
+      } // end if
+
+      this.isBannerDismissed =
+        localStorage.getItem("isBannerDismissed") === "true";
+      this.isBioShown = true;
+      this.setBubbleAreaHeight();
+      setTimeout(() => {
+        this.autoScrollBannerText();
+      }, 300); // Need delay to make sure the banner has been loaded due to its animation.
+    }, // end function actWhenLoaded
+
+    /**
      * Auto-scroll the banner text when it is too long.
      */
     autoScrollBannerText() {
@@ -194,45 +215,30 @@ export default {
      * Set the height of the bubble area according to the height of the home section.
      */
     setBubbleAreaHeight() {
-      document.getElementById(global.common.BUBBLE_ANIMATION_ID).style.height =
-        document.getElementById(global.common.HOME_SECTION).offsetHeight -
-        2 +
-        "px";
-      console.log(
-        document.getElementById(global.common.BUBBLE_ANIMATION_ID).style.height
+      const bubbleAnimation = document.getElementById(
+        global.common.BUBBLE_ANIMATION_ID
       );
-    }, // end function setBubbleAreaHeight
-  },
-  created() {
-    window.addEventListener("load", () => {
-      console.log(1);
-      this.setBubbleAreaHeight();
+      const home = document.getElementById(global.common.HOME_SECTION);
 
-      // By default, show the banner.
-      // When the banner has been set dismissed, it should be re-displayed if the banner text has updates. However, using the t() function introduces a limitation that the banner will be re-displayed if the locale changes and the page is reloaded.
-      if (
-        localStorage.getItem("isBannerDismissed") === null ||
-        localStorage.getItem("bannerText") !== this.t("banner")
-      ) {
-        localStorage.setItem("isBannerDismissed", "false");
+      if (bubbleAnimation != null && home != null) {
+        bubbleAnimation.style.height = `${home.offsetHeight - 2}px`;
       } // end if
-
-      this.isBannerDismissed =
-        localStorage.getItem("isBannerDismissed") === "true";
-      setTimeout(() => {
-        this.autoScrollBannerText();
-      }, 300); // Need delay to make sure the banner has been loaded due to its animation.
-    });
-    window.addEventListener("resize", () => {
-      this.autoScrollBannerText();
-      this.setBubbleAreaHeight();
-    });
+    }, // end function setBubbleAreaHeight
   },
   data() {
     return { global, isBannerDismissed: true, isBioShown: false };
   },
   mounted() {
-    this.isBioShown = true;
+    if (document.readyState === "complete") {
+      this.actWhenLoaded();
+    } else {
+      window.addEventListener("load", () => this.actWhenLoaded());
+    } // end if...else
+
+    window.addEventListener("resize", () => {
+      this.autoScrollBannerText();
+      this.setBubbleAreaHeight();
+    });
   },
   setup() {
     return useI18n({
