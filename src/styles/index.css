@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 2.1.4.20220312
+ * @Version: 2.1.7.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 23:39:12
+ * @LastEditTime: 2022-03-13 00:24:51
  */
 
 @tailwind base;
@@ -234,7 +234,7 @@
   /* Bubble animation. */
   .bubbles li {
     animation: bubble-animation 25s linear infinite;
-    @apply -bottom-40 absolute bg-gray-50 dark:bg-gray-300 bg-opacity-20 dark:bg-opacity-20 h-5 list-none w-5;
+    @apply -bottom-40 absolute bg-gray-50 dark:bg-gray-300 bg-opacity-20 dark:bg-opacity-20 list-none rounded-full;
   }
 
   .bubbles li:nth-child(1) {
@@ -297,12 +297,11 @@
 
   @keyframes bubble-animation {
     0% {
-      transform: translate3d(0, 0, 0) rotate(0deg); /* Setting rotation is necessary to avoid possible strange performance in Safari. */
-      @apply rounded-[90%];
+      transform: translate3d(0, 0, 0);
     }
 
     100% {
-      transform: translate3d(0, -1000px, 0) rotate(360deg);
+      transform: translate3d(0, -1000px, 0);
       @apply opacity-0;
     }
   }
