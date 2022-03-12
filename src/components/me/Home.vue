@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.3.0.20220312
+ * @Version: 1.3.1.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 22:41:19
+ * @LastEditTime: 2022-03-13 00:29:18
 -->
 
 <template>
@@ -180,7 +180,6 @@ export default {
 
       this.isBannerDismissed =
         localStorage.getItem("isBannerDismissed") === "true";
-      this.isBioShown = true;
       this.setBubbleAreaHeight();
       setTimeout(() => {
         this.autoScrollBannerText();
@@ -229,6 +228,8 @@ export default {
     return { global, isBannerDismissed: true, isBioShown: false };
   },
   mounted() {
+    this.isBioShown = true;
+
     if (document.readyState === "complete") {
       this.actWhenLoaded();
     } else {
