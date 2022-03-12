@@ -5,7 +5,7 @@
   ],
   "info": {
     "kobe": {
-      "intro": "Kobe is a Windows/macOS desktop app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
+      "intro": "Kobe is a macOS/Windows desktop app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
       "name": "Kobe"
     },
     "pySic": {
