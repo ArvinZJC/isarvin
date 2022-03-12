@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 21:28:28
+ * @LastEditTime: 2022-03-12 23:39:12
  */
 
 @tailwind base;
@@ -302,7 +302,7 @@
     }
 
     100% {
-      transform: translate3d(0, -1000px, 0) rotate(720deg);
+      transform: translate3d(0, -1000px, 0) rotate(360deg);
       @apply opacity-0;
     }
   }
