@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-17 15:02:15
+ * @LastEditTime: 2022-03-12 21:43:57
 -->
 
 <template>
@@ -198,6 +198,9 @@ export default {
         document.getElementById(global.common.HOME_SECTION).offsetHeight -
         2 +
         "px";
+      console.log(
+        document.getElementById(global.common.BUBBLE_ANIMATION_ID).style.height
+      );
     }, // end function setBubbleAreaHeight
   },
   data() {
@@ -207,6 +210,7 @@ export default {
     this.isBioShown = true;
 
     window.addEventListener("load", () => {
+      console.log(1);
       this.setBubbleAreaHeight();
 
       // By default, show the banner.
