@@ -1,10 +1,10 @@
 /*
  * @Description: the global variables for the scripts
- * @Version: 1.0.2.20220217
+ * @Version: 1.0.3.20220312
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-17 15:01:24
+ * @LastEditTime: 2022-03-12 19:42:55
  */
 
 global.common = {
@@ -30,7 +30,6 @@ global.common = {
   NAV_ID: "nav",
   NAVBAR_ID: "navbar",
   NOT_FOUND_VIEW: "404",
-  PROJECT_INTRO_PART: "project-intro",
   PROJECT_SECTION: "projects",
   RECT_POINTS_L_ID: "rect-points-l",
   RECT_POINTS_RB_ID: "rect-points-rb",
