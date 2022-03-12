@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 21:43:57
+ * @LastEditTime: 2022-03-12 22:08:19
 -->
 
 <template>
@@ -203,12 +203,7 @@ export default {
       );
     }, // end function setBubbleAreaHeight
   },
-  data() {
-    return { global, isBannerDismissed: true, isBioShown: false };
-  },
-  mounted() {
-    this.isBioShown = true;
-
+  created() {
     window.addEventListener("load", () => {
       console.log(1);
       this.setBubbleAreaHeight();
@@ -232,6 +227,12 @@ export default {
       this.autoScrollBannerText();
       this.setBubbleAreaHeight();
     });
+  },
+  data() {
+    return { global, isBannerDismissed: true, isBioShown: false };
+  },
+  mounted() {
+    this.isBioShown = true;
   },
   setup() {
     return useI18n({
