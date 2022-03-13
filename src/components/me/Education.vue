@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.10.20220217
+ * @Version: 1.1.11.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-17 14:39:14
+ * @LastEditTime: 2022-03-13 12:56:12
 -->
 
 <template>
@@ -76,7 +76,7 @@
                 <a
                   v-if="event.hasLink"
                   :href="event.href"
-                  class="text-link motion-safe:transition-colours-300 pt-1.5 text-sm tracking-tight"
+                  class="text-link motion-safe:transition-colours-300 pt-1.5 text-sm"
                   target="_blank"
                   >{{ t(event.content) }}</a
                 >
@@ -84,7 +84,7 @@
                   v-else
                   :class="[
                     event.hasLineThrough ? 'line-through ' : '',
-                    'text-content-grey pt-1.5 text-sm tracking-tight',
+                    'text-content-grey pt-1.5 text-sm',
                   ]"
                 >
                   {{ t(event.content) }}

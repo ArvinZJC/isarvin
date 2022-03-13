@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.1.8.20220128
+ * @Version: 1.1.9.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 18:53:28
+ * @LastEditTime: 2022-03-13 12:52:49
 -->
 
 <template>
@@ -115,9 +115,7 @@
           />
         </svg>
         <blockquote class="relative">
-          <p
-            class="text-primary !font-normal !leading-9 text-justify tracking-tight"
-          >
+          <p class="text-primary !font-normal !leading-9 text-justify">
             {{ t("motto") }}
           </p>
           <footer class="mt-8">

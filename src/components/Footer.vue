@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.7.20220128
+ * @Version: 1.3.8.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 18:10:56
+ * @LastEditTime: 2022-03-13 12:49:54
 -->
 
 <template>
@@ -89,7 +89,7 @@
                   <ListboxLabel class="text-label">{{
                     t("appearance.name")
                   }}</ListboxLabel>
-                  <p class="text-content-grey text-sm tracking-tight">
+                  <p class="text-content-grey text-sm">
                     {{ t("appearance.description") }}
                   </p>
                 </div>
@@ -176,7 +176,7 @@
                   <ListboxLabel class="text-label">{{
                     t("language.name")
                   }}</ListboxLabel>
-                  <p class="text-content-grey text-sm tracking-tight">
+                  <p class="text-content-grey text-sm">
                     {{ t("language.description") }}
                   </p>
                 </div>

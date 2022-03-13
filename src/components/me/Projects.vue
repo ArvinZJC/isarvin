@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.2.0.20220312
+ * @Version: 1.2.1.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 19:42:02
+ * @LastEditTime: 2022-03-13 12:52:05
 -->
 
 <template>
@@ -23,9 +23,7 @@
         </span>
         <div class="text-center">
           <h2 class="text-title">{{ t(global.common.PROJECT_SECTION) }}</h2>
-          <p
-            class="container-text text-secondary mt-3 sm:mt-4 text-xl tracking-tight"
-          >
+          <p class="container-text text-secondary mt-3 sm:mt-4 text-xl">
             {{ t("description[0]") }}
             <a
               :href="global.common.GITHUB_HOME"
@@ -65,7 +63,7 @@
                   </span>
                   <div class="block mt-2">
                     <p class="text-primary">{{ t(project.name) }}</p>
-                    <p class="text-content-grey mt-3 tracking-tight">
+                    <p class="text-content-grey mt-3">
                       {{ t(project.intro) }}
                     </p>
                   </div>

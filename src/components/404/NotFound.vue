@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.1.2.20220128
+ * @Version: 1.1.3.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 13:31:12
+ * @LastEditTime: 2022-03-13 12:50:16
 -->
 
 <template>
@@ -27,7 +27,7 @@
         {{ t("error") }}
       </p>
       <h1 class="text-title-lg mt-2">{{ t("title") }}</h1>
-      <p class="text-content-grey mt-2 tracking-tight">
+      <p class="text-content-grey mt-2">
         {{ t("description") }}
       </p>
       <div class="mt-6">
