@@ -1,10 +1,10 @@
 /*
  * @Description: the script configuring the internationalisation.
- * @Version: 1.0.4.20220128
+ * @Version: 1.0.5.20220317
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 17:59:40
+ * @LastEditTime: 2022-03-17 21:09:21
  */
 
 import global from "./global.js";
@@ -35,7 +35,7 @@ export function loadLocaleMessages(locales) {
  * @returns the decided site language
  */
 export function decideLanguage() {
-  var language = localStorage.getItem(global.common.LANGUAGE_KEY);
+  let language = localStorage.getItem(global.common.LANGUAGE_KEY);
 
   // Follow the browser default.
   if (language === null) {

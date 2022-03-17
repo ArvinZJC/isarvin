@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.8.20220313
+ * @Version: 1.3.9.20220317
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:49:54
+ * @LastEditTime: 2022-03-17 21:09:40
 -->
 
 <template>
@@ -379,15 +379,15 @@ export default {
       { icon: SunIcon, id: 1, name: global.common.LIGHT_MODE_ID },
       { icon: MoonIcon, id: 2, name: global.common.DARK_MODE_ID },
     ];
-    var currentAppearance = localStorage.getItem(global.common.APPEARANCE_KEY);
-    var appearanceSelected;
+    let currentAppearance = localStorage.getItem(global.common.APPEARANCE_KEY);
+    let appearanceSelected;
     const languages = [
       { id: 0, name: global.common.BROWSER_DEFAULT_MODE_ID },
       { id: 1, name: global.common.EN_ID },
       { id: 2, name: global.common.ZH_CN_ID },
     ];
-    var currentLanguage = localStorage.getItem(global.common.LANGUAGE_KEY);
-    var languageSelected;
+    let currentLanguage = localStorage.getItem(global.common.LANGUAGE_KEY);
+    let languageSelected;
 
     // Set the current appearance.
     if (currentAppearance === null) {

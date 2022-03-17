@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.12.20220219
+ * @Version: 1.6.13.20220317
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-19 20:24:11
+ * @LastEditTime: 2022-03-17 21:09:31
 -->
 
 <template>
@@ -285,7 +285,7 @@ export default {
      * Handle scrolling behaviour.
      */
     handleScroll() {
-      var activeIndex;
+      let activeIndex;
 
       Array.prototype.forEach.call(this.sections, (element, index) => {
         // The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
@@ -315,7 +315,7 @@ export default {
      * Show the button for scrolling to the top properly if applicable.
      */
     showScrollToTop() {
-      var temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
+      let temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
 
       // Show the button for scrolling to the top if the specified offset threshold to the top is satisfied. Two sub-conditions are for suiting different situations of the home section (full screen or not).
       if (
@@ -332,7 +332,7 @@ export default {
       if (this.isScrollToTopDismissed !== temp) {
         this.isScrollToTopDismissed = temp;
 
-        var buttonScrollToTop;
+        let buttonScrollToTop;
 
         if (this.isScrollToTopDismissed) {
           buttonScrollToTop = document.getElementById(
