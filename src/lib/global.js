@@ -1,10 +1,10 @@
 /*
  * @Description: the global variables for the scripts
- * @Version: 1.0.3.20220312
+ * @Version: 1.0.4.20220320
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-12 19:42:55
+ * @LastEditTime: 2022-03-20 20:29:36
  */
 
 global.common = {
@@ -14,6 +14,9 @@ global.common = {
   BROWSER_DEFAULT_MODE_ID: "browserDefault",
   BUBBLE_ANIMATION_ID: "bubble-animation",
   DARK_MODE_ID: "dark",
+  DEFAULT_DEBOUNCE_DELAY: 100,
+  DEFAULT_DELAY: 300,
+  DEFAULT_THROTTLE_DELAY: 100,
   DEFAULT_TITLE: "Arvin Zhao",
   EDUCATION_SECTION: "education",
   EN_ID: "en",

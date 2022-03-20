@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.3.2.20220320
+ * @Version: 1.4.0.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 17:01:22
+ * @LastEditTime: 2022-03-20 20:40:36
 -->
 
 <template>
@@ -163,6 +163,7 @@ import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
 import { loadLocaleMessages } from "../../lib/i18n.js";
+import { debounce } from "../../lib/utils.js";
 
 export default {
   components: { SpeakerphoneIcon, XIcon },
@@ -184,7 +185,7 @@ export default {
       this.setBubbleAreaHeight();
       setTimeout(() => {
         this.autoScrollBannerText();
-      }, 300); // Need delay to make sure the banner has been loaded due to its animation.
+      }, global.common.DEFAULT_DELAY); // Need delay to make sure the banner has been loaded due to its animation.
     }, // end function actWhenLoaded
 
     /**
@@ -237,10 +238,13 @@ export default {
       window.addEventListener("load", () => this.actWhenLoaded());
     } // end if...else
 
-    window.addEventListener("resize", () => {
-      this.autoScrollBannerText();
-      this.setBubbleAreaHeight();
-    });
+    window.addEventListener(
+      "resize",
+      debounce(global.common.DEFAULT_DEBOUNCE_DELAY, () => {
+        this.autoScrollBannerText();
+        this.setBubbleAreaHeight();
+      })
+    );
   },
   setup() {
     return useI18n({
