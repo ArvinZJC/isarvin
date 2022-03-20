@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.13.20220317
+ * @Version: 1.6.14.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-17 21:09:31
+ * @LastEditTime: 2022-03-20 17:00:15
 -->
 
 <template>
@@ -66,6 +66,7 @@
             :key="item.name"
             :title="t(item.name)"
             class="text-btn-square motion-safe:transition-colours-300"
+            rel="noopener noreferrer nofollow"
             target="_blank"
           >
             <span class="sr-only">{{ t(item.name) }}</span>
@@ -152,6 +153,7 @@
               :key="item.name"
               :title="t(item.name)"
               class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <span class="sr-only">{{ t(item.name) }}</span>

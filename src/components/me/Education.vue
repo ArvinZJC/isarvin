@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.11.20220313
+ * @Version: 1.1.12.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:56:12
+ * @LastEditTime: 2022-03-20 16:57:38
 -->
 
 <template>
@@ -77,6 +77,7 @@
                   v-if="event.hasLink"
                   :href="event.href"
                   class="text-link motion-safe:transition-colours-300 pt-1.5 text-sm"
+                  rel="noopener noreferrer nofollow"
                   target="_blank"
                   >{{ t(event.content) }}</a
                 >

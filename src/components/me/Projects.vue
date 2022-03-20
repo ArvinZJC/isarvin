@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.2.1.20220313
+ * @Version: 1.2.2.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:52:05
+ * @LastEditTime: 2022-03-20 17:00:31
 -->
 
 <template>
@@ -28,6 +28,7 @@
             <a
               :href="global.common.GITHUB_HOME"
               class="text-link motion-safe:transition-colours-300"
+              rel="noopener noreferrer nofollow"
               target="_blank"
               >{{ t("gh") }}</a
             >

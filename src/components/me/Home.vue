@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.3.1.20220313
+ * @Version: 1.3.2.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 00:29:18
+ * @LastEditTime: 2022-03-20 17:01:22
 -->
 
 <template>
@@ -84,6 +84,7 @@
                 <a
                   :href="global.common.GITSTALK_ME"
                   class="text-link motion-safe:transition-colours-300"
+                  rel="noopener noreferrer nofollow"
                   target="_blank"
                   >{{ t("positions[1]") }}</a
                 >
