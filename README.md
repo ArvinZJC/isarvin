@@ -13,11 +13,12 @@
 
 Arvin is my English name. I am an incompetent developer finally building the personal site with Vue.js 3 and [Tailwind CSS](https://tailwindcss.com/). The site is deployed on [Vercel](https://vercel.com/home). It is designed with the following primary principles.
 
-- Responsive design.
-- Unified styles.
+- Accessibility: reduced motion when required.
 - Dark mode support.
 - I18n (Internationalisation): English / 简体中文.
-- Accessibility: reduced motion when required.
+- Performance: debouncing, throttling, etc.
+- Responsive design.
+- Unified styles.
 
 ![example.png](./img_README/example.png)
 
@@ -29,7 +30,7 @@ The structure of the site is as follows. Please note that
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 13 March 2022, everything looks good with Visual Studio Code (Version: 1.65.2) + Node.js 16.13.2 + Vue CLI 5.0.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 20 March 2022, everything looks good with Visual Studio Code (Version: 1.65.2) + Node.js 16.14.2 + Vue CLI 5.0.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -41,8 +42,8 @@ The structure of the site is as follows. Please note that
    | @headlessui/vue          |     1.5.0     |
    | @heroicons/vue           |     1.0.6     |
    | @intlify/vue-i18n-loader |     4.1.0     |
-   | autoprefixer             |    10.4.2     |
-   | postcss                  |     8.4.8     |
+   | autoprefixer             |    10.4.4     |
+   | postcss                  |    8.4.12     |
    | smoothscroll-polyfill    |     0.4.4     |
    | tailwindcss              |    3.0.23     |
    | vue                      |    3.2.31     |

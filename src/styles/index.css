@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 2.1.7.20220313
+ * @Version: 2.1.8.20220313
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 00:24:51
+ * @LastEditTime: 2022-03-13 12:53:42
  */
 
 @tailwind base;
@@ -504,7 +504,7 @@
 
   /* Grey content text. */
   .text-content-grey {
-    @apply text-gray-500 dark:text-gray-400 tracking-tight;
+    @apply text-gray-500 dark:text-gray-400;
   }
 
   /* Indigo content text. */
@@ -514,7 +514,7 @@
 
   /* Grey explanation text. */
   .text-explanation-grey {
-    @apply text-gray-300 dark:text-gray-600 text-xs tracking-tight;
+    @apply text-gray-300 dark:text-gray-600 text-xs;
   }
 
   /* Indigo explanation text. */
@@ -544,7 +544,7 @@
 
   /* Subtitle text. */
   .text-subtitle {
-    @apply font-bold text-gray-700 dark:text-gray-200 text-xl tracking-tight;
+    @apply font-bold text-gray-700 dark:text-gray-200 text-xl;
   }
 
   /* Title text. */

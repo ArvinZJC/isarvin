@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.6.12.20220219
+ * @Version: 1.7.0.20220320
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-02-19 20:24:11
+ * @LastEditTime: 2022-03-20 20:36:18
 -->
 
 <template>
@@ -66,6 +66,7 @@
             :key="item.name"
             :title="t(item.name)"
             class="text-btn-square motion-safe:transition-colours-300"
+            rel="noopener noreferrer nofollow"
             target="_blank"
           >
             <span class="sr-only">{{ t(item.name) }}</span>
@@ -152,6 +153,7 @@
               :key="item.name"
               :title="t(item.name)"
               class="text-btn-square motion-safe:transition-colours-300 mx-3 my-2"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <span class="sr-only">{{ t(item.name) }}</span>
@@ -199,6 +201,7 @@ import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
 import { loadLocaleMessages } from "../../lib/i18n.js";
+import { throttle } from "../../lib/utils.js";
 import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
 import FacebookIcon from "../svg/FacebookIcon.vue";
 import GitHubIcon from "../svg/GitHubIcon.vue";
@@ -241,28 +244,6 @@ export default {
     }, // end function applyBgBlur
 
     /**
-     * Smooth scroll to the section specified by an anchor.
-     * @param {String} anchor the anchor specified by the id attribute for the specific section.
-     */
-    navigate(anchor) {
-      const element = document.querySelector(anchor);
-
-      if (element != null) {
-        window.scroll({
-          top: element.offsetTop - this.navbar.offsetHeight + 2, // Offset the top to avoid overlapping the fixed header and reduce errors for scrolling to the view.
-          left: 0,
-          behavior: global.common.SMOOTH_SCROLL,
-        });
-      } else {
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: global.common.SMOOTH_SCROLL,
-        }); // Scroll to top if no such anchor.
-      } // end if...else
-    }, // end function navigate
-
-    /**
      * Get the mobile navbar items.
      */
     getMobileNavItems() {
@@ -278,14 +259,14 @@ export default {
         } else {
           this.mobileNavItems = null;
         }
-      }, 300); // Need delay to make sure the mobile navbar items have been loaded.
+      }, global.common.DEFAULT_DELAY); // Need delay to make sure the mobile navbar items have been loaded.
     }, // end function getMobileNavItems
 
     /**
      * Handle scrolling behaviour.
      */
     handleScroll() {
-      var activeIndex;
+      let activeIndex;
 
       Array.prototype.forEach.call(this.sections, (element, index) => {
         // The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
@@ -312,10 +293,32 @@ export default {
     }, // end function handleScroll
 
     /**
+     * Smooth scroll to the section specified by an anchor.
+     * @param {String} anchor the anchor specified by the id attribute for the specific section.
+     */
+    navigate(anchor) {
+      const element = document.querySelector(anchor);
+
+      if (element != null) {
+        window.scroll({
+          top: element.offsetTop - this.navbar.offsetHeight + 2, // Offset the top to avoid overlapping the fixed header and reduce errors for scrolling to the view.
+          left: 0,
+          behavior: global.common.SMOOTH_SCROLL,
+        });
+      } else {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: global.common.SMOOTH_SCROLL,
+        }); // Scroll to top if no such anchor.
+      } // end if...else
+    }, // end function navigate
+
+    /**
      * Show the button for scrolling to the top properly if applicable.
      */
     showScrollToTop() {
-      var temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
+      let temp; // A temp record of the expected dismissing status of the button for scrolling to the top.
 
       // Show the button for scrolling to the top if the specified offset threshold to the top is satisfied. Two sub-conditions are for suiting different situations of the home section (full screen or not).
       if (
@@ -332,7 +335,7 @@ export default {
       if (this.isScrollToTopDismissed !== temp) {
         this.isScrollToTopDismissed = temp;
 
-        var buttonScrollToTop;
+        let buttonScrollToTop;
 
         if (this.isScrollToTopDismissed) {
           buttonScrollToTop = document.getElementById(
@@ -355,7 +358,7 @@ export default {
                 "motion-safe:transition-colours-300"
               );
             } // end if
-          }, 300);
+          }, global.common.DEFAULT_DELAY);
         } // end if...else
       } // end if
     }, // end function showScrollToTop
@@ -427,7 +430,10 @@ export default {
     Array.prototype.forEach.call(this.navItems, (element) => {
       this.sections.push(document.querySelector(element.getAttribute("id")));
     });
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener(
+      "scroll",
+      throttle(global.common.DEFAULT_THROTTLE_DELAY, this.handleScroll)
+    );
   },
   setup() {
     const { t } = useI18n({
