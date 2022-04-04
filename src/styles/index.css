@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 2.1.8.20220313
+ * @Version: 2.1.9.20220404
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:53:42
+ * @LastEditTime: 2022-04-04 17:28:17
  */
 
 @tailwind base;
@@ -304,6 +304,11 @@
       transform: translate3d(0, -1000px, 0);
       @apply opacity-0;
     }
+  }
+
+  /* Danger background and text colour. */
+  .colour-danger {
+    @apply bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-100;
   }
 
   /* Indigo background and grey text colour. */

@@ -13,7 +13,7 @@
       "name": "PY-SIC"
     },
     "weiboEmoji": {
-      "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. The ways to extract these images from Weibo are simple. What I have done to save your time is to basically categorise them according to their meanings.",
+      "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. It applies automation to download, update, categorise, and process sources to make it more convenient to generate a new release.",
       "name": "Weibo Emoji"
     }
   },
@@ -23,6 +23,7 @@
   },
   "status": {
     "active": "Active",
+    "archived": "Archived",
     "inWorks": "In the works"
   }
 }
