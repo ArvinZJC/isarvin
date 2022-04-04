@@ -7,7 +7,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
-**English** | [简体中文](./README-zhCN.md)
+**English** | [简体中文](./README_zhCN.md)
 
 > I came to know myself better when I started to build my personal site. So this is Arvin. 😉
 
