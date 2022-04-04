@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.2.2.20220320
+ * @Version: 1.2.3.20220404
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 17:00:31
+ * @LastEditTime: 2022-04-04 17:29:41
 -->
 
 <template>
@@ -214,6 +214,7 @@ export default {
     });
     const categories = {
       active: { name: "status.active", style: "colour-success" },
+      archived: { name: "status.archived", style: "colour-danger" },
       inWorks: { name: "status.inWorks", style: "colour-warning" },
     };
     return {
@@ -237,7 +238,7 @@ export default {
         },
         {
           imageUrl: PySicBanner,
-          category: categories.active,
+          category: categories.archived,
           name: "info.pySic.name",
           intro: "info.pySic.intro",
           route: "#",

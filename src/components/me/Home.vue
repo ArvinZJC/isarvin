@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.4.0.20220320
+ * @Version: 1.4.1.20220404
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 20:40:36
+ * @LastEditTime: 2022-04-04 17:17:38
 -->
 
 <template>
@@ -79,7 +79,7 @@
             <h1 class="text-center">
               <span class="text-title block">{{ t("name") }}</span>
               <span class="text-subtitle block">
-                <span class="line-through">{{ `${t("positions[0]")}` }}</span>
+                {{ `${t("positions[0]")}` }}
                 &
                 <a
                   :href="global.common.GITSTALK_ME"
