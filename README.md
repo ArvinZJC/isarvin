@@ -30,12 +30,12 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 21 March 2022, everything looks good with Visual Studio Code (Version: 1.65.2) + Node.js 16.14.2 + Vue CLI 5.0.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 4 April 2022, everything looks good with Visual Studio Code (Version: 1.65.2) + Node.js 16.14.2 + Vue CLI 5.0.3. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
 
-3. The primary dependencies of the project are listed in the following table. For more information, please refer to [`package.json`](./package.json).
+3. The primary dependencies of the project are listed in the following table. For more info, please refer to [`package.json`](./package.json).
 
    | Name                     |    Version    |
    | :----------------------- | :-----------: |
