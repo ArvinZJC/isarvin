@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:49
+ * @LastEditTime: 2022-04-07 21:18:57
 -->
 
 <template>
@@ -177,7 +177,7 @@ import KobeBanner from "../../assets/Kobe_banner.png";
 import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
 import global from "../../lib/global.js";
 import * as en from "../../locales/me/projects/en.json";
-import * as zh_CN from "../../locales/me/projects/zh-CN.json";
+import * as zhCN from "../../locales/me/projects/zh-CN.json";
 
 export default {
   components: {
@@ -211,7 +211,7 @@ export default {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
 
     const { t } = useI18n({ messages });
     const categories = {

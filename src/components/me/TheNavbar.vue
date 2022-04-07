@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:44
+ * @LastEditTime: 2022-04-07 21:18:47
 -->
 
 <template>
@@ -202,7 +202,7 @@ import { useI18n } from "vue-i18n";
 import global from "../../lib/global.js";
 import { throttle } from "../../lib/utils.js";
 import * as en from "../../locales/me/navbar/en.json";
-import * as zh_CN from "../../locales/me/navbar/zh-CN.json";
+import * as zhCN from "../../locales/me/navbar/zh-CN.json";
 import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
 import FacebookIcon from "../svg/FacebookIcon.vue";
 import GitHubIcon from "../svg/GitHubIcon.vue";
@@ -440,7 +440,7 @@ export default {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
 
     const { t } = useI18n({ messages });
     return {

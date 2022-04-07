@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:33
+ * @LastEditTime: 2022-04-07 21:18:35
 -->
 
 <template>
@@ -164,7 +164,7 @@ import { useI18n } from "vue-i18n";
 import global from "../../lib/global.js";
 import { debounce } from "../../lib/utils.js";
 import * as en from "../../locales/me/home/en.json";
-import * as zh_CN from "../../locales/me/home/zh-CN.json";
+import * as zhCN from "../../locales/me/home/zh-CN.json";
 
 export default {
   components: { SpeakerphoneIcon, XIcon },
@@ -251,7 +251,7 @@ export default {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
     return useI18n({ messages });
   },
 };

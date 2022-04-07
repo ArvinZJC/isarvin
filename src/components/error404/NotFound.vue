@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:20
+ * @LastEditTime: 2022-04-07 21:18:07
 -->
 
 <template>
@@ -49,14 +49,14 @@ import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global";
 import * as en from "../../locales/error404/en.json";
-import * as zh_CN from "../../locales/error404/zh-CN.json";
+import * as zhCN from "../../locales/error404/zh-CN.json";
 
 export default {
   setup() {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
     return useI18n({ messages });
   },
 };
