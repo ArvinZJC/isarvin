@@ -22,7 +22,7 @@
   "openNavMenu": "Open navigation menu",
   "openSettingsPanel": "Open the settings panel",
   "pages": {
-    "404": {
+    "error404": {
       "description": "Page not found.",
       "title": "You're lost... 😅"
     },

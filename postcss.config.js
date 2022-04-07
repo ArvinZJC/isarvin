@@ -1,12 +1,13 @@
 /*
  * @Description: PostCSS configuration
- * @Version: 1.0.1.20211206
+ * @Version: 1.1.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:31:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-06 22:14:37
+ * @LastEditTime: 2022-04-07 15:08:27
  */
 
+/* eslint-env node */
 module.exports = {
   plugins: {
     tailwindcss: {},

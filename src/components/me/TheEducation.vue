@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.1.12.20220320
+ * @Version: 1.2.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 16:57:38
+ * @LastEditTime: 2022-04-07 19:37:23
 -->
 
 <template>
@@ -117,7 +117,8 @@ import ArvinHeadshotUni1 from "../../assets/Arvin_headshot_uni1.jpg";
 import ArvinHeadshotUni2 from "../../assets/Arvin_headshot_uni2.jpg";
 import ArvinHeadshotUni3 from "../../assets/Arvin_headshot_uni3.jpg";
 import global from "../../lib/global.js";
-import { loadLocaleMessages } from "../../lib/i18n.js";
+import * as en from "../../locales/me/education/en.json";
+import * as zh_CN from "../../locales/me/education/zh-CN.json";
 
 export default {
   components: { AcademicCapIcon },
@@ -125,15 +126,12 @@ export default {
     return { global };
   },
   setup() {
-    const { t } = useI18n({
-      messages: loadLocaleMessages(
-        require.context(
-          "../../locales/me/education",
-          false,
-          /[-,\s\w]+\.json$/i
-        )
-      ),
-    });
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+
+    const { t } = useI18n({ messages });
     const eventIcons = {
       check: { icon: CheckIcon, background: "!bg-green-600" },
       happy: { icon: EmojiHappyIcon, background: "!bg-pink-600" },
@@ -212,8 +210,7 @@ export default {
         {
           content: "uol.achievements[1]",
           hasLink: true,
-          href:
-            "https://www.credly.com/badges/264eea0b-6261-4d08-9e17-d7a41472eca6",
+          href: "https://www.credly.com/badges/264eea0b-6261-4d08-9e17-d7a41472eca6",
           icon: eventIcons.flag.icon,
           iconBackground: eventIcons.flag.background,
           type: global.common.HIGHLIGHT_TYPE,

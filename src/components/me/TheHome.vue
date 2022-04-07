@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.4.1.20220404
+ * @Version: 1.4.3.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-04 17:17:38
+ * @LastEditTime: 2022-04-07 19:37:33
 -->
 
 <template>
@@ -162,8 +162,9 @@ import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
 import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
-import { loadLocaleMessages } from "../../lib/i18n.js";
 import { debounce } from "../../lib/utils.js";
+import * as en from "../../locales/me/home/en.json";
+import * as zh_CN from "../../locales/me/home/zh-CN.json";
 
 export default {
   components: { SpeakerphoneIcon, XIcon },
@@ -247,11 +248,11 @@ export default {
     );
   },
   setup() {
-    return useI18n({
-      messages: loadLocaleMessages(
-        require.context("../../locales/me/home", false, /[-,\s\w]+\.json$/i)
-      ),
-    });
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    return useI18n({ messages });
   },
 };
 </script>

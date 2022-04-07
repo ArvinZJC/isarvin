@@ -1,34 +1,27 @@
 /*
  * @Description: the script configuring the internationalisation.
- * @Version: 1.0.5.20220317
+ * @Version: 1.1.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-17 21:09:21
+ * @LastEditTime: 2022-04-07 19:37:08
  */
+
+import { createI18n } from "vue-i18n";
 
 import global from "./global.js";
+import * as en from "../locales/en.json";
+import * as zh_CN from "../locales/zh-CN.json";
 
-/**
- * Load all locale messages under the specified main directory.
- *
- * The loaded JSON locale messages is pre-compiled by `@intlify/vue-i18n-loader`, which is integrated into `vue-cli-plugin-i18n`.
- * @param {function} locales all locale messages matched under the specified main directory by `require.context(<dir>, false, /[-_,\s\w]+\.json$/i)` (set "false" to exclude subdirectories)
- */
-export function loadLocaleMessages(locales) {
-  const messages = {};
+const messages = {};
 
-  locales.keys().forEach((key) => {
-    const matched = key.match(/([-\w]+)\./i);
+messages[global.common.EN_ID] = en.default;
+messages[global.common.ZH_CN_ID] = zh_CN.default;
 
-    if (matched && matched.length > 1) {
-      const locale = matched[1];
-
-      messages[locale] = locales(key).default;
-    } // end if
-  });
-  return messages;
-} // end function loadLocaleMessages
+const i18n = createI18n({
+  locale: decideLanguage(),
+  messages,
+});
 
 /**
  * Decide the site language according to the corresponding user/browser preference.
@@ -51,3 +44,5 @@ export function decideLanguage() {
   document.documentElement.lang = language;
   return language;
 } // end function decideLanguage
+
+export default i18n;

@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.7.0.20220320
+ * @Version: 1.7.2.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 20:36:18
+ * @LastEditTime: 2022-04-07 19:37:44
 -->
 
 <template>
@@ -200,8 +200,9 @@ import {
 import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
-import { loadLocaleMessages } from "../../lib/i18n.js";
 import { throttle } from "../../lib/utils.js";
+import * as en from "../../locales/me/navbar/en.json";
+import * as zh_CN from "../../locales/me/navbar/zh-CN.json";
 import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
 import FacebookIcon from "../svg/FacebookIcon.vue";
 import GitHubIcon from "../svg/GitHubIcon.vue";
@@ -436,11 +437,12 @@ export default {
     );
   },
   setup() {
-    const { t } = useI18n({
-      messages: loadLocaleMessages(
-        require.context("../../locales/me/navbar", false, /[-,\s\w]+\.json$/i)
-      ),
-    });
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+
+    const { t } = useI18n({ messages });
     return {
       navigation: {
         logo: {

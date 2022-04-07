@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.1.3.20220313
+ * @Version: 1.2.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:50:16
+ * @LastEditTime: 2022-04-07 19:37:20
 -->
 
 <template>
@@ -47,15 +47,17 @@
 <script>
 import { useI18n } from "vue-i18n";
 
-import { loadLocaleMessages } from "../../lib/i18n.js";
+import global from "../../lib/global";
+import * as en from "../../locales/error404/en.json";
+import * as zh_CN from "../../locales/error404/zh-CN.json";
 
 export default {
   setup() {
-    return useI18n({
-      messages: loadLocaleMessages(
-        require.context("../../locales/404", false, /[-,\s\w]+\.json$/i)
-      ),
-    });
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    return useI18n({ messages });
   },
 };
 </script>

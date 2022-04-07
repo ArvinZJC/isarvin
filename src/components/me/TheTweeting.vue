@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.1.9.20220313
+ * @Version: 1.2.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-13 12:52:49
+ * @LastEditTime: 2022-04-07 19:38:13
 -->
 
 <template>
@@ -18,9 +18,9 @@
       </span>
       <span class="sr-only">{{ t("mailTo") }}</span>
       <a
-        :href="'mailto:' + mail"
+        :href="`mailto:${global.common.EMAIL_ME}`"
         class="text-link break-all font-semibold text-xl motion-safe:transition-colours-300"
-        >{{ mail }}</a
+        >{{ global.common.EMAIL_ME }}</a
       >
     </div>
     <p class="container-text text-explanation-grey mt-6 text-center">
@@ -148,7 +148,8 @@ import { useI18n } from "vue-i18n";
 
 import SteveJobs from "../../assets/SteveJobs.jpg";
 import global from "../../lib/global.js";
-import { loadLocaleMessages } from "../../lib/i18n.js";
+import * as en from "../../locales/me/tweeting/en.json";
+import * as zh_CN from "../../locales/me/tweeting/zh-CN.json";
 
 export default {
   components: { MailIcon },
@@ -156,12 +157,13 @@ export default {
     return { global };
   },
   setup() {
-    const { t } = useI18n({
-      messages: loadLocaleMessages(
-        require.context("../../locales/me/tweeting", false, /[-,\s\w]+\.json$/i)
-      ),
-    });
-    return { mail: "SteveJobz@isarvin.com", SteveJobs, t };
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+
+    const { t } = useI18n({ messages });
+    return { SteveJobs, t };
   },
 };
 </script>

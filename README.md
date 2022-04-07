@@ -30,49 +30,33 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 7 April 2022, everything looks good with Visual Studio Code (Version: 1.66.0) + Node.js 16.14.2 + Vue CLI 5.0.4. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 7 April 2022, everything looks good with Visual Studio Code (Version: 1.66.0) + Node.js 16.14.2 + Vite 2.9.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
 
 3. The primary dependencies of the project are listed in the following table. For more info, please refer to [`package.json`](./package.json).
 
-   | Name                     |    Version    |
-   | :----------------------- | :-----------: |
-   | @headlessui/vue          |     1.5.0     |
-   | @heroicons/vue           |     1.0.6     |
-   | @intlify/vue-i18n-loader |     4.1.0     |
-   | autoprefixer             |    10.4.4     |
-   | postcss                  |    8.4.12     |
-   | smoothscroll-polyfill    |     0.4.4     |
-   | tailwindcss              |    3.0.23     |
-   | vue                      |    3.2.31     |
-   | vue-cli-plugin-i18n      |     2.3.1     |
-   | vue-i18n                 |     9.1.9     |
-   | vue-meta                 | 3.0.0-alpha.9 |
-   | vue-router               |    4.0.14     |
+   | Name                          |    Version     |
+   | :---------------------------- | :------------: |
+   | @headlessui/vue               |     1.5.0      |
+   | @heroicons/vue                |     1.0.6      |
+   | @intlify/vite-plugin-vue-i18n |     3.4.0      |
+   | autoprefixer                  |     10.4.4     |
+   | postcss                       |     8.4.12     |
+   | smoothscroll-polyfill         |     0.4.4      |
+   | tailwindcss                   |     3.0.23     |
+   | vue                           |     3.2.31     |
+   | vue-i18n                      |     9.1.9      |
+   | vue-meta                      | 3.0.0-alpha.10 |
+   | vue-router                    |     4.0.14     |
 
-4. You could manually create a file named `.env` or `.env.local` under the project root directory and contain the following content. Please note that it is _optional_, and that **the project should work well without it**.
-
-   ```sh
-   VUE_APP_I18N_FALLBACK_LOCALE=en
-   ```
-
-5. Although Vue CLI is not a must for a Vue.js 3 project, building this project does take advantage of it. Assuming the terminal is opened in the project's root directory, the project could be run locally following the steps below using npm.
+4. Assuming the terminal is opened in the project's root directory, the project could be run locally following the steps below using npm.
 
    - Install all the required dependencies.
 
      ```sh
-     npm install -g @vue/cli serve  # @vue/cli is optional.
      npm ci
-     ```
-
-   - _(Optional)_ Report the missing locale message keys and unused keys. Please note that it is [an experimental feature from vue-cli-plugin-i18n](https://github.com/intlify/vue-cli-plugin-i18n#-features), and you could ignore its output for this project.
-
-     ```sh
-     npm run i18n:report
-     # OR
-     npx vue-cli-service i18n:report --src "./src/**/*.?(js|vue)" --locales "./src/locales/**/*.json"
      ```
 
    - Serve/Build the project.
@@ -80,9 +64,9 @@ The structure of the site is as follows.
      - To serve it for development,
 
        ```sh
-       npm run serve
+       npm run dev
        # OR
-       npx vue-cli-service serve
+       npx vite --host
        ```
 
      - To build it for production,
@@ -90,9 +74,11 @@ The structure of the site is as follows.
        ```sh
        npm run build
        # OR
-       npx vue-cli-service build
+       npx vite build
 
-       serve -s dist
+       npm run preview
+       # OR
+       npx vite preview --host --port 5050
        ```
 
      - _(Recommended)_ If you fancy using the Run and Debug view of Visual Studio Code, you could add the following to `.vscode/launch.json` to configure the serving and building process.
@@ -101,17 +87,25 @@ The structure of the site is as follows.
        {
          "configurations": [
            {
-             "name": "vue: dev",
+             "name": "vite: dev",
              "request": "launch",
-             "runtimeArgs": ["run", "serve"],
+             "runtimeArgs": ["run", "dev"],
              "runtimeExecutable": "npm",
              "skipFiles": ["<node_internals>/**"],
              "type": "node"
            },
            {
-             "name": "vue: production",
+             "name": "vite: build",
              "request": "launch",
              "runtimeArgs": ["run", "build"],
+             "runtimeExecutable": "npm",
+             "skipFiles": ["<node_internals>/**"],
+             "type": "node"
+           },
+           {
+             "name": "vite: preview",
+             "request": "launch",
+             "runtimeArgs": ["run", "preview"],
              "runtimeExecutable": "npm",
              "skipFiles": ["<node_internals>/**"],
              "type": "node"

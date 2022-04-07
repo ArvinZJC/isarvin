@@ -1,13 +1,15 @@
 /*
  * @Description: the global variables for the scripts
- * @Version: 1.0.4.20220320
+ * @Version: 1.1.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-20 20:29:36
+ * @LastEditTime: 2022-04-07 16:35:09
  */
 
-global.common = {
+const global = {};
+
+global["common"] = {
   APP_SCHEME: "app",
   APPEARANCE_KEY: "appearance",
   BANNER_TEXT_ID: "banner-text",
@@ -19,7 +21,9 @@ global.common = {
   DEFAULT_THROTTLE_DELAY: 100,
   DEFAULT_TITLE: "Arvin Zhao",
   EDUCATION_SECTION: "education",
+  EMAIL_ME: "SteveJobz@isarvin.com",
   EN_ID: "en",
+  ERROR_404_VIEW: "error404",
   GITHUB_ME: "https://github.com/ArvinZJC",
   GITSTALK_ME: "https://gitstalk.netlify.app/ArvinZJC",
   GLOBAL_LOCALE: "global",
@@ -32,7 +36,6 @@ global.common = {
   NAME_TYPE: "name",
   NAV_ID: "nav",
   NAVBAR_ID: "navbar",
-  NOT_FOUND_VIEW: "404",
   PROJECT_SECTION: "projects",
   RECT_POINTS_L_ID: "rect-points-l",
   RECT_POINTS_RB_ID: "rect-points-rb",

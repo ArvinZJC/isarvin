@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.2.3.20220404
+ * @Version: 1.2.5.20220404
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-04 17:29:41
+ * @LastEditTime: 2022-04-07 19:37:49
 -->
 
 <template>
@@ -176,7 +176,8 @@ import PySicBanner from "../../assets/PySic_banner.png";
 import KobeBanner from "../../assets/Kobe_banner.png";
 import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
 import global from "../../lib/global.js";
-import { loadLocaleMessages } from "../../lib/i18n.js";
+import * as en from "../../locales/me/projects/en.json";
+import * as zh_CN from "../../locales/me/projects/zh-CN.json";
 
 export default {
   components: {
@@ -207,11 +208,12 @@ export default {
     } // end if
   },
   setup() {
-    const { t } = useI18n({
-      messages: loadLocaleMessages(
-        require.context("../../locales/me/projects", false, /[-,\s\w]+\.json$/i)
-      ),
-    });
+    const messages = {};
+
+    messages[global.common.EN_ID] = en.default;
+    messages[global.common.ZH_CN_ID] = zh_CN.default;
+
+    const { t } = useI18n({ messages });
     const categories = {
       active: { name: "status.active", style: "colour-success" },
       archived: { name: "status.archived", style: "colour-danger" },
