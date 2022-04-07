@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:38:13
+ * @LastEditTime: 2022-04-07 21:19:04
 -->
 
 <template>
@@ -149,7 +149,7 @@ import { useI18n } from "vue-i18n";
 import SteveJobs from "../../assets/SteveJobs.jpg";
 import global from "../../lib/global.js";
 import * as en from "../../locales/me/tweeting/en.json";
-import * as zh_CN from "../../locales/me/tweeting/zh-CN.json";
+import * as zhCN from "../../locales/me/tweeting/zh-CN.json";
 
 export default {
   components: { MailIcon },
@@ -160,7 +160,7 @@ export default {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
 
     const { t } = useI18n({ messages });
     return { SteveJobs, t };

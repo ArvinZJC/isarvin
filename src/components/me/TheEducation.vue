@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:23
+ * @LastEditTime: 2022-04-07 21:18:21
 -->
 
 <template>
@@ -118,7 +118,7 @@ import ArvinHeadshotUni2 from "../../assets/Arvin_headshot_uni2.jpg";
 import ArvinHeadshotUni3 from "../../assets/Arvin_headshot_uni3.jpg";
 import global from "../../lib/global.js";
 import * as en from "../../locales/me/education/en.json";
-import * as zh_CN from "../../locales/me/education/zh-CN.json";
+import * as zhCN from "../../locales/me/education/zh-CN.json";
 
 export default {
   components: { AcademicCapIcon },
@@ -129,7 +129,7 @@ export default {
     const messages = {};
 
     messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zh_CN.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
 
     const { t } = useI18n({ messages });
     const eventIcons = {

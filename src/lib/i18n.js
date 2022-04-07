@@ -4,19 +4,19 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-29 01:12:50
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:37:08
+ * @LastEditTime: 2022-04-07 21:19:20
  */
 
 import { createI18n } from "vue-i18n";
 
 import global from "./global.js";
 import * as en from "../locales/en.json";
-import * as zh_CN from "../locales/zh-CN.json";
+import * as zhCN from "../locales/zh-CN.json";
 
 const messages = {};
 
 messages[global.common.EN_ID] = en.default;
-messages[global.common.ZH_CN_ID] = zh_CN.default;
+messages[global.common.ZH_CN_ID] = zhCN.default;
 
 const i18n = createI18n({
   locale: decideLanguage(),
