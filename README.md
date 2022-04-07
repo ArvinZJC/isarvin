@@ -30,7 +30,7 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 4 April 2022, everything looks good with Visual Studio Code (Version: 1.66.0) + Node.js 16.14.2 + Vue CLI 5.0.4. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 7 April 2022, everything looks good with Visual Studio Code (Version: 1.66.0) + Node.js 16.14.2 + Vue CLI 5.0.4. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -64,7 +64,7 @@ The structure of the site is as follows.
 
      ```sh
      npm install -g @vue/cli serve  # @vue/cli is optional.
-     npm install
+     npm ci
      ```
 
    - _(Optional)_ Report the missing locale message keys and unused keys. Please note that it is [an experimental feature from vue-cli-plugin-i18n](https://github.com/intlify/vue-cli-plugin-i18n#-features), and you could ignore its output for this project.
