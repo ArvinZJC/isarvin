@@ -1,16 +1,16 @@
 <!--
  * @Description: the 404 Not Found view
- * @Version: 1.0.4.20211228
+ * @Version: 1.1.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-08-22 19:21:02
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2021-12-28 13:01:18
+ * @LastEditTime: 2022-04-07 15:50:19
 -->
 
 <template>
   <main class="container-view">
     <NotFound />
-    <Footer />
+    <TheFooter />
   </main>
 </template>
 
@@ -18,23 +18,23 @@
 import { useMeta } from "vue-meta";
 import { useI18n } from "vue-i18n";
 
-import NotFound from "../components/404/NotFound.vue";
-import Footer from "../components/Footer.vue";
+import NotFound from "../components/error404/NotFound.vue";
+import TheFooter from "../components/TheFooter.vue";
 
 export default {
-  components: { Footer, NotFound },
+  components: { TheFooter, NotFound },
   setup() {
     const { t } = useI18n();
 
     useMeta({
-      description: t("pages.404.description"),
-      title: t("pages.404.title"),
+      description: t("pages.error404.description"),
+      title: t("pages.error404.title"),
     });
     window.addEventListener("languagechange", () => {
       document
         .querySelector("meta[name='description']")
-        .setAttribute("content", t("pages.404.description"));
-      document.title = t("pages.404.title");
+        .setAttribute("content", t("pages.error404.description"));
+      document.title = t("pages.error404.title");
     });
     return { t };
   },

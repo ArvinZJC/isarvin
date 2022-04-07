@@ -1,10 +1,10 @@
 <!--
  * @Description: the root component
- * @Version: 1.2.2.20220129
+ * @Version: 1.2.3.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-29 17:03:01
+ * @LastEditTime: 2022-04-07 18:52:20
 -->
 
 <template>
@@ -33,6 +33,7 @@ import { useI18n } from "vue-i18n";
 import { useMeta } from "vue-meta";
 
 import { applyAppearance } from "./lib/appearance.js";
+import global from "./lib/global.js";
 import { decideLanguage } from "./lib/i18n.js";
 
 export default {

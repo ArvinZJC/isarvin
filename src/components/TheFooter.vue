@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.3.9.20220317
+ * @Version: 1.4.0.20220407
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-03-17 21:09:40
+ * @LastEditTime: 2022-04-07 19:17:49
 -->
 
 <template>
@@ -368,7 +368,7 @@ export default {
     return { currentYear: new Date().getFullYear() };
   },
   setup() {
-    const { t, locale } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
+    const { locale, t } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
     const open = ref(false);
     const appearanceModes = [
       {
