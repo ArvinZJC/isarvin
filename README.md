@@ -30,7 +30,7 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 7 April 2022, everything looks good with Visual Studio Code (Version: 1.66.0) + Node.js 16.14.2 + Vite 2.9.1. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 License](./LICENSE). By 5 May 2022, everything looks good with Visual Studio Code (Version: 1.66.2) + Node.js 16.14.2 + Vite 2.9.7. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -39,17 +39,17 @@ The structure of the site is as follows.
 
    | Name                          |    Version     |
    | :---------------------------- | :------------: |
-   | @headlessui/vue               |     1.5.0      |
+   | @headlessui/vue               |     1.6.1      |
    | @heroicons/vue                |     1.0.6      |
    | @intlify/vite-plugin-vue-i18n |     3.4.0      |
-   | autoprefixer                  |     10.4.4     |
-   | postcss                       |     8.4.12     |
+   | autoprefixer                  |     10.4.7     |
+   | postcss                       |     8.4.13     |
    | smoothscroll-polyfill         |     0.4.4      |
    | tailwindcss                   |     3.0.23     |
-   | vue                           |     3.2.31     |
-   | vue-i18n                      |     9.1.9      |
+   | vue                           |     3.2.33     |
+   | vue-i18n                      |     9.1.10     |
    | vue-meta                      | 3.0.0-alpha.10 |
-   | vue-router                    |     4.0.14     |
+   | vue-router                    |     4.0.15     |
 
 4. Assuming the terminal is opened in the project's root directory, the project could be run locally following the steps below using npm.
 
