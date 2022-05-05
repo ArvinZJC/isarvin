@@ -1,7 +1,7 @@
 {
   "alright": "好吧",
   "appearance": {
-    "description": "设定网站的外观。",
+    "description": "选择要显示的网站外观。",
     "name": "外观"
   },
   "browserDefault": "浏览器默认",
@@ -15,7 +15,7 @@
   "gh": "GitHub",
   "home": "主页",
   "language": {
-    "description": "选择网站的显示语言。",
+    "description": "改变网站语言。",
     "name": "语言"
   },
   "light": "浅色",
