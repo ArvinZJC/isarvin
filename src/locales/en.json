@@ -1,7 +1,7 @@
 {
   "alright": "Alright",
   "appearance": {
-    "description": "Customise how the site looks.",
+    "description": "Select which site appearance to display.",
     "name": "Appearance"
   },
   "browserDefault": "Browser default",
@@ -15,7 +15,7 @@
   "gh": "GitHub",
   "home": "Home",
   "language": {
-    "description": "Select the language the site appears.",
+    "description": "Change the site language.",
     "name": "Language"
   },
   "light": "Light",
