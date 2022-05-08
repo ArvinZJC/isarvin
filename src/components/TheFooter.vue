@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.4.0.20220407
+ * @Version: 1.4.2.20220508
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 19:17:49
+ * @LastEditTime: 2022-05-08 12:13:43
 -->
 
 <template>
@@ -93,77 +93,79 @@
                     {{ t("appearance.description") }}
                   </p>
                 </div>
-                <div class="relative">
-                  <ListboxButton
-                    class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
-                  >
-                    <span
-                      class="text-label !font-normal block text-sm truncate"
-                      >{{ t(appearanceSelected.name) }}</span
+                <div class="flex items-center">
+                  <div class="relative w-full">
+                    <ListboxButton
+                      class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
                     >
-                    <span class="container-selector">
-                      <SelectorIcon
-                        aria-hidden="true"
-                        class="icon-5 text-gray-400 dark:text-gray-500"
-                      />
-                    </span>
-                  </ListboxButton>
-                  <transition
-                    enter-active-class="motion-safe:transition-opacity-300 ease-out"
-                    enter-from-class="opacity-0"
-                    enter-to-class="opacity-100"
-                    leave-active-class="motion-safe:transition-opacity-300 ease-in"
-                    leave-from-class="opacity-100"
-                    leave-to-class="opacity-0"
-                  >
-                    <ListboxOptions
-                      @click="changeAppearance()"
-                      class="absolute focus:outline-none w-full z-10"
+                      <span
+                        class="text-label !font-normal block text-sm truncate"
+                        >{{ t(appearanceSelected.name) }}</span
+                      >
+                      <span class="container-selector">
+                        <SelectorIcon
+                          aria-hidden="true"
+                          class="icon-5 text-gray-400 dark:text-gray-500"
+                        />
+                      </span>
+                    </ListboxButton>
+                    <transition
+                      enter-active-class="motion-safe:transition-opacity-300 ease-out"
+                      enter-from-class="opacity-0"
+                      enter-to-class="opacity-100"
+                      leave-active-class="motion-safe:transition-opacity-300 ease-in"
+                      leave-from-class="opacity-100"
+                      leave-to-class="opacity-0"
                     >
-                      <div class="container-select-menu">
-                        <ListboxOption
-                          v-for="appearance in appearanceModes"
-                          v-slot="{ active, appearanceSelected }"
-                          :key="appearance.id"
-                          :value="appearance"
-                          as="template"
-                          class="motion-safe:transition-colours-300"
-                        >
-                          <li
-                            :class="[
-                              active
-                                ? 'colour-indigo'
-                                : 'text-label !font-normal',
-                              'pointer pl-8 pr-4 py-2 relative',
-                            ]"
+                      <ListboxOptions
+                        @click="changeAppearance()"
+                        class="absolute focus:outline-none w-full z-10"
+                      >
+                        <div class="container-select-menu">
+                          <ListboxOption
+                            v-for="appearance in appearanceModes"
+                            v-slot="{ active, appearanceSelected }"
+                            :key="appearance.id"
+                            :value="appearance"
+                            as="template"
+                            class="motion-safe:transition-colours-300"
                           >
-                            <span
-                              v-if="appearance.icon"
+                            <li
                               :class="[
-                                active ? '' : 'text-content-indigo',
-                                'absolute flex inset-y-0 items-center left-0 pl-1.5',
+                                active
+                                  ? 'colour-indigo'
+                                  : 'text-label !font-normal',
+                                'pointer pl-8 pr-4 py-2 relative',
                               ]"
                             >
-                              <component
-                                :is="appearance.icon"
-                                aria-hidden="true"
-                                class="icon-5"
-                              />
-                            </span>
-                            <span
-                              :class="[
-                                appearanceSelected
-                                  ? 'font-semibold'
-                                  : 'font-normal',
-                                'block truncate',
-                              ]"
-                              >{{ t(appearance.name) }}</span
-                            >
-                          </li>
-                        </ListboxOption>
-                      </div>
-                    </ListboxOptions>
-                  </transition>
+                              <span
+                                v-if="appearance.icon"
+                                :class="[
+                                  active ? '' : 'text-content-indigo',
+                                  'absolute flex inset-y-0 items-center left-0 pl-1.5',
+                                ]"
+                              >
+                                <component
+                                  :is="appearance.icon"
+                                  aria-hidden="true"
+                                  class="icon-5"
+                                />
+                              </span>
+                              <span
+                                :class="[
+                                  appearanceSelected
+                                    ? 'font-semibold'
+                                    : 'font-normal',
+                                  'block truncate',
+                                ]"
+                                >{{ t(appearance.name) }}</span
+                              >
+                            </li>
+                          </ListboxOption>
+                        </div>
+                      </ListboxOptions>
+                    </transition>
+                  </div>
                 </div>
               </Listbox>
               <!-- The language setting. -->
@@ -180,64 +182,66 @@
                     {{ t("language.description") }}
                   </p>
                 </div>
-                <div class="relative">
-                  <ListboxButton
-                    class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
-                  >
-                    <span
-                      class="text-label !font-normal block text-sm truncate"
-                      >{{ t(languageSelected.name) }}</span
+                <div class="flex items-center">
+                  <div class="relative w-full">
+                    <ListboxButton
+                      class="border-focus-indigo border-grey btn-select-menu ring-focus-indigo relative w-full"
                     >
-                    <span class="container-selector">
-                      <SelectorIcon
-                        aria-hidden="true"
-                        class="icon-5 text-gray-400 dark:text-gray-500"
-                      />
-                    </span>
-                  </ListboxButton>
-                  <transition
-                    enter-active-class="motion-safe:transition-opacity-300 ease-out"
-                    enter-from-class="opacity-0"
-                    enter-to-class="opacity-100"
-                    leave-active-class="motion-safe:transition-opacity-300 ease-in"
-                    leave-from-class="opacity-100"
-                    leave-to-class="opacity-0"
-                  >
-                    <ListboxOptions
-                      @click="changeLanguage()"
-                      class="absolute focus:outline-none w-full z-10"
+                      <span
+                        class="text-label !font-normal block text-sm truncate"
+                        >{{ t(languageSelected.name) }}</span
+                      >
+                      <span class="container-selector">
+                        <SelectorIcon
+                          aria-hidden="true"
+                          class="icon-5 text-gray-400 dark:text-gray-500"
+                        />
+                      </span>
+                    </ListboxButton>
+                    <transition
+                      enter-active-class="motion-safe:transition-opacity-300 ease-out"
+                      enter-from-class="opacity-0"
+                      enter-to-class="opacity-100"
+                      leave-active-class="motion-safe:transition-opacity-300 ease-in"
+                      leave-from-class="opacity-100"
+                      leave-to-class="opacity-0"
                     >
-                      <div class="container-select-menu">
-                        <ListboxOption
-                          v-for="language in languages"
-                          v-slot="{ active, languageSelected }"
-                          :key="language.id"
-                          :value="language"
-                          as="template"
-                          class="motion-safe:transition-colours-300"
-                        >
-                          <li
-                            :class="[
-                              active
-                                ? 'colour-indigo'
-                                : 'text-label !font-normal',
-                              'pointer pl-8 pr-4 py-2 relative',
-                            ]"
+                      <ListboxOptions
+                        @click="changeLanguage()"
+                        class="absolute focus:outline-none w-full z-10"
+                      >
+                        <div class="container-select-menu">
+                          <ListboxOption
+                            v-for="language in languages"
+                            v-slot="{ active, languageSelected }"
+                            :key="language.id"
+                            :value="language"
+                            as="template"
+                            class="motion-safe:transition-colours-300"
                           >
-                            <span
+                            <li
                               :class="[
-                                languageSelected
-                                  ? 'font-semibold'
-                                  : 'font-normal',
-                                'block truncate',
+                                active
+                                  ? 'colour-indigo'
+                                  : 'text-label !font-normal',
+                                'pointer pl-8 pr-4 py-2 relative',
                               ]"
-                              >{{ t(language.name) }}</span
                             >
-                          </li>
-                        </ListboxOption>
-                      </div>
-                    </ListboxOptions>
-                  </transition>
+                              <span
+                                :class="[
+                                  languageSelected
+                                    ? 'font-semibold'
+                                    : 'font-normal',
+                                  'block truncate',
+                                ]"
+                                >{{ t(language.name) }}</span
+                              >
+                            </li>
+                          </ListboxOption>
+                        </div>
+                      </ListboxOptions>
+                    </transition>
+                  </div>
                 </div>
               </Listbox>
             </ul>
