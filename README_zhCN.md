@@ -43,7 +43,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
    | @heroicons/vue                |     1.0.6      |
    | @intlify/vite-plugin-vue-i18n |     3.4.0      |
    | autoprefixer                  |     10.4.7     |
-   | postcss                       |     8.4.13     |
+   | postcss                       |     8.4.14     |
    | smoothscroll-polyfill         |     0.4.4      |
    | tailwindcss                   |     3.0.24     |
    | vue                           |     3.2.34     |
