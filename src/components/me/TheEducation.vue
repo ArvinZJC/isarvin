@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.2.0.20220407
+ * @Version: 1.2.1.20220520
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 21:18:21
+ * @LastEditTime: 2022-05-20 13:19:00
 -->
 
 <template>
@@ -223,8 +223,8 @@ export default {
         },
         {
           content: "uofg.degree",
-          icon: eventIcons.flag.icon,
-          iconBackground: eventIcons.flag.background,
+          icon: eventIcons.check.icon,
+          iconBackground: eventIcons.check.background,
           type: global.common.HIGHLIGHT_TYPE,
         },
         {
