@@ -8,7 +8,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@headlessui/vue": "^1.6.3",
+    "@headlessui/vue": "^1.6.4",
     "@heroicons/vue": "^1.0.6",
     "smoothscroll-polyfill": "^0.4.4",
     "vue": "^3.2.36",
