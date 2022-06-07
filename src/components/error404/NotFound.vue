@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.2.0.20220407
+ * @Version: 1.2.1.20220607
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 21:18:07
+ * @LastEditTime: 2022-06-07 18:19:30
 -->
 
 <template>
@@ -16,7 +16,7 @@
         <img
           alt="Arvin: icon"
           class="avatar-md ring-avatar rounded-full"
-          src="../../assets/Arvin_icon.png"
+          src="../../assets/Arvin_icon.jpg"
         />
       </a>
     </div>
