@@ -1,10 +1,10 @@
 <!--
  * @Description: the root component
- * @Version: 1.2.3.20220407
+ * @Version: 1.3.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 18:52:20
+ * @LastEditTime: 2022-06-22 21:08:05
 -->
 
 <template>
@@ -29,11 +29,7 @@
 </template>
 
 <script>
-import { useI18n } from "vue-i18n";
-import { useMeta } from "vue-meta";
-
 import { applyAppearance } from "./lib/appearance.js";
-import global from "./lib/global.js";
 import { decideLanguage } from "./lib/i18n.js";
 
 export default {
@@ -43,14 +39,19 @@ export default {
     applyAppearance(darkModeMql);
     darkModeMql.onchange = applyAppearance; // Listen to the change of the system appearance.
   },
-  setup() {
-    const { t, locale } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
-
-    useMeta({ title: global.common.DEFAULT_TITLE });
-    window.addEventListener("languagechange", () => {
-      locale.value = decideLanguage();
-    });
-    return { t };
-  },
 };
+</script>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+import { useMeta } from "vue-meta";
+
+import global from "./lib/global.js";
+
+const { locale } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
+
+useMeta({ title: global.common.DEFAULT_TITLE });
+window.addEventListener("languagechange", () => {
+  locale.value = decideLanguage();
+});
 </script>

@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-24 08:06:11
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-01-28 17:36:06
+ * @LastEditTime: 2022-06-22 21:39:34
  */
 
 import global from "./global.js";
@@ -17,7 +17,7 @@ export function applyAppearance(mql) {
   if (
     localStorage.getItem(global.common.APPEARANCE_KEY) ===
       global.common.DARK_MODE_ID ||
-    (localStorage.getItem(global.common.APPEARANCE_KEY) === null && mql.matches)
+    (localStorage.getItem(global.common.APPEARANCE_KEY) == null && mql.matches)
   ) {
     document.documentElement.classList.add(global.common.DARK_MODE_ID);
   } else {

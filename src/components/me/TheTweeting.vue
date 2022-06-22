@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.2.0.20220407
+ * @Version: 1.3.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 21:19:04
+ * @LastEditTime: 2022-06-22 22:10:20
 -->
 
 <template>
@@ -142,28 +142,21 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { MailIcon } from "@heroicons/vue/outline";
 import { useI18n } from "vue-i18n";
 
 import SteveJobs from "../../assets/SteveJobs.jpg";
 import global from "../../lib/global.js";
-import * as en from "../../locales/me/tweeting/en.json";
+import * as enGb from "../../locales/me/tweeting/en-GB.json";
+import * as enUs from "../../locales/me/tweeting/en-US.json";
 import * as zhCN from "../../locales/me/tweeting/zh-CN.json";
 
-export default {
-  components: { MailIcon },
-  data() {
-    return { global };
-  },
-  setup() {
-    const messages = {};
+const messages = {};
 
-    messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zhCN.default;
+messages[global.common.EN_GB_ID] = enGb.default;
+messages[global.common.EN_US_ID] = enUs.default;
+messages[global.common.ZH_CN_ID] = zhCN.default;
 
-    const { t } = useI18n({ messages });
-    return { SteveJobs, t };
-  },
-};
+const { t } = useI18n({ messages });
 </script>
