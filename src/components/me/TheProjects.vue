@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 23:44:56
+ * @LastEditTime: 2022-06-22 23:50:51
 -->
 
 <template>
@@ -228,7 +228,7 @@ export default {
       projects: [
         {
           imageUrl: PaimonTrayBanner,
-          category: categories.archived,
+          category: categories.active,
           name: "info.paimonTray.name",
           intro: "info.paimonTray.intro",
           route: "#",
