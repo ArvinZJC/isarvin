@@ -16,7 +16,8 @@ Arvin is my English name. I am an incompetent developer finally building the per
 - Accessibility: reduced motion when required.
 - Dark mode support.
 - I18n (Internationalisation). Supported languages as follows:
-  - English - default if no matches
+  - English (United Kingdom)
+  - English (United States) - default if no matches
   - 中文（简体，中国）
 - Performance: debouncing, throttling, etc.
 - Responsive design.
@@ -32,7 +33,7 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 Licence](./LICENCE). By 12 June 2022, everything looks good with Visual Studio Code (Version: 1.68.0) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 Licence](./LICENCE). By 22 June 2022, everything looks good with Visual Studio Code (Version: 1.68.1) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
