@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:09:21
+ * @LastEditTime: 2022-06-22 22:57:34
 -->
 
 <template>
@@ -31,14 +31,13 @@
         {{ t("description") }}
       </p>
       <div class="mt-6">
-        <a
+        <button
+          @click="$router.push({ name: global.common.ME_VIEW })"
           class="btn ring-offset-indigo text-component motion-safe:transition-colours-300 focus:ring-offset-gray-50 dark:focus:ring-offset-gray-900"
-          href="/"
-          type="button"
         >
           {{ t("returnTo") }} isarvin.com
           <span aria-hidden="true">&rarr;</span>
-        </a>
+        </button>
       </div>
     </div>
   </div>
