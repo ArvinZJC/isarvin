@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.4.2.20220508
+ * @Version: 1.5.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-05-08 12:13:43
+ * @LastEditTime: 2022-06-22 21:38:30
 -->
 
 <template>
@@ -124,7 +124,7 @@
                         <div class="container-select-menu">
                           <ListboxOption
                             v-for="appearance in appearanceModes"
-                            v-slot="{ active, appearanceSelected }"
+                            v-slot="{ active, selected }"
                             :key="appearance.id"
                             :value="appearance"
                             as="template"
@@ -153,9 +153,7 @@
                               </span>
                               <span
                                 :class="[
-                                  appearanceSelected
-                                    ? 'font-semibold'
-                                    : 'font-normal',
+                                  selected ? 'font-semibold' : 'font-normal',
                                   'block truncate',
                                 ]"
                                 >{{ t(appearance.name) }}</span
@@ -213,7 +211,7 @@
                         <div class="container-select-menu">
                           <ListboxOption
                             v-for="language in languages"
-                            v-slot="{ active, languageSelected }"
+                            v-slot="{ active, selected }"
                             :key="language.id"
                             :value="language"
                             as="template"
@@ -229,9 +227,7 @@
                             >
                               <span
                                 :class="[
-                                  languageSelected
-                                    ? 'font-semibold'
-                                    : 'font-normal',
+                                  selected ? 'font-semibold' : 'font-normal',
                                   'block truncate',
                                 ]"
                                 >{{ t(language.name) }}</span
@@ -261,52 +257,10 @@
 </template>
 
 <script>
-import {
-  Dialog,
-  DialogOverlay,
-  DialogTitle,
-  Listbox,
-  ListboxButton,
-  ListboxLabel,
-  ListboxOption,
-  ListboxOptions,
-  TransitionChild,
-  TransitionRoot,
-} from "@headlessui/vue";
-import {
-  CogIcon,
-  DesktopComputerIcon,
-  MoonIcon,
-  SelectorIcon,
-  SunIcon,
-  XIcon,
-} from "@heroicons/vue/outline";
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
-
 import { applyAppearance } from "../lib/appearance.js";
-import global from "../lib/global.js";
 import { decideLanguage } from "../lib/i18n.js";
 
 export default {
-  components: {
-    CogIcon,
-    DesktopComputerIcon,
-    Dialog,
-    DialogOverlay,
-    DialogTitle,
-    Listbox,
-    ListboxButton,
-    ListboxLabel,
-    ListboxOption,
-    ListboxOptions,
-    MoonIcon,
-    SelectorIcon,
-    SunIcon,
-    TransitionChild,
-    TransitionRoot,
-    XIcon,
-  },
   methods: {
     /**
      * Apply the language change.
@@ -371,59 +325,87 @@ export default {
   data() {
     return { currentYear: new Date().getFullYear() };
   },
-  setup() {
-    const { locale, t } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
-    const open = ref(false);
-    const appearanceModes = [
-      {
-        icon: DesktopComputerIcon,
-        id: 0,
-        name: global.common.SYSTEM_DEFAULT_MODE_ID,
-      },
-      { icon: SunIcon, id: 1, name: global.common.LIGHT_MODE_ID },
-      { icon: MoonIcon, id: 2, name: global.common.DARK_MODE_ID },
-    ];
-    let currentAppearance = localStorage.getItem(global.common.APPEARANCE_KEY);
-    let appearanceSelected;
-    const languages = [
-      { id: 0, name: global.common.BROWSER_DEFAULT_MODE_ID },
-      { id: 1, name: global.common.EN_ID },
-      { id: 2, name: global.common.ZH_CN_ID },
-    ];
-    let currentLanguage = localStorage.getItem(global.common.LANGUAGE_KEY);
-    let languageSelected;
-
-    // Set the current appearance.
-    if (currentAppearance === null) {
-      appearanceSelected = ref(appearanceModes[0]);
-    } else {
-      if (currentAppearance === global.common.LIGHT_MODE_ID) {
-        appearanceSelected = ref(appearanceModes[1]);
-      } else {
-        appearanceSelected = ref(appearanceModes[2]);
-      } // end if...else
-    } // end if...else
-
-    // Set the current language.
-    if (currentLanguage === null) {
-      languageSelected = ref(languages[0]);
-    } else {
-      if (currentLanguage === global.common.EN_ID) {
-        languageSelected = ref(languages[1]);
-      } else {
-        languageSelected = ref(languages[2]);
-      } // end if...else
-    } // end if...else
-
-    return {
-      appearanceModes,
-      appearanceSelected,
-      languages,
-      languageSelected,
-      locale,
-      open,
-      t,
-    };
-  },
 };
+</script>
+
+<script setup>
+import {
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOption,
+  ListboxOptions,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import {
+  CogIcon,
+  DesktopComputerIcon,
+  MoonIcon,
+  SelectorIcon,
+  SunIcon,
+  XIcon,
+} from "@heroicons/vue/outline";
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+import global from "../lib/global.js";
+
+// eslint-disable-next-line no-unused-vars
+const { locale, t } = useI18n({ useScope: global.common.GLOBAL_LOCALE });
+const open = ref(false);
+const appearanceModes = [
+  {
+    icon: DesktopComputerIcon,
+    id: 0,
+    name: global.common.SYSTEM_DEFAULT_MODE_ID,
+  },
+  { icon: SunIcon, id: 1, name: global.common.LIGHT_MODE_ID },
+  { icon: MoonIcon, id: 2, name: global.common.DARK_MODE_ID },
+];
+let currentAppearance = localStorage.getItem(global.common.APPEARANCE_KEY);
+let appearanceSelected;
+const languages = [
+  { id: 0, name: global.common.BROWSER_DEFAULT_MODE_ID },
+  { id: 1, name: global.common.EN_GB_ID },
+  { id: 2, name: global.common.EN_US_ID },
+  { id: 3, name: global.common.ZH_CN_ID },
+];
+let currentLanguage = localStorage.getItem(global.common.LANGUAGE_KEY);
+let languageSelected;
+
+// Set the current appearance.
+switch (currentAppearance) {
+  case global.common.DARK_MODE_ID:
+    appearanceSelected = ref(appearanceModes[2]);
+    break;
+
+  case global.common.LIGHT_MODE_ID:
+    appearanceSelected = ref(appearanceModes[1]);
+    break;
+
+  default:
+    appearanceSelected = ref(appearanceModes[0]);
+} // end switch-case
+
+// Set the current language.
+switch (currentLanguage) {
+  case global.common.EN_GB_ID:
+    languageSelected = ref(languages[1]);
+    break;
+
+  case global.common.EN_US_ID:
+    languageSelected = ref(languages[2]);
+    break;
+
+  case global.common.ZH_CN_ID:
+    languageSelected = ref(languages[3]);
+    break;
+
+  default:
+    languageSelected = ref(languages[0]);
+} // end switch-case
 </script>
