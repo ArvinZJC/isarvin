@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:19:45
+ * @LastEditTime: 2022-06-22 22:46:29
  */
 
 const global = {};
@@ -18,7 +18,7 @@ global["common"] = {
   DARK_MODE_ID: "dark",
   DEFAULT_DEBOUNCE_DELAY: 100,
   DEFAULT_DELAY: 300,
-  DEFAULT_THROTTLE_DELAY: 100,
+  DEFAULT_THROTTLE_DELAY: 10,
   DEFAULT_TITLE: "Arvin Zhao",
   EDUCATION_SECTION: "education",
   EMAIL_ME: "SteveJobz@isarvin.com",

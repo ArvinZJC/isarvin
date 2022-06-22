@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:09:48
+ * @LastEditTime: 2022-06-22 22:49:49
 -->
 
 <template>
@@ -233,7 +233,7 @@ export default {
       Array.prototype.forEach.call(this.sections, (element, index) => {
         // The right part of the OR condition is to avoid that the last navbar item would never be active due to insufficient section length.
         if (
-          element.offsetTop - this.navbar.offsetHeight <= window.scrollY ||
+          element.offsetTop <= window.scrollY ||
           window.innerHeight + window.scrollY >= document.body.offsetHeight - 2
         ) {
           activeIndex = index;
