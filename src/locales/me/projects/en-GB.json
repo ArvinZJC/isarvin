@@ -8,9 +8,9 @@
       "intro": "Kobe is a macOS/Windows desktop app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
       "name": "Kobe"
     },
-    "pySic": {
-      "intro": "PY-SIC stands for \"a simple image converter for Python\". It could be seen as a simple wrapper of the popular Python imaging library Pillow, but contains a patch for better GIF conversion quality.",
-      "name": "PY-SIC"
+    "paimonTray": {
+      "intro": "Now, Paimon is on your Windows \"system tray\"! PaimonTray is a Windows desktop app that can present Genshin Impact's real-time notes for users.",
+      "name": "PaimonTray"
     },
     "weiboEmoji": {
       "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. It applies automation to download, update, categorise, and process sources to make it more convenient to generate a new release.",

@@ -10,7 +10,8 @@
   "dark": "深色",
   "dismiss": "清除",
   "education": "教育",
-  "en": "English",
+  "en-GB": "English (United Kingdom)",
+  "en-US": "English (United States)",
   "explore": "瞅瞅",
   "gh": "GitHub",
   "home": "主页",
@@ -35,5 +36,5 @@
   "scrollToTop": "回到顶部",
   "settings": "设置",
   "systemDefault": "系统默认",
-  "zh-CN": "简体中文"
+  "zh-CN": "中文（简体，中国）"
 }

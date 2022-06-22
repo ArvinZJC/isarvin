@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-05-20 13:19:00
+ * @LastEditTime: 2022-06-22 22:09:30
 -->
 
 <template>
@@ -99,7 +99,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   AcademicCapIcon,
   CheckIcon,
@@ -117,131 +117,122 @@ import ArvinHeadshotUni1 from "../../assets/Arvin_headshot_uni1.jpg";
 import ArvinHeadshotUni2 from "../../assets/Arvin_headshot_uni2.jpg";
 import ArvinHeadshotUni3 from "../../assets/Arvin_headshot_uni3.jpg";
 import global from "../../lib/global.js";
-import * as en from "../../locales/me/education/en.json";
+import * as enGb from "../../locales/me/education/en-GB.json";
+import * as enUs from "../../locales/me/education/en-US.json";
 import * as zhCN from "../../locales/me/education/zh-CN.json";
 
-export default {
-  components: { AcademicCapIcon },
-  data() {
-    return { global };
-  },
-  setup() {
-    const messages = {};
+const messages = {};
 
-    messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zhCN.default;
+messages[global.common.EN_GB_ID] = enGb.default;
+messages[global.common.EN_US_ID] = enUs.default;
+messages[global.common.ZH_CN_ID] = zhCN.default;
 
-    const { t } = useI18n({ messages });
-    const eventIcons = {
-      check: { icon: CheckIcon, background: "!bg-green-600" },
-      happy: { icon: EmojiHappyIcon, background: "!bg-pink-600" },
-      fire: { icon: FireIcon, background: "!bg-yellow-600" },
-      flag: { icon: FlagIcon, background: "!bg-purple-600" },
-    };
-    return {
-      t,
-      timeline: [
-        {
-          content: "jinhua",
-          imageUrl: ArvinHeadshotPrimary1,
-          period: "2004 - 2009",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "jiahuiSunshine",
-          imageUrl: ArvinHeadshotPrimary2,
-          period: "2009 - 2010",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "jiahui",
-          imageUrl: ArvinHeadshotMiddle,
-          period: "2010 - 2013",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "yuming",
-          imageUrl: ArvinHeadshotSenior,
-          period: "2013 - 2016",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "beihang.name",
-          imageUrl: ArvinHeadshotUni1,
-          period: "2016 - 2019",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "beihang.degree",
-          icon: eventIcons.check.icon,
-          iconBackground: eventIcons.check.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "beihang.achievements[0]",
-          icon: eventIcons.happy.icon,
-          iconBackground: eventIcons.happy.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "beihang.achievements[1]",
-          icon: eventIcons.flag.icon,
-          iconBackground: eventIcons.flag.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uol.name",
-          imageUrl: ArvinHeadshotUni2,
-          period: "2019 - 2020",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "uol.degree",
-          icon: eventIcons.check.icon,
-          iconBackground: eventIcons.check.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uol.achievements[0]",
-          icon: eventIcons.happy.icon,
-          iconBackground: eventIcons.happy.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uol.achievements[1]",
-          hasLink: true,
-          href: "https://www.credly.com/badges/264eea0b-6261-4d08-9e17-d7a41472eca6",
-          icon: eventIcons.flag.icon,
-          iconBackground: eventIcons.flag.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uofg.name",
-          imageUrl: ArvinHeadshotUni3,
-          period: "2021 - 2022",
-          type: global.common.NAME_TYPE,
-        },
-        {
-          content: "uofg.degree",
-          icon: eventIcons.check.icon,
-          iconBackground: eventIcons.check.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uofg.achievements[0]",
-          icon: eventIcons.happy.icon,
-          iconBackground: eventIcons.happy.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-        {
-          content: "uofg.achievements[1]",
-          hasLineThrough: true,
-          icon: eventIcons.fire.icon,
-          iconBackground: eventIcons.fire.background,
-          type: global.common.HIGHLIGHT_TYPE,
-        },
-      ],
-    };
-  },
+const { t } = useI18n({ messages });
+const eventIcons = {
+  check: { icon: CheckIcon, background: "!bg-green-600" },
+  happy: { icon: EmojiHappyIcon, background: "!bg-pink-600" },
+  fire: { icon: FireIcon, background: "!bg-yellow-600" },
+  flag: { icon: FlagIcon, background: "!bg-purple-600" },
 };
+const timeline = [
+  {
+    content: "jinhua",
+    imageUrl: ArvinHeadshotPrimary1,
+    period: "2004 - 2009",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "jiahuiSunshine",
+    imageUrl: ArvinHeadshotPrimary2,
+    period: "2009 - 2010",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "jiahui",
+    imageUrl: ArvinHeadshotMiddle,
+    period: "2010 - 2013",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "yuming",
+    imageUrl: ArvinHeadshotSenior,
+    period: "2013 - 2016",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "beihang.name",
+    imageUrl: ArvinHeadshotUni1,
+    period: "2016 - 2019",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "beihang.degree",
+    icon: eventIcons.check.icon,
+    iconBackground: eventIcons.check.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "beihang.achievements[0]",
+    icon: eventIcons.happy.icon,
+    iconBackground: eventIcons.happy.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "beihang.achievements[1]",
+    icon: eventIcons.flag.icon,
+    iconBackground: eventIcons.flag.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uol.name",
+    imageUrl: ArvinHeadshotUni2,
+    period: "2019 - 2020",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "uol.degree",
+    icon: eventIcons.check.icon,
+    iconBackground: eventIcons.check.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uol.achievements[0]",
+    icon: eventIcons.happy.icon,
+    iconBackground: eventIcons.happy.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uol.achievements[1]",
+    hasLink: true,
+    href: "https://www.credly.com/badges/264eea0b-6261-4d08-9e17-d7a41472eca6",
+    icon: eventIcons.flag.icon,
+    iconBackground: eventIcons.flag.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uofg.name",
+    imageUrl: ArvinHeadshotUni3,
+    period: "2021 - 2022",
+    type: global.common.NAME_TYPE,
+  },
+  {
+    content: "uofg.degree",
+    icon: eventIcons.check.icon,
+    iconBackground: eventIcons.check.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uofg.achievements[0]",
+    icon: eventIcons.happy.icon,
+    iconBackground: eventIcons.happy.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+  {
+    content: "uofg.achievements[1]",
+    hasLineThrough: true,
+    icon: eventIcons.fire.icon,
+    iconBackground: eventIcons.fire.background,
+    type: global.common.HIGHLIGHT_TYPE,
+  },
+];
 </script>

@@ -1,10 +1,10 @@
 /*
  * @Description: general styles
- * @Version: 2.1.9.20220404
+ * @Version: 2.2.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-06-08 15:38:24
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-04 17:28:17
+ * @LastEditTime: 2022-06-22 22:15:04
  */
 
 @tailwind base;
@@ -185,7 +185,7 @@
 
   /* Modal. */
   .modal {
-    @apply align-bottom sm:align-middle inline-block max-w-sm sm:my-8 p-4 pb-6 shadow-2xl transform-gpu w-full;
+    @apply align-bottom sm:align-middle inline-block max-w-lg sm:my-8 p-4 pb-6 shadow-2xl transform-gpu w-full;
   }
 
   /* Navigation text item. */

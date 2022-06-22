@@ -1,0 +1,29 @@
+{
+  "description": [
+    "I think my 5 years’ uni life is so incredibly fulfiling with the guys, devoting a part of my spare time to several projects. Most of them, either active or archived, are hosted on ",
+    ". I’ve still got a pretty long way to go. Would I reach the end one day? 🐌"
+  ],
+  "info": {
+    "kobe": {
+      "intro": "Kobe is a macOS/Windows desktop app that can search stocks' strike prices and volumes for users. The supported stock exchanges are Beijing Stock Exchange, Shanghai Stock Exchange, and Shenzhen Stock Exchange. The name Kobe is used because the app's Chinese name contains \"神户\".",
+      "name": "Kobe"
+    },
+    "paimonTray": {
+      "intro": "Now, Paimon is on your Windows \"system tray\"! PaimonTray is a Windows desktop app that can present Genshin Impact's real-time notes for users.",
+      "name": "PaimonTray"
+    },
+    "weiboEmoji": {
+      "intro": "Weibo Emoji is a repository for saving and sharing most Emoji images that are used/were previously used by the app Weibo. It applies automation to download, update, categorise, and process sources to make it more convenient to generate a new release.",
+      "name": "Weibo Emoji"
+    }
+  },
+  "pageUnavailable": {
+    "message": "Sorry for loafing around, but the project details page is unavailable because it's still under construction. 🏗",
+    "title": "Page under construction"
+  },
+  "status": {
+    "active": "Active",
+    "archived": "Archived",
+    "inWorks": "In the works"
+  }
+}

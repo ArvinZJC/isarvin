@@ -1,10 +1,10 @@
 <!--
  * @Description: the 404 Not Found component
- * @Version: 1.2.1.20220607
+ * @Version: 1.3.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-08-30 12:38:40
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-07 18:19:30
+ * @LastEditTime: 2022-06-22 22:09:21
 -->
 
 <template>
@@ -36,7 +36,7 @@
           href="/"
           type="button"
         >
-          {{ t("returnTo") }}isarvin.com
+          {{ t("returnTo") }} isarvin.com
           <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -44,20 +44,19 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global";
-import * as en from "../../locales/error404/en.json";
+import * as enGb from "../../locales/error404/en-GB.json";
+import * as enUs from "../../locales/error404/en-US.json";
 import * as zhCN from "../../locales/error404/zh-CN.json";
 
-export default {
-  setup() {
-    const messages = {};
+const messages = {};
 
-    messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zhCN.default;
-    return useI18n({ messages });
-  },
-};
+messages[global.common.EN_GB_ID] = enGb.default;
+messages[global.common.EN_US_ID] = enUs.default;
+messages[global.common.ZH_CN_ID] = zhCN.default;
+
+const { t } = useI18n({ messages });
 </script>

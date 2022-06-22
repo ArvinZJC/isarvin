@@ -10,7 +10,8 @@
   "dark": "Dark",
   "dismiss": "Dismiss",
   "education": "Education",
-  "en": "English",
+  "en-GB": "English (United Kingdom)",
+  "en-US": "English (United States)",
   "explore": "Explore",
   "gh": "GitHub",
   "home": "Home",
@@ -35,5 +36,5 @@
   "scrollToTop": "Scroll to the top",
   "settings": "Settings",
   "systemDefault": "System default",
-  "zh-CN": "简体中文"
+  "zh-CN": "中文（简体，中国）"
 }
