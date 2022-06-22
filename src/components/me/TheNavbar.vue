@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:49:49
+ * @LastEditTime: 2022-06-22 23:35:49
 -->
 
 <template>
@@ -188,9 +188,49 @@
 </template>
 
 <script>
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import {
+  AcademicCapIcon,
+  ArrowUpIcon,
+  CollectionIcon,
+  HomeIcon,
+  MenuIcon,
+  XIcon,
+} from "@heroicons/vue/outline";
+import { useI18n } from "vue-i18n";
+
+import global from "../../lib/global.js";
 import { throttle } from "../../lib/utils.js";
+import * as enGb from "../../locales/me/navbar/en-GB.json";
+import * as enUs from "../../locales/me/navbar/en-US.json";
+import * as zhCN from "../../locales/me/navbar/zh-CN.json";
+import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
+import FacebookIcon from "../svg/FacebookIcon.vue";
+import GitHubIcon from "../svg/GitHubIcon.vue";
+import InstagramIcon from "../svg/InstagramIcon.vue";
+import LinkedInIcon from "../svg/LinkedInIcon.vue";
+import TwitterIcon from "../svg/TwitterIcon.vue";
+import WeiboIcon from "../svg/WeiboIcon.vue";
 
 export default {
+  components: {
+    AcademicCapIcon,
+    ArrowUpIcon,
+    ArvinTextLogo,
+    CollectionIcon,
+    FacebookIcon,
+    GitHubIcon,
+    HomeIcon,
+    InstagramIcon,
+    LinkedInIcon,
+    MenuIcon,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+    TwitterIcon,
+    WeiboIcon,
+    XIcon,
+  },
   methods: {
     /**
      * Apply the backdrop blur filter and box shadow to the navbar if it satisfies the specified offset threshold to the top.
@@ -376,6 +416,7 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      global,
       isScrollToTopDismissed: true,
       mobileNavItems: null,
       navbar: null,
@@ -396,94 +437,73 @@ export default {
       throttle(global.common.DEFAULT_THROTTLE_DELAY, this.handleScroll)
     );
   },
-};
-</script>
+  setup() {
+    const messages = {};
 
-<script setup>
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import {
-  AcademicCapIcon,
-  ArrowUpIcon,
-  CollectionIcon,
-  HomeIcon,
-  MenuIcon,
-  XIcon,
-} from "@heroicons/vue/outline";
-import { useI18n } from "vue-i18n";
+    messages[global.common.EN_GB_ID] = enGb.default;
+    messages[global.common.EN_US_ID] = enUs.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
 
-import * as enGb from "../../locales/me/navbar/en-GB.json";
-import * as enUs from "../../locales/me/navbar/en-US.json";
-import * as zhCN from "../../locales/me/navbar/zh-CN.json";
-import ArvinTextLogo from "../svg/ArvinTextLogo.vue";
-import FacebookIcon from "../svg/FacebookIcon.vue";
-import GitHubIcon from "../svg/GitHubIcon.vue";
-import InstagramIcon from "../svg/InstagramIcon.vue";
-import LinkedInIcon from "../svg/LinkedInIcon.vue";
-import TwitterIcon from "../svg/TwitterIcon.vue";
-import WeiboIcon from "../svg/WeiboIcon.vue";
+    const { t } = useI18n({ messages });
 
-import global from "../../lib/global.js";
-
-const messages = {};
-
-messages[global.common.EN_GB_ID] = enGb.default;
-messages[global.common.EN_US_ID] = enUs.default;
-messages[global.common.ZH_CN_ID] = zhCN.default;
-
-const { t } = useI18n({ messages });
-const navigation = {
-  logo: {
-    href: "/",
-    textContent: global.common.DEFAULT_TITLE,
-    textIcon: ArvinTextLogo,
+    return {
+      navigation: {
+        logo: {
+          href: "/",
+          textContent: global.common.DEFAULT_TITLE,
+          textIcon: ArvinTextLogo,
+        },
+        header: [
+          {
+            active: true,
+            anchor: `#${global.common.HOME_SECTION}`,
+            icon: HomeIcon,
+            name: global.common.HOME_SECTION,
+          },
+          {
+            active: false,
+            anchor: `#${global.common.PROJECT_SECTION}`,
+            icon: CollectionIcon,
+            name: global.common.PROJECT_SECTION,
+          },
+          {
+            active: false,
+            anchor: `#${global.common.EDUCATION_SECTION}`,
+            icon: AcademicCapIcon,
+            name: global.common.EDUCATION_SECTION,
+          },
+        ],
+        social: [
+          {
+            href: "https://www.facebook.com/arvinzjc",
+            icon: FacebookIcon,
+            name: "fb",
+          },
+          {
+            href: "https://www.instagram.com/arvinzjc",
+            icon: InstagramIcon,
+            name: "ig",
+          },
+          {
+            href: "https://weibo.com/u/3218812301",
+            icon: WeiboIcon,
+            name: "wb",
+          },
+          {
+            href: "https://twitter.com/arvinzjc",
+            icon: TwitterIcon,
+            name: "tt",
+          },
+          {
+            href: "https://www.linkedin.com/in/arvinzjc",
+            icon: LinkedInIcon,
+            name: "in",
+          },
+          { href: global.common.GITHUB_ME, icon: GitHubIcon, name: "gh" },
+        ],
+      },
+      t,
+    };
   },
-  header: [
-    {
-      active: true,
-      anchor: `#${global.common.HOME_SECTION}`,
-      icon: HomeIcon,
-      name: global.common.HOME_SECTION,
-    },
-    {
-      active: false,
-      anchor: `#${global.common.PROJECT_SECTION}`,
-      icon: CollectionIcon,
-      name: global.common.PROJECT_SECTION,
-    },
-    {
-      active: false,
-      anchor: `#${global.common.EDUCATION_SECTION}`,
-      icon: AcademicCapIcon,
-      name: global.common.EDUCATION_SECTION,
-    },
-  ],
-  social: [
-    {
-      href: "https://www.facebook.com/arvinzjc",
-      icon: FacebookIcon,
-      name: "fb",
-    },
-    {
-      href: "https://www.instagram.com/arvinzjc",
-      icon: InstagramIcon,
-      name: "ig",
-    },
-    {
-      href: "https://weibo.com/u/3218812301",
-      icon: WeiboIcon,
-      name: "wb",
-    },
-    {
-      href: "https://twitter.com/arvinzjc",
-      icon: TwitterIcon,
-      name: "tt",
-    },
-    {
-      href: "https://www.linkedin.com/in/arvinzjc",
-      icon: LinkedInIcon,
-      name: "in",
-    },
-    { href: global.common.GITHUB_ME, icon: GitHubIcon, name: "gh" },
-  ],
 };
 </script>

@@ -4,7 +4,7 @@
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:09:38
+ * @LastEditTime: 2022-06-22 23:37:49
 -->
 
 <template>
@@ -158,9 +158,17 @@
 </template>
 
 <script>
+import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
+import { useI18n } from "vue-i18n";
+
+import global from "../../lib/global.js";
 import { debounce } from "../../lib/utils.js";
+import * as enGb from "../../locales/me/home/en-GB.json";
+import * as enUs from "../../locales/me/home/en-US.json";
+import * as zhCN from "../../locales/me/home/zh-CN.json";
 
 export default {
+  components: { SpeakerphoneIcon, XIcon },
   methods: {
     /**
      * Do necessary actions when the view containing the component finishes loading.
@@ -221,7 +229,7 @@ export default {
     }, // end function setBubbleAreaHeight
   },
   data() {
-    return { isBannerDismissed: true, isBioShown: false };
+    return { global, isBannerDismissed: true, isBioShown: false };
   },
   mounted() {
     this.isBioShown = true;
@@ -240,22 +248,13 @@ export default {
       })
     );
   },
+  setup() {
+    const messages = {};
+
+    messages[global.common.EN_GB_ID] = enGb.default;
+    messages[global.common.EN_US_ID] = enUs.default;
+    messages[global.common.ZH_CN_ID] = zhCN.default;
+    return useI18n({ messages });
+  },
 };
-</script>
-
-<script setup>
-import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
-import { useI18n } from "vue-i18n";
-
-import global from "../../lib/global.js";
-import * as enGb from "../../locales/me/home/en-GB.json";
-import * as enUs from "../../locales/me/home/en-US.json";
-import * as zhCN from "../../locales/me/home/zh-CN.json";
-
-const messages = {};
-
-messages[global.common.EN_GB_ID] = enGb.default;
-messages[global.common.EN_US_ID] = enUs.default;
-messages[global.common.ZH_CN_ID] = zhCN.default;
-const { t } = useI18n({ messages });
 </script>
