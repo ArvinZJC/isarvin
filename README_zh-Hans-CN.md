@@ -7,7 +7,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
 ![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
 
-[English](./README.md) | **简体中文**
+[English (United Kingdom)](./README.md) | **中文（简体，中国）**
 
 > 个人网站的创建让我更了解自己了，所以这就是 Arvin。😉
 
@@ -15,22 +15,25 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 - 无障碍：支持减少动画。
 - 支持深色模式。
-- 国际化: English / 简体中文。
+- 国际化。支持的语言如下：
+  - English (United Kingdom)
+  - English (United States) ——无匹配语言时默认
+  - 中文（简体，中国）
 - 性能：防抖、节流，等等。
 - 响应式布局。
 - 统一设计语言。
 
-![example_zhCN.png](./img_README/example_zhCN.png)
+![example_zhCN.png](./img_README/example_zh-Hans-CN.png)
 
 网站内容结构如下图。
 
-![structure_zhCN.png](./img_README/structure_zhCN.png)
+![structure_zhCN.png](./img_README/structure_zh-Hans-CN.png)
 
 ## ❗ 注意
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 此项目使用 [GPL-3.0 协议](./LICENSE)。截至 2022 年 6 月 7 日，使用 Visual Studio Code（版本：1.67.2）、Node.js 16.15.0 和 Vite 2.9.10 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 此项目使用 [GPL-3.0 协议](./LICENCE)。截至 2022 年 6 月 22 日，使用 Visual Studio Code（版本：1.68.1）、Node.js 16.15.0 和 Vite 2.9.12 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
    > Tailwind CSS v3.0 主要是为在 Chrome、Firefox、Edge 和 Safari 的最新稳定版上有良好的表现而设计并测试的。任何版本 IE（包括 IE 11）都不受支持。
@@ -39,17 +42,17 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
    | 名称                          |      版本      |
    | :---------------------------- | :------------: |
-   | @headlessui/vue               |     1.6.4      |
+   | @headlessui/vue               |     1.6.5      |
    | @heroicons/vue                |     1.0.6      |
    | @intlify/vite-plugin-vue-i18n |     3.4.0      |
    | autoprefixer                  |     10.4.7     |
    | postcss                       |     8.4.14     |
    | smoothscroll-polyfill         |     0.4.4      |
-   | tailwindcss                   |     3.0.24     |
+   | tailwindcss                   |     3.1.4      |
    | vue                           |     3.2.37     |
    | vue-i18n                      |     9.1.10     |
    | vue-meta                      | 3.0.0-alpha.10 |
-   | vue-router                    |     4.0.15     |
+   | vue-router                    |     4.0.16     |
 
 4. 在项目根目录下，按如下步骤使用 npm 的命令可以在本地运行此项目。
 

@@ -1,0 +1,40 @@
+{
+  "alright": "Alright",
+  "appearance": {
+    "description": "Select which site appearance to display.",
+    "name": "Appearance"
+  },
+  "browserDefault": "Browser default",
+  "close": "Close",
+  "closeNavMenu": "Close navigation menu",
+  "dark": "Dark",
+  "dismiss": "Dismiss",
+  "education": "Education",
+  "en-GB": "English (United Kingdom)",
+  "en-US": "English (United States)",
+  "explore": "Explore",
+  "gh": "GitHub",
+  "home": "Home",
+  "language": {
+    "description": "Change the site language.",
+    "name": "Language"
+  },
+  "light": "Light",
+  "openNavMenu": "Open navigation menu",
+  "openSettingsPanel": "Open the settings panel",
+  "pages": {
+    "error404": {
+      "description": "Page not found.",
+      "title": "You're lost... 😅"
+    },
+    "me": {
+      "description": "I came to know myself better when I started to build my personal site. So this is Arvin.",
+      "title": "Yoo wyd? 😉"
+    }
+  },
+  "projects": "Projects",
+  "scrollToTop": "Scroll to the top",
+  "settings": "Settings",
+  "systemDefault": "System default",
+  "zh-CN": "中文（简体，中国）"
+}

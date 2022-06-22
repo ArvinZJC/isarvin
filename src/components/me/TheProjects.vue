@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.2.5.20220404
+ * @Version: 1.3.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 21:18:57
+ * @LastEditTime: 2022-06-22 22:10:13
 -->
 
 <template>
@@ -161,37 +161,7 @@
 </template>
 
 <script>
-import {
-  Dialog,
-  DialogOverlay,
-  DialogTitle,
-  TransitionChild,
-  TransitionRoot,
-} from "@headlessui/vue";
-import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
-
-import PySicBanner from "../../assets/PySic_banner.png";
-import KobeBanner from "../../assets/Kobe_banner.png";
-import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
-import global from "../../lib/global.js";
-import * as en from "../../locales/me/projects/en.json";
-import * as zhCN from "../../locales/me/projects/zh-CN.json";
-
 export default {
-  components: {
-    CollectionIcon,
-    Dialog,
-    DialogOverlay,
-    DialogTitle,
-    ExclamationCircleIcon,
-    TransitionChild,
-    TransitionRoot,
-  },
-  data() {
-    return { global };
-  },
   mounted() {
     if (
       "ontouchstart" in window ||
@@ -207,47 +177,65 @@ export default {
       } // end if
     } // end if
   },
-  setup() {
-    const messages = {};
-
-    messages[global.common.EN_ID] = en.default;
-    messages[global.common.ZH_CN_ID] = zhCN.default;
-
-    const { t } = useI18n({ messages });
-    const categories = {
-      active: { name: "status.active", style: "colour-success" },
-      archived: { name: "status.archived", style: "colour-danger" },
-      inWorks: { name: "status.inWorks", style: "colour-warning" },
-    };
-    return {
-      liquid:
-        "motion-safe:liquid motion-safe:after:liquid-after motion-safe:before:liquid-before group-hover:liquid-hover",
-      open: ref(false),
-      projects: [
-        {
-          imageUrl: KobeBanner,
-          category: categories.active,
-          name: "info.kobe.name",
-          intro: "info.kobe.intro",
-          route: "#",
-        },
-        {
-          imageUrl: WeiboEmojiBanner,
-          category: categories.active,
-          name: "info.weiboEmoji.name",
-          intro: "info.weiboEmoji.intro",
-          route: "#",
-        },
-        {
-          imageUrl: PySicBanner,
-          category: categories.archived,
-          name: "info.pySic.name",
-          intro: "info.pySic.intro",
-          route: "#",
-        },
-      ],
-      t,
-    };
-  },
 };
+</script>
+
+<script setup>
+import {
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+  TransitionChild,
+  TransitionRoot,
+} from "@headlessui/vue";
+import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+import PaimonTrayBanner from "../../assets/PaimonTray_banner.png";
+import KobeBanner from "../../assets/Kobe_banner.png";
+import WeiboEmojiBanner from "../../assets/WeiboEmoji_banner.png";
+import global from "../../lib/global.js";
+import * as enGb from "../../locales/me/projects/en-GB.json";
+import * as enUs from "../../locales/me/projects/en-US.json";
+import * as zhCN from "../../locales/me/projects/zh-CN.json";
+
+const messages = {};
+
+messages[global.common.EN_GB_ID] = enGb.default;
+messages[global.common.EN_US_ID] = enUs.default;
+messages[global.common.ZH_CN_ID] = zhCN.default;
+
+const { t } = useI18n({ messages });
+const categories = {
+  active: { name: "status.active", style: "colour-success" },
+  archived: { name: "status.archived", style: "colour-danger" },
+  inWorks: { name: "status.inWorks", style: "colour-warning" },
+};
+const liquid =
+  "motion-safe:liquid motion-safe:after:liquid-after motion-safe:before:liquid-before group-hover:liquid-hover";
+const open = ref(false);
+const projects = [
+  {
+    imageUrl: PaimonTrayBanner,
+    category: categories.active,
+    name: "info.paimonTray.name",
+    intro: "info.paimonTray.intro",
+    route: "#",
+  },
+  {
+    imageUrl: KobeBanner,
+    category: categories.active,
+    name: "info.kobe.name",
+    intro: "info.kobe.intro",
+    route: "#",
+  },
+  {
+    imageUrl: WeiboEmojiBanner,
+    category: categories.active,
+    name: "info.weiboEmoji.name",
+    intro: "info.weiboEmoji.intro",
+    route: "#",
+  },
+];
 </script>

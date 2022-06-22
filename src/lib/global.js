@@ -1,10 +1,10 @@
 /*
  * @Description: the global variables for the scripts
- * @Version: 1.1.0.20220407
+ * @Version: 1.2.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2022-01-28 16:57:34
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 16:35:09
+ * @LastEditTime: 2022-06-22 22:46:29
  */
 
 const global = {};
@@ -18,11 +18,12 @@ global["common"] = {
   DARK_MODE_ID: "dark",
   DEFAULT_DEBOUNCE_DELAY: 100,
   DEFAULT_DELAY: 300,
-  DEFAULT_THROTTLE_DELAY: 100,
+  DEFAULT_THROTTLE_DELAY: 10,
   DEFAULT_TITLE: "Arvin Zhao",
   EDUCATION_SECTION: "education",
   EMAIL_ME: "SteveJobz@isarvin.com",
-  EN_ID: "en",
+  EN_GB_ID: "en-GB",
+  EN_US_ID: "en-US",
   ERROR_404_VIEW: "error404",
   GITHUB_ME: "https://github.com/ArvinZJC",
   GITSTALK_ME: "https://gitstalk.netlify.app/ArvinZJC",

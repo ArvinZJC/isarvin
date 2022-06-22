@@ -1,10 +1,10 @@
 <!--
  * @Description: the view telling who I am
- * @Version: 1.1.0.20220407
+ * @Version: 1.2.0.20220622
  * @Author: Arvin Zhao
  * @Date: 2021-07-11 12:08:15
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-04-07 15:51:49
+ * @LastEditTime: 2022-06-22 21:08:58
 -->
 
 <template>
@@ -18,7 +18,7 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import { useMeta } from "vue-meta";
 import { useI18n } from "vue-i18n";
 
@@ -29,29 +29,16 @@ import TheProjects from "../components/me/TheProjects.vue";
 import TheTweeting from "../components/me/TheTweeting.vue";
 import TheFooter from "../components/TheFooter.vue";
 
-export default {
-  components: {
-    TheEducation,
-    TheFooter,
-    TheHome,
-    TheNavbar,
-    TheProjects,
-    TheTweeting,
-  },
-  setup() {
-    const { t } = useI18n();
+const { t } = useI18n();
 
-    useMeta({
-      description: t("pages.me.description"),
-      title: t("pages.me.title"),
-    });
-    window.addEventListener("languagechange", () => {
-      document
-        .querySelector("meta[name='description']")
-        .setAttribute("content", t("pages.me.description"));
-      document.title = t("pages.me.title");
-    });
-    return { t };
-  },
-};
+useMeta({
+  description: t("pages.me.description"),
+  title: t("pages.me.title"),
+});
+window.addEventListener("languagechange", () => {
+  document
+    .querySelector("meta[name='description']")
+    .setAttribute("content", t("pages.me.description"));
+  document.title = t("pages.me.title");
+});
 </script>
