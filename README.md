@@ -33,7 +33,7 @@ The structure of the site is as follows.
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 Licence](./LICENCE). By 22 June 2022, everything looks good with Visual Studio Code (Version: 1.68.1) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. The project is licensed under [the GPL-3.0 Licence](./LICENCE). By 24 June 2022, everything looks good with Visual Studio Code (Version: 1.68.1) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -90,7 +90,7 @@ The structure of the site is as follows.
        {
          "configurations": [
            {
-             "name": "vite: dev",
+             "name": "Dev",
              "request": "launch",
              "runtimeArgs": ["run", "dev"],
              "runtimeExecutable": "npm",
@@ -98,7 +98,7 @@ The structure of the site is as follows.
              "type": "node"
            },
            {
-             "name": "vite: build",
+             "name": "Build",
              "request": "launch",
              "runtimeArgs": ["run", "build"],
              "runtimeExecutable": "npm",
@@ -106,7 +106,7 @@ The structure of the site is as follows.
              "type": "node"
            },
            {
-             "name": "vite: preview",
+             "name": "Preview",
              "request": "launch",
              "runtimeArgs": ["run", "preview"],
              "runtimeExecutable": "npm",
