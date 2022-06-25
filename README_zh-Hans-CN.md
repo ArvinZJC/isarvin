@@ -14,7 +14,7 @@
 Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在鱼都摸烂了后用 Vue.js 3 和 [Tailwind CSS](https://tailwindcss.com/) 建了此个人网站。网站部署在 [Vercel](https://vercel.com/home) 上。网站的设计遵循以下主要原则。
 
 <details>
-  <summary>点我展开</summary>
+  <summary>点我展开/折叠</summary>
 
 - 无障碍：支持减少动画。
 - 支持深色模式。

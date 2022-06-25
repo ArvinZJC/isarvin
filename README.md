@@ -14,7 +14,7 @@
 Arvin is my English name. I am an incompetent developer finally building the personal site with Vue.js 3 and [Tailwind CSS](https://tailwindcss.com/). The site is deployed on [Vercel](https://vercel.com/home). It is designed with the following primary principles.
 
 <details>
-  <summary>Click to expand</summary>
+  <summary>Click to expand/collapse</summary>
 
 - Accessibility: reduced motion when required.
 - Dark mode support.
