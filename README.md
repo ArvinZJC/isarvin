@@ -5,7 +5,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
 [![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
-![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
+[![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)](./LICENCE)
 
 **English (United Kingdom)** | [中文（简体，中国）](./README_zh-Hans-CN.md)
 
@@ -34,7 +34,7 @@ Arvin is my English name. I am an incompetent developer finally building the per
 
 > May I have your attention pls? 🔥
 
-1. The project is licensed under [the GPL-3.0 Licence](./LICENCE). By 24 June 2022, everything looks good with Visual Studio Code (Version: 1.68.1) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 25 June 2022, everything looks good with Visual Studio Code (Version: 1.68.1) + Node.js 16.15.0 + Vite 2.9.12. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.

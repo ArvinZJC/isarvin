@@ -5,7 +5,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
 [![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
-![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
+[![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)](./LICENCE)
 
 [English (United Kingdom)](./README.md) | **中文（简体，中国）**
 
@@ -34,7 +34,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 此项目使用 [GPL-3.0 协议](./LICENCE)。截至 2022 年 6 月 24 日，使用 Visual Studio Code（版本：1.68.1）、Node.js 16.15.0 和 Vite 2.9.12 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至 2022 年 6 月 25 日，使用 Visual Studio Code（版本：1.68.1）、Node.js 16.15.0 和 Vite 2.9.12 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
    > Tailwind CSS v3.0 主要是为在 Chrome、Firefox、Edge 和 Safari 的最新稳定版上有良好的表现而设计并测试的。任何版本 IE（包括 IE 11）都不受支持。
