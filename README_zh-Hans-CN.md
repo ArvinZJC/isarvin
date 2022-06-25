@@ -27,7 +27,6 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 - 统一设计语言。
 
 </details>
-<br />
 
 ![screenshot_zh-Hans-CN.png](./img_README/screenshot_zh-Hans-CN.png)
 

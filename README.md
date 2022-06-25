@@ -27,7 +27,6 @@ Arvin is my English name. I am an incompetent developer finally building the per
 - Unified styles.
 
 </details>
-<br />
 
 ![screenshot.png](./img_README/screenshot.png)
 
