@@ -5,7 +5,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/810eda125dbf4b9d96b81e6c34ec26e6)](https://www.codacy.com/gh/ArvinZJC/isarvin/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ArvinZJC/isarvin&utm_campaign=Badge_Grade)
 [![GitHub deployments](https://img.shields.io/github/deployments/ArvinZJC/isarvin/production?label=Vercel&logo=vercel)](https://isarvin.com)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArvinZJC/isarvin)
-![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)
+[![GitHub](https://img.shields.io/github/license/ArvinZJC/isarvin)](./LICENCE)
 
 [English (United Kingdom)](./README.md) | **中文（简体，中国）**
 
@@ -14,7 +14,7 @@
 Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在鱼都摸烂了后用 Vue.js 3 和 [Tailwind CSS](https://tailwindcss.com/) 建了此个人网站。网站部署在 [Vercel](https://vercel.com/home) 上。网站的设计遵循以下主要原则。
 
 <details>
-  <summary>点我展开</summary>
+  <summary>点我展开/折叠</summary>
 
 - 无障碍：支持减少动画。
 - 支持深色模式。
@@ -34,7 +34,7 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
 > 敲黑板了！敲黑板了！🔥
 
-1. 此项目使用 [GPL-3.0 协议](./LICENCE)。截至 2022 年 6 月 24 日，使用 Visual Studio Code（版本：1.68.1）、Node.js 16.15.0 和 Vite 2.9.12 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
+1. 截至 2022 年 7 月 22 日，使用 Visual Studio Code（版本：1.69.2）、Node.js 16.15.0 和 Vite 3.0.2 开发表现良好。此外，我要特别感谢 Tailwind 提供的[丰富、可扩展的 CSS 框架和资源](https://tailwindcss.com/resources)，这节省了许多开发时间。
 2. 受 [Tailwind CSS 的影响](https://tailwindcss.com/docs/browser-support)，网站能支持**大多数主流浏览器的最新稳定版**。
 
    > Tailwind CSS v3.0 主要是为在 Chrome、Firefox、Edge 和 Safari 的最新稳定版上有良好的表现而设计并测试的。任何版本 IE（包括 IE 11）都不受支持。
@@ -43,17 +43,17 @@ Arvin 是俺的英文名，作为一个抱大腿的调包开发者，终于在�
 
    | 名称                          |      版本      |
    | :---------------------------- | :------------: |
-   | @headlessui/vue               |     1.6.5      |
+   | @headlessui/vue               |     1.6.7      |
    | @heroicons/vue                |     1.0.6      |
-   | @intlify/vite-plugin-vue-i18n |     3.4.0      |
+   | @intlify/vite-plugin-vue-i18n |     5.0.0      |
    | autoprefixer                  |     10.4.7     |
    | postcss                       |     8.4.14     |
    | smoothscroll-polyfill         |     0.4.4      |
-   | tailwindcss                   |     3.1.4      |
+   | tailwindcss                   |     3.1.6      |
    | vue                           |     3.2.37     |
    | vue-i18n                      |     9.1.10     |
    | vue-meta                      | 3.0.0-alpha.10 |
-   | vue-router                    |     4.0.16     |
+   | vue-router                    |     4.1.2      |
 
 4. 在项目根目录下，按如下步骤使用 npm 的命令可以在本地运行此项目。
 
