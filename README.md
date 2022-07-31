@@ -34,7 +34,7 @@ Arvin is my English name. I am an incompetent developer finally building the per
 
 > May I have your attention pls? 🔥
 
-1. By 23 July 2022, everything looks good with Visual Studio Code (Version: 1.69.2) + Node.js 16.15.0 + Vite 3.0.2. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 31 July 2022, everything looks good with Visual Studio Code (Version: 1.69.2) + Node.js 16.15.0 + Vite 3.0.4. Additionaly, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -46,14 +46,14 @@ Arvin is my English name. I am an incompetent developer finally building the per
    | @headlessui/vue               |     1.6.7      |
    | @heroicons/vue                |     1.0.6      |
    | @intlify/vite-plugin-vue-i18n |     5.0.1      |
-   | autoprefixer                  |     10.4.7     |
+   | autoprefixer                  |     10.4.8     |
    | postcss                       |     8.4.14     |
    | smoothscroll-polyfill         |     0.4.4      |
-   | tailwindcss                   |     3.1.6      |
+   | tailwindcss                   |     3.1.7      |
    | vue                           |     3.2.37     |
    | vue-i18n                      |     9.1.10     |
    | vue-meta                      | 3.0.0-alpha.10 |
-   | vue-router                    |     4.1.2      |
+   | vue-router                    |     4.1.3      |
 
 4. Assuming the terminal is opened in the project's root directory, the project could be run locally following the steps below using npm.
 
