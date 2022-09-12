@@ -1,10 +1,10 @@
 <!--
  * @Description: the project component
- * @Version: 1.3.0.20220622
+ * @Version: 1.3.1.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-06-23 20:40:06
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 23:50:51
+ * @LastEditTime: 2022-09-13 01:38:18
 -->
 
 <template>
@@ -19,7 +19,7 @@
       <!-- Section header. -->
       <div class="flex flex-col items-center justify-center">
         <span class="badge-square-3 mb-6 shadow-lg">
-          <CollectionIcon aria-hidden="true" class="icon-6" />
+          <RectangleStackIcon aria-hidden="true" class="icon-6" />
         </span>
         <div class="text-center">
           <h2 class="text-title">{{ t(global.common.PROJECT_SECTION) }}</h2>
@@ -168,7 +168,10 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { CollectionIcon, ExclamationCircleIcon } from "@heroicons/vue/outline";
+import {
+  ExclamationCircleIcon,
+  RectangleStackIcon,
+} from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import PaimonTrayBanner from "../../assets/PaimonTray_banner.png";
@@ -180,12 +183,12 @@ import * as enUs from "../../locales/me/projects/en-US.json";
 import * as zhCN from "../../locales/me/projects/zh-CN.json";
 export default {
   components: {
-    CollectionIcon,
     // eslint-disable-next-line vue/no-reserved-component-names
     Dialog,
     DialogOverlay,
     DialogTitle,
     ExclamationCircleIcon,
+    RectangleStackIcon,
     TransitionChild,
     TransitionRoot,
   },

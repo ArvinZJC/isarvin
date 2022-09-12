@@ -1,10 +1,10 @@
 <!--
  * @Description: the tweeting component
- * @Version: 1.3.0.20220622
+ * @Version: 1.3.1.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-08-08 12:14:10
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:10:20
+ * @LastEditTime: 2022-09-13 01:39:45
 -->
 
 <template>
@@ -14,7 +14,7 @@
       <span
         class="badge-square-3 motion-safe:ripple dark:motion-safe:ripple-dark !rounded-full mr-6"
       >
-        <MailIcon aria-hidden="true" class="icon-6" />
+        <EnvelopeIcon aria-hidden="true" class="icon-6" />
       </span>
       <span class="sr-only">{{ t("mailTo") }}</span>
       <a
@@ -143,7 +143,7 @@
 </template>
 
 <script setup>
-import { MailIcon } from "@heroicons/vue/outline";
+import { EnvelopeIcon } from "@heroicons/vue/24/outline";
 import { useI18n } from "vue-i18n";
 
 import SteveJobs from "../../assets/SteveJobs.jpg";

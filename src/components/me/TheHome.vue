@@ -1,10 +1,10 @@
 <!--
  * @Description: the home component
- * @Version: 1.4.3.20220407
+ * @Version: 1.4.4.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-06-07 17:13:42
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 23:37:49
+ * @LastEditTime: 2022-09-13 01:33:12
 -->
 
 <template>
@@ -24,7 +24,7 @@
             <!-- "w-0" is necessary for the marquee feature.-->
             <div class="flex flex-1 items-center w-0">
               <span class="badge-square-2 !bg-indigo-800 shadow-md">
-                <SpeakerphoneIcon aria-hidden="true" class="icon-6" />
+                <MegaphoneIcon aria-hidden="true" class="icon-6" />
               </span>
               <div class="mx-2 sm:mx-3 overflow-hidden">
                 <p
@@ -41,7 +41,7 @@
               type="button"
             >
               <span class="sr-only">{{ t("dismiss") }}</span>
-              <XIcon aria-hidden="true" class="icon-6" />
+              <XMarkIcon aria-hidden="true" class="icon-6" />
             </button>
           </div>
         </div>
@@ -158,7 +158,7 @@
 </template>
 
 <script>
-import { SpeakerphoneIcon, XIcon } from "@heroicons/vue/outline";
+import { MegaphoneIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
@@ -168,7 +168,7 @@ import * as enUs from "../../locales/me/home/en-US.json";
 import * as zhCN from "../../locales/me/home/zh-CN.json";
 
 export default {
-  components: { SpeakerphoneIcon, XIcon },
+  components: { MegaphoneIcon, XMarkIcon },
   methods: {
     /**
      * Do necessary actions when the view containing the component finishes loading.

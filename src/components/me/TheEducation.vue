@@ -1,10 +1,10 @@
 <!--
  * @Description: the education component
- * @Version: 1.2.1.20220520
+ * @Version: 1.2.2.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-08-07 18:00:31
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 22:09:30
+ * @LastEditTime: 2022-09-13 01:28:58
 -->
 
 <template>
@@ -103,10 +103,10 @@
 import {
   AcademicCapIcon,
   CheckIcon,
-  EmojiHappyIcon,
+  FaceSmileIcon,
   FireIcon,
   FlagIcon,
-} from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/outline";
 import { useI18n } from "vue-i18n";
 
 import ArvinHeadshotMiddle from "../../assets/Arvin_headshot_middle.jpg";
@@ -130,7 +130,7 @@ messages[global.common.ZH_CN_ID] = zhCN.default;
 const { t } = useI18n({ messages });
 const eventIcons = {
   check: { icon: CheckIcon, background: "!bg-green-600" },
-  happy: { icon: EmojiHappyIcon, background: "!bg-pink-600" },
+  happy: { icon: FaceSmileIcon, background: "!bg-pink-600" },
   fire: { icon: FireIcon, background: "!bg-yellow-600" },
   flag: { icon: FlagIcon, background: "!bg-purple-600" },
 };
