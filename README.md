@@ -34,7 +34,7 @@ Arvin is my English name. I am an incompetent developer finally building the per
 
 > May I have your attention pls? 🔥
 
-1. By 13 September 2022, everything looks good with Visual Studio Code (Version: 1.71.0) + Node.js 16.16.0 + Vite 3.1.0. Additionally, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
+1. By 25 September 2022, everything looks good with Visual Studio Code (Version: 1.71.2) + Node.js 16.16.0 + Vite 3.1.3. Additionally, I would like to thankfully acknowledge Tailwind for [its rich and extensible CSS framework and resources](https://tailwindcss.com/resources), which save much development time.
 2. Due to [the use of Tailwind CSS](https://tailwindcss.com/docs/browser-support), the site could support **the latest stable versions of most popular modern browsers**.
 
    > In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
@@ -43,10 +43,10 @@ Arvin is my English name. I am an incompetent developer finally building the per
 
    | Name                          |    Version     |
    | :---------------------------- | :------------: |
-   | @headlessui/vue               |     1.7.0      |
-   | @heroicons/vue                |     2.0.10     |
+   | @headlessui/vue               |     1.7.2      |
+   | @heroicons/vue                |     2.0.11     |
    | @intlify/vite-plugin-vue-i18n |     6.0.1      |
-   | autoprefixer                  |     10.4.9     |
+   | autoprefixer                  |     10.4.12     |
    | postcss                       |     8.4.16     |
    | smoothscroll-polyfill         |     0.4.4      |
    | tailwindcss                   |     3.1.8      |
