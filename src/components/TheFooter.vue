@@ -1,10 +1,10 @@
 <!--
  * @Description: the footer component
- * @Version: 1.5.0.20220622
+ * @Version: 1.5.1.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:14:43
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 23:42:37
+ * @LastEditTime: 2022-09-13 01:44:39
 -->
 
 <template>
@@ -75,7 +75,7 @@
                 type="button"
               >
                 <span class="sr-only">{{ t("close") }}</span>
-                <XIcon aria-hidden="true" class="icon-6" />
+                <XMarkIcon aria-hidden="true" class="icon-6" />
               </button>
             </div>
             <ul class="divide-y-grey text-left" role="list">
@@ -103,7 +103,7 @@
                         >{{ t(appearanceSelected.name) }}</span
                       >
                       <span class="container-selector">
-                        <SelectorIcon
+                        <ChevronUpDownIcon
                           aria-hidden="true"
                           class="icon-5 text-gray-400 dark:text-gray-500"
                         />
@@ -190,7 +190,7 @@
                         >{{ t(languageSelected.name) }}</span
                       >
                       <span class="container-selector">
-                        <SelectorIcon
+                        <ChevronUpDownIcon
                           aria-hidden="true"
                           class="icon-5 text-gray-400 dark:text-gray-500"
                         />
@@ -271,12 +271,12 @@ import {
 } from "@headlessui/vue";
 import {
   CogIcon,
-  DesktopComputerIcon,
+  ComputerDesktopIcon,
   MoonIcon,
-  SelectorIcon,
+  ChevronUpDownIcon,
   SunIcon,
-  XIcon,
-} from "@heroicons/vue/outline";
+  XMarkIcon,
+} from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { applyAppearance } from "../lib/appearance.js";
@@ -285,7 +285,7 @@ import { decideLanguage } from "../lib/i18n.js";
 export default {
   components: {
     CogIcon,
-    DesktopComputerIcon,
+    ComputerDesktopIcon,
     // eslint-disable-next-line vue/no-reserved-component-names
     Dialog,
     DialogOverlay,
@@ -296,11 +296,11 @@ export default {
     ListboxOption,
     ListboxOptions,
     MoonIcon,
-    SelectorIcon,
+    ChevronUpDownIcon,
     SunIcon,
     TransitionChild,
     TransitionRoot,
-    XIcon,
+    XMarkIcon,
   },
   methods: {
     /**
@@ -371,7 +371,7 @@ export default {
     const open = ref(false);
     const appearanceModes = [
       {
-        icon: DesktopComputerIcon,
+        icon: ComputerDesktopIcon,
         id: 0,
         name: global.common.SYSTEM_DEFAULT_MODE_ID,
       },

@@ -1,10 +1,10 @@
 <!--
  * @Description: the navigation bar component
- * @Version: 1.8.0.20220622
+ * @Version: 1.8.1.20220913
  * @Author: Arvin Zhao
  * @Date: 2021-06-22 10:10:29
  * @Last Editors: Arvin Zhao
- * @LastEditTime: 2022-06-22 23:35:49
+ * @LastEditTime: 2022-09-13 01:38:58
 -->
 
 <template>
@@ -80,7 +80,7 @@
             class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300"
           >
             <span class="sr-only">{{ t("openNavMenu") }}</span>
-            <MenuIcon aria-hidden="true" class="icon-6" />
+            <Bars3Icon aria-hidden="true" class="icon-6" />
           </PopoverButton>
         </div>
       </div>
@@ -118,7 +118,7 @@
               class="bg-hover-grey btn-square ring-inset-indigo text-btn-square motion-safe:transition-colours-300"
             >
               <span class="sr-only">{{ t("closeNavMenu") }}</span>
-              <XIcon aria-hidden="true" class="icon-6" />
+              <XMarkIcon aria-hidden="true" class="icon-6" />
             </PopoverButton>
           </div>
           <!-- Navigation items in the menu. -->
@@ -192,11 +192,11 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import {
   AcademicCapIcon,
   ArrowUpIcon,
-  CollectionIcon,
+  Bars3Icon,
   HomeIcon,
-  MenuIcon,
-  XIcon,
-} from "@heroicons/vue/outline";
+  RectangleStackIcon,
+  XMarkIcon,
+} from "@heroicons/vue/24/outline";
 import { useI18n } from "vue-i18n";
 
 import global from "../../lib/global.js";
@@ -217,19 +217,19 @@ export default {
     AcademicCapIcon,
     ArrowUpIcon,
     ArvinTextLogo,
-    CollectionIcon,
+    Bars3Icon,
     FacebookIcon,
     GitHubIcon,
     HomeIcon,
     InstagramIcon,
     LinkedInIcon,
-    MenuIcon,
     Popover,
     PopoverButton,
     PopoverPanel,
+    RectangleStackIcon,
     TwitterIcon,
     WeiboIcon,
-    XIcon,
+    XMarkIcon,
   },
   methods: {
     /**
@@ -463,7 +463,7 @@ export default {
           {
             active: false,
             anchor: `#${global.common.PROJECT_SECTION}`,
-            icon: CollectionIcon,
+            icon: RectangleStackIcon,
             name: global.common.PROJECT_SECTION,
           },
           {
